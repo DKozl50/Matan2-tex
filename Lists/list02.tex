@@ -1,0 +1,36 @@
+\section{Семинарский лист №2}
+
+Пусть $S$ - сумма соответствующего ряда. Используя теорему Штольца, докажите
+асимптотическую формулу для частичной суммы ряда.
+
+\problem[19]
+$\displaystyle \\
+	S_n = \sum_{n=1}^N \frac{1}{n^2} \text{--- сходящийся ряд} \\
+	S_N \to S, N \to \infty \\
+	\text{Доказать: } S_N = S - \frac{1}{N} + o(\frac{1}{N}), N \to \infty
+$
+
+Теорема Штольца: Пусть $x_n$ и $y_n$ обе сходится к нулю, причём $0 < y_n < y_{n-1} ~ \forall n$
+т.е. $\lim_{n \to \infty} \frac{x_n}{y_n} = \left[\frac{0}{0}\right]$. Тогда, если
+$\exists \lim_{n \to \infty} \frac{x_n - x{n-1}}{y_n - y_{n-1}} = A$, то
+$\exists \lim_{n \to \infty} \frac{x_n}{y_n} = A$.
+
+Обозначим $\displaystyle
+	x_n = S - S_n \to 0,  y_n = \frac{1}{n} \to 0,
+	\lim_{n \to \infty} \frac{x_n}{y_n} = \left[\frac{0}{0}\right]
+$
+
+Расмотрим $\displaystyle
+	\frac{x_n - x{n-1}}{y_n - y_{n-1}} = \frac{S - S_n - (S - S_{n - 1})}{\frac{1}{n} - \frac{1}{n-1}} =
+	\frac{S_{n-1} - S_n}{\frac{n - 1 - n}{n(n - 1)}} = \frac{S_n -  S_{n-1}}{\frac{1}{n(n - 1)}}  =
+	\frac{1/n^2}{\frac{1}{n^2 - n}} = \frac{n^2 - n}{n^2} = \frac{1 - \frac{1}{n}}{1}
+	\xrightarrow{n \to \infty} 1
+$
+
+По т. Штольца $\displaystyle \lim_{n \to \infty} \frac{x_n}{y_n} = 1$, т.е.
+$\displaystyle \frac{x_n}{y_n} = 1 + o(1), x_n = y_n + o(y_n)$
+
+$\displaystyle
+	x_n = S - S_n = \frac{1}{n} + \text{o}\left(\frac{1}{n}\right) \implies S_n = S - \frac{1}{n} +
+	\text{o}\left(\frac{1}{n}\right)
+$, ч.т.д.
