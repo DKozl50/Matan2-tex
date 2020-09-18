@@ -1,5 +1,5 @@
-\documentclass[a4paper]{article}
-\usepackage{header}
+%\documentclass[a4paper]{article}
+\%usepackage{header}
 
 \begin{document}
 \section{Семинарский лист 2}
@@ -55,20 +55,5 @@
          \textbf{Ответ:} $\displaystyle \ln{\ln(N + 1)} - \ln{\ln{2}} \leq \sum_2^{N} \frac{1}{n \ln{n}}\leq \ln{\ln{N}}$
     \end{problem}
 
-    % Task 21
-    \begin{problem} \ \\[3pt]
-        $\displaystyle \sum_{n = 1}^{N} \frac{\ln{n}}{n^2} =
-         S - \frac{\ln{N}}{N} + o\left(\frac{\ln{N}}{N}\right)$ \\[3pt]
-        $\displaystyle q_n = S - \sum_{n = 1}^{N} \frac{\ln{n}}{n^2}$ \\[3pt]
-        $\displaystyle p_n = \frac{\ln{N}}{N}$ \\[3pt]
-        По теореме Штольца: $\displaystyle \lim_{n to \infty} \frac{q_n}{p_n} =
-        \lim_{n to \infty}\frac{q_{n + 1} - q_n}{p_{n + 1} - p_n} =
-        \lim_{n \to \infty} \frac{S - S_{n + 1} - S + S_n}
-        {\frac{\ln{(N + 1)}}{N + 1} - \frac{\ln{N}}{N}} = 
-        \frac{-\frac{\ln{(N+1)}}{(N+1)^2} \cdot (N(N + 1))}{N\ln{(N + 1)} - (N+1)\ln{N}} = \\[3pt]
-        = \frac{N\ln{(N+1)}}{(N+1)\ln{N} - N\ln{(N + 1)}} =
-        \frac{\frac{N\ln{(N+1)}}{N + 1}}{\ln{N} + N\ln{\frac{N}{N + 1}}} =
-        \left[\text{По правилу Лопиталя}\right] =
-        \frac{\ln{(N + 1)} - \frac{N}{N + 1}}{}$
-    \end{problem}
+
 \end{document}
