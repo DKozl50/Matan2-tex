@@ -1,10 +1,16 @@
-name: learn-github-actions
+name: Build LaTeX document
 on: [push]
 jobs:
-  check-bats-version:
+    build_latex:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+      - uses: xu-cheng/latex-action@v2
+            with:
+                root_file: list01.tex
+                working_directory: Lists/
+      - name: Upload
+        uses: actions/upload-artifact@master
+            with:
+                name: Lists
+                path: Lists
