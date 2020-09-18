@@ -1,0 +1,74 @@
+\documentclass[a4paper]{article}
+\usepackage{header}
+
+\begin{document}
+\section{Семинарский лист 2}
+    % Task 2
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n\sqrt[n]{n}}, \
+         a_n = \frac{1}{n\sqrt[n]{n}}$ \\[3pt]
+        $\displaystyle \lim_{n \to \infty}{\sqrt[n]{n}} = 1:
+         \lim_{n \to \infty}{e^{\frac{1}{n} \ln{n}}} = e^0 = 1$
+        $\displaystyle \implies a_n \sim \frac{1}{n}$\\[3pt]
+        $\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n}$ сходится 
+        $\displaystyle \implies \sum_{n = 1}^{\infty}\frac{1}{n\sqrt[n]{n}}$ 
+        по признаку сравнения.
+    \end{problem}
+
+    % Task 15
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 2}^{\infty}
+        \frac{2 \cdot 5 \cdot 8 \cdot \ldots \cdot (3n - 4)}{3^n \cdot n!}$ \\[3pt]
+        $\displaystyle \frac{a_{n + 1}}{a_n} =
+         \frac{(3(n + 1) - 4) \cdot 3^n \cdot n!}{3^{n + 1} \cdot (n + 1)!} = 
+         \frac{3(n + 1) - 4}{3(n + 1)} = \frac{3n - 1}{3n + 3} =
+         \frac{1 - \frac{\frac{1}{3}}{n}}{1 + \frac{1}{n}} =
+         \left(1 - \frac{1}{3n}\right)\left(1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)=\\[3pt]
+         =1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right) 
+         - \frac{\frac{1}{3}}{n} + \frac{\frac{1}{3}}{n^2} - O\left(\frac{1}{3n^3}\right) =
+         1 - \frac{\frac{4}{3}}{n} + O\left(\frac{1}{n^2}\right) \implies
+         \begin{cases}
+            p = \frac{4}{3}\\
+            \delta = 1     
+         \end{cases} \implies 
+         $ ряд сходится по признаку Гаусса.
+    \end{problem}
+    
+    % Task 17
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 2}^{\infty}\frac{1}{n\ln{n}},
+         \ f(x) = \frac{1}{x \ln{x}}$ \\[3pt]
+        $\displaystyle f'(x) = -\frac{\ln{x} + 1}{x^2 \ln^2{x}} = 0 \iff
+        \begin{cases}
+            x \neq 0 \\
+            x \neq 1 \\
+            x = \frac{1}{e}
+        \end{cases} \implies f(x)$ монотонно убывает при $\displaystyle x > 1$ \\[3pt]
+        $\displaystyle f(n + t) \leq a_n \leq f((n - 1) + t)\\[3pt]$
+        $\displaystyle \int_{n}^{n + 1}{f(x)dx} \leq a_n \leq \int_{n - 1}^n{f(x)dx}$ \\[3pt]
+        $\displaystyle \int_{2}^{N + 1}{f(x)dx} \leq \sum_{n = 2}^{N}a_n \leq \int_{1}^N{f(x)dx}$ \\[3pt]
+        $\displaystyle \int{\frac{1}{x\ln{x}}}dx =
+         \left[\begin{aligned}t &= \ln{x}\\e^t &= x \\ dx &= e^tdt\end{aligned}\right] =
+         \int{\frac{e^t}{t\cdot e^t}}dt = \int{\frac{1}{t}}dt = \ln{t} + C = \ln{\ln{x}} + C$\\[3pt]
+         $\displaystyle \int_{2}^{N + 1}f(x)dx = \ln{\ln(N + 1)} - \ln{\ln{2}}$ \\[3pt]
+         $\displaystyle \int_{1}^{N}f(x)dx = \ln{\ln{N}} - 0 = \ln{\ln{N}}$ \\[3pt]
+         \textbf{Ответ:} $\displaystyle \ln{\ln(N + 1)} - \ln{\ln{2}} \leq \sum_2^{N} \frac{1}{n \ln{n}}\leq \ln{\ln{N}}$
+    \end{problem}
+
+    % Task 21
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 1}^{N} \frac{\ln{n}}{n^2} =
+         S - \frac{\ln{N}}{N} + o\left(\frac{\ln{N}}{N}\right)$ \\[3pt]
+        $\displaystyle q_n = S - \sum_{n = 1}^{N} \frac{\ln{n}}{n^2}$ \\[3pt]
+        $\displaystyle p_n = \frac{\ln{N}}{N}$ \\[3pt]
+        По теореме Штольца: $\displaystyle \lim_{n to \infty} \frac{q_n}{p_n} =
+        \lim_{n to \infty}\frac{q_{n + 1} - q_n}{p_{n + 1} - p_n} =
+        \lim_{n \to \infty} \frac{S - S_{n + 1} - S + S_n}
+        {\frac{\ln{(N + 1)}}{N + 1} - \frac{\ln{N}}{N}} = 
+        \frac{-\frac{\ln{(N+1)}}{(N+1)^2} \cdot (N(N + 1))}{N\ln{(N + 1)} - (N+1)\ln{N}} = \\[3pt]
+        = \frac{N\ln{(N+1)}}{(N+1)\ln{N} - N\ln{(N + 1)}} =
+        \frac{\frac{N\ln{(N+1)}}{N + 1}}{\ln{N} + N\ln{\frac{N}{N + 1}}} =
+        \left[\text{По правилу Лопиталя}\right] =
+        \frac{\ln{(N + 1)} - \frac{N}{N + 1}}{}$
+    \end{problem}
+\end{document}
