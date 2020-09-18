@@ -1,8 +1,9 @@
-%\documentclass[a4paper]{article}
-\%usepackage{header}
+\documentclass[a4paper]{article}
+\usepackage{header}
 
 \begin{document}
 \section{Семинарский лист 2}
+   
     % Task 2
     \begin{problem} \ \\[3pt]
         $\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n\sqrt[n]{n}}, \
@@ -54,6 +55,24 @@
          $\displaystyle \int_{1}^{N}f(x)dx = \ln{\ln{N}} - 0 = \ln{\ln{N}}$ \\[3pt]
          \textbf{Ответ:} $\displaystyle \ln{\ln(N + 1)} - \ln{\ln{2}} \leq \sum_2^{N} \frac{1}{n \ln{n}}\leq \ln{\ln{N}}$
     \end{problem}
-
+  
+    % Task 22
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 1}^{N} \frac{1}{n 2^n} =
+         S - \frac{1}{N 2^N} + o\left(\frac{1}{N 2^N}\right)$ \\[3pt]
+        $\displaystyle q_n = S - \sum_{n = 1}^{N} \frac{1}{n 2^n}, \;\;\;
+        \displaystyle p_n = \frac{1}{N 2^N}$ \\[3pt]
+        По теореме Штольца: $\displaystyle \lim_{n \to \infty} \frac{q_n}{p_n} =
+        \lim_{n \to \infty}\frac{q_{n} - q_{n - 1}}{p_{n} - p_{n - 1}} =
+        \lim_{n \to \infty} \frac{S - S_{n} - S + S_{n - 1}}
+        {\frac{1}{N 2^N} - \frac{1}{(N - 1) 2^{N - 1}}} = 
+        \frac{-\frac{1}{N 2^N} \cdot N(N - 1) 2^{2N-1}}{2^{N-1}(N-1-2N)} = 1,\\[3 pt]
+        \frac{q_n}{p_n} = 1 + o(1) \; \Rightarrow \; q_n = p_n + o(p_n) 
+        \Leftrightarrow S - \sum_{n = 1}^{N} \frac{1}{n 2^n} = 
+        \frac{1}{N 2^N} + o\left(\frac{1}{N 2^N}\right)
+        \Leftrightarrow \sum_{n = 1}^{N} \frac{1}{n 2^n} =
+         S - \frac{1}{N 2^N} \pm o\left(\frac{1}{N 2^N}\right)$,\\[3pt]
+         что и требовалось доказать.
+    \end{problem}
 
 \end{document}
