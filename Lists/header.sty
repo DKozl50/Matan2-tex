@@ -32,6 +32,9 @@
 \usepackage{tikz}
 \pgfplotsset{every axis/.style={scale only axis}}
 
+%% Высота строк
+\usepackage{setspace}
+
 %% Время
 \usepackage{datetime}
 \renewcommand{\dateseparator}{.}
@@ -235,3 +238,8 @@
 
 % Большие знаки суммы
 \everymath{\displaystyle} % math everywhere
+
+%% Убрать отступы у новых абзацев и увеличить расстояние между строками
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.2em}
+\setlength\lineskip{8pt}
