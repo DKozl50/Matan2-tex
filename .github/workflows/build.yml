@@ -1,15 +1,10 @@
-name: Build LaTeX document
+name: learn-github-actions
 on: [push]
 jobs:
-  build_latex:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v2
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2
-        with:
-            root_file: main.tex
-      - uses: actions/upload-artifact@v2
-        with:
-            path: text.pdf
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install -g bats
+      - run: bats -v
