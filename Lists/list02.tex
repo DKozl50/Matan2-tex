@@ -1,0 +1,143 @@
+\begin{document}
+    \section{Семинарский лист 2}
+    \begin{problem}
+        \ \\
+        % Task 4
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{1}{(\ln n)^{(\ln n)}}\\[3pt]
+        a_n = \frac{1}{(\ln n)^{\ln n}} = \frac{1}{e^{(\ln n)\ln(\ln n)}} =\frac{1}{n^{\ln(\ln n)}} \leq \frac{1}{n^2} \implies \text{ряд сходится.}
+        $
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 5
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{n^3}{3^{\sqrt{n}}}\\[3pt]
+        a_n = \frac{n^3}{3^{\sqrt{n}}} = 3^{-\sqrt{n}}n^3 = e^{\ln\left(3^{-\sqrt{n}}n^3\right)} =e^{3\ln n - \sqrt{n}\ln3} \sim e^{\ln n - \sqrt{n}}
+        \sim e^{-\inf} = 0 \implies$ ряд сходится.
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 6
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\ln\left(\frac{3^n - 2^n}{3^n + 2^n}\right)\\[3pt]
+        a_n = \ln\left(\frac{3^n - 2^n}{3^n + 2^n}\right) = \ln\left(\frac{1 - \left(\frac{2}{3}\right)^n}{1 + \left(\frac{2}{3}\right)^n}\right)
+        = \ln\left(1 - \left(\frac{2}{3}\right)^n\right) - \ln\left(1 + \left(\frac{2}{3}\right)^n\right) = -2\left(\frac{2}{3}\right)^n
+        $
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 7
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{(2n - 1)!!}{n!}$\\[3pt]
+        Применим признак Даламбера:\\[3pt]
+        $\displaystyle\lim\frac{a_{n + 1}}{a_n} = \frac{(2n + 1)!!}{(n+1)!}\cdot\frac{n!}{(2n - 1)!!} = \frac{2n + 1}{n+1} \to 2 > 1 \implies$ ряд сходится.\\[3pt]
+        Оценим теперь $N$-ый остаток ряда:\\[3pt]
+        $\displaystyle
+        \frac{a_{n + 1}}{a_n} \approx 2 \iff a_n \approx\frac{1}{2}a_{n+1} \implies
+        r_N=\sum_{n = N+1}^{\infty}a_n=\frac{a_{N+1}}{1 - 1/2} =2a_{N+1}
+        $
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 9
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{n^n}{n!\cdot3^n}$\\[3pt]
+        Применим признак Даламбера:\\[3pt]
+        $\displaystyle\lim\frac{a_{n + 1}}{a_n} = \frac{(n+1)^{(n+1)}}{(n+1)!3^{n+1}} \cdot \frac{n!\cdot3^n}{n^n} = \frac{(n+1)^{n}}{3n^n} =
+        \frac{1}{3}\left(\frac{n + 1}{n}\right)^n =\frac{1}{3}\left(1+\frac{1}{n}\right)^n = \frac{e}{3} < 1 \implies
+        $ ряд сходится.\\[3pt]
+        Оценим теперь $N$-ый остаток ряда:\\[3pt]
+%        $\displaystyle
+%        \frac{a_{n + 1}}{a_n} \approx \frac{e}{3} \iff a_{n}\approx\frac{3}{e}a_{n+1} \implies
+%        r_N=\sum_{n = N+1}^{\infty}a_n=\frac{a_{N+1}}{1 - 3/e} =2a_{N+1}
+%        $
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 11
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\arctg^n\frac{\sqrt{3n+1}}{\sqrt{n+2}}$\\[3pt]
+        Применим признак Коши:\\[3pt]
+        $\displaystyle\lim\sqrt[n]{a_n} = \sqrt[n]{\arctg^n\frac{\sqrt{3n+1}}{\sqrt{n+2}}} =
+        \arctg\frac{\sqrt{3n+1}}{\sqrt{n+2}} \sim\arctg\sqrt{\frac{3n}{n}} =
+        \arctg\sqrt{3}=\frac{\pi}{3} > 1 \implies
+        $ ряд расходится.
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 12
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{n^2}{\left(3+\frac{1}{n}\right)^n}$\\[3pt]
+        Применим признак Коши:\\[3pt]
+        $\displaystyle\lim\sqrt[n]{a_n} = \sqrt[n]{\frac{n^2}{\left(3+\frac{1}{n}\right)^n}} = \frac{\sqrt[n]{n^2}}{3 + \frac{1}{n}} \sim\frac{\sqrt[n]{n^2}}{3} =\frac{\sqrt[n]{n}\sqrt[n]{n}}{3} =
+        \left|\sqrt[n]{n}\to 1\right| \to \frac{1}{3} < 1 \implies
+        $ ряд сходится.
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 14
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\left(\frac{(2n - 1)!!}{(2n)!!}\right)^2$\\[3pt]
+        Применим признак Гаусса:\\[3pt]
+        $\displaystyle
+        \frac{a_{n+1}}{a_n} = \left(\frac{(2n + 1)!!}{(2n + 2)!!}\right)^2\cdot\left(\frac{(2n)!!}{(2n - 1)!!}\right)^2 =
+        \left(\frac{(2n + 1)!!}{(2n + 2)!!}\cdot\frac{(2n)!!}{(2n - 1)!!}\right)^2 = \left(\frac{2n + 1}{2n+2}\right)^2 =
+        \left(\frac{2 + \frac{1}{n}}{2+\frac{2}{n}}\right)^2
+        =\frac{4 + \frac{4}{n} + O\left(\frac{1}{n^2}\right)}{4 + \frac{8}{n} + O\left(\frac{1}{n^2}\right)}=\\[3pt]
+        =\frac{1 + \frac{1}{n} + O\left(\frac{1}{n^2}\right)}{1 + \frac{2}{n} + O\left(\frac{1}{n^2}\right)}
+        =\left(1 + \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)\left(1 - \frac{2}{n} + O\left(\frac{1}{n^2}\right)\right)
+        =1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right) \implies\\[3pt]
+        \implies
+        \begin{cases}
+            \delta = 1 \\
+            p = 1 & = 1
+        \end{cases}
+        \implies
+        $ ряд расходится.
+    \end{problem}
+    \begin{problem}
+        % Task 16
+        $\displaystyle
+        S = \sum\limits_{n=3}^{\infty}\frac{\ln n}{n}\\[3pt]
+        S_N = \sum\limits_{n=3}^{N}\frac{\ln n}{n}
+        f(n) = \frac{\ln n}{n};\; f'(n) = \frac{\frac{1}{n}\cdot n - \ln n}{n^2} = \frac{1 - \ln n}{n^2} < 0$ при
+        $\displaystyle
+        x > e
+        $\\[3pt]
+        $\displaystyle
+        f(n + t) \leq f(n) \leq f(n - 1 + t), t \in [0; 1], n\geq 4
+        $\\[3pt]
+        Проинтегрируем неравенство по переменной $t$ от $0$ до $1$:\\[3pt]
+        $\displaystyle
+        \int\limits_{0}^1 f(n + t)dt \leq \int\limits_{0}^1 f(n)dt \leq \int\limits_{0}^{1} f(n-1+t)dt
+        $\\[3pt]
+        Сделаем замену:
+        $\displaystyle
+        x_1 = n + t,\; x_2 = n - 1 + t
+        $\\[3pt]
+        $\displaystyle
+        \int\limits_{n}^{n+1} f(x_1)dx_1 \leq f(n) \leq \int\limits_{n-1}^{n} f(x_2)dx_2
+        $\\[3pt]
+        Просуммируем всё от $4$ до $N$:\\[3pt]
+        $\displaystyle
+        \int\limits_{4}^{N+1} f(x_1)dx_1 \leq \sum\limits_4^Nf(n) \leq \int\limits_{3}^{N} f(x_2)dx_2
+        $\\[3pt]
+        Найдём первообразную функции $f(x) = \frac{\ln x}{x}$:\\[3pt]
+        $\displaystyle
+        \int f(x)dx = \int\frac{\ln x}{x}dx = \int\ln xd(\ln x) = \frac{1}{2}\ln^{2}x + C
+        $\\[3pt]
+        Подставим первообразную в двойное неравенство:\\[3pt]
+        $\displaystyle
+        \frac{1}{2}\ln^2(N + 1) - \frac{1}{2}\ln^{2}4 \leq \sum\limits_4^Nf(n) \leq
+        \frac{1}{2}\ln^2(N) - \frac{1}{2}\ln^{2}3
+        $\\[3pt]
+        Прибавим ко всем частям $\frac{\ln3}{3}$:\\[3pt]
+        $\displaystyle
+        \frac{1}{2}\ln^2(N + 1) - \frac{1}{2}\ln^{2}4 + \frac{\ln3}{3} \leq
+        S_N \leq
+        \frac{1}{2}\ln^2(N) - \frac{1}{2}\ln^{2}3 + \frac{\ln3}{3}
+        $\\[3pt]
+        Получили необходимую оценку на частичную сумму.
+    \end{problem}
+\end{document}
