@@ -8,7 +8,8 @@
         % Task 4
         $\displaystyle
         S = \sum\limits_{n=1}^{\infty}\frac{1}{(\ln n)^{(\ln n)}}\\[3pt]
-        a_n = \frac{1}{(\ln n)^{\ln n}} = \frac{1}{e^{(\ln n)\ln(\ln n)}} =\frac{1}{n^{\ln(\ln n)}} \leq \frac{1}{n^2} \implies \text{ряд сходится.}
+        a_n = \frac{1}{(\ln n)^{\ln n}} = \frac{1}{e^{(\ln n)\ln(\ln n)}} =\frac{1}{n^{\ln(\ln n)}} \leq
+        \frac{1}{n^2} \implies \text{ряд сходится.}
         $
     \end{problem}
     \begin{problem}
@@ -16,8 +17,18 @@
         % Task 5
         $\displaystyle
         S = \sum\limits_{n=1}^{\infty}\frac{n^3}{3^{\sqrt{n}}}\\[3pt]
-        a_n = \frac{n^3}{3^{\sqrt{n}}} = 3^{-\sqrt{n}}n^3 = e^{\ln\left(3^{-\sqrt{n}}n^3\right)} =e^{3\ln n - \sqrt{n}\ln3} \sim e^{\ln n - \sqrt{n}}
-        \sim e^{-\inf} = 0 \implies$ ряд сходится.
+        a_n = \frac{n^3}{3^{\sqrt{n}}} = \frac{1}{e^{\sqrt{n}\ln3 - 3\ln n}}\\[3pt]
+        \sqrt{n}\ln3 - 3\ln n = \sqrt{n}\ln3\left( 1 - \frac{3\ln n}{\sqrt{n}\ln3}\right)
+        =\left| \frac{\ln n}{\sqrt{n}} \to 0 \right| \sim \sqrt{n}\ln3
+        $\\[3pt]
+        Заметим, что $\displaystyle
+        \forall p \implies p\ln n < \sqrt{n}\ln3 \implies
+        p\ln n < \sqrt{n}\ln3 - 3\ln n \implies \frac{1}{e^{p\ln n}} > \frac{1}{e^{\sqrt{n}\ln3 - 3\ln n}}
+        \iff \frac{1}{n^p} >  \frac{1}{e^{\sqrt{n}\ln3 - 3\ln n}}
+        $\\[3pt]
+        Выберем $\displaystyle p = 2$, тогда $\displaystyle
+        \frac{1}{n^2} >  \frac{1}{e^{\sqrt{n}\ln3 - 3\ln n}} \implies
+        $ ряд сходится.
     \end{problem}
     \begin{problem}
         \ \\
@@ -34,12 +45,8 @@
         $\displaystyle
         S = \sum\limits_{n=1}^{\infty}\frac{(2n - 1)!!}{n!}$\\[3pt]
         Применим признак Даламбера:\\[3pt]
-        $\displaystyle\lim\frac{a_{n + 1}}{a_n} = \frac{(2n + 1)!!}{(n+1)!}\cdot\frac{n!}{(2n - 1)!!} = \frac{2n + 1}{n+1} \to 2 > 1 \implies$ ряд сходится.\\[3pt]
-        Оценим теперь $N$-ый остаток ряда:\\[3pt]
-        $\displaystyle
-        \frac{a_{n + 1}}{a_n} \approx 2 \iff a_n \approx\frac{1}{2}a_{n+1} \implies
-        r_N=\sum_{n = N+1}^{\infty}a_n=\frac{a_{N+1}}{1 - 1/2} =2a_{N+1}
-        $
+        $\displaystyle\lim\frac{a_{n + 1}}{a_n} = \frac{(2n + 1)!!}{(n+1)!}\cdot\frac{n!}{(2n - 1)!!} =
+        \frac{2n + 1}{n+1} \to 2 > 1 \implies$ ряд расходится.\\[3pt]
     \end{problem}
     \begin{problem}
         \ \\
@@ -51,10 +58,15 @@
         \frac{1}{3}\left(\frac{n + 1}{n}\right)^n =\frac{1}{3}\left(1+\frac{1}{n}\right)^n = \frac{e}{3} < 1 \implies
         $ ряд сходится.\\[3pt]
         Оценим теперь $N$-ый остаток ряда:\\[3pt]
-%        $\displaystyle
-%        \frac{a_{n + 1}}{a_n} \approx \frac{e}{3} \iff a_{n}\approx\frac{3}{e}a_{n+1} \implies
-%        r_N=\sum_{n = N+1}^{\infty}a_n=\frac{a_{N+1}}{1 - 3/e} =2a_{N+1}
-%        $
+        $\displaystyle
+        \frac{a_{n + 1}}{a_n} \approx \frac{e}{3} \implies a_{n+1} =
+        \frac{a_{n+1}}{a_n}\cdot\frac{a_{n}}{a_{n-1}}\cdot\ldots\cdot\frac{a_{2}}{a_1}\cdot a_1
+        \leq \frac{e}{3}\cdot\frac{e}{3}\cdot\ldots\cdot\frac{e}{3}\cdot a_1 = \left(\frac{e}{3}\right)^n\cdot a_1=
+        \frac{1}{3}\left(\frac{e}{3}\right)^n\\[3pt]
+        r_N=\sum_{n = N+1}^{\infty}a_n \leq
+        \frac{1}{3}\left( \left(\frac{e}{3}\right)^{N} + \left(\frac{e}{3}\right)^{N+1} + \ldots\right)=
+        \frac{1}{3}\cdot\frac{(e/3)^N}{1 - e/3} =\frac{(e/3)^N}{3 - e}
+        $
     \end{problem}
     \begin{problem}
         \ \\
@@ -75,7 +87,14 @@
         Применим признак Коши:\\[3pt]
         $\displaystyle\lim\sqrt[n]{a_n} = \sqrt[n]{\frac{n^2}{\left(3+\frac{1}{n}\right)^n}} = \frac{\sqrt[n]{n^2}}{3 + \frac{1}{n}} \sim\frac{\sqrt[n]{n^2}}{3} =\frac{\sqrt[n]{n}\sqrt[n]{n}}{3} =
         \left|\sqrt[n]{n}\to 1\right| \to \frac{1}{3} < 1 \implies
-        $ ряд сходится.
+        $ ряд сходится.\\[3pt]
+        Оценим теперь $N$-ый остаток ряда:\\[3pt]
+        $\displaystyle
+        \sqrt[n]{a_n} \approx \frac{1}{3} \implies a_n \leq \left(\frac{1}{3}\right)^n
+        \implies r_N = \sum\limits_{n = N + 1}^{\infty} a_n \leq
+        \left(\frac{1}{3}\right)^{N} + \left(\frac{1}{3}\right)^{N + 1} + \left(\frac{1}{3}\right)^{N+2} + \ldots
+        \leq\frac{(1/3)^N}{1 - 1/3}
+        $
     \end{problem}
     \begin{problem}
         \ \\
