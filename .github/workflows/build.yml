@@ -14,5 +14,5 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@master
         with:
-            name: test
-            path: Lists
+            name: Documents
+            path: .pdf/**/*.pdf
