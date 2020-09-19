@@ -25,9 +25,23 @@
         $\displaystyle \lim_{n \to \infty}{\sqrt[n]{n}} = 1:
          \lim_{n \to \infty}{e^{\frac{1}{n} \ln{n}}} = e^0 = 1$
         $\displaystyle \implies a_n \sim \frac{1}{n}$\\[3pt]
-        $\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n}$ сходится 
+        $\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n}$ расходится 
         $\displaystyle \implies \sum_{n = 1}^{\infty}\frac{1}{n\sqrt[n]{n}}$ 
-        по признаку сравнения.
+        расходится по предельному признаку сравнения (эквивалентности).
+    \end{problem}
+    
+    % Task 3
+    \begin{problem}
+        $\displaystyle S = \sum_{n = 2}^{\infty} \frac{n^2}{2^\frac{n}{\ln n}}, \;\; a_n = \frac{n^2}{2^\frac{n}{\ln n}}
+        \\[4 pt]
+        \ln a_n = 2 \ln n - \frac{n}{\ln n} \cdot \ln 2 = -\frac{n}{\ln n} \left(\ln 2 - \frac{2 \ln^2 n}{n}\right) \sim 
+        -\frac{n \ln 2}{\ln n} \;\; \Bigl($так как $\displaystyle \frac{2 \ln^2 n}{n} \xrightarrow{n \to \infty} 0 \Bigr)
+        \\[4 pt]
+        C_1 \cdot n > \frac{n}{\ln n} > C_2 \cdot \ln n \;\; \forall \, C_1, C_2 > 0 \; \Rightarrow \; 
+        -C_1 \ln 2 \cdot n < -\frac{n \ln 2}{\ln n} < -C_2 \ln 2 \cdot \ln n \; \Rightarrow \; 
+        \ln a_n < -p \ln n = \ln \frac{1}{n^p} \;\; \forall p > 0 \;\Rightarrow\; a_n < \frac{1}{n^p}$
+        \\[4 pt]
+        При $\displaystyle p = 2 \;\; \sum a_n$ сходится из сходимости $\displaystyle \sum \frac{1}{n^2}$
     \end{problem}
     
     % Task 3
