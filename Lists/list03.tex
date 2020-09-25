@@ -27,11 +27,33 @@
     %Task 5
 
     %Task 6
-    
+    \subsection*{6}
+    \begin{flalign*}
+        & \sum_{n=1}^{\infty} \frac{{(-1)}^n \sqrt{n}}{3n - 2} \;\;\;\;\;\;
+        a_n = \frac{{(-1)}^n \sqrt{n}}{3n - 2} \text{ очевидно знакочередующийся} \;\;\;\;\;\; 
+        |a_n| = \frac{\sqrt{n}}{3n - 2} \\
+        & \lim_{n \to \infty} \left| a_n \right| = 0 \;\;\;\;\;\; 
+        |a_n|' = \frac{\frac{3n-2}{2\sqrt{n}} - 3\sqrt{n}}{{(3n-2)}^2} = 
+        \frac{3n - 2 - 6n}{2\sqrt{n}{(3n-2)}^2} = - \frac{3n + 2}{2 \sqrt{n} {(3n - 2)}^2} < 0 \; \forall n > 0 
+        \implies \text{ монотонно убывает} \\
+        & \text{По признаку Лейбница ряд сходится} 
+    \end{flalign*}
+
     \section*{Применяя группировку членов постоянного знака, покажите, что ряд расходится.}
     %Task 7
 
     %Task 8
+    \subsection*{8}
+    \begin{flalign*}
+        & \sum_{n=1}^{\infty} \frac{{(-1)}^{\left[ \sqrt{n} \right]}}{\sqrt{n} + 2} = \sum_{k=1}^{\infty} A_k \\
+        & \left[ \sqrt{n} \right] = k \implies k \leq \sqrt{n} < k + 1 \implies
+        k^2 \leq n < {(k+1)}^2 \;\;\;\;\;\; 
+        A_k = {(-1)}^k \sum_{n = k^2}^{{(k+1)}^2 - 1} \frac{1}{\sqrt{n} + 2} \\
+        & |A_k| = \sum_{n = k^2}^{{(k+1)}^2 - 1} \frac{1}{\sqrt{n} + 2} \geq 
+        \frac{{(k+1)}^2 - 1 - k^2 + 1 }{\sqrt{{(k + 1)}^2 - 1} + 2} \geq 
+        \frac{2k + 1}{\sqrt{{(k+1)}^2} + 2} = \frac{2k + 1}{k + 3} \to 2 \neq 0 \implies \\
+        & \implies \text{ не выполняется необходимое условие сходимости.}
+    \end{flalign*}
 
     %Task 9
 
@@ -54,6 +76,17 @@
     
     \section*{Исследуйте ряд на сходимость и абсолютную сходимость, используя асимптотику общего члена.}
     %Task 18
+    \subsection*{18}
+    \begin{flalign*}
+        & \sum_{n=1}^{\infty} \sin \left( \pi \sqrt{n^2 + 2} \right) \\
+        & \sin \left( \pi \sqrt{n^2 + 2} \right) = \sin \left( \pi n \sqrt{1 + \frac{2}{n^2} } \right) =
+        \sin \left( \pi n \left( 1 + \frac{2}{2n^2} + \mathcal{O} \left( \frac{1}{n^4} \right) \right)  \right) = 
+        \sin \left( \pi n + \frac{1}{n} + \mathcal{O} \left( \frac{1}{n^3} \right) \right) = \\
+        & = {(-1)}^{n} \sin \left( \frac{\pi}{n} + \mathcal{O} \left( \frac{1}{n^3} \right) \right) =
+        {(-1)}^{n} \frac{\pi}{n} + \mathcal{O} \left( \frac{1}{n^3} \right) \\
+        & \sum_{n=1}^{\infty} \Bigg( {(-1)}^{n} \frac{\pi}{n} + \mathcal{O} \left( \frac{1}{n^3} \right) \Bigg) 
+        \text{ сходится по Лейбницу}
+    \end{flalign*}
 
     %Task 19
 
