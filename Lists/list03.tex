@@ -3,71 +3,89 @@
 
 \title{Семинарский лист 1337}
 \author{
-    Александр Богданов \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
-    Алиса Вернигор     \\ \href{https://t.me/allisyonok}{Telegram} \and
-    Василий Шныпко     \\ \href{https://t.me/yourvash}{Telegram} \and
-    Денис Козлов       \\ \href{https://t.me/DKozl50}{Telegram} \and
-    Иван Пешехонов     \\ \href{https://t.me/JohanDDC}{Telegram}
+	Александр Богданов \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+	Алиса Вернигор     \\ \href{https://t.me/allisyonok}{Telegram} \and
+	Василий Шныпко     \\ \href{https://t.me/yourvash}{Telegram} \and
+	Денис Козлов       \\ \href{https://t.me/DKozl50}{Telegram} \and
+	Иван Пешехонов     \\ \href{https://t.me/JohanDDC}{Telegram}\and
+	Иван Добросовестнов \\ \href{https://t.me/ivankot13}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
 
 \begin{document}
-    \maketitle
-    \section*{Применяя признак Вейрштрасса, покажите, что ряд сходится абсолютно.}
-    %Task 1 
-
-    %Task 2
-
-    %Task 3
-    
-    \section*{Применяя признак Лейбница, покажите, что ряд сходится.}
-    %Task 4
-
-    %Task 5
-
-    %Task 6
-    
-    \section*{Применяя группировку членов постоянного знака, покажите, что ряд расходится.}
-    %Task 7
-
-    %Task 8
-
-    %Task 9
-
-    %Task 10
-
-    %Task 11
-    
-    \section*{Применяя признак Дирихле или Абеля, покажите, что ряд сходится.}
-    %Task 12
-
-    %Task 13
-
-    %Task 14
-
-    %Task 15
-
-    %Task 16
-
-    %Task 17
-    
-    \section*{Исследуйте ряд на сходимость и абсолютную сходимость, используя асимптотику общего члена.}
-    %Task 18
-
-    %Task 19
-
-    %Task 20
-
-    %Task 21
-
-    %Task 22
-
-    %Task 23
-    
-    \section*{Вычислите произведение рядов.}
-    %Task 24
-
-    %Task 25
-
+	\maketitle
+	\section*{Применяя признак Вейрштрасса, покажите, что ряд сходится абсолютно.}
+	%Task 1 
+	\subsection*{Задача 1}
+		 $ \sum_{n=1}^{\infty} \frac{(-1)^{n} \cos n^{2}}{\sqrt{n^{3}+3}} $ --- сходится по признаку сравнения
+		
+		$ |a_n| = \frac{|\cos n^{2}|}{\sqrt{n^{3}+3}} \leq \dfrac{1}{\sqrt{n^{3}+3}} \sim \dfrac{1}{\sqrt{n^3}} = \dfrac{1}{n^{3/2}} $ --- сходящийся ряд
+	
+	%Task 2
+	\subsection*{Задача 2}
+		$ \sum_{n=1}^{\infty} \frac{(-1)^{n} n^{\ln n}}{2^{\sqrt{n}}} $
+		$\; \; \; \; \;  |a_n| = \dfrac{n^{\ln n}}{2^{\sqrt{n}}} = \exp \underbrace{\left[\ln^2 n - \sqrt{n}\ln 2\right]}_{b_n}  = e^{b_n}$
+		
+		Рассмотрим $ b_n $.
+		Заметим, что $ \ln n  = o(n^p), \; n \to \inf, \; p>0$. В нашем случае $ p_n = \dfrac{1}{2}, \; \; \; \ln^2n = o(\sqrt{n}) \Rightarrow b_n \sim -\sqrt{n}\ln 2$ 
+		
+		Оценим $ b_n $   --- $ \; \sqrt{n}\ln2 \leq 2 \ln n \Rightarrow -\sqrt{n}\ln 2 \leq 2\ln n$
+		
+		Подставим эту оценку для $ b_n $ --- $\; e^{b_n} \leq e^{-2\ln n}  = \dfrac{1}{n^2}$ 
+		
+		$ |a_n| $ мажорируется $ \dfrac{1}{n^2} \Rightarrow \;$ ряд $ \sum_{i = 1}^{\infty} |a_n|$ сходится по признаку сравнения 
+	%Task 3
+	\subsection*{Задача 3}
+		$ \sum_{n=1}^{\infty} \frac{\left(2^{n}+3^{n}\right) \sin n}{2^{n}+n^{2} \cdot 3^{n}} $
+	\section*{Применяя признак Лейбница, покажите, что ряд сходится.}
+	%Task 4
+	
+	%Task 5
+	
+	%Task 6
+	
+	\section*{Применяя группировку членов постоянного знака, покажите, что ряд расходится.}
+	%Task 7
+	
+	%Task 8
+	
+	%Task 9
+	
+	%Task 10
+	
+	%Task 11
+	
+	\section*{Применяя признак Дирихле или Абеля, покажите, что ряд сходится.}
+	%Task 12
+	
+	%Task 13
+	
+	%Task 14
+	
+	%Task 15
+	
+	%Task 16
+	
+	%Task 17
+	
+	\section*{Исследуйте ряд на сходимость и абсолютную сходимость, используя асимптотику общего члена.}
+	%Task 18
+	
+	%Task 19
+	
+	%Task 20
+	
+	%Task 21
+	
+	%Task 22
+	
+	%Task 23
+	
+	\section*{Вычислите произведение рядов.}
+	%Task 24
+	
+	%Task 25
+	
 \end{document}
+
