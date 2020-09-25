@@ -35,13 +35,29 @@
 		\[ \lim_{n\to\infty} |a_n| = \lim_{n\to\infty} \dfrac{2n-1}{n^2 + 3n + 5} = \lim_{n\to\infty}\dfrac{2-\dfrac1n}{n + 3 + \dfrac5n} = 0 \]\\[-10 pt]
 		\[ \left\{\begin{array}{l} 
 		\text{ряд знакочередующийся},\\[5 pt]
-		|a_n| > |a_{n+1}| \forall n \ge 2,\\[5 pt]
+		|a_n| > |a_{n+1}| \; \forall n \ge 2,\\[5 pt]
 		\lim_{n\to\infty} |a_n| = 0
 		\end{array}\right.
 		\Rightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^n (2n-1)}{n^2 + 3n + 5} \; \text{ сходится условно по признаку Лейбница.} \]\\[-5 pt]
 		\[ \sum_{n=1}^{\infty} |a_n| = \sum_{n=1}^{\infty} \dfrac{2n-1}{n^2 + 3n + 5} \sim \sum_{n=1}^{\infty} \dfrac{1}{n} \text{ --- расходится по признаку сравнения } \Rightarrow \text{ абсолютной сходимости нет.} \]\\
 
     %Task 5
+    \subsection*{Задача 5}
+    \[ \sum_{n=1}^{\infty} \dfrac{(-1)^n \ln^2 n}{\sqrt{2n + 3}} \text{ --- знакочередующийся ряд}, \;\;\;
+		 a_n = \dfrac{(-1)^n \ln^2 n}{\sqrt{2n + 3}}, \;\; |a_n|  = \dfrac{\ln^2 n}{\sqrt{2n + 3}} \]
+		Проверим, что $|a_n|$ монотонно убывает. Рассмотрим $f(x) = \dfrac{\ln^2 x}{\sqrt{2x + 3}}$:
+		\[ f'(x) = \dfrac{\dfrac{2\ln x}x \sqrt{2x + 3} - \ln^2 x \dfrac{2}{2\sqrt{2x + 3}}}{2x + 3} = 
+		\dfrac{\ln x (4x + 6 - x \ln x)}{x (2x + 2)^{3/2}} = 
+		-\dfrac{\ln x }{(2x + 2)^{3/2}} \left( \ln x - 4 - \dfrac6x \right) < 0 \text{ при } x \ge 50  \;\Rightarrow \]
+		\[ \Rightarrow \; |a_n| \searrow \text{ начиная с } n = 50 \]\\[-20 pt]
+		\[ \lim_{n\to\infty} |a_n| = \lim_{n\to\infty} \dfrac{\ln^2 n}{\sqrt{2n + 3}} =  0, \; \text{ т.к. } \ln^2 n = o(\sqrt{n}) \]\\[-10 pt]
+		\[ \left\{\begin{array}{l} 
+		\text{ряд знакочередующийся},\\[5 pt]
+		|a_n| > |a_{n+1}| \; \forall n \ge 50,\\[5 pt]
+		\lim_{n\to\infty} |a_n| = 0
+		\end{array}\right.
+		\Rightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^n \ln^2 n}{\sqrt{2n + 3}} \; \text{ сходится условно по признаку Лейбница.} \]\\[-5 pt]
+		\[ \sum_{n=1}^{\infty} |a_n| = \sum_{n=1}^{\infty} \dfrac{\ln^2 n}{\sqrt{2n + 3}} > \sum_{n=1}^{\infty} \dfrac{1}{n} \text{ --- расходится по признаку сравнения } \Rightarrow \text{ абсолютной сходимости нет.} \]\\
 
     %Task 6
     
