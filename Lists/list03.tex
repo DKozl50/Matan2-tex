@@ -7,7 +7,8 @@
     Алиса Вернигор     \\ \href{https://t.me/allisyonok}{Telegram} \and
     Василий Шныпко     \\ \href{https://t.me/yourvash}{Telegram} \and
     Денис Козлов       \\ \href{https://t.me/DKozl50}{Telegram} \and
-    Иван Пешехонов     \\ \href{https://t.me/JohanDDC}{Telegram}
+    Иван Пешехонов     \\ \href{https://t.me/JohanDDC}{Telegram}\and
+	  Иван Добросовестнов \\ \href{https://t.me/ivankot13}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
@@ -16,11 +17,29 @@
     \maketitle
     \section*{Применяя признак Вейрштрасса, покажите, что ряд сходится абсолютно.}
     %Task 1 
-
+    \subsection*{Задача 1}
+		$ \sum_{n=1}^{\infty} \frac{(-1)^{n} \cos n^{2}}{\sqrt{n^{3}+3}} $ --- сходится по признаку сравнения
+		
+		$ |a_n| = \frac{|\cos n^{2}|}{\sqrt{n^{3}+3}} \leq \dfrac{1}{\sqrt{n^{3}+3}} \sim \dfrac{1}{\sqrt{n^3}} = \dfrac{1}{n^{3/2}} $ --- сходящийся ряд
+	
     %Task 2
-
+    \subsection*{Задача 2}
+		$ \sum_{n=1}^{\infty} \frac{(-1)^{n} n^{\ln n}}{2^{\sqrt{n}}} $
+		$\; \; \; \; \;  |a_n| = \dfrac{n^{\ln n}}{2^{\sqrt{n}}} = \exp \underbrace{\left[\ln^2 n - \sqrt{n}\ln 2\right]}_{b_n}  = e^{b_n}$
+		
+		Рассмотрим $ b_n $.
+		Заметим, что $ \ln n  = o(n^p), \; n \to \inf, \; p>0$. В нашем случае $ p_n = \dfrac{1}{2}, \; \; \; \ln^2n = o(\sqrt{n}) \Rightarrow b_n \sim -\sqrt{n}\ln 2$ 
+		
+		Оценим $ b_n $   --- $ \; \sqrt{n}\ln2 \geq 2 \ln n \Rightarrow -\sqrt{n}\ln 2 \leq -2\ln n$
+		
+		Подставим эту оценку для $ b_n $ --- $\; e^{b_n} \leq e^{-2\ln n}  = \dfrac{1}{n^2}$ 
+		
+		$ |a_n| $ мажорируется $ \dfrac{1}{n^2} \Rightarrow \;$ ряд $ \sum_{i = 1}^{\infty} |a_n|$ сходится по признаку сравнения 
     %Task 3
-    
+
+	\subsection*{Задача 3}
+		$ \sum_{n=1}^{\infty} \frac{\left(2^{n}+3^{n}\right) \sin n}{2^{n}+n^{2} \cdot 3^{n}} \; \; \; \; \; |a_n| \leq \dfrac{2^n + 3^n}{2^n + n^2\cdot 3^n}  = \dfrac{\left(\dfrac{2}{3}\right)^n+1 }{\left(\dfrac{2}{3}\right)^n + n^2} \leq\dfrac{2}{n^2}$ --- сходится
+	\section*{Применяя признак Лейбница, покажите, что ряд сходится.}
     \section*{Применяя признак Лейбница, покажите, что ряд сходится.}
     %Task 4
     \subsection*{4}
@@ -190,7 +209,26 @@
     \end{flalign*} \\
 
     %Task 17
-    
+    	\subsection*{Задача 17}
+	$\sum_{n=1}^{\infty} \frac{\cos \left(n+\frac{1}{n}\right)}{\ln n+1} \;\;\;\;\;\;\;\;\;\;\;\;\; \cos\left(n + \dfrac{1}{n}\right) = \cos(n)\cos\left(\dfrac{1}{n}\right) - \sin(n)\sin\left(\dfrac{1}{n}\right)$
+	
+	$ \sum_{n=1}^{\infty} \left[\dfrac{\cos(n)}{1+\ln n} \cos\left(\dfrac{1}{n}\right) - \dfrac{\sin(n) }{1+\ln n}\sin\left(\dfrac{1}{n}\right)\right]$ --- сходится по признаку Абеля
+		
+$	
+\left.
+	\begin{matrix}
+		&\uparrow \cos\left(\dfrac{1}{n}\right)  = 1 - \dfrac{1}{2n^2} + o\left(\dfrac{1}{n^3}\right) &\\
+		&\dfrac{\cos(n)}{1+\ln n}  \;\;\;\; \text{ --- сходящийся ряд по Дирихле   }&
+	\end{matrix} \right\} \text{ряд сходится по признаку Абеля}
+$	
+
+$	
+\left.
+\begin{matrix}
+&\downarrow \sin\left(\dfrac{1}{n}\right) = \dfrac{1}{n} + o\left(\dfrac{1}{n^2}\right) &\\
+&\dfrac{\sin(n) }{1+\ln n} \;\;\;\; \text{ --- сходящийся ряд по Дирихле   }&
+\end{matrix} \right\} \text{ряд сходится по признаку Абеля}
+$	
     \section*{Исследуйте ряд на сходимость и абсолютную сходимость, используя асимптотику общего члена.}
     %Task 18
 
@@ -213,5 +251,9 @@
     %Task 24
 
     %Task 25
-
+    \subsection*{Задача 25}
+	$ \left(\sum_{n = 0}^{\infty}\dfrac{3^n}{n!}\right)^2  = \sum_{n=0}^{\infty} c_n \;\;\;\;\;\;\; a_n = b_n = \dfrac{3^n}{n!}$
+	
+	$ c_n = \sum_{k=0}^{n} \dfrac{3^k}{k!}\cdot \dfrac{3^{n-k}}{(n-k)!} = \dfrac{3^n}{n!} \sum_{k=0}^{n}\dfrac{n!}{k!(n-k)!} = \dfrac{3^n}{n!}\sum_{k=0}^{n}C_n^k 1^k1^{n-k} = \dfrac{3^n}{n!}(1+1)^n = \dfrac{3^n \cdot 2^n}{n!}  = \dfrac{6^n}{n!}$
+	
 \end{document}
