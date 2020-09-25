@@ -121,6 +121,23 @@
 		\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{\sin \ln n}{n + 2} \; \text{ тоже расходится} \]
 
     %Task 11
+    \subsection*{11}
+    \[ \sum_{n=1}^{\infty} \dfrac{\sin \pi \sqrt{n}}{\sqrt{2n + 1}} \text{ --- знакопеременный ряд} \]
+		\[ \text{При $2\pi k < \pi \sqrt{n} < 2\pi k + \pi \; \Leftrightarrow \; 4k^2 < n < (2k+1)^2$:
+		$n$-е слагаемое положительно.\\[5 pt]} \]
+		\[ \text{Оценим сумму группы 
+		$A_k = \displaystyle  \sum_{n=4k^2+1}^{4k^2+4k} \dfrac{\sin \pi \sqrt{n}}{\sqrt{2n + 1}}$ снизу:} \]
+		\[ \text{при $2\pi k + \dfrac{\pi}6 \le \pi \sqrt{n} \le 2\pi k + \dfrac{5\pi}6 \; 
+		\Leftrightarrow \; \left(2k + \dfrac{\pi}6\right)^2 \le n \le (2k + \dfrac{5\pi}6)^2$:
+		$\sin \pi \sqrt{n} \ge \dfrac12 \; \Rightarrow$\\[5 pt]} \]
+		\[ \Rightarrow \; A_k \ge \sum_{n=\left(2k + \frac{\pi}6\right)^2}^{(2k + \frac{5\pi}6)^2} \dfrac{1}{2\sqrt{2n + 1}} \ge
+		\dfrac1{2\sqrt{(2k + \frac{5\pi}6)^2+1}}\left(\left(2k + \frac{5\pi}6\right)^2 - \left(2k + \frac{\pi}6\right)^2\right) = \]
+		\[ = \dfrac{\dfrac{2\pi}3\left(4k + \pi\right)}{2\sqrt{4k^2 + \frac{5\pi}3 k + \frac{25\pi}{36} +1}} = 
+		\dfrac{\pi}3 \cdot \dfrac{4 + \dfrac{\pi}k}{\sqrt{4 + \frac{5\pi}{3k} + \frac{25\pi+36}{36k^2}}}
+		\xrightarrow{k \to \infty} \dfrac{2\pi}3 \ne 0 \]\\[-20 pt]
+		\[ \lim_{k\to\infty} |A_k| \ge \dfrac{2\pi}3 \ne 0 \; \Rightarrow \; 
+		\sum_{k=1}^{\infty} A_k \text{ расходится, т.к. не выполнено необходимое условие сходимости} \; \Leftrightarrow \]
+		\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{\sin \pi \sqrt{n}}{\sqrt{2n + 1}} \; \text{ тоже расходится} \]
     
     \section*{Применяя признак Дирихле или Абеля, покажите, что ряд сходится.}
     %Task 12
