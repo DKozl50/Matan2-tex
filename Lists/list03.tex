@@ -23,10 +23,10 @@
     
     \section*{Применяя признак Лейбница, покажите, что ряд сходится.}
     %Task 4
-    \subsection*{Задача 4}
+    \subsection*{4}
     \[ \sum_{n=1}^{\infty} \dfrac{(-1)^n (2n-1)}{n^2 + 3n + 5} \text{ --- знакочередующийся ряд}, \;\;\;
 		 a_n = \dfrac{(-1)^n (2n-1)}{n^2 + 3n + 5}, \;\; |a_n|  = \dfrac{2n-1}{n^2 + 3n + 5} \]
-		Проверим, что $|a_n|$ монотонно убывает. Рассмотрим $f(x) = \dfrac{2x-1}{x^2 + 3x + 5}$:
+		\[ \text{Проверим, что $|a_n|$ монотонно убывает. Рассмотрим $f(x) = \dfrac{2x-1}{x^2 + 3x + 5}$:} \]
 		\[ f'(x) = \dfrac{2(x^2 + 3x + 5) - (2x-1)(2x+3)}{(x^2 + 3x + 5)^2} = 
 		\dfrac{2x^2 + 6x + 10 - 4x^2 - 4x + 3}{(x^2 + 3x + 5)^2} = 
 		-\dfrac{2x^2 - 2x - 3}{(x^2 + 3x + 5)^2} = \]
@@ -42,10 +42,10 @@
 		\[ \sum_{n=1}^{\infty} |a_n| = \sum_{n=1}^{\infty} \dfrac{2n-1}{n^2 + 3n + 5} \sim \sum_{n=1}^{\infty} \dfrac{1}{n} \text{ --- расходится по признаку сравнения } \Rightarrow \text{ абсолютной сходимости нет.} \]\\
 
     %Task 5
-    \subsection*{Задача 5}
+    \subsection*{5}
     \[ \sum_{n=1}^{\infty} \dfrac{(-1)^n \ln^2 n}{\sqrt{2n + 3}} \text{ --- знакочередующийся ряд}, \;\;\;
 		 a_n = \dfrac{(-1)^n \ln^2 n}{\sqrt{2n + 3}}, \;\; |a_n|  = \dfrac{\ln^2 n}{\sqrt{2n + 3}} \]
-		Проверим, что $|a_n|$ монотонно убывает. Рассмотрим $f(x) = \dfrac{\ln^2 x}{\sqrt{2x + 3}}$:
+		\[ \text{Проверим, что $|a_n|$ монотонно убывает. Рассмотрим $f(x) = \dfrac{\ln^2 x}{\sqrt{2x + 3}}$:} \]
 		\[ f'(x) = \dfrac{\dfrac{2\ln x}x \sqrt{2x + 3} - \ln^2 x \dfrac{2}{2\sqrt{2x + 3}}}{2x + 3} = 
 		\dfrac{\ln x (4x + 6 - x \ln x)}{x (2x + 2)^{3/2}} = 
 		-\dfrac{\ln x }{(2x + 2)^{3/2}} \left( \ln x - 4 - \dfrac6x \right) < 0 \text{ при } x \ge 50  \;\Rightarrow \]
@@ -63,6 +63,23 @@
     
     \section*{Применяя группировку членов постоянного знака, покажите, что ряд расходится.}
     %Task 7
+    \subsection*{7}
+    \[ \sum_{n=1}^{\infty} \dfrac{(-1)^{[\ln n]}}{2n + 1} \text{ --- знакопеременный ряд} \]
+		\[ \text{При $2k \le [\ln n] < 2k + 1 \; \Leftrightarrow \; [e^{2k}] \le n < [e^{2k+1}]$
+		$n$-е слагаемое положительно.\\[5 pt]} \]
+		\[ \text{Перестановка:} \]
+		\[ \sum_{k=1}^{\infty} \sum_{n=[e^{2k}]}^{[e^{2k+1}]-1} \dfrac{(-1)^{[\ln n]}}{2n + 1} =
+		\sum_{k=1}^{\infty} \sum_{n=[e^{2k}]}^{[e^{2k+1}]-1} \dfrac{1}{2n + 1} \]
+		\[ \text{Оценим сумму группы 
+		$A_k = \displaystyle \sum_{n=[e^{2k}]}^{[e^{2k+1}]-1} \dfrac{1}{2n + 1}$ снизу:} \]
+		\[ \sum_{n=[e^{2k}]}^{[e^{2k+1}]-1} \dfrac{1}{2n + 1} \ge 
+		\dfrac1{2[e^{2k+1}] - 1}\left( [e^{2k+1}]-1 - [e^{2k}] \right) \ge 
+		\dfrac{2[e^{2k}] - [e^{2k}]-1}{2[e^{2k+1}] - 1} \ge 
+		\dfrac{ [e^{2k}]-1}{2[e^{2k+1}] - 1} \ge
+		\dfrac{ [e^{2k + 1}]}{2[e^{2k+1}]} = \dfrac12 \ne 0 \]\\[-20 pt]
+		\[ \lim_{k\to\infty} |A_k| = \dfrac12 \ne 0 \; \Rightarrow \; 
+		\sum_{k=1}^{\infty} A_k \text{ расходится, т.к. не выполнено необходимое условие сходимости} \; \Leftrightarrow \]
+		\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^{[\ln n]}}{2n + 1} \; \text{ тоже расходится} \]
 
     %Task 8
 
