@@ -63,14 +63,53 @@
     
     \section*{Применяя признак Дирихле или Абеля, покажите, что ряд сходится.}
     %Task 12
+    \subsection*{12}
+    $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{cos \; \sqrt{2}n}{2n - 5}$ \\
+    Пусть $\displaystyle a_n = cos \; \sqrt{2}n$, тогда $\left| \sum\limits_{n = 1}^N a_n \right| \leq 1$, то есть частичная сумма $\displaystyle a_n$ ограничена. \\
+    Пусть $\displaystyle b_n = \frac{1}{2n - 5}$, тогда, очевидно, $b_n \searrow 0$. \\
+    Заметим, что $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{cos \; \sqrt{2}n}{2n - 5} = \sum\limits_{n = 1}^{\infty} a_n \; \cdot \; b_n =>$ ряд сходится по признаку Дирихле. \\ 
 
     %Task 13
+    \subsection*{13}
+    $\displaystyle \sum\limits_{n = 2}^{\infty} \frac{sin(4n)}{ln \; n - ln \; ln \; n}$ \\
+    $\displaystyle a_n = sin(4n) => \sum\limits_{n = 2}^{\infty} a_n - \text{ограничена}$. \\
+    $\displaystyle b_n = \frac{1}{ln \; n - ln \; ln \; n}$ \\
+    Покажем, что $\displaystyle b_n \searrow 0$: \\
+    Пусть $\displaystyle f(x) = \frac{1}{ln \; x - ln \; ln \; x}$. Найдём её производную и покажем, что она всегда меньше нуля. Это будет означать, что функция, а значит, и $\displaystyle b_n$ монотонно убывает: \\
+    \begin{equation*} f'(x) = -\frac{1 \; \cdot \; (ln \; x - ln \; ln \; x)'}{(ln \; x - ln \; ln \; x)^2} = -\frac{\frac{1}{x} - \frac{1}{x\; ln \; x}}{(ln \; x - ln \; ln \; x)^2} \end{equation*}
+    При $\displaystyle x \rightarrow \infty \; \; \frac{1}{x} - \frac{1}{x\; ln \; x} > 0 => f'(x) < 0 => b_n$ монотонно убывает. Также заметим, что при $\displaystyle n \rightarrow \infty \; \; ln \; n$ растёт быстрее, чем $ln\; ln\; n => (ln \; n - ln \; ln \; n) \rightarrow \infty => b_n = \frac{1}{ln \; n - ln \; ln \; n} \rightarrow 0$. Следовательно $\displaystyle b_n \searrow 0 =>$ ряд сходится по признаку Дирихле. $\displaystyle \blacksquare$ \\
 
     %Task 14
 
     %Task 15
+    \subsection*{15}
+    $\displaystyle \frac{(-1)^n \; \cdot \; cos \; 3n}{\sqrt{n^2 + 2}}$ \\
+    Пусть $\displaystyle a_n = (-1)^n \cdot cos\; 3n$. Докажем, что частичная сумма этого ряда ограничена. Для этого посчитаем $\displaystyle S_N^{+}$ и $\displaystyle S_N^{-}$ и докажем, что они ограничены. Для удобства рассмотрим такие $\displaystyle n$, что $\displaystyle n = 2 \cdot p, \; p \in \mathbb{N}$. \\
+    Тогда $\displaystyle S_N^{+} = \sum\limits_{p=1}^{N} cos(6p)$ ограничена (доказано на семинаре). $\displaystyle S_N^{-} = \sum\limits_{p = 1}^{N} cos(3 + 6p) = \sum\limits_{p = 1}^{N} (cos \; 3 \; cos \; 6p - sin \; 3 \; sin \; 6p) = cos\; 3 \; \sum\limits_{p = 1}^{N} cos\; 6p - sin\; 3 \; \sum\limits_{p = 1}^{N} sin\; 6p \; - $ и уменьшаемое, и вычитаемое ограничены, значит и $S_N^{-}$ ограничена. \\
+    Таким образом $\displaystyle S_N = S_N^{+} - S_N^{-}$ ограничена. \\
+    Теперь пусть $\displaystyle b_n = \frac{1}{\sqrt{n^2 + 2}}$. Докажем, что $\displaystyle b_n \searrow 0$. Очевидно, что $b_n \rightarrow 0$. Для доказательства монотонного убывания сравним $\displaystyle b_n$ и $\displaystyle b_{n + 1}$: \\
+    \begin{flalign*}
+        & \frac{1}{\sqrt{n^2 + 2}}\; \vee \; \frac{1}{\sqrt{(n+1)^2 + 2}} & \\
+        & \frac{1}{n^2 + 2}\; \vee \; \frac{1}{(n+1)^2 + 2} & \\
+        & (n + 1)^2 + 2 \; \vee \; n^2 + 2 & \\
+        & n^2 + 2n + 3 \; \vee \; n^2 + 2 & \\
+        & 2n + 1 > 0 \text{, начиная с какого-то} \; n_0. &
+    \end{flalign*}
+    Следовательно, $\displaystyle b_n \searrow 0$. Значит, наш ряд сходится по признаку Дирихле.
 
     %Task 16
+    \subsection*{16}
+    $\displaystyle \sum\limits_{n=1}^{\infty} \frac{(3n - 2)\; \cdot \; sin(n)}{n^2 - 3n + 1}$ \\
+    $\displaystyle a_n = sin(n) => \sum\limits_{n = 1}^{\infty} a_n$ $\displaystyle -$ ограничена. \\
+    $\displaystyle b_n = \frac{3n - 2}{n^2 - 3n + 1}$ \\ \\
+    Докажем, что $\displaystyle b_n \searrow 0$. Очевидно, что $\displaystyle b_n \rightarrow 0$. Для дальнейшего доказательства сравним $\displaystyle b_n$ и $\displaystyle b_{n + 1}$: \\
+    \begin{flalign*}
+        & \frac{3n - 2}{n^2 - 3n + 1} \; \vee \; \frac{3n + 1}{(n + 1)^2 - 3n - 2} & \\
+        & (3n - 2) ((n + 1)^2 - 3n - 2) \; \vee \; (3n + 1)(n^2 - 3n + 1) & \\
+        & (3n - 2) (n^2 - n - 1) \; \vee \; (3n + 1)(n^2 - 3n + 1) & \\
+        & 3n^3 - 3n^2 - 3n - 2n^2 + 2n + 2 \; \vee \; 3n^3 - 9n^2 + 3n + n^2 -3n + 1 & \\
+        & 3n^2 - n + 1 > 0 \; \text{начиная с какого-то} \; n_0 => \; \text{ряд сходится по признаку Дирихле.} \; \blacksquare&
+    \end{flalign*} \\
 
     %Task 17
     
@@ -93,6 +132,11 @@
     %Task 20
 
     %Task 21
+    \subsection*{21}
+    $\displaystyle \sum\limits_{n=1}^{\infty} \frac{cos \; n}{\sqrt{n} + cos \; n}$ \\
+    \begin{equation*} a_n = \frac{cos \; n}{\sqrt{n} + cos \; n} = \frac{cos \; n}{\sqrt{n}} \cdot \frac{1}{1+\frac{cos\; n}{\sqrt{n}}} = \frac{cos\; n}{\sqrt{n}} \cdot (1 - \frac{cos\; n}{\sqrt{n}} + \frac{\frac{cos^2n}{n}}{1 + \frac{cos\; n}{\sqrt{n}}}) = \frac{cos\; n}{\sqrt{n}} - \frac{cos^2n}{n} + \frac{\frac{cos^3n}{n^{1.5}}}{1 + \frac{cos\; n}{\sqrt{n}}} = O(\frac{cos \; n}{\sqrt{n}})\end{equation*}
+    $\displaystyle \frac{cos \; n}{\sqrt{n}}$ сходится по признаку Дирихле $\displaystyle => \sum\limits_{n=1}^{\infty} a_n$ сходится условно. \\
+    Рассмотрим теперь абсолютную сходимость. $\displaystyle |a_n| = \left|\frac{cos \; n}{\sqrt{n}}\right| = \frac{|cos \; n|}{\sqrt{n}}$. С семинара известно, что $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{n}$ расходится, следовательно, так как $\displaystyle \frac{|cos\; n|}{n} \leq \frac{|cos\; n|}{\sqrt{n}}$, то по признаку сравнения $\sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{\sqrt{n}}$ расходится $\displaystyle =>$ ряд расходится абсолютно. \\
 
     %Task 22
 
