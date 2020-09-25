@@ -86,7 +86,7 @@
     %Task 9
     \subsection*{9}
     \[ \sum_{n=1}^{\infty} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} \text{ --- знакопеременный ряд} \]
-		\[ \text{При $2k \le [\sqrt[3]{n}] < 2k + 1 \; \Leftrightarrow \; 8k^3 \le n < (2k+1)^3$
+		\[ \text{При $2k \le [\sqrt[3]{n}] < 2k + 1 \; \Leftrightarrow \; 8k^3 \le n < (2k+1)^3$:
 		$n$-е слагаемое положительно.\\[5 pt]} \]
 		\[ \text{Перестановка:} \]
 		\[ \sum_{k=1}^{\infty} \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} =
@@ -103,6 +103,22 @@
 		\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} \; \text{ тоже расходится} \]
 
     %Task 10
+    \subsection*{10}
+    \[ \sum_{n=1}^{\infty} \dfrac{\sin \ln n}{n + 2} \text{ --- знакопеременный ряд} \]
+		\[ \text{При $2\pi k < \ln n < 2\pi k + \pi \; \Leftrightarrow \; [e^{2\pi k}]+1 \le n < [e^{2\pi k + \pi}]$:
+		$n$-е слагаемое положительно.\\[5 pt]} \]
+		\[ \text{Оценим сумму группы 
+		$A_k = \displaystyle  \sum_{n=[e^{2\pi k}]+1}^{ [e^{2\pi k + \pi}]-1} \dfrac{\sin \ln n}{n + 2}$ снизу:} \]
+		\[ \text{при $2\pi k + \dfrac{\pi}6 \le \ln n \le 2\pi k + \dfrac{5\pi}6 \; 
+		\Leftrightarrow \; [e^{2\pi k + \frac{\pi}6}]+1 \le n \le [e^{2\pi k + \frac{5\pi}6}]$:
+		$\sin \ln n \ge \dfrac12 \; \Rightarrow$\\[5 pt]} \]
+		\[ \Rightarrow \; A_k \ge \sum_{n=[e^{2\pi k + \frac{\pi}6}]+1}^{[e^{2\pi k + \frac{5\pi}6}]} \dfrac{1}{2(n + 2)} \ge
+		\dfrac1{2([e^{2\pi k + \frac{5\pi}6}] + 2)}([e^{2\pi k + \frac{5\pi}6}] - [e^{2\pi k + \frac{\pi}6}] - 1) \]\\[-10 pt]
+		\[ 8 [e^{2\pi k + \frac{\pi}6}] < [e^{2\pi k + \frac{5\pi}6}] < 9 [e^{2\pi k + \frac{\pi}6}] \; \Rightarrow \; 
+		A_k \ge \dfrac{7[e^{2\pi k + \frac{\pi}6}] - 1}{2(9[e^{2\pi k + \frac{\pi}6}] + 2)} \xrightarrow{k \to \infty} \dfrac7{18} \ne 0 \]\\[-20 pt]
+		\[ \lim_{k\to\infty} |A_k| \ge \dfrac7{18} \ne 0 \; \Rightarrow \; 
+		\sum_{k=1}^{\infty} A_k \text{ расходится, т.к. не выполнено необходимое условие сходимости} \; \Leftrightarrow \]
+		\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{\sin \ln n}{n + 2} \; \text{ тоже расходится} \]
 
     %Task 11
     
