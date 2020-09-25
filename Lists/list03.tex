@@ -84,6 +84,23 @@
     %Task 8
 
     %Task 9
+    \subsection*{9}
+    \[ \sum_{n=1}^{\infty} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} \text{ --- знакопеременный ряд} \]
+		\[ \text{При $2k \le [\sqrt[3]{n}] < 2k + 1 \; \Leftrightarrow \; 8k^3 \le n < (2k+1)^3$
+		$n$-е слагаемое положительно.\\[5 pt]} \]
+		\[ \text{Перестановка:} \]
+		\[ \sum_{k=1}^{\infty} \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} =
+		\sum_{k=1}^{\infty} \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{1}{\sqrt[3]{n^2 + 3}} \]
+		\[ \text{Оценим сумму группы 
+		$A_k = \displaystyle  \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{1}{\sqrt[3]{n^2 + 3}}$ снизу:} \]
+		\[  \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{1}{\sqrt[3]{n^2 + 3}} \ge 
+		\dfrac{1}{\sqrt[3]{((2k+1)^3 - 1)^2 + 3}}(12k^2 + 6k) = 
+		\dfrac{6k(2k+1)}{\sqrt[3]{(2k+1)^6 - 2(2k + 1)^3 + 4}} = \]
+		\[ = \dfrac{6k}{\sqrt[3]{(2k+1)^3 - 2 + \dfrac4{(2k + 1)^3}}} \ge
+		\dfrac{6k}{2k+1} \; (\text{при } k \ge 1) \ge 3 \ne 0 \]\\[-20 pt]
+		\[ \lim_{k\to\infty} |A_k| = 3 \ne 0 \; \Rightarrow \; 
+		\sum_{k=1}^{\infty} A_k \text{ расходится, т.к. не выполнено необходимое условие сходимости} \; \Leftrightarrow \]
+		\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} \; \text{ тоже расходится} \]
 
     %Task 10
 
