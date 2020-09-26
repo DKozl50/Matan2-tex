@@ -348,6 +348,21 @@
 	\end{flalign*}
 	
 	%Task 23
+	\subsection*{23}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \\
+		& (\sqrt{n + (-1)^n} - \sqrt{n}) = \sqrt{n} \left( \sqrt{1 + \frac{(-1)^n}n} - 1 \right) = \\
+		& = \left[ \text{Ряд Маклорена для } (1+x)^{1/2}, \; x = \frac{(-1)^n}{n} \right] \;\;
+		\sqrt{n} \left( \cancel{1} + \dfrac{(-1)^{n}}{2n} - \dfrac{1}{8n^2} + o\left( \dfrac1{n^{2}} \right) - \cancel{1} \right) = \\
+		& = \dfrac{(-1)^n}{2\sqrt{n}} - \underbrace{\dfrac{1}{8n^{3/2}} + o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \dfrac{(-1)^n}{2\sqrt{n}} \; \text{ сходится условно по признаку Лейбница} \\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| (\sqrt{n + (-1)^n} - \sqrt{n}) \right| = 
+		\sum_{n=1}^{\infty} \left( \dfrac{1}{2\sqrt{n}} + o\left( \dfrac1{n^2} \right) \right) \sim 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n}} \; \text{ --- расходится } \Rightarrow \;  \\
+		& \Rightarrow \; \sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \; \text{ расходится абсолютно}
+	\end{flalign*}
 	
 	\section*{Вычислите произведение рядов.}
 	%Task 24
