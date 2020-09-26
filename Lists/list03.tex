@@ -328,9 +328,24 @@
 	$\displaystyle \sum\limits_{n=1}^{\infty} \frac{cos \; n}{\sqrt{n} + cos \; n}$ \\
 	\begin{equation*} a_n = \frac{cos \; n}{\sqrt{n} + cos \; n} = \frac{cos \; n}{\sqrt{n}} \cdot \frac{1}{1+\frac{cos\; n}{\sqrt{n}}} = \frac{cos\; n}{\sqrt{n}} \cdot (1 - \frac{cos\; n}{\sqrt{n}} + \frac{\frac{cos^2n}{n}}{1 + \frac{cos\; n}{\sqrt{n}}}) = \frac{cos\; n}{\sqrt{n}} - \frac{cos^2n}{n} + \frac{\frac{cos^3n}{n^{1.5}}}{1 + \frac{cos\; n}{\sqrt{n}}} = O(\frac{cos \; n}{\sqrt{n}})\end{equation*}
 	$\displaystyle \frac{cos \; n}{\sqrt{n}}$ сходится по признаку Дирихле $\displaystyle => \sum\limits_{n=1}^{\infty} a_n$ сходится условно. \\
-	Рассмотрим теперь абсолютную сходимость. $\displaystyle |a_n| = \left|\frac{cos \; n}{\sqrt{n}}\right| = \frac{|cos \; n|}{\sqrt{n}}$. С семинара известно, что $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{n}$ расходится, следовательно, так как $\displaystyle \frac{|cos\; n|}{n} \leq \frac{|cos\; n|}{\sqrt{n}}$, то по признаку сравнения $\sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{\sqrt{n}}$ расходится $\displaystyle =>$ ряд расходится абсолютно. \\
+	Рассмотрим теперь абсолютную сходимость. $\displaystyle |a_n| = \left|\frac{cos \; n}{\sqrt{n}}\right| = \frac{|cos \; n|}{\sqrt{n}}$. С семинара известно, что $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{n}$ расходится, следовательно, так как $\displaystyle \frac{|cos\; n|}{n} \leq \frac{|cos\; n|}{\sqrt{n}}$, то по признаку сравнения $\sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{\sqrt{n}}$ расходится $\displaystyle \Rightarrow$ ряд расходится абсолютно. \\
 	
 	%Task 22
+	\subsection*{22}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \\
+		& \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} = \dfrac{(-1)^n}{\sqrt{n}} \cdot \dfrac1{\sqrt{1 - \frac{(-1)^n}{n}}} = \\
+		& = \left[ \text{Ряд Маклорена для } (1+x)^{-1/2}, \; x = \frac{(-1)^{n+1}}{n} \right] \;\;
+		\dfrac{(-1)^n}{\sqrt{n}} \left( 1 - \dfrac{(-1)^{n+1}}{2n} + \dfrac{3}{8n^2} + o\left( \dfrac1{n^{2}} \right) \right) = \\
+		& = \dfrac{(-1)^n}{\sqrt{n}} + \underbrace{\dfrac{1}{2n^{3/2}} + o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \dfrac{(-1)^n}{\sqrt{n}} \; \text{ сходится условно по признаку Лейбница} \\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \right| = 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n - (-1)^n}} \sim 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n}} \; \text{ --- расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \; \text{ расходится абсолютно}
+	\end{flalign*}
 	
 	%Task 23
 	
