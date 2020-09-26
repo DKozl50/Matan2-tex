@@ -8,7 +8,9 @@
 	Василий Шныпко     \\ \href{https://t.me/yourvash}{Telegram} \and
 	Денис Козлов       \\ \href{https://t.me/DKozl50}{Telegram} \and
 	Иван Пешехонов     \\ \href{https://t.me/JohanDDC}{Telegram}\and
-	Иван Добросовестнов \\ \href{https://t.me/ivankot13}{Telegram}
+	Иван Добросовестнов \\ \href{https://t.me/ivankot13}{Telegram}\and
+	Елизавета Орешонок \\ \href{https://t.me/eaoresh}{Telegram}\and
+	Никита Насонков \\ \href{https://t.me/nnv_nick}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
@@ -197,6 +199,19 @@
 	При $\displaystyle x \rightarrow \infty \; \; \frac{1}{x} - \frac{1}{x\; ln \; x} > 0 => f'(x) < 0 => b_n$ монотонно убывает. Также заметим, что при $\displaystyle n \rightarrow \infty \; \; ln \; n$ растёт быстрее, чем $ln\; ln\; n => (ln \; n - ln \; ln \; n) \rightarrow \infty => b_n = \frac{1}{ln \; n - ln \; ln \; n} \rightarrow 0$. Следовательно $\displaystyle b_n \searrow 0 =>$ ряд сходится по признаку Дирихле. $\displaystyle \blacksquare$ \\
 	
 	%Task 14
+	\subsection*{14}
+		\[ \sum_{n=2}^{\infty} \dfrac{(-1)^n \sqrt[n]{n}}{\ln^2 n} \]
+		\[ \text{Последовательность } \{a_n\}, \; a_n = \sqrt[n]{n} \text{ монотонно убывает при } n \ge 3 \;\;
+		 \left[\left(\sqrt[n]{n}\right)'_n = \left(e^{\frac{\ln n}n}\right)'_n = \sqrt[n]{n}\dfrac{1-\ln n}{n^2} < 0, \; n \ge 3 \right] \]
+		\[ \left\{\begin{array}{rl} \text{Ряд } \sum_{n=2}^{\infty} b_n, \; b_n = \dfrac{(-1)^n}{\ln^2 n} & \text{ --- знакопеременный},\\[10 pt]
+		|b_n| = \dfrac1{\ln^2 n} \searrow \text{ при } n > 1 & \left[\left(\dfrac1{\ln^2 n}\right)'_n \!\!\! = -\dfrac2{n \ln^3 n} < 0, \; n > 1 \right]\\[10 pt]
+		\lim_{n\to\infty} |b_n| = \lim_{n\to\infty} \dfrac1{\ln^2 n} & = 0 
+		\end{array}\right. \!\! \Rightarrow \; \sum_{n=2}^{\infty} b_n \; \text{ сходится по признаку Лейбница} \]\\[-15 pt]
+		\[ \left\{\begin{array}{rl} 
+		\{a_n\} & \text{монотонно убывает},\\[5 pt]
+		\displaystyle \sum_{n=1}^{\infty} b_n & \text{сходится} 
+		\end{array}\right. \Rightarrow \; \sum_{n=2}^{\infty} a_n \cdot b_n = \sum_{n=2}^{\infty} \dfrac{(-1)^n \sqrt[n]{n}}{\ln^2 n} \;
+		 \text{ сходится по признаку Абеля} \]
 	
 	%Task 15
 	\subsection*{15}
@@ -263,22 +278,116 @@
 		\text{ сходится по Лейбницу}
 	\end{flalign*}
 	%Task 19
+	 \subsection*{19}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \\
+		& \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) =
+		[\text{Ряд Маклорена}] \;\; \dfrac{(-1)^n}{n^{2/3}} - \dfrac{(-1)^n}{2n^{4/3}} + o\left( \dfrac1{n^{4/3}} \right) =
+		(-1)^n \dfrac{2n^{2/3} - 1}{2n^{4/3}} + o\left( \dfrac1{n^{4/3}} \right) \sim \\
+		& \sim (-1)^n \dfrac1{n^{2/3}} + \underbrace{o\left( \dfrac1{n^{4/3}} \right)}_{\text{сходится}} \\
+		& \left\{\begin{array}{rl} 
+		\text{Ряд } \sum_{n=1}^{\infty} \dfrac{(-1)^n}{n^{2/3}} & \text{ --- знакопеременный},\\[10 pt]
+		|b_n| = \dfrac{1}{n^{2/3}} \searrow & \text{ при } n \ge 1\\[10 pt]
+		\lim_{n\to\infty} |b_n| = & \lim_{n\to\infty} \dfrac{1}{n^{2/3}} = 0 
+		\end{array}\right. \!\! \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{n^{2/3}} \; \text{ сходится условно по признаку Лейбница}\\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \right| \sim 
+		\sum_{n=1}^{\infty} \left( \underbrace{\dfrac1{n^{2/3}}}_{\text{расходится}} +
+		\underbrace{o\left( \dfrac1{n^{4/3}} \right)}_{\text{сходится}} \right) \\
+		& \text{Сумма сходящегося и расходящегося рядов расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \; \text{ расходится абсолютно}
+	\end{flalign*}
 	
 	%Task 20
+	 \subsection*{20}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \dfrac{\cos n}{n - \sin n} \\
+		& \dfrac{\cos n}{n - \sin n} = \dfrac{\cos n}{n} \left( \dfrac{n - \sin n}{n} \right)^{-1} = 
+		\dfrac{\cos n}{n} \left( 1 - \dfrac{\sin n}{n} \right)^{-1} = \\
+		& \left[ \text{Ряд Маклорена для } \dfrac1{1-x} \right] \;\; \dfrac{\cos n}{n} \left( 1 + \dfrac{\sin n}{n} + o\left( \dfrac1{n^2} \right) \right) = \\
+		& = \dfrac{\cos n}{n} + \underbrace{o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \cos n = \text{Re} \sum_{n=1}^{N} e^{i \cdot n}  = 
+		\text{Re} \dfrac{1 - e^{i (N+1)}}{1 - e^i} - 1 = \dfrac{\sin \frac{N}2 \cos \frac{(N+1)}2}{\sin \frac12} < 3 \; \text{ при } N \in \RR \\
+		& \left\{\begin{array}{rl} 
+		\text{Ряд } \sum_{n=1}^{\infty} \dfrac{\cos n}{n} & \text{ --- знакопеременный},\\[10 pt]
+		\dfrac{1}{n} \searrow & \text{ при } n \ge 1\\[10 pt]
+		\left\{ \sum_{n=1}^N \cos n \right\} & \text{ ограничена }
+		\end{array}\right. \!\! \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{\cos n}{n} \; \text{ сходится условно по признаку Дирихле}\\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{\cos n}{n - \sin n} \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left|\dfrac{\cos n}{n - \sin n} \right| \sim 
+		\sum_{n=1}^{\infty} \left( \underbrace{\dfrac{|\cos n|}{n}}_{\text{расходится}} +
+		\underbrace{o\left( \dfrac1{n^{2}} \right)}_{\text{сходится}} \right) \\
+		& \text{Сумма сходящегося и расходящегося рядов расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty}  \dfrac{\cos n}{n - \sin n} \; \text{ расходится абсолютно}
+	\end{flalign*}
 	
 	%Task 21
 	\subsection*{21}
 	$\displaystyle \sum\limits_{n=1}^{\infty} \frac{cos \; n}{\sqrt{n} + cos \; n}$ \\
 	\begin{equation*} a_n = \frac{cos \; n}{\sqrt{n} + cos \; n} = \frac{cos \; n}{\sqrt{n}} \cdot \frac{1}{1+\frac{cos\; n}{\sqrt{n}}} = \frac{cos\; n}{\sqrt{n}} \cdot (1 - \frac{cos\; n}{\sqrt{n}} + \frac{\frac{cos^2n}{n}}{1 + \frac{cos\; n}{\sqrt{n}}}) = \frac{cos\; n}{\sqrt{n}} - \frac{cos^2n}{n} + \frac{\frac{cos^3n}{n^{1.5}}}{1 + \frac{cos\; n}{\sqrt{n}}} = O(\frac{cos \; n}{\sqrt{n}})\end{equation*}
 	$\displaystyle \frac{cos \; n}{\sqrt{n}}$ сходится по признаку Дирихле $\displaystyle => \sum\limits_{n=1}^{\infty} a_n$ сходится условно. \\
-	Рассмотрим теперь абсолютную сходимость. $\displaystyle |a_n| = \left|\frac{cos \; n}{\sqrt{n}}\right| = \frac{|cos \; n|}{\sqrt{n}}$. С семинара известно, что $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{n}$ расходится, следовательно, так как $\displaystyle \frac{|cos\; n|}{n} \leq \frac{|cos\; n|}{\sqrt{n}}$, то по признаку сравнения $\sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{\sqrt{n}}$ расходится $\displaystyle =>$ ряд расходится абсолютно. \\
+	Рассмотрим теперь абсолютную сходимость. $\displaystyle |a_n| = \left|\frac{cos \; n}{\sqrt{n}}\right| = \frac{|cos \; n|}{\sqrt{n}}$. С семинара известно, что $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{n}$ расходится, следовательно, так как $\displaystyle \frac{|cos\; n|}{n} \leq \frac{|cos\; n|}{\sqrt{n}}$, то по признаку сравнения $\sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{\sqrt{n}}$ расходится $\displaystyle \Rightarrow$ ряд расходится абсолютно. \\
 	
 	%Task 22
+	\subsection*{22}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \\
+		& \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} = \dfrac{(-1)^n}{\sqrt{n}} \cdot \dfrac1{\sqrt{1 - \frac{(-1)^n}{n}}} = \\
+		& = \left[ \text{Ряд Маклорена для } (1+x)^{-1/2}, \; x = \frac{(-1)^{n+1}}{n} \right] \;\;
+		\dfrac{(-1)^n}{\sqrt{n}} \left( 1 - \dfrac{(-1)^{n+1}}{2n} + \dfrac{3}{8n^2} + o\left( \dfrac1{n^{2}} \right) \right) = \\
+		& = \dfrac{(-1)^n}{\sqrt{n}} + \underbrace{\dfrac{1}{2n^{3/2}} + o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \dfrac{(-1)^n}{\sqrt{n}} \; \text{ сходится условно по признаку Лейбница} \\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \right| = 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n - (-1)^n}} \sim 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n}} \; \text{ --- расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \; \text{ расходится абсолютно}
+	\end{flalign*}
 	
 	%Task 23
+	\subsection*{23}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \\
+		& (\sqrt{n + (-1)^n} - \sqrt{n}) = \sqrt{n} \left( \sqrt{1 + \frac{(-1)^n}n} - 1 \right) = \\
+		& = \left[ \text{Ряд Маклорена для } (1+x)^{1/2}, \; x = \frac{(-1)^n}{n} \right] \;\;
+		\sqrt{n} \left( \cancel{1} + \dfrac{(-1)^{n}}{2n} - \dfrac{1}{8n^2} + o\left( \dfrac1{n^{2}} \right) - \cancel{1} \right) = \\
+		& = \dfrac{(-1)^n}{2\sqrt{n}} - \underbrace{\dfrac{1}{8n^{3/2}} + o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \dfrac{(-1)^n}{2\sqrt{n}} \; \text{ сходится условно по признаку Лейбница} \\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| (\sqrt{n + (-1)^n} - \sqrt{n}) \right| = 
+		\sum_{n=1}^{\infty} \left( \dfrac{1}{2\sqrt{n}} + o\left( \dfrac1{n^2} \right) \right) \sim 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n}} \; \text{ --- расходится } \Rightarrow \;  \\
+		& \Rightarrow \; \sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \; \text{ расходится абсолютно}
+	\end{flalign*}
 	
 	\section*{Вычислите произведение рядов.}
 	%Task 24
+	\subsection*{24}
+	\begin{flalign*}
+		& \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) \\
+		& \text{Ряды } \; \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \text{ и } \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \;
+		\text{ сходятся абсолютно по признаку сравнения с } \dfrac1{n!} \; \Rightarrow \\
+		& \Rightarrow \; \text{ их произведение } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) \;
+		\text{ также сходится абсолютно} \\
+		& \text{Тогда } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) =
+		\sum_{n=0}^{\infty} c_n, \\
+		& \text{где } c_n = \sum_{i+j=n} a_i b_j = \sum_{i+j=n} \dfrac{(-1)^i}{(2i + 1)!} \cdot \dfrac{(-1)^j}{(2j)!} =
+		\sum_{i+j=n} \dfrac{(-1)^{i + j}}{(2i + 1)!(2j)!} = \\
+		& \sum_{j=1}^n \dfrac{(-1)^{n}}{(2n + 1)!} \cdot \dfrac{(2n + 1)!}{(2n + 1 - 2j)!(2j)!} = 
+		\dfrac{(-1)^{n}}{(2n + 1)!} \cdot \sum_{j=1}^n C_{2n+1}^j = 
+		\dfrac{(-1)^{n}}{(2n + 1)!} \cdot 2^{2n} = \dfrac{(-1)^{n} \cdot 4^n}{(2n + 1)!} \\
+		& \text{И тогда произведение: } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) =
+		\sum_{n = 0}^{\infty} \dfrac{(-1)^{n} \cdot 4^n}{(2n + 1)!}
+	\end{flalign*}
 	
 	%Task 25
 	\subsection*{Задача 25}
