@@ -366,6 +366,26 @@
 	
 	\section*{Вычислите произведение рядов.}
 	%Task 24
+	\subsection*{24}
+	\begin{flalign*}
+		& \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) \\
+		& \text{Ряды } \; \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \text{ и } \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \;
+		\text{ сходятся абсолютно по признаку сравнения с } \dfrac1{n!} \; \Rightarrow \\
+		& \Rightarrow \; \text{ их произведение } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) \;
+		\text{ также сходится абсолютно} \\
+		& \text{Тогда } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) =
+		\sum_{n=0}^{\infty} c_n, \\
+		& \text{где } c_n = \sum_{i+j=n} a_i b_j = \sum_{i+j=n} \dfrac{(-1)^i}{(2i + 1)!} \cdot \dfrac{(-1)^j}{(2j)!} =
+		\sum_{i+j=n} \dfrac{(-1)^{i + j}}{(2i + 1)!(2j)!} = \\
+		& \sum_{j=1}^n \dfrac{(-1)^{n}}{(2n + 1)!} \cdot \dfrac{(2n + 1)!}{(2n + 1 - 2j)!(2j)!} = 
+		\dfrac{(-1)^{n}}{(2n + 1)!} \cdot \sum_{j=1}^n C_{2n+1}^j = 
+		\dfrac{(-1)^{n}}{(2n + 1)!} \cdot 2^{2n} = \dfrac{(-1)^{n} \cdot 4^n}{(2n + 1)!} \\
+		& \text{И тогда произведение: } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) =
+		\sum_{n = 0}^{\infty} \dfrac{(-1)^{n} \cdot 4^n}{(2n + 1)!}
+	\end{flalign*}
 	
 	%Task 25
 	\subsection*{Задача 25}
