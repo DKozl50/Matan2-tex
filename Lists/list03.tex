@@ -299,6 +299,29 @@
 	\end{flalign*}
 	
 	%Task 20
+	 \subsection*{20}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \dfrac{\cos n}{n - \sin n} \\
+		& \dfrac{\cos n}{n - \sin n} = \dfrac{\cos n}{n} \left( \dfrac{n - \sin n}{n} \right)^{-1} = 
+		\dfrac{\cos n}{n} \left( 1 - \dfrac{\sin n}{n} \right)^{-1} = \\
+		& \left[ \text{Ряд Маклорена для } \dfrac1{1-x} \right] \;\; \dfrac{\cos n}{n} \left( 1 + \dfrac{\sin n}{n} + o\left( \dfrac1{n^2} \right) \right) = \\
+		& = \dfrac{\cos n}{n} + \underbrace{o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \cos n = \text{Re} \sum_{n=1}^{N} e^{i \cdot n}  = 
+		\text{Re} \dfrac{1 - e^{i (N+1)}}{1 - e^i} - 1 = \dfrac{\sin \frac{N}2 \cos \frac{(N+1)}2}{\sin \frac12} < 3 \; \text{ при } N \in \RR \\
+		& \left\{\begin{array}{rl} 
+		\text{Ряд } \sum_{n=1}^{\infty} \dfrac{\cos n}{n} & \text{ --- знакопеременный},\\[10 pt]
+		\dfrac{1}{n} \searrow & \text{ при } n \ge 1\\[10 pt]
+		\left\{ \sum_{n=1}^N \cos n \right\} & \text{ ограничена }
+		\end{array}\right. \!\! \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{\cos n}{n} \; \text{ сходится условно по признаку Дирихле}\\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{\cos n}{n - \sin n} \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left|\dfrac{\cos n}{n - \sin n} \right| \sim 
+		\sum_{n=1}^{\infty} \left( \underbrace{\dfrac{|\cos n|}{n}}_{\text{расходится}} +
+		\underbrace{o\left( \dfrac1{n^{2}} \right)}_{\text{сходится}} \right) \\
+		& \text{Сумма сходящегося и расходящегося рядов расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty}  \dfrac{\cos n}{n - \sin n} \; \text{ расходится абсолютно}
+	\end{flalign*}
 	
 	%Task 21
 	\subsection*{21}
