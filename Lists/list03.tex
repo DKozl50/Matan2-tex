@@ -197,6 +197,19 @@
 	При $\displaystyle x \rightarrow \infty \; \; \frac{1}{x} - \frac{1}{x\; ln \; x} > 0 => f'(x) < 0 => b_n$ монотонно убывает. Также заметим, что при $\displaystyle n \rightarrow \infty \; \; ln \; n$ растёт быстрее, чем $ln\; ln\; n => (ln \; n - ln \; ln \; n) \rightarrow \infty => b_n = \frac{1}{ln \; n - ln \; ln \; n} \rightarrow 0$. Следовательно $\displaystyle b_n \searrow 0 =>$ ряд сходится по признаку Дирихле. $\displaystyle \blacksquare$ \\
 	
 	%Task 14
+	\subsection*{14}
+		\[ \sum_{n=2}^{\infty} \dfrac{(-1)^n \sqrt[n]{n}}{\ln^2 n} \]
+		\[ \text{Последовательность } \{a_n\}, \; a_n = \sqrt[n]{n} \text{ монотонно убывает при } n \ge 3 \;\;
+		 \left[\left(\sqrt[n]{n}\right)'_n = \left(e^{\frac{\ln n}n}\right)'_n = \sqrt[n]{n}\dfrac{1-\ln n}{n^2} < 0, \; n \ge 3 \right] \]
+		\[ \left\{\begin{array}{rl} \text{Ряд } \sum_{n=2}^{\infty} b_n, \; b_n = \dfrac{(-1)^n}{\ln^2 n} & \text{ --- знакопеременный},\\[10 pt]
+		|b_n| = \dfrac1{\ln^2 n} \searrow \text{ при } n > 1 & \left[\left(\dfrac1{\ln^2 n}\right)'_n \!\!\! = -\dfrac2{n \ln^3 n} < 0, \; n > 1 \right]\\[10 pt]
+		\lim_{n\to\infty} |b_n| = \lim_{n\to\infty} \dfrac1{\ln^2 n} & = 0 
+		\end{array}\right. \!\! \Rightarrow \; \sum_{n=2}^{\infty} b_n \; \text{ сходится по признаку Лейбница} \]\\[-15 pt]
+		\[ \left\{\begin{array}{rl} 
+		\{a_n\} & \text{монотонно убывает},\\[5 pt]
+		\displaystyle \sum_{n=1}^{\infty} b_n & \text{сходится} 
+		\end{array}\right. \Rightarrow \; \sum_{n=2}^{\infty} a_n \cdot b_n = \sum_{n=2}^{\infty} \dfrac{(-1)^n \sqrt[n]{n}}{\ln^2 n} \;
+		 \text{ сходится по признаку Абеля} \]
 	
 	%Task 15
 	\subsection*{15}
