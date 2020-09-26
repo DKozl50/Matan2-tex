@@ -276,6 +276,27 @@
 		\text{ сходится по Лейбницу}
 	\end{flalign*}
 	%Task 19
+	 \subsection*{19}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \\
+		& \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) =
+		[\text{Ряд Маклорена}] \;\; \dfrac{(-1)^n}{n^{2/3}} - \dfrac{(-1)^n}{2n^{4/3}} + o\left( \dfrac1{n^{4/3}} \right) =
+		(-1)^n \dfrac{2n^{2/3} - 1}{2n^{4/3}} + o\left( \dfrac1{n^{4/3}} \right) \sim \\
+		& \sim (-1)^n \dfrac1{n^{2/3}} + \underbrace{o\left( \dfrac1{n^{4/3}} \right)}_{\text{сходится}} \\
+		& \left\{\begin{array}{rl} 
+		\text{Ряд } \sum_{n=1}^{\infty} \dfrac{(-1)^n}{n^{2/3}} & \text{ --- знакопеременный},\\[10 pt]
+		|b_n| = \dfrac{1}{n^{2/3}} \searrow & \text{ при } n \ge 1\\[10 pt]
+		\lim_{n\to\infty} |b_n| = & \lim_{n\to\infty} \dfrac{1}{n^{2/3}} = 0 
+		\end{array}\right. \!\! \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{n^{2/3}} \; \text{ сходится условно по признаку Лейбница}\\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \right| \sim 
+		\sum_{n=1}^{\infty} \left( \underbrace{\dfrac1{n^{2/3}}}_{\text{расходится}} +
+		\underbrace{o\left( \dfrac1{n^{4/3}} \right)}_{\text{сходится}} \right) \\
+		& \text{Сумма сходящегося и расходящегося рядов расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \; \text{ расходится абсолютно}
+	\end{flalign*}
 	
 	%Task 20
 	
