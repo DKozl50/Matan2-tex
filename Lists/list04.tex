@@ -1,24 +1,26 @@
-\documentclass[a4paper,fleqn]{article}
+\documentclass[a4paper, fleqn]{article}
 \usepackage{header}
 
-\title{Семинарский лист 3}
+\title{Семинарский лист 4}
 \author{
-Александр Богданов \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
-Алиса Вернигор     \\ \href{https://t.me/allisyonok}{Telegram} \and
-Василий Шныпко     \\ \href{https://t.me/yourvash}{Telegram} \and
-Денис Козлов       \\ \href{https://t.me/DKozl50}{Telegram} \and
-Иван Пешехонов     \\ \href{https://t.me/JohanDDC}{Telegram}\and
-Иван Добросовестнов \\ \href{https://t.me/ivankot13}{Telegram}\and
-Елизавета Орешонок \\ \href{https://t.me/eaoresh}{Telegram}\and
-Никита Насонков \\ \href{https://t.me/nnv_nick}{Telegram}
+    Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+    Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
+    Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
+    Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
+    Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
+    Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
+    Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
+    Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
+    Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
+    Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
-% Document
+
 \begin{document}
     \maketitle
-    \section*{Вычислите бесконечные произведения как предел частичного.}
-    %Task 1
+    
+    \section*{Вычислите бесконечное произведение как предел частичного}
     \subsection*{Задача 1}
     \begin{flalign*}
         &\prod\limits_{n = 2}^{\infty}\left( 1 - \frac{1}{n^2} \right)& \\
@@ -27,9 +29,9 @@
         \prod\limits_{n = 2}^{N}\frac{(n - 1)(n + 1)}{n \cdot n} =
         \frac{1 \cdot 3}{2 \cdot 2} \cdot \frac{2 \cdot 4}{3 \cdot 3} \cdot
         \frac{3 \cdot 5}{4 \cdot 4} \cdot \ldots \cdot \frac{(N - 1) \cdot (N + 1)}{N \cdot N}
-        =\frac{N + 1}{2N} \to \frac{1}{2}&
+        =\frac{N + 1}{2N} \to \frac{1}{2}
     \end{flalign*}
-    %Task 2
+    
     \subsection*{Задача 2}
     \begin{flalign*}
         &\prod\limits_{n = 1}^{\infty} e^{\frac{(-1)^n}{n}}& \\
@@ -53,10 +55,12 @@
         e^{\ln n - \ln (2n +1) + o(1)} = &\\
         &= e^{\ln\frac{n}{2n + 1} + o(1)} \to e^{\ln\frac{1}{2}} = \frac{1}{2}&
     \end{flalign*}
-    \section*{Исследуйте бесконечное произведение на сходимость.}
-    % Task 4
-    \subsection*{Задача 4.}
-    \paragraph{Формулы Тейлора:}
+    
+    % \subsection*{Задача 3}
+    
+    \section*{Исследуйте бесконечное произведение на сходимость}
+    \subsection*{Задача 4}
+    \emph{Формулы Тейлора:}
     \begin{flalign*}
         &(1 + x)^a \sim 1 + x& \\
         &\ln(1 + x) \sim x&
@@ -72,8 +76,13 @@
         \implies&\\
         &\implies \text{ ряд сходится.}&
     \end{flalign*}
-    \section*{Исследуйте бесконечное произведение на сходимость и абсолютную сходимость.}
-    \subsection*{Задача 7.}
+    
+    % \subsection*{Задача 5}
+    
+    % \subsection*{Задача 6}
+    
+    \section*{Исследуйте бесконечное произведение на сходимость и абсолютную сходимость}
+    \subsection*{Задача 7}
     \begin{flalign*}
         &\prod\limits_{n = 1}^{\infty} n^{\frac{(-1)^n}{n}} =
         e^{\sum\limits_{n = 1}^{\infty} \ln n^{\frac{(-1)^n}{n}}};\;\;\;\;\;\;
@@ -85,16 +94,22 @@
         &|a_n| = \left| \frac{(-1)^n\ln n}{n} \right| \geq \frac{\ln 2}{n} \implies
         \text{ряд расходится абсолютно.}&
     \end{flalign*}
-    \section*{Исследуйте функциональную последовательность $f_n$ на равномерную сходимость к
-    поточечному пределу $f$ на множестве $D$, оценивая $\norm{f_n - f}$.}
-    \subsection*{Задача 10.}
+    
+    % \subsection*{Задача 8}
+    
+    % \subsection*{Задача 9}
+ 
+    \section*{Исследуйте функциональную последовательность $f_n$ на равномерную сходимость к поточечному 
+    пределу $f$ на множестве $D$, оценивая $\left\lVert f_n - f \right\rVert$.}
+    \subsection*{Задача 10}
     \begin{flalign*}
         &f_n(x) = \sin\frac{x}{n},\;\;\; D = [-1, 1]& \\
         &f_n(x) = \sin\frac{x}{n} \to \sin0 = 0 \implies f \equiv 0& \\
         &\sup_D\norm{\sin\frac{x}{n}} = \sin\frac{1}{n} \to 0 \implies
-        \text{ равномерная сходимость.}&
+        \text{ равномерная сходимость.}
     \end{flalign*}
-    \subsection*{Задача 11.}
+    
+    \subsection*{Задача 11}
     \begin{flalign*}
         &f_n(x) = x^n - x^{2n},\;\;\; D = [0, 1]& \\
         &f_n(x) = x^n - x^{2n} \to 0 \implies f \equiv 0& \\
@@ -103,9 +118,16 @@
         &\text{Критические точки: } x = 0, f_n(x) = 0;\;\;
         x = \sqrt[n]{\frac{1}{2}}, f_n(x) = \frac{1}{4};\;\;
         x = 1, f_n(x) = 0;&\\
-        &\Diamond = \frac{1}{4} \neq 0 \implies \text{ отсутствие равномерной сходимости.}&
+        &\Diamond = \frac{1}{4} \neq 0 \implies \text{ отсутствие равномерной сходимости.}
     \end{flalign*}
-    \subsection*{Задача 15.}
+    
+    % \subsection*{Задача 12}
+    
+    % \subsection*{Задача 13}
+    
+    % \subsection*{Задача 14}
+    
+    \subsection*{Задача 15}
     \begin{flalign*}
         &f_n(x) = n\sim\frac{1}{nx},\;\;\; D = (0, 3]& \\
         &\frac{1}{nx} \to 0 \implies \sin\frac{1}{nx} \sim \frac{1}{nx}
@@ -118,9 +140,10 @@
         \sup_D\norm{n\sin1 - n} \to +\infty \implies&\\
         &\implies \text{ Отсутствует равномерная сходимость.}&
     \end{flalign*}
-    \section*{Докажите неравномерную сходимость функциональной последовательности на
-    заданном множестве, применяя теорему Дини.}
-
+    
+    \section*{Докажите равномерную сходимость функциональной последовательности на заданном множестве, применяя
+    теорему Дини (о монотонной сходимости)}
+    
     \paragraph{Теорема Дини:} Если $f_n \to f$ на множестве одновременно выполнены следующие условия:
     \begin{enumerate}
         \item $D$ --- компакт
@@ -129,7 +152,8 @@
         \item $f$ --- непрерывна
     \end{enumerate}
     тогда $f_n$ равномерно сходится к $f$.
-    \subsection*{Задача 16.}
+    
+    \subsection*{Задача 16}
     \begin{flalign*}
         &f_n = \left( 1 + \frac{x}{n} \right)^n,\;\;\; D = [1, 2]& \\
         &
@@ -141,7 +165,8 @@
         \implies f_n\text{ равномерно сходится к } f \text{ по Т. Дини.}
         &
     \end{flalign*}
-    \subsection*{Задача 17.}
+    
+    \subsection*{Задача 17}
     \begin{flalign*}
         &f_n = nx^2e^{-nx},\;\;\; D = [1, +\infty)& \\
         &\text{Расширим } D \text{ до компакта}\colon D' = [1, +\infty]&\\
@@ -158,11 +183,18 @@
         \implies f_n\text{ равномерно сходится к } f \text{ по Т. Дини.}
         &
     \end{flalign*}
-    \section*{Докажите неравномерную сходимость функциональной последовательности на
-    заданном множестве, применяя локализацию особенности.}
-    \subsection*{Задача 20.}
+    
+    % \subsection*{Задача 18}
+    
+    % \subsection*{Задача 19}
+    
+    \section*{Докажите неравномерную сходимость функциональной последовательности на заданном множестве,
+    используя локализацию особенности.}
+    
     \paragraph{Теорема:}
     Если $f_n$ непрерывна, и на множестве $D$ равномерно сходится к $f$, то $f$ --- непрерывна.
+    
+    \subsection*{Задача 20}
     \begin{flalign*}
         &f_n(x) = \frac{1}{1 + nx},\;\;\; D = [0, 1]& \\
         &f_n(x) = \frac{1}{1 + nx} \to f(x) =
@@ -174,7 +206,14 @@
         \text{ т.к. } f \text{ разрывна в 0, то равномерная сходимость отсутствует.}
         &
     \end{flalign*}
-    \subsection*{Задача 24.}
+    
+    % \subsection*{Задача 21}
+    
+    % \subsection*{Задача 22}
+    
+    % \subsection*{Задача 23}
+    
+    \subsection*{Задача 24}
     \begin{flalign*}
         &f_n(x) = \frac{n^2}{4 + n^2x^2},\;\;\; D = (0, +\infty)& \\
         &\text{Добавим точку 0 в } D\colon D= [0, +\infty)& \\
@@ -187,4 +226,16 @@
         \text{ т.к. } f \text{ разрывна в 0, то равномерная сходимость отсутствует.}
         &
     \end{flalign*}
+    
+    % \subsection*{Задача 25}
+    
+    % \subsection*{Задача 26}
+    
+    % \subsection*{Задача 27}
+    
+    % \subsection*{Задача 28}
+    
+    % \subsection*{Задача 29}
+    
+
 \end{document}
