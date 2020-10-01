@@ -21,21 +21,79 @@
     \maketitle
     
     \section*{Вычислите бесконечное произведение как предел частичного}
-    % \subsection*{Задача 1}
+    \subsection*{Задача 1}
+    \begin{flalign*}
+        &\prod\limits_{n = 2}^{\infty}\left( 1 - \frac{1}{n^2} \right)& \\
+        &\prod\limits_{n = 2}^{N}\left( 1 - \frac{1}{n^2} \right) =
+        \prod\limits_{n = 2}^{N}\frac{n^2 - 1}{n^2} =
+        \prod\limits_{n = 2}^{N}\frac{(n - 1)(n + 1)}{n \cdot n} =
+        \frac{1 \cdot 3}{2 \cdot 2} \cdot \frac{2 \cdot 4}{3 \cdot 3} \cdot
+        \frac{3 \cdot 5}{4 \cdot 4} \cdot \ldots \cdot \frac{(N - 1) \cdot (N + 1)}{N \cdot N}
+        =\frac{N + 1}{2N} \to \frac{1}{2}
+    \end{flalign*}
     
-    % \subsection*{Задача 2}
+    \subsection*{Задача 2}
+    \begin{flalign*}
+        &\prod\limits_{n = 1}^{\infty} e^{\frac{(-1)^n}{n}}& \\
+        &\prod\limits_{n = 1}^{N} e^{\frac{(-1)^n}{n}} =
+        e^{\sum\limits_{n = 1}^{N} \frac{(-1)^n}{n}} = \Diamond& \\
+        &\ln n + \gamma + o(1) = 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{n}
+        \implies \frac{1}{2} \left( \ln n + \gamma + o(1) \right) =
+        \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2n}
+        \text{ --- чётные члены суммы } \sum\limits_{n = 1}^{N} \frac{(-1)^n}{n}& \\
+        &\ln (2n + 1) + \gamma + o(1) = 1 + \frac{1}{2} + \ldots + \frac{1}{2n + 1}
+        \implies \left( \ln (2n + 1) + \gamma + o(1) \right) -
+        \frac{1}{2} \left( \ln n + \gamma + o(1) \right) = &\\
+        &= 1 + \frac{1}{3} + \ldots + \frac{1}{2n + 1}
+        \text{ --- нечётные члены суммы } \sum\limits_{n = 1}^{N} \frac{1}{n}& \\
+        &\Diamond = e^{\frac{1}{2}\left( \ln n + \gamma + o(1) \right) -
+        \left( \ln (2n + 1) + \gamma + o(1) \right) -
+        \frac{1}{2} \left( \ln n + \gamma + o(1) \right)} =
+        e^{\frac{1}{2}\ln n + \frac{1}{2}\gamma + o(1) -
+        \ln (2n + 1) - \gamma + o(1) +
+        \frac{1}{2}\ln n + \frac{1}{2}\gamma + o(1)} =
+        e^{\ln n - \ln (2n +1) + o(1)} = &\\
+        &= e^{\ln\frac{n}{2n + 1} + o(1)} \to e^{\ln\frac{1}{2}} = \frac{1}{2}&
+    \end{flalign*}
     
     % \subsection*{Задача 3}
     
     \section*{Исследуйте бесконечное произведение на сходимость}
-    % \subsection*{Задача 4}
+    \subsection*{Задача 4}
+    \emph{Формулы Тейлора:}
+    \begin{flalign*}
+        &(1 + x)^a \sim 1 + x& \\
+        &\ln(1 + x) \sim x&
+    \end{flalign*}
+    \begin{flalign*}
+        &\prod\limits_{n = 1}^{\infty} \frac{n}{\sqrt{n^2 + 3}}& \\
+        &\prod\limits_{n = 1}^{N} \frac{n}{\sqrt{n^2 + 3}} =
+        e^{\ln\prod\limits_{n = 1}^{N} \frac{n}{\sqrt{n^2 + 3}}} =
+        e^{\sum\limits_{n = 1}^{N} \ln\frac{n}{\sqrt{n^2 + 3}}};\;\;\;\;\;\;
+        a_n = \ln\frac{n}{\sqrt{n^2 + 3}} =
+        \ln\left[ \left( 1 + \frac{3}{n^2} \right)^{-\frac{1}{2}} \right]
+        \sim \ln\left( 1 - \frac{3}{2n^2} \right) \sim -\frac{3}{2n^2}
+        \implies&\\
+        &\implies \text{ ряд сходится.}&
+    \end{flalign*}
     
     % \subsection*{Задача 5}
     
     % \subsection*{Задача 6}
     
     \section*{Исследуйте бесконечное произведение на сходимость и абсолютную сходимость}
-    % \subsection*{Задача 7}
+    \subsection*{Задача 7}
+    \begin{flalign*}
+        &\prod\limits_{n = 1}^{\infty} n^{\frac{(-1)^n}{n}} =
+        e^{\sum\limits_{n = 1}^{\infty} \ln n^{\frac{(-1)^n}{n}}};\;\;\;\;\;\;
+        \sum\limits_{n = 1}^{\infty} \frac{(-1)^n\ln n}{n}
+        \implies a_n = \frac{\ln n}{n} \to 0;&\\
+        &f(x) = \frac{\ln x}{x}
+        \implies f'(x) = -\frac{\ln x - 1}{x^2} < 0 \implies \text{ монотонно убывает }
+        \implies \text{ ряд сходится по Лейбницу}&\\
+        &|a_n| = \left| \frac{(-1)^n\ln n}{n} \right| \geq \frac{\ln 2}{n} \implies
+        \text{ряд расходится абсолютно.}&
+    \end{flalign*}
     
     % \subsection*{Задача 8}
     
@@ -43,9 +101,25 @@
  
     \section*{Исследуйте функциональную последовательность $f_n$ на равномерную сходимость к поточечному 
     пределу $f$ на множестве $D$, оценивая $\left\lVert f_n - f \right\rVert$.}
-    % \subsection*{Задача 10}
+    \subsection*{Задача 10}
+    \begin{flalign*}
+        &f_n(x) = \sin\frac{x}{n},\;\;\; D = [-1, 1]& \\
+        &f_n(x) = \sin\frac{x}{n} \to \sin0 = 0 \implies f \equiv 0& \\
+        &\sup_D\norm{\sin\frac{x}{n}} = \sin\frac{1}{n} \to 0 \implies
+        \text{ равномерная сходимость.}
+    \end{flalign*}
     
-    % \subsection*{Задача 11}
+    \subsection*{Задача 11}
+    \begin{flalign*}
+        &f_n(x) = x^n - x^{2n},\;\;\; D = [0, 1]& \\
+        &f_n(x) = x^n - x^{2n} \to 0 \implies f \equiv 0& \\
+        &\sup_D\norm{x^n - x^{2n}} = \Diamond& \\
+        &f_n'(x) = (x^n - x^{2n})' = nx^{n - 1} - 2nx^{2n - 1} = nx^{n - 1}(1 - 2x^n) = 0& \\
+        &\text{Критические точки: } x = 0, f_n(x) = 0;\;\;
+        x = \sqrt[n]{\frac{1}{2}}, f_n(x) = \frac{1}{4};\;\;
+        x = 1, f_n(x) = 0;&\\
+        &\Diamond = \frac{1}{4} \neq 0 \implies \text{ отсутствие равномерной сходимости.}
+    \end{flalign*}
     
     % \subsection*{Задача 12}
     
@@ -53,13 +127,62 @@
     
     % \subsection*{Задача 14}
     
-    % \subsection*{Задача 15}
+    \subsection*{Задача 15}
+    \begin{flalign*}
+        &f_n(x) = n\sim\frac{1}{nx},\;\;\; D = (0, 3]& \\
+        &\frac{1}{nx} \to 0 \implies \sin\frac{1}{nx} \sim \frac{1}{nx}
+        \implies f_n(x) \sim \frac{1}{x} \implies f(x) = \frac{1}{x}& \\
+        &\text{Расширим } D \text{ до компакта: } D = [0, 3]& \\
+        &\sup_D\norm{n\sin\frac{1}{nx} - \frac{1}{x}}& \\
+        &\text{Возьмём последовательность аргументов } x_n = \frac{1}{n}
+        \in D\text{. Тогда }
+        \sup_D\norm{n\sin\frac{1}{nx} - \frac{1}{x}} \geq
+        \sup_D\norm{n\sin1 - n} \to +\infty \implies&\\
+        &\implies \text{ Отсутствует равномерная сходимость.}&
+    \end{flalign*}
     
     \section*{Докажите равномерную сходимость функциональной последовательности на заданном множестве, применяя
     теорему Дини (о монотонной сходимости)}
-    % \subsection*{Задача 16}
     
-    % \subsection*{Задача 17}
+    \paragraph{Теорема Дини:} Если $f_n \to f$ на множестве одновременно выполнены следующие условия:
+    \begin{enumerate}
+        \item $D$ --- компакт
+        \item $f_n$ --- монотонна
+        \item $f_n$ --- непрерывна
+        \item $f$ --- непрерывна
+    \end{enumerate}
+    тогда $f_n$ равномерно сходится к $f$.
+    
+    \subsection*{Задача 16}
+    \begin{flalign*}
+        &f_n = \left( 1 + \frac{x}{n} \right)^n,\;\;\; D = [1, 2]& \\
+        &
+        \begin{cases}
+            f_n \text{ --- непрерывна, монотонна}\\
+            D = [1, 2] \text{ --- компакт}\\
+            f_n \to f(x) = e^x \text{ --- непрерывна}
+        \end{cases}
+        \implies f_n\text{ равномерно сходится к } f \text{ по Т. Дини.}
+        &
+    \end{flalign*}
+    
+    \subsection*{Задача 17}
+    \begin{flalign*}
+        &f_n = nx^2e^{-nx},\;\;\; D = [1, +\infty)& \\
+        &\text{Расширим } D \text{ до компакта}\colon D' = [1, +\infty]&\\
+        &f_n' = 2nx \cdot e^{-nx} + nx^2(-n) \cdot e^{-nx} = nxe^{-nx}(2 - nx) = 0 \implies
+        \text{при } n \geq 2,\;\; x \geq \frac{2}{n},\;\;\;\; f_n' \leq 0 \implies
+        f_n \text{ --- монотонна.}
+        & \\
+        &\begin{cases}
+             f_n \text{ --- монотонна}\\
+             f_n \text{ --- непрерывна}\\
+             f_n \to 0 \text{ --- непрерывна}\\
+             D' = [1, +\infty] \text{ --- компакт}
+        \end{cases}
+        \implies f_n\text{ равномерно сходится к } f \text{ по Т. Дини.}
+        &
+    \end{flalign*}
     
     % \subsection*{Задача 18}
     
@@ -67,7 +190,22 @@
     
     \section*{Докажите неравномерную сходимость функциональной последовательности на заданном множестве,
     используя локализацию особенности.}
-    % \subsection*{Задача 20}
+    
+    \paragraph{Теорема:}
+    Если $f_n$ непрерывна, и на множестве $D$ равномерно сходится к $f$, то $f$ --- непрерывна.
+    
+    \subsection*{Задача 20}
+    \begin{flalign*}
+        &f_n(x) = \frac{1}{1 + nx},\;\;\; D = [0, 1]& \\
+        &f_n(x) = \frac{1}{1 + nx} \to f(x) =
+        \begin{cases}
+            1, &x = 0\\
+            0, &x \neq 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, то равномерная сходимость отсутствует.}
+        &
+    \end{flalign*}
     
     % \subsection*{Задача 21}
     
@@ -75,7 +213,19 @@
     
     % \subsection*{Задача 23}
     
-    % \subsection*{Задача 24}
+    \subsection*{Задача 24}
+    \begin{flalign*}
+        &f_n(x) = \frac{n^2}{4 + n^2x^2},\;\;\; D = (0, +\infty)& \\
+        &\text{Добавим точку 0 в } D\colon D= [0, +\infty)& \\
+        &f_n(x) = \frac{n^2}{4 + n^2x^2} \to f(x) =
+        \begin{cases}
+            \frac{1}{x^2}, &x \neq 0\\
+            +\infty, &x = 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, то равномерная сходимость отсутствует.}
+        &
+    \end{flalign*}
     
     % \subsection*{Задача 25}
     
