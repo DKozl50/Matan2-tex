@@ -176,12 +176,15 @@
         & a_n = \frac{\sin n}{\sqrt{n} + \sin n} =
         1 - \frac{\sqrt{n}}{\sqrt{n} + \sin n} = 
         1 - \frac{1}{1 + \frac{\sin n}{\sqrt{n}}} = \\
-        & \text{По формуле Тейлора для $(1 + x)^{1/2}$: } \\
-        & a_n = 1 - 1 - \frac{1}{2 \left( 1 + \frac{\sin n}{\sqrt{n}} \right)}
-         + o\left( \frac{1}{1 + \frac{\sin n}{\sqrt{n}}} \right)
-         \xrightarrow{n \to \infty} \frac12 \ne 0 \; \Rightarrow \\
+        & \text{По формуле Тейлора для $(1 + x)^{-1/2}$: } \\
+        & a_n = 1 - 1 + \frac12 \left( 1 + \frac{\sin n}{\sqrt{n}} \right)
+         - \frac34 \left( 1 + \frac{2\sin n}{\sqrt{n}} + \frac{\sin^2 n}{n} \right)
+         + o\left( \frac{1}{n} \right) \sim \\
+        & \sim \underbrace{\frac{\sin n}{\sqrt{n}}}_{\text{сходится}}
+         + \underbrace{\frac{\sin^2 n}{n}}_{\text{расходится}}
+         + o\left( \frac{1}{n^{3/2}} \right) \; \Rightarrow \\
         & \Rightarrow \; \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{\sin n}{\sqrt{n} + \sin n} \right)  
-        \text{ расходится, т.к. не выполнено необходимое условие сходимости } \implies \\
+        \text{ расходится по признаку сравнения} \implies \\
         & \implies \prod\limits_{n = 1}^{\infty} \frac{\sqrt{n}}{\sqrt{n} + \sin n} \; \text{ расходится}
     \end{flalign*}
  
@@ -207,7 +210,20 @@
         &\Diamond = \frac{1}{4} \neq 0 \implies \text{ отсутствие равномерной сходимости.}
     \end{flalign*}
     
-    % \subsection*{Задача 12}
+    \subsection*{Задача 12}
+    \begin{flalign*}
+        & f_n(x) = n \ln \left( 1 + \frac{x}n \right), \;\;\; D = [0, 3]& \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} n \ln \left( 1 + \frac{x}n \right) =
+        \lim_{n \to \infty} n \, \frac{x}n = x \implies f \equiv x \implies \\
+        & \implies \text{ функциональная последовательность $f_n(x)$ сходится поточечно к $f(x) = x$} \\
+        & \sup_D \norm{n \ln \left( 1 + \frac{x}n \right) - x} = \Diamond& \\
+        & (f_n(x) - f(x))' = \left(n \ln \left( 1 + \frac{x}n \right) - x \right)' = 
+        n \, \frac{x/n}{1 + x/n} - 1 = \frac{x}{1 + x/n} - 1& \\
+        & \text{Критические точки: } \\
+        & x = 1 + \frac{x}n \; \Leftrightarrow \; x = \frac{n}{n-1} \to 1, \; 1 \in D, \;
+        f_n(1) = n \ln \left( 1 + \frac{1}n \right) \sim n \, \frac1n = 1 \ne 0 \\
+        & \Diamond = 1 \neq 0 \implies \text{ отсутствие равномерной сходимости}
+    \end{flalign*}
     
     % \subsection*{Задача 13}
     
