@@ -166,7 +166,24 @@
         \text{ сходится условно}
     \end{flalign*}
     
-    % \subsection*{Задача 9}
+    \subsection*{Задача 9}
+    \begin{flalign*}
+        & \prod\limits_{n = 1}^{\infty} \frac{\sqrt{n}}{\sqrt{n} + \sin n} =
+        e^{\, \sum\limits_{n = 1}^{\infty} \ln \frac{\sqrt{n}}{\sqrt{n} + \sin n}} =
+        e^{\, \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{\sin n}{\sqrt{n} + \sin n} \right)} \\
+        & \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{\sin n}{\sqrt{n} + \sin n} \right) \sim
+        -\sum\limits_{n = 1}^{\infty} \frac{\sin n}{\sqrt{n} + \sin n}, \\
+        & a_n = \frac{\sin n}{\sqrt{n} + \sin n} =
+        1 - \frac{\sqrt{n}}{\sqrt{n} + \sin n} = 
+        1 - \frac{1}{1 + \frac{\sin n}{\sqrt{n}}} = \\
+        & \text{По формуле Тейлора для $(1 + x)^{1/2}$: } \\
+        & a_n = 1 - 1 - \frac{1}{2 \left( 1 + \frac{\sin n}{\sqrt{n}} \right)}
+         + o\left( \frac{1}{1 + \frac{\sin n}{\sqrt{n}}} \right)
+         \xrightarrow{n \to \infty} \frac12 \ne 0 \; \Rightarrow \\
+        & \Rightarrow \; \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{\sin n}{\sqrt{n} + \sin n} \right)  
+        \text{ расходится, т.к. не выполнено необходимое условие сходимости } \implies \\
+        & \implies \prod\limits_{n = 1}^{\infty} \frac{\sqrt{n}}{\sqrt{n} + \sin n} \; \text{ расходится}
+    \end{flalign*}
  
     \section*{Исследуйте функциональную последовательность $f_n$ на равномерную сходимость к поточечному 
     пределу $f$ на множестве $D$, оценивая $\left\lVert f_n - f \right\rVert$.}
