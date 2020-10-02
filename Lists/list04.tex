@@ -212,20 +212,35 @@
     
     \subsection*{Задача 12}
     \begin{flalign*}
-        & f_n(x) = n \ln \left( 1 + \frac{x}n \right), \;\;\; D = [0, 3]& \\
+        & f_n(x) = n \ln \left( 1 + \frac{x}n \right), \;\;\; D = [0, 3] \\
         & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} n \ln \left( 1 + \frac{x}n \right) =
         \lim_{n \to \infty} n \, \frac{x}n = x \implies f \equiv x \implies \\
         & \implies \text{ функциональная последовательность $f_n(x)$ сходится поточечно к $f(x) = x$} \\
-        & \sup_D \norm{n \ln \left( 1 + \frac{x}n \right) - x} = \Diamond& \\
+        & \sup_D \norm{f_n(x) - f(x)} =
+        \sup_D \norm{n \ln \left( 1 + \frac{x}n \right) - x} = \Diamond \\
         & (f_n(x) - f(x))' = \left(n \ln \left( 1 + \frac{x}n \right) - x \right)' = 
-        n \, \frac{x/n}{1 + x/n} - 1 = \frac{x}{1 + x/n} - 1& \\
+        n \, \frac{x/n}{1 + x/n} - 1 = \frac{x}{1 + x/n} - 1 \\
         & \text{Критические точки: } \\
         & x = 1 + \frac{x}n \; \Leftrightarrow \; x = \frac{n}{n-1} \to 1, \; 1 \in D, \;
         f_n(1) = n \ln \left( 1 + \frac{1}n \right) \sim n \, \frac1n = 1 \ne 0 \\
         & \Diamond = 1 \neq 0 \implies \text{ отсутствие равномерной сходимости}
     \end{flalign*}
     
-    % \subsection*{Задача 13}
+    \subsection*{Задача 13}
+    \begin{flalign*}
+        & f_n(x) = \frac{2nx}{1  +n^2 x^2}, \;\;\; D = [0, 1] \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{2nx}{1  +n^2 x^2} =
+        [\text{ Правило Лопиталя }] \lim_{n \to \infty} \frac{2x}{2nx^2} = 0 \implies f \equiv 0 \implies \\
+        & \implies \text{ функциональная последовательность $f_n(x)$ сходится поточечно к $f(x) = 0$} \\
+        & \sup_D \norm{f_n(x) - f(x)} = \sup_D \norm{\frac{2nx}{1  +n^2 x^2}} = \Diamond \\
+        & (f_n(x) - f(x))' = \left( \frac{2nx}{1  +n^2 x^2} \right)' = 
+        \frac{2n \left( 1 +n^2 x^2 \right) - 4n^3x^2}{(1 +n^2 x^2)^2} = 
+        \frac{2n(1 - n^2 x^2)}{(1 +n^2 x^2)^2} \\
+        & \text{Критические точки: } \\
+        & n^2 x^2 = 1 \; \Leftrightarrow \; x = \pm \frac{1}{n} \to 0, \; 0 \in D, \;
+        f_n(0) = 0 \\
+        & \Diamond = 0 \implies \text{ сходимость равномерная}
+    \end{flalign*}
     
     % \subsection*{Задача 14}
     
