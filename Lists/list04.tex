@@ -145,7 +145,26 @@
         \text{ряд расходится абсолютно.}&
     \end{flalign*}
     
-    % \subsection*{Задача 8}
+    \subsection*{Задача 8}
+    \begin{flalign*}
+        & \prod\limits_{n = 1}^{\infty} \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right) =
+        e^{\, \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right)} \\
+        & \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right) \sim
+        \sum\limits_{n = 1}^{\infty} \frac{(-1)^{n+1}}{\sqrt[3]{n^2 + 2}} 
+        \text{ --- знакочередующийся ряд}, \;\;\;
+        a_n = \frac{1}{\sqrt[3]{n^2 + 2}} \\
+        & \text{Проверим монотонность $|a_n|$: } f(n) = \frac{1}{\sqrt[3]{n^2 + 2}}, \;\;
+        f'(n) = -\frac{2n}{3(n^2 + 2)^{4/3}} < 0 \text{ и $f(n)$ монотонно убывает при } n > 0, \\
+        & \lim_{n \to \infty} |a_n| = \frac{1}{\sqrt[3]{n^2 + 2}} = 0 \implies
+        \text{ряд сходится по Лейбницу} \\
+        & \sum\limits_{n = 1}^{\infty} \left| \frac{(-1)^{n+1}}{\sqrt[3]{n^2 + 2}} \right| =
+        \sum\limits_{n = 1}^{\infty} \frac{1}{\sqrt[3]{n^2 + 2}} 
+        \text{ расходится по признаку сравнения с $\sum\limits_{n=1}^{\infty} \frac1n$} \implies \\
+        & \implies \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right) 
+        \text{расходится абсолютно} \implies \\
+        & \implies \prod\limits_{n = 1}^{\infty} \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right)
+        \text{ сходится условно}
+    \end{flalign*}
     
     % \subsection*{Задача 9}
  
