@@ -166,7 +166,7 @@
         \text{ сходится условно}
     \end{flalign*}
     
-    \subsection*{Задача 9}
+    \subsection*{Задача 9 (лажа, не смотреть)}
     \begin{flalign*}
         & \prod\limits_{n = 1}^{\infty} \frac{\sqrt{n}}{\sqrt{n} + \sin n} =
         e^{\, \sum\limits_{n = 1}^{\infty} \ln \frac{\sqrt{n}}{\sqrt{n} + \sin n}} =
@@ -242,7 +242,21 @@
         & \Diamond = 0 \implies \text{ сходимость равномерная}
     \end{flalign*}
     
-    % \subsection*{Задача 14}
+    \subsection*{Задача 14 (не написана, не смотреть)}
+    \begin{flalign*}
+        & f_n(x) = \frac{nx^2}{n + x}, \;\;\; D = [0, 2] \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{nx^2}{n + x} =
+        [\text{ Правило Лопиталя }] \lim_{n \to \infty} \frac{x^2}{1} \implies f \equiv x^2 \implies \\
+        & \implies \text{ функциональная последовательность $f_n(x)$ сходится поточечно к $f(x) = x^2$} \\
+        & \sup_D \norm{f_n(x) - f(x)} = \sup_D \norm{\frac{nx^2}{n + x} - x^2} = \Diamond \\
+        & (f_n(x) - f(x))' = \left( \frac{nx^2}{n + x} - x^2 \right)' = 
+        \frac{2n \left( 1 +n^2 x^2 \right) - 4n^3x^2}{(1 +n^2 x^2)^2} = 
+        \frac{2n(1 - n^2 x^2)}{(1 +n^2 x^2)^2} \\
+        & \text{Критические точки: } \\
+        & n^2 x^2 = 1 \; \Leftrightarrow \; x = \pm \frac{1}{n} \to 0, \; 0 \in D, \;
+        f_n(0) = 0 \\
+        & \Diamond = 0 \implies \text{ сходимость равномерная}
+    \end{flalign*}
     
     \subsection*{Задача 15}
     \begin{flalign*}
