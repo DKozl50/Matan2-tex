@@ -313,9 +313,9 @@
     
     \subsection*{Задача 18}
     \begin{flalign*}
-        & f_n = \cos \, \frac{x^2}{n}, \;\;\; D = (0, 1] \\
+        & f_n(x) = \cos \, \frac{x^2}{n}, \;\;\; D = (0, 1] \\
         &\text{Расширим } D \text{ до компакта}\colon D' = [0, 1] \\
-        &f_n' = -\frac{2x}n\, \sin \frac{x^2}{n} \le 0 \text{ при } x \in D', \, n \in \NN \implies
+        &f_n'(x) = -\frac{2x}n\, \sin \frac{x^2}{n} \le 0 \text{ при } x \in D', \, n \in \NN \implies
         f_n \text{ --- монотонна} \\
         & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \cos \, \frac{x^2}{n} = 1 \implies f_n(x) \to f(x) = 1 \\[10 pt]
         &\begin{cases}
@@ -327,7 +327,23 @@
         \implies f_n \text{ равномерно сходится к } f \text{ по Т. Дини.}
     \end{flalign*}
     
-    % \subsection*{Задача 19}
+    \subsection*{Задача 19}
+    \begin{flalign*}
+        & f_n(x) = \sqrt[2n]{1 + x^n}, \;\;\; D = [0, 1] \\
+        &f_n(x) = \sqrt[2n]{1 + x^n} = \sqrt[2n]{g(x)}, \; g(x) = 1 + x^n \text{ --- монотонная} \implies
+        f_n(x) \text{ --- монотонна} \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \sqrt[2n]{1 + x^n} = 
+        \lim_{n \to \infty} e^{\frac{\ln(1 + x^n)}{2n}} = e^{\lim\limits_{n \to \infty} \frac{\ln(1 + x^n)}{2n}} = \\
+        & = [\text{ Правило Лопиталя }] \; e^{\lim\limits_{n \to \infty} \frac{\frac{x^n \, \ln x}{1 + x^n}}{2}} = 
+        e^{\lim\limits_{n \to \infty} \frac{\ln x}{2}} = \sqrt{x} \implies f_n(x) \to f(x) = \sqrt{x} \\[10 pt]
+        &\begin{cases}
+             f_n \text{ --- монотонна}\\
+             f_n \text{ --- непрерывна}\\
+             f \text{ --- непрерывна}\\
+             D = \text{ --- компакт}
+        \end{cases}
+        \implies f_n \text{ равномерно сходится к } f \text{ по Т. Дини.}
+    \end{flalign*}
     
     \section*{Докажите неравномерную сходимость функциональной последовательности на заданном множестве,
     используя локализацию особенности.}
