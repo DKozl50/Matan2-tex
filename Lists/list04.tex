@@ -364,7 +364,20 @@
         &
     \end{flalign*}
     
-    % \subsection*{Задача 21}
+    \subsection*{Задача 21}
+    \begin{flalign*}
+        & f_n(x) = \sqrt[n]{x \sin x},\;\;\; D = \left[ 0, \frac{\pi}2 \right]& \\
+        & \lim_{n\to\infty} f_n(x) = \lim_{n\to\infty} \sqrt[n]{x \sin x} = 
+        \lim_{n\to\infty} e^{\frac{\ln (x \sin x)}n} = e^{\lim\limits_{n\to\infty} \frac{\ln (x \sin x)}n} = 1 \implies \\
+        & \implies f_n(x) \to f(x) =
+        \begin{cases}
+            0, &x = 0\\
+            1, &x \neq 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, равномерная сходимость отсутствует.}
+        &
+    \end{flalign*}
     
     % \subsection*{Задача 22}
     
