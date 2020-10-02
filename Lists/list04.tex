@@ -366,20 +366,31 @@
     
     \subsection*{Задача 21}
     \begin{flalign*}
-        & f_n(x) = \sqrt[n]{x \sin x},\;\;\; D = \left[ 0, \frac{\pi}2 \right]& \\
+        & f_n(x) = \sqrt[n]{x \sin x},\;\;\; D = \left[ 0, \frac{\pi}2 \right] \\
         & \lim_{n\to\infty} f_n(x) = \lim_{n\to\infty} \sqrt[n]{x \sin x} = 
         \lim_{n\to\infty} e^{\frac{\ln (x \sin x)}n} = e^{\lim\limits_{n\to\infty} \frac{\ln (x \sin x)}n} = 1 \implies \\
         & \implies f_n(x) \to f(x) =
         \begin{cases}
-            0, &x = 0\\
-            1, &x \neq 0
+            0, & x = 0\\
+            1, & x \neq 0
         \end{cases}
         \implies
-        \text{ т.к. } f \text{ разрывна в 0, равномерная сходимость отсутствует.}
-        &
+        \text{ т.к. } f \text{ разрывна в 0, равномерная сходимость отсутствует}
     \end{flalign*}
     
-    % \subsection*{Задача 22}
+    \subsection*{Задача 22}
+    \begin{flalign*}
+        & f_n(x) = \arcsin \frac{nx}{1 + nx},\;\;\; D = \left[ 0, 1 \right] \\
+        & \lim_{n\to\infty} f_n(x) = \lim_{n\to\infty} \arcsin \frac{nx}{1 + nx} = 
+        \lim_{n\to\infty} \arcsin \left( 1 - \frac{1}{1 + nx} \right) = \arcsin 1 = \frac{\pi}2 \implies \\
+        & \implies f_n(x) \to f(x) =
+        \begin{cases}
+            0, & x = 0\\[5 pt]
+            \frac{\pi}2, & x \neq 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, равномерная сходимость отсутствует}
+    \end{flalign*}
     
     % \subsection*{Задача 23}
     
