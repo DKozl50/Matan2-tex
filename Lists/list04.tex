@@ -166,25 +166,19 @@
         \text{ сходится условно}
     \end{flalign*}
     
-    \subsection*{Задача 9 (лажа, не смотреть)}
+    \subsection*{Задача 9}
     \begin{flalign*}
         & \prod\limits_{n = 1}^{\infty} \frac{\sqrt{n}}{\sqrt{n} + \sin n} =
-        e^{\, \sum\limits_{n = 1}^{\infty} \ln \frac{\sqrt{n}}{\sqrt{n} + \sin n}} =
-        e^{\, \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{\sin n}{\sqrt{n} + \sin n} \right)} \\
-        & \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{\sin n}{\sqrt{n} + \sin n} \right) \sim
-        -\sum\limits_{n = 1}^{\infty} \frac{\sin n}{\sqrt{n} + \sin n}, \\
-        & a_n = \frac{\sin n}{\sqrt{n} + \sin n} =
-        1 - \frac{\sqrt{n}}{\sqrt{n} + \sin n} = 
-        1 - \frac{1}{1 + \frac{\sin n}{\sqrt{n}}} = \\
-        & \text{По формуле Тейлора для $(1 + x)^{-1/2}$: } \\
-        & a_n = 1 - 1 + \frac12 \left( 1 + \frac{\sin n}{\sqrt{n}} \right)
-         - \frac34 \left( 1 + \frac{2\sin n}{\sqrt{n}} + \frac{\sin^2 n}{n} \right)
-         + o\left( \frac{1}{n} \right) \sim \\
-        & \sim \underbrace{\frac{\sin n}{\sqrt{n}}}_{\text{сходится}}
-         + \underbrace{\frac{\sin^2 n}{n}}_{\text{расходится}}
-         + o\left( \frac{1}{n^{3/2}} \right) \; \Rightarrow \\
-        & \Rightarrow \; \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{\sin n}{\sqrt{n} + \sin n} \right)  
-        \text{ расходится по признаку сравнения} \implies \\
+        e^{\, \sum\limits_{n = 1}^{\infty} \ln \frac{\sqrt{n}}{\sqrt{n} + \sin n}} \\
+        & \sum\limits_{n = 1}^{\infty} \ln \frac{\sqrt{n}}{\sqrt{n} + \sin n} =
+        \sum\limits_{n = 1}^{\infty} -\ln \left( 1 + \frac{\sin n}{\sqrt{n}} \right) =
+        -\sum\limits_{n = 1}^{\infty} 
+        \left( \frac{\sin n}{\sqrt{n}} - \frac{\sin^2 n}{2n} + o\left( \frac{\sin^3 n}{n^{3/2}} \right) \right) = \\
+        & = -\sum\limits_{n = 1}^{\infty} 
+        \left( \underbrace{\frac{\sin n}{\sqrt{n}}}_{\text{сходится}} - \underbrace{\frac{1}{4n}}_{\text{расходится}}
+        + \underbrace{\frac{\cos 2n}{4n}}_{\text{сходится}}
+        + \underbrace{o\left( \frac{\sin^3 n}{n^{3/2}} \right)}_{\text{сходится}} \right) 
+        \text{ расходится } \implies \\
         & \implies \prod\limits_{n = 1}^{\infty} \frac{\sqrt{n}}{\sqrt{n} + \sin n} \; \text{ расходится}
     \end{flalign*}
  
