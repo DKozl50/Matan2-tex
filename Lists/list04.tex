@@ -93,7 +93,18 @@
         &\implies \text{ ряд сходится.}&
     \end{flalign*}
     
-    % \subsection*{Задача 5}
+    \subsection*{Задача 5}
+    \begin{flalign*}
+        & \prod\limits_{n = 1}^{\infty} \left( 2 - \sqrt[n]n \right) \\
+        & \prod\limits_{n = 1}^{N} \left( 2 - \sqrt[n]{n} \right) =
+        e^{\ln \prod\limits_{n = 1}^{N} \left( 2 - \sqrt[n]{n} \right)} =
+        e^{\, \sum\limits_{n = 1}^{N} \ln \left( 2 - \sqrt[n]{n} \right)} \\
+        & a_n = \ln \left( 2 - \sqrt[n]{n} \right) = \ln \left( 1 + \left( 1 - \sqrt[n]{n} \right) \right); \\
+        & \lim_{n \to \infty} a_n = \lim_{n \to \infty} \ln \left( 1 + \left( 1 - \sqrt[n]{n} \right) \right) = 
+        \lim_{n \to \infty} \left( 1 - \sqrt[n]{n} \right) = 0 \\
+        & \lim_{n \to \infty} a_n = 0
+        \implies \text{ ряд расходится к 0}
+    \end{flalign*}
     
     % \subsection*{Задача 6}
     
