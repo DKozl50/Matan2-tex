@@ -119,7 +119,7 @@
         & \prod\limits_{n = 1}^{\infty} \cos \left( \text{arcctg}\, n \right) \\
         & \cos \left( \text{arcctg}\, n \right) = 
         \ctg \left( \text{arcctg}\, n \right) \, \sin \left( \text{arcctg}\, n \right) =
-        n \sqrt{\, 1 - \cos \left( \text{arcctg}\, n \right)} \; \Leftrightarrow \; \\
+        n \sqrt{\, 1 - \cos^2 \left( \text{arcctg}\, n \right)} \; \Leftrightarrow \; \\
         & \Leftrightarrow \; \cos \left( \text{arcctg}\, n \right) = \frac{n}{\sqrt{1 + n^2}} \\
         & \prod\limits_{n = 1}^{N} \cos \left( \text{arcctg}\, n \right) =
         \prod\limits_{n = 1}^{N} \frac{n}{\sqrt{1 + n^2}} =
@@ -311,7 +311,21 @@
         &
     \end{flalign*}
     
-    % \subsection*{Задача 18}
+    \subsection*{Задача 18}
+    \begin{flalign*}
+        & f_n = \cos \, \frac{x^2}{n}, \;\;\; D = (0, 1] \\
+        &\text{Расширим } D \text{ до компакта}\colon D' = [0, 1] \\
+        &f_n' = -\frac{2x}n\, \sin \frac{x^2}{n} \le 0 \text{ при } x \in D', \, n \in \NN \implies
+        f_n \text{ --- монотонна} \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \cos \, \frac{x^2}{n} = 1 \implies f_n(x) \to f(x) = 1 \\[10 pt]
+        &\begin{cases}
+             f_n \text{ --- монотонна}\\
+             f_n \text{ --- непрерывна}\\
+             f \text{ --- непрерывна}\\
+             D' = [0, 1] \text{ --- компакт}
+        \end{cases}
+        \implies f_n \text{ равномерно сходится к } f \text{ по Т. Дини.}
+    \end{flalign*}
     
     % \subsection*{Задача 19}
     
