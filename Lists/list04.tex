@@ -99,14 +99,30 @@
         & \prod\limits_{n = 1}^{N} \left( 2 - \sqrt[n]{n} \right) =
         e^{\ln \prod\limits_{n = 1}^{N} \left( 2 - \sqrt[n]{n} \right)} =
         e^{\, \sum\limits_{n = 1}^{N} \ln \left( 2 - \sqrt[n]{n} \right)} \\
-        & a_n = \ln \left( 2 - \sqrt[n]{n} \right) = \ln \left( 1 + \left( 1 - \sqrt[n]{n} \right) \right); \\
-        & \lim_{n \to \infty} a_n = \lim_{n \to \infty} \ln \left( 1 + \left( 1 - \sqrt[n]{n} \right) \right) = 
-        \lim_{n \to \infty} \left( 1 - \sqrt[n]{n} \right) = 0 \\
-        & \lim_{n \to \infty} a_n = 0
-        \implies \text{ ряд расходится к 0}
+        & a_n = \ln \left( 2 - \sqrt[n]{n} \right) = \ln \left( 1 + \left( 1 - \sqrt[n]{n} \right) \right)
+        \sim \left( 1 - \sqrt[n]{n} \right) = -\left( e^{\frac{\ln n}n} - 1 \right); \\
+        & \text{нет, ребята, это жестко, } \\
+        & \implies \text{ но ряд расходится к 0}
     \end{flalign*}
     
-    % \subsection*{Задача 6}
+    \subsection*{Задача 6}
+    \begin{flalign*}
+        & \prod\limits_{n = 1}^{\infty} \cos \left( \text{arcctg}\, n \right) \\
+        & \cos \left( \text{arcctg}\, n \right) = 
+        \ctg \left( \text{arcctg}\, n \right) \, \sin \left( \text{arcctg}\, n \right) =
+        n \sqrt{\, 1 - \cos \left( \text{arcctg}\, n \right)} \; \Leftrightarrow \; \\
+        & \Leftrightarrow \; \cos \left( \text{arcctg}\, n \right) = \frac{n}{\sqrt{1 + n^2}} \\
+        & \prod\limits_{n = 1}^{N} \cos \left( \text{arcctg}\, n \right) =
+        \prod\limits_{n = 1}^{N} \frac{n}{\sqrt{1 + n^2}} =
+        e^{\ln \prod\limits_{n = 1}^{N} \frac{n}{\sqrt{1 + n^2}}} =
+        e^{\, \sum\limits_{n = 1}^{N} \ln \frac{n}{\sqrt{1 + n^2}}} \\
+        & a_n = \ln \frac{n}{\sqrt{1 + n^2}} = \frac12 \ln \left( 1 - \frac{1}{1 + n^2} \right) \sim
+        -\frac{1}{2(1 + n^2)} \to 0 \text{ при } n \to \infty\\
+%        & \lim_{n \to \infty} a_n = \lim_{n \to \infty} \ln \left( 1 + \left( 1 - \sqrt[n]{n} \right) \right) = 
+%        \lim_{n \to \infty} \left( 1 - \sqrt[n]{n} \right) = 0 \\
+%        & \lim_{n \to \infty} a_n = 0
+%        \implies \text{ ряд расходится к 0}
+   \end{flalign*}
     
     \section*{Исследуйте бесконечное произведение на сходимость и абсолютную сходимость}
     \subsection*{Задача 7}
