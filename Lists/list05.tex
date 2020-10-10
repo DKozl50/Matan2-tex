@@ -47,6 +47,11 @@
     
     \section*{Пользуясь локализацией особенности, покажите, что ряд сходится на множестве $D$ неравномерно.}
     % \subsection*{Задача 11}
+    \subsection*{Задача 11}
+    $\sum\limits_{n = 1}^{\infty} \frac{\sqrt[n]{x}}{1 + x^n}, \; \; \; D = (1, +\infty)$ \\
+    В качестве последовательности $x_n$ возьмём $1 + \frac{1}{n}$. Тогда \\
+    $\sup\limits_{x \in D} \left| \frac{\sqrt[n]{x}}{1 + x^n} - 0 \right| \geq \left| \frac{(1 + \frac{1}{n})^{\frac{1}{n}}}{1 + (1 + \frac{1}{n})^n} - 0 \right| = \left| \frac{((1 + \frac{1}{n})^n)^{\frac{1}{n^2}}}{1 + (1 + \frac{1}{n})^n} \right| \rightarrow \frac{e^{\frac{1}{n^2}}}{1 + e} \rightarrow \frac{1}{1 + e} \neq 0 \implies$ нарушено необходимое условие равномерной сходимости $\implies$ ряд не является равномерно сходящимся. \\
+
     
     % \subsection*{Задача 12}
     
@@ -56,6 +61,11 @@
     
     \section*{Пользуясь критерием Коши, покажите, что ряд сходится на множестве $D$ неравномерно.}
     % \subsection*{Задача 15}
+    \subsection*{Задача 15}
+    $\sum\limits_{n = 1}^{\infty} \frac{1}{1 + n^3x^3}, \; \; \; D = [0, 1]$ \\
+    Возьмём $x_n = \frac{1}{n}, \; m_n = 2n$. Тогда \\
+    $\sum\limits_{k = n}^{2n} \frac{\frac{1}{n}}{1 + (\frac{k}{n})^3} \geq \frac{1}{9} = \varepsilon$ \\
+    Таким образом, по отрицанию критерия Коши, ряд не является сходящимся равномерно. \\
     
     % \subsection*{Задача 16}
     
@@ -65,7 +75,10 @@
     
     \section*{Пользуясь признаком Вейрштрасса, покажите, что ряд сходится на множестве $D$ равномерно.}
     % \subsection*{Задача 19}
-    
+    \subsection*{Задача 19}
+    $\sum\limits_{n = 1}^{\infty} \frac{1}{x^2 + nx + n^2}, \; \; \; D = (0, +\infty)$ \\
+    $\left| \frac{1}{x^2 + nx + n^2} \right| \leq \frac{1}{n^2} - $ сходится как канонический ряд $\implies$ исходный ряд сходится по признаку Вейерштрасса. \\
+
     % \subsection*{Задача 20}
     
     % \subsection*{Задача 21}
@@ -75,13 +88,22 @@
     \section*{Пользуясь признаком Лейбница, покажите, что знакочередующийся ряд сходится на множестве $D$
         равномерно.}
     % \subsection*{Задача 23}
-    
+    \subsection*{Задача 23}
+    $\sum\limits_{n = 1}^{\infty} \frac{(-1)^n}{n + x^4}, \; \; \; D = \mathbb{R}$ \\
+    $\sup\limits_{x \in D} \left| \frac{1}{x^4 + n} \right| = \left| \frac{1}{n} \right| \rightarrow 0 \implies \frac{1}{x^4 + n} \stackrel{D}{\rightrightarrows} 0 \bigg| \implies$ сходится равномерно по Лейбницу.\\
+   
     % \subsection*{Задача 24}
     
     \section*{Пользуясь признаком Дирихле или Абеля, покажите, что ряд сходится на множестве $D$ равномерно.}
     % \subsection*{Задача 25}
+    \subsection*{Задача 25}
+    $\sum\limits_{n = 1}^{\infty} \frac{(-1)^n \cdot ln\; n}{n + x}, \; \; \; D = [1, +\infty)$ \\
+    $\begin{cases} |x| \leq 1 \implies x^{2n} \text{ монотонна (либо константно }1,\text{ либо монотонно убывает к }0) \\ \frac{(-1)^n}{2n - 1} - \text{ сходится по Лейбницу} \end{cases} \bigg| \implies $ сходится равномерно по Абелю. \\
     
     % \subsection*{Задача 26}
+    \subsection*{Задача 26}
+    $\sum\limits_{n = 1}^{\infty} \frac{(-1)^n \cdot x^{2n}}{2n - 1}, \; \; \; D = [-1, 1]$ \\
+    $\begin{cases} \frac{ln\; n}{n + x} \downarrow_{(n)} 0 \\ \left|\sum\limits_{n = 1}^{\infty} (-1)^n\right| \leq 1 \end{cases} \bigg| \implies $ сходится равномерно по Дирихле. \\
     
     % \subsection*{Задача 27}
     
