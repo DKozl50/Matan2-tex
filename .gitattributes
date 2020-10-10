@@ -1,0 +1,5 @@
+* text=auto
+
+*.tex text
+
+*.pdf binary
