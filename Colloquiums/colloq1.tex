@@ -786,18 +786,16 @@
     \begin{proof}
         \begin{flalign*}
             & \norm{\frac{1}{f_n} - \frac{1}{f}} = \norm{\frac{f_n - f}{f_n \cdot f}} =
-            \sup_{x \in D}{\left|\frac{f_n - f}{f_n \cdot f}\right|} \circled{\leq} \sup_{x \in D} \frac{\epsilon}{|f_n \cdot f|}
+            \sup_{x \in D}{\left|\frac{f_n - f}{f_n \cdot f}\right|} \circled{\leq} \sup_{x \in D} \frac{\epsilon}{|f_n \cdot f|} \; \text{ при } n \geq N(\epsilon), \;  \text{т.к. } \norm{f_n - f} \leq \epsilon \text{ при } n \geq N(\epsilon).
+            \\ \\
+            & \inf |f(x)| = m > 0 \implies |f(x)| \geq m \; \forall \, x \in D. \\
             \\
-            & \text{т.к. } \norm{f_n - f} \le \epsilon \text{ при } n \geq N(\epsilon)
-            \\
-            & \inf |f(x)| = m > 0 \implies |f(x)| \geq m  \forall x \in D
-            \\
-            & \text{Если } \epsilon < m/2 \text{, то } |f_n| \geq |f| - |f_n - f| \geq m - \epsilon \geq m/2
-            \\
-            & \frac{1}{|f_n|} \leq \frac{1}{m - \epsilon}; ~ \frac{1}{|f|} \leq \frac{1}{m}
-            \\
-            & \circled{\leq} \frac{\epsilon}{(m - \epsilon)m} \leq \frac{\epsilon}{m/2 \cdot m}
+            & |f_n| + |f_n - f| \geq |f_n - (f_n - f)|  = |f| \iff |f_n| \geq |f| - |f_n - f|. \text{ Поэтому если } \epsilon < m/2 \text{, то }\\ \\
+            & |f_n| \geq |f| - |f_n - f| > m - \epsilon > m - m/2 = m/2 \; \text{ при } n \geq N(\epsilon),  \; \text{ведь } |f| \geq m, \; |f_n - f| < \epsilon < m/2.\\
+            & |f_n| > m/2 \implies \frac{1}{|f_n|} < \frac{2}{m}; ~ |f| \geq m \implies \frac{1}{|f|} \leq \frac{1}{m}. \text{ Поэтому:} \\
+            &  \norm{\frac{1}{f_n} - \frac{1}{f}} \leq \sup_{x \in D} \frac{\epsilon}{|f_n \cdot f|} < \frac{\epsilon}{m/2 \cdot m} = \epsilon \cdot \frac{2 }{m^2} \; \; (\forall \, n \geq N(\epsilon))\\
         \end{flalign*}
+        Так как $\frac{2}{m^2}$ - фиксированное число, а $\epsilon$ у нас - сколь угодно малое, то это означает, что $ \norm{\frac{1}{f_n} - \frac{1}{f}} \to 0,$ что является по определению равномерной сходимостью $f_n$ к  $f$.
     \end{proof}
         
     % вопрос 58
