@@ -5,7 +5,7 @@
 \author{
         % ОТКОММЕНТИРУЙ СЕБЯ
     % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
-    % Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
+    Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
     % Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
     % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
@@ -19,7 +19,6 @@
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
-
 
 \begin{document}
     \maketitle
@@ -62,7 +61,7 @@
             & \sum_{n=n_0}^N a_n \leq \frac{a_{n_0}}{b_{n_0}} \cdot \sum_{n=n_0}^N b_n
         \end{flalign*}
     \end{proof}
-        
+    
     % вопрос 5
         
     % вопрос 6
@@ -72,6 +71,21 @@
     % вопрос 8
         
     % вопрос 9
+    \subsection*{9. Пусть $ \Sigma a_n, \Sigma a_n'$ -- сходящиеся положительные
+    ряды. Говорят, что ряд $  \Sigma a_n'$ сходится быстрее ряда 
+    $ \Sigma a_n$, если $  a_n' = o(a_n)$. 
+    Докажите, что в этом случае также $  r_n' = o(r_n)$, где
+    $ r_n$, $  r_n'$ -- остатки соответствующих рядов.}
+    \begin{proof} \ \\ 
+        $\displaystyle a_n' = o(a_n)$, то есть, $\displaystyle \frac{a_n'}{a_n} \to 0$ \\
+        $\displaystyle r_n = \sum_{k = n + 1}^{\infty} \Rightarrow r_{n - 1} = \sum_{k = n}^{\infty}$ \\ 
+        Так как ряды положительные и сходятся,
+         $\displaystyle r_n, r_n' \to 0$, $\displaystyle r_n \downarrow \Rightarrow$ можем применить
+         теорему Штольца \\ 
+         $\displaystyle \lim_{n \to \infty}{\frac{r_n'}{r_n}} = 
+         \lim_{n \to \infty}{\frac{r_n' - r_{n - 1}'}{r_n - r_{n - 1}}} = 
+         \lim_{n \to \infty}{\frac{a_n'}{a_n}} = 0 \Rightarrow r_n' = o(r_n)$
+    \end{proof}
         
     % вопрос 10
         
@@ -131,7 +145,6 @@
         $\implies \text{ ряд } \sum a_n \text{ расходится }$
     \end{proof}
 
-        
     % вопрос 15
         
     % вопрос 16
@@ -141,12 +154,58 @@
     % вопрос 18
         
     % вопрос 19
-        
+    \subsection*{19. Сформулируйте признак Гаусса для положительного ряда. Приведите
+    пример применения признака Гаусса.}
+    \proposition[Признак Гаусса]{ \ \\
+        Пусть $\displaystyle \exists \delta > 0, p: \frac{a_{n + 1}}{a_n} = 
+        1 - \frac{p}{n} + O\left(\frac{1}{n^{1+\delta}}\right)$ \\
+        Тогда: \\
+        если $\displaystyle p > 1 \Rightarrow \sum a_n$ -- сходится
+        если $\displaystyle p \leqslant 1 \Rightarrow \sum a_n$ -- расходится
+    }
+    \example{  $\displaystyle \sum_{n = 2}^{\infty}
+    \frac{2 \cdot 5 \cdot 8 \cdot \ldots \cdot (3n - 4)}{3^n \cdot n!}$ \\
+    $\displaystyle \frac{a_{n + 1}}{a_n} =
+     \frac{(3(n + 1) - 4) \cdot 3^n \cdot n!}{3^{n + 1} \cdot (n + 1)!} = 
+     \frac{3(n + 1) - 4}{3(n + 1)} = \frac{3n - 1}{3n + 3} =
+     \frac{1 - \frac{\frac{1}{3}}{n}}{1 + \frac{1}{n}} =
+     \left(1 - \frac{1}{3n}\right)\left(1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)=\\
+     =1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right) 
+     - \frac{\frac{1}{3}}{n} + \frac{\frac{1}{3}}{n^2} - O\left(\frac{1}{3n^3}\right) =
+     1 - \frac{\frac{4}{3}}{n} + O\left(\frac{1}{n^2}\right) \implies
+     \begin{cases}
+        p = \frac{4}{3}\\
+        \delta = 1     
+     \end{cases} \implies 
+     $ ряд сходится по признаку Гаусса.}
+     \example{ $\displaystyle
+     S = \sum\limits_{n=1}^{\infty}\left(\frac{(2n - 1)!!}{(2n)!!}\right)^2$\\[3pt]
+     Применим признак Гаусса:
+     $\displaystyle
+     \frac{a_{n+1}}{a_n} = \left(\frac{(2n + 1)!!}{(2n + 2)!!}\right)^2\cdot\left(\frac{(2n)!!}{(2n - 1)!!}\right)^2 =
+     \left(\frac{(2n + 1)!!}{(2n + 2)!!}\cdot\frac{(2n)!!}{(2n - 1)!!}\right)^2 = \left(\frac{2n + 1}{2n+2}\right)^2 =
+     \left(\frac{2 + \frac{1}{n}}{2+\frac{2}{n}}\right)^2
+     =\frac{4 + \frac{4}{n} + O\left(\frac{1}{n^2}\right)}{4 + \frac{8}{n} + O\left(\frac{1}{n^2}\right)}=\\[3pt]
+     =\frac{1 + \frac{1}{n} + O\left(\frac{1}{n^2}\right)}{1 + \frac{2}{n} + O\left(\frac{1}{n^2}\right)}
+     =\left(1 + \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)\left(1 - \frac{2}{n} + O\left(\frac{1}{n^2}\right)\right)
+     =1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right) \implies\\
+     \implies
+     \begin{cases}
+         \delta = 1 \\
+         p = 1 & = 1
+     \end{cases}
+     \implies
+     $ ряд расходится по признаку Гаусса.}
+
     % вопрос 20
         
     % вопрос 21
         
     % вопрос 22
+        
+    % вопрос 23
+        
+    % вопрос 24
         \subsection*{22. Что такое улучшение сходимости положительного ряда? Покажите на примере как можно улучшить сходимость ряда.}
 
         Пусть у нас есть некоторый ряд $\sum a_n$ и он сходится медленно. В таких случаях для расчёта суммы ряда с необходимой точностью потребуется взять больше членов, что неудобно. Мы можем преобразовать наш ряд для улучшения сходимости, т.е. получить некоторый ряд $\sum a_n'$, который будет сходиться быстрее, чем исходный $\sum a_n$.
@@ -178,7 +237,20 @@
     % вопрос 28
         
     % вопрос 29
-        
+    \subsection*{29. Приведите пример приведения преобразования знакопеременного
+    (но не знакочередующегося) ряда к знакочередующемуся.}
+    \example{
+        $\displaystyle \sum_{n = 1}^{\infty}\frac{(-1)^{[\ln{n}]}}{n}$\\
+        $\displaystyle (-1)^k:$ \\
+        $\displaystyle k \leqslant \ln{n} < k + 1$ \\
+        $\displaystyle e^k \leqslant n < e^{k + 1}$ \\
+        $\displaystyle A_k = (-1)^k \sum_{n = [e^k] + 1}^{[e^{k + 1}]}\frac{1}{n}$ \\
+        $\displaystyle |A_k| \geqslant \frac{1}{e^{k + 1}}([e^{k + 1}] - ([e^k] + 1)) 
+        \geqslant \frac{1}{e^{k + 1}}(2[e^{k}] - [e^k] - 1) =  \frac{[e^k] - 2}{e^{k + 1}}
+        > \frac{e^k - 2}{e^{k + 1}} \xrightarrow[k \to \infty]{} \frac{1}{e} \neq 0$\\
+        $\displaystyle \Rightarrow \sum A_k$ -- расходится (не выполняется необходимое условие
+        сходимости ряда) $\displaystyle \Rightarrow \sum a_n$ -- расходится   
+    }
     % вопрос 30
         
     % вопрос 31
@@ -218,7 +290,26 @@
     % вопрос 38
         
     % вопрос 39
-        
+    \subsection*{39. Приведите пример условно сходящегося ряда и перестановки, меняющей его сумму
+    (с обоснованием).}
+    \example{
+        $\displaystyle \sum_{n = 1}^{\infty} \frac{(-1)^n}{n} = -1 + \frac{1}{2} -
+         \frac{1}{3} + \frac{1}{4} - \ldots = -\ln{2}$\\
+        $\displaystyle S_{2n}^{+} = \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2n} =
+         \frac{1}{2}(\ln{n} + \gamma) + o(1)$\\ 
+        $\displaystyle S_{2n}^{-} = 1 + \frac{1}{3} + \ldots + \frac{1}{2n - 1} = 
+        \ln{2} + \frac{1}{2}(\ln{n} + \gamma) + o(1)$\\
+        Пусть берётся $\displaystyle p$ положительных слагаемых, затем $\displaystyle q$ 
+        отрицательных и так далее. \\ 
+        Тогда после $\displaystyle m$ действий получим: \\
+        $\displaystyle S_{2mp}^+ = \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2mp}=
+        \frac{1}{2}(\ln{(mp)} + \gamma) + o(1)$ \\
+        $\displaystyle S_{2mq - 1}^- = 1 + \frac{1}{3} + \ldots + \frac{1}{2mq - 1}=
+        \ln{2} + \frac{1}{2}(\ln{(mq)} + \gamma) + o(1)$ \\
+        $\displaystyle S_{2mp}^{+} - S_{2mq}^{-} = -ln{2} + \frac{1}{2}\ln{\left(\frac{p}{q}\right)} +
+        o(1)$ \\
+        $\displaystyle \Rightarrow$ ряд сходится к числу $\displaystyle -\ln\left(2\sqrt{\frac{q}{p}}\right)$ 
+    }
     % вопрос 40
         
     % вопрос 41
@@ -256,7 +347,21 @@
     % вопрос 48
         
     % вопрос 49
-        
+    \subsection*{49. Дайте определения: функциональная последовательность, точка сходимости функциональной последовательности, область (множество) сходимости функциональной последовательности, поточечная сходимость функциональной последовательности на данном множестве.}
+    \definition{
+        Функциональным рядом (последовательностью) называется такой ряд (последовательность), что его элементами являются не числа, а функции $f_n(x)$.
+    }
+   
+    \definition{
+           Пусть $\forall n, n \in \mathbb{N}, f_n: D \rightarrow \mathbb{R}, D \subseteq \mathbb{R}$.
+           Говорят, что $a \in D$ - точка сходимости $\{f_n(x)\}$, если последовательность $\{f_n(a)\}$ сходится.
+    }
+   \definition{
+        Множество всех точек сходимости называется множеством сходимости.
+    }
+   \definition{
+        Говорят, что последовательность сходится на $D$ поточечно, если $D$ – множество сходимости.
+   }
     % вопрос 50
         
     % вопрос 51
@@ -291,19 +396,50 @@
     % вопрос 58
         
     % вопрос 59
-        
+    \subsection*{59. Пусть $\displaystyle \varphi: G \to D$ -- биекция. Докажите, что
+    равномерная сходимость функциональной последовательности $\displaystyle \{f_n\}$
+    на множество $\displaystyle D$ равносильна равномерное сходимости на функциональной
+    последовательности $\displaystyle \{f_n \circ \varphi\}$ на множестве $G$.
+    }
+    \begin{proof} \ \\
+        $\displaystyle X \in D, f_n(x)$\\
+        $ t \in G, \varphi(t) \in D$ \\
+        $\displaystyle (f_n \circ \varphi)(t) = f_n(\varphi(t))$ \\
+        Знаем, что $\displaystyle f_n \overset{D}{\rightrightarrows} f$ \\
+        Хотим доказать: $\displaystyle f_n \circ \varphi \overset{G}{\rightrightarrows}
+        f \circ \varphi$ \\[9.5pt]
+        $\displaystyle ||f_n \circ \varphi - f \circ \varphi|| =
+        \underset{t \in G}{sup} |f_n(\varphi(t)) - f(\varphi(t))| = M_n$ \\ 
+        Что означает, что супремум равен $\displaystyle M_n$? Это означает, что:
+        \begin{itemize}
+            \item[1)] $\displaystyle |f_n(\varphi(t)) - f(\varphi(t))| \leqslant M_n, \forall t$
+            \item[2)] $\displaystyle \exists \{t_k\}: |f_n(\varphi(t_k)) - f(\varphi(t_k))|
+            \xrightarrow[k \to \infty]{} M_n$ 
+        \end{itemize}  
+        Что получаем?
+        \begin{itemize}
+            \item[1)] $\displaystyle \Leftrightarrow \forall x \in D \
+            |f_n(x) - f(x)| \leqslant M_n$
+            \item[2)] $\displaystyle \Leftrightarrow \exists \{x_k\}: 
+            |f_n(x_k) - f(x_k)| \xrightarrow[k \to \infty]{} M_n$, где $\displaystyle x_k =
+            \varphi(t_k)$
+        \end{itemize}
+        $\displaystyle \Rightarrow M_n =
+        \underset{x \in D}{sup} |f_n(x) - f(x)|$ \\ 
+        $\displaystyle \Rightarrow ||f_n \circ \varphi - f \circ \varphi||_G =
+        ||f_n - f||_D$\\
+        Получается, что если одна норма равна 0, то и вторая норма будет равна 0. А так как везде
+        знаки равносильности, то доказали мы сразу в две стороны.
+    \end{proof}
     % вопрос 60
         
     % вопрос 61
         
     % вопрос 62
-       \subsection*{62. Сформулируйте теорему Дини о монотонной сходимости. Приведите пример её применения для доказательства равномерной сходимости функциональной последовательности (с обоснованием)}
         
     % вопрос 63
         
     % вопрос 64
-    \subsection*{64. Покажите на примере как доказать неравномерность сходимости функциональной последовательности с помощью локализации особенности (с обоснованием).}
-
     % вопрос 65
         
     % вопрос 66
@@ -356,7 +492,6 @@
     % вопрос 83
         
     % вопрос 84
-    \subsection*{84. Что можно утверждать про равномерную сходимость степенного ряда?}
         
     % вопрос 85
         
@@ -367,7 +502,6 @@
     % вопрос 88
         
     % вопрос 89
-        
     % вопрос 90
         
     % вопрос 91
@@ -395,7 +529,19 @@
     % вопрос 98
         
     % вопрос 99
-        
+    \subsection*{99. Приведите пример бесконечной дифференцируемой функции, 
+    не являющейся аналитической.}
+    \example{
+        $\displaystyle f(x) = \begin{cases}
+            e^{-\frac{1}{x^2}}, x \neq 0 \\ 
+            0, x = 0
+        \end{cases}$ \\
+        Такая функция бесконечно дифференцируема, но все её производные
+        в нуле равны 0: \\ $\displaystyle f'(0) = f''(0) = f'''(0) = \ldots = 0$ \\
+        Получается, что её ряд Тейлора при $\displaystyle x_0 = 0: 
+        0 + 0x + 0x^2 + \ldots = 0$\\ 
+        То есть, такая функция не является аналитической.
+    }    
     % вопрос 100
         
     % вопрос 101
