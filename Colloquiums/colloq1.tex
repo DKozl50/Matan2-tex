@@ -260,7 +260,19 @@
         исходное утверждение следует очевидно.
 	\end{proof}    
     % вопрос 16
-        
+    \subsection*{16}
+        \textbf{ Доказать, что если для $\sum a_n$ существует $\lim \dfrac{a_{n+1}}{a_n} = q$, то существует и $\lim \sqrt[n]{a_n} = q$.} \\[5 pt]
+        $\exists \lim \dfrac{a_{n+1}}{a_n} = q \; \Rightarrow \; \exists \lim \sqrt[n]{a_n} = q$ \\[3 pt]
+        \begin{proof}
+        Рассмотрим неравенство (доказанное в п. 15): \\[3 pt]
+        $\varliminf \, \dfrac{a_{n+1}}{a_n} \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} 
+        \le \varlimsup \, \dfrac{a_{n+1}}{a_n}$ \\[3 pt]
+        $\exists \lim \dfrac{a_{n+1}}{a_n} = q \; \Leftrightarrow \; 
+        \varliminf \, \dfrac{a_{n+1}}{a_n} = \varlimsup \, \dfrac{a_{n+1}}{a_n} = q \; \Rightarrow \\[3 pt]
+        \Rightarrow \; q \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \le q \; \Rightarrow 
+        \varliminf \sqrt[n]{a_n} = \varlimsup \sqrt[n]{a_n} = q \; \Leftrightarrow \; \exists \lim \sqrt[n]{a_n} = q$, \\[5 pt]
+        что и требовалось доказать.
+        \end{proof}    
     % вопрос 17
     \subsection*{17. Приведите пример положительного ряда, вопрос о поведении которого не может быть решён с помощью
         признака Даламбера, но может быть решён с помощью радикального признака Коши (с обоснованием)}
@@ -335,7 +347,23 @@
      $ ряд расходится по признаку Гаусса.}
 
     % вопрос 20
-    
+    \subsection*{20}
+        \textbf{ Привести пример положительного ряда, вопрос о поведении которого не может быть решен с помощью признака Гаусса.} \\[5 pt]
+        $\sum\limits_{n=1}^{\infty} \dfrac1{n \ln^p n}$ --- положительный ряд, $a_n = \dfrac1{n \ln^p n}$ \\[3 pt]
+        Рассмотрим отношение: \\[3 pt]
+        $\dfrac{a_{n + 1}}{a_n} = \dfrac{\dfrac1{(n + 1) \ln^p (n + 1)}}{\dfrac1{n \ln^p n}} = 
+        \dfrac{n}{n + 1} \cdot \dfrac{\ln^p n}{\ln^p (n + 1)} = 
+        \dfrac{1}{1 + \frac1n} \cdot \dfrac{\ln^p n}{\left( \ln n + \ln \left(1 + \frac1n \right) \right)^p} = \\[3 pt]
+        = \left[\text{ По формуле Тейлора для $(1+x)^{-1}$ и $\ln (1+x) \sim x$ }\right] \; 
+        \left(1 - \frac1n + \frac1{n^2} + o\left(\frac1{n^2}\right)\right) \cdot \left(1 + \frac{\frac1n + o\left(\frac1n\right)}{\ln n}\right)^{-p} = \\[3 pt]
+        \left[\text{ Перешли к менее строгому приближению и  снова разложили $(1+x)^{-p}$ }\right] \\[3 pt] 
+        = \left(1 - \frac1n + o\left(\frac1{n \ln n}\right)\right) \cdot \left(1 - \frac{p}{n \ln n} + o\left(\frac1{n \ln n}\right)\right)
+        = 1 - \dfrac1n - \dfrac{p}{n \ln n} + o\left(\frac1{n \ln n}\right)$ \\[3 pt]
+        Для использования признака Гаусса должны получить приближение 
+        $1 - \frac{q}n + O\left( \frac1{n^{1+\delta}} \right), \; \delta > 0$, \\[3 pt]
+        но $ - \dfrac{p}{n \ln n} + o\left(\frac1{n \ln n}\right) \ne O\left( \frac1{n^{1+\delta}} \right)$, т.к.
+        $\dfrac1{\ln n} > \dfrac1{n^{\delta}}$ при $n \to \infty \;\; \forall \delta > 0$
+        
     % вопрос 21
     \subsection*{21. Выведите двустороннюю оценку частичной суммы ряда через неопределённый интеграл. Сформулируйте и докажите интегральный признак Коши-Маклорена.}
     \textbf{Интегральный признак Коши-Маклорена:} Если функция $f(x)$ принимает неотрицательные значения на всей области определения и монотонно убывает, а также $\forall n \in \mathbb{N} : f(n) = a_n$, то $\sum a_n$ и $\int^{\infty} f(x)dx$ сходятся или расходятся одновременно. \\
