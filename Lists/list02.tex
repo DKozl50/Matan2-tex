@@ -3,135 +3,382 @@
 
 \begin{document}
 \section{Семинарский лист 2}
+   
 
-% Task 2
-\begin{problem} \ \\[3pt]
-$\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n\sqrt[n]{n}}, \
-    a_n = \frac{1}{n\sqrt[n]{n}}$ \\[3pt]
-$\displaystyle \lim_{n \to \infty}{\sqrt[n]{n}} = 1:
-    \lim_{n \to \infty}{e^{\frac{1}{n} \ln{n}}} = e^0 = 1$
-$\displaystyle \implies a_n \sim \frac{1}{n}$\\[3pt]
-$\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n}$ сходится
-$\displaystyle \implies \sum_{n = 1}^{\infty}\frac{1}{n\sqrt[n]{n}}$
-по признаку сравнения.
-\end{problem}
+   % Task 1
+    \begin{problem}
+        $\displaystyle S = \sum_{n = 1}^{\infty} \frac{\ln n + 3}{n \, (\ln^3 n + 2)}
+        \\[4 pt]
+        a_n = \frac{\ln n + 3}{n (\ln^3 n + 2)} = \frac{\ln n \cdot (1 + \frac{3}{\ln n})}{n \ln^3 n \, \left(1 + \frac{2}{\ln^3 n}\right)} 
+        \sim \frac{1}{n \ln^2 n} =: b_n$
+        \\[4 pt]
+        Пользуемся (без доказательства) тем фактом, что ряд $\displaystyle \sum \limits_{n = 2}^{\infty} \dfrac{1}{n \ln^p n}$ 
+        сходится при $p > 1$, иначе расходится.
+        \\[4 pt]
+        $\displaystyle \frac{a_n}{b_n} \xrightarrow{n \to \infty} 1 \, \Rightarrow$ по предельному признаку сравнения ряды 
+        $\displaystyle \sum a_n$ и $\displaystyle \sum b_n$ ведут себя одинаково, значит $a_n$ сходится.
+    \end{problem}
+    
+    % Task 2
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n\sqrt[n]{n}}, \
+         a_n = \frac{1}{n\sqrt[n]{n}}$ \\[3pt]
+        $\displaystyle \lim_{n \to \infty}{\sqrt[n]{n}} = 1:
+         \lim_{n \to \infty}{e^{\frac{1}{n} \ln{n}}} = e^0 = 1$
+        $\displaystyle \implies a_n \sim \frac{1}{n}$\\[3pt]
+        $\displaystyle \sum_{n = 1}^{\infty}\frac{1}{n}$ расходится 
+        $\displaystyle \implies \sum_{n = 1}^{\infty}\frac{1}{n\sqrt[n]{n}}$ 
+        расходится по предельному признаку сравнения (эквивалентности).
+    \end{problem}
+    
+    % Task 3
+    \begin{problem}
+        $\displaystyle S = \sum_{n = 2}^{\infty} \frac{n^2}{2^\frac{n}{\ln n}}, \;\; a_n = \frac{n^2}{2^\frac{n}{\ln n}}
+        \\[4 pt]
+        \ln a_n = 2 \ln n - \frac{n}{\ln n} \cdot \ln 2 = -\frac{n}{\ln n} \left(\ln 2 - \frac{2 \ln^2 n}{n}\right) \sim 
+        -\frac{n \ln 2}{\ln n} \;\; \Bigl($так как $\displaystyle \frac{2 \ln^2 n}{n} \xrightarrow{n \to \infty} 0 \Bigr)
+        \\[4 pt]
+        C_1 \cdot n > \frac{n}{\ln n} > C_2 \cdot \ln n \;\; \forall \, C_1, C_2 > 0 \; \Rightarrow \; 
+        -C_1 \ln 2 \cdot n < -\frac{n \ln 2}{\ln n} < -C_2 \ln 2 \cdot \ln n \; \Rightarrow \; 
+        \ln a_n < -p \ln n = \ln \frac{1}{n^p} \;\; \forall p > 0 \;\Rightarrow\; a_n < \frac{1}{n^p}$
+        \\[4 pt]
+        При $\displaystyle p = 2 \;\; \sum a_n$ сходится из сходимости $\displaystyle \sum \frac{1}{n^2}$
+    \end{problem}
+    
+    \begin{problem}
+        \ \\
+        % Task 4
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{1}{(\ln n)^{(\ln n)}}\\[3pt]
+        a_n = \frac{1}{(\ln n)^{\ln n}} = \frac{1}{e^{(\ln n)\ln(\ln n)}} =\frac{1}{n^{\ln(\ln n)}} \leq
+        \frac{1}{n^2} \implies \text{ряд сходится.}
+        $
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 5
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{n^3}{3^{\sqrt{n}}}\\[3pt]
+        a_n = \frac{n^3}{3^{\sqrt{n}}} = \frac{1}{e^{\sqrt{n}\ln3 - 3\ln n}}\\[3pt]
+        \sqrt{n}\ln3 - 3\ln n = \sqrt{n}\ln3\left( 1 - \frac{3\ln n}{\sqrt{n}\ln3}\right)
+        =\left| \frac{\ln n}{\sqrt{n}} \to 0 \right| \sim \sqrt{n}\ln3
+        $\\[3pt]
+        Заметим, что $\displaystyle
+        \forall p \implies p\ln n < \sqrt{n}\ln3 \implies
+        p\ln n < \sqrt{n}\ln3 - 3\ln n \implies \frac{1}{e^{p\ln n}} > \frac{1}{e^{\sqrt{n}\ln3 - 3\ln n}}
+        \iff \frac{1}{n^p} >  \frac{1}{e^{\sqrt{n}\ln3 - 3\ln n}}
+        $\\[3pt]
+        Выберем $\displaystyle p = 2$, тогда $\displaystyle
+        \frac{1}{n^2} >  \frac{1}{e^{\sqrt{n}\ln3 - 3\ln n}} \implies
+        $ ряд сходится.
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 6
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\ln\left(\frac{3^n - 2^n}{3^n + 2^n}\right)\\[3pt]
+        a_n = \ln\left(\frac{3^n - 2^n}{3^n + 2^n}\right) = \ln\left(\frac{1 - \left(\frac{2}{3}\right)^n}{1 + \left(\frac{2}{3}\right)^n}\right)
+        = \ln\left(1 - \left(\frac{2}{3}\right)^n\right) - \ln\left(1 + \left(\frac{2}{3}\right)^n\right) = -2\left(\frac{2}{3}\right)^n
+        $
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 7
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{(2n - 1)!!}{n!}$\\[3pt]
+        Применим признак Даламбера:\\[3pt]
+        $\displaystyle\lim\frac{a_{n + 1}}{a_n} = \frac{(2n + 1)!!}{(n+1)!}\cdot\frac{n!}{(2n - 1)!!} =
+        \frac{2n + 1}{n+1} \to 2 > 1 \implies$ ряд расходится.\\[3pt]
+    \end{problem}
+    
+    % Task 8
+    \begin{problem}
+        $\displaystyle S = \sum_{n = 1}^{\infty} \frac{n! (2n + 1)!}{(3n)!}
+        \\[4 pt]
+        \frac{a_{n+1}}{a_n} = \frac{(n + 1)! (2n + 3)!}{(3n + 3)!} \div \frac{n! (2n + 1)!}{(3n)!} = 
+        \frac{(n + 1)(2n + 2)(2n + 3)}{(3n + 1)(3n + 2)(3n + 3)} \xrightarrow{n \to \infty} \frac{4}{27} < 1 \Rightarrow$ 
+        ряд сходится по признаку Д'Аламбера
+        \\[4 pt]
+        Оценим остаток ряда: $\displaystyle r_n = a_{n+1} + a_{n+2} + \dots \approx 
+        \frac{4}{27} \, a_n + {\left(\frac{4}{27}\right)}^2 a_n + \dots = 
+        \frac{\frac4{27} \, a_n}{1 - \frac4{27}} = \frac{4}{23} \, a_n$
+    \end{problem}
+    
+    \begin{problem}
+        \ \\
+        % Task 9
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{n^n}{n!\cdot3^n}$\\[3pt]
+        Применим признак Даламбера:\\[3pt]
+        $\displaystyle\lim\frac{a_{n + 1}}{a_n} = \frac{(n+1)^{(n+1)}}{(n+1)!3^{n+1}} \cdot \frac{n!\cdot3^n}{n^n} = \frac{(n+1)^{n}}{3n^n} =
+        \frac{1}{3}\left(\frac{n + 1}{n}\right)^n =\frac{1}{3}\left(1+\frac{1}{n}\right)^n = \frac{e}{3} < 1 \implies
+        $ ряд сходится.\\[3pt]
+        Оценим теперь $N$-ый остаток ряда:\\[3pt]
+        $\displaystyle
+        \frac{a_{n + 1}}{a_n} \approx \frac{e}{3} \implies a_{n+1} =
+        \frac{a_{n+1}}{a_n}\cdot\frac{a_{n}}{a_{n-1}}\cdot\ldots\cdot\frac{a_{2}}{a_1}\cdot a_1
+        \leq \frac{e}{3}\cdot\frac{e}{3}\cdot\ldots\cdot\frac{e}{3}\cdot a_1 = \left(\frac{e}{3}\right)^n\cdot a_1=
+        \frac{1}{3}\left(\frac{e}{3}\right)^n\\[3pt]
+        r_N=\sum_{n = N+1}^{\infty}a_n \leq
+        \frac{1}{3}\left( \left(\frac{e}{3}\right)^{N} + \left(\frac{e}{3}\right)^{N+1} + \ldots\right)=
+        \frac{1}{3}\cdot\frac{(e/3)^N}{1 - e/3} =\frac{(e/3)^N}{3 - e}
+        $
+    \end{problem}
+    
+    % Task 10
+    \begin{problem}
+        $\displaystyle S = \sum_{n = 1}^{\infty} {\left(\frac{n + 1}{n + 2}\right)}^{n^2 + 3}
+        \\[4 pt]
+        \sqrt[n]{a_n} = \sqrt[n]{{\left( 1 - \frac{1}{n + 2} \right)}^{n^2 + 3}} = 
+        {\left( 1 - \frac{1}{n + 2} \right)}^{-(n + 2) \cdot \frac{n^2 + 3}{-n(n + 2)}} 
+        \xrightarrow{n \to \infty} \; e^{-1} < 1 \; \Rightarrow$ ряд сходится по признаку Коши
+        \\[4 pt]
+        Оценим остаток ряда: $\displaystyle a_n \xrightarrow{n \to \infty} e^{-n} \Rightarrow r_n = 
+        a_{n+1} + a_{n+2} + \dots \sim e^{-n-1} + e^{-n-2} + \dots = 
+        \frac{a_n}{e} + \frac{a_n}{e^2} + \dots = \frac{a_n}{e \left(1 - \frac1e \right)} = \frac{a_n}{e - 1}$
+    \end{problem}
+    
+    \begin{problem}
+        \ \\
+        % Task 11
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\arctg^n\frac{\sqrt{3n+1}}{\sqrt{n+2}}$\\[3pt]
+        Применим признак Коши:\\[3pt]
+        $\displaystyle\lim\sqrt[n]{a_n} = \sqrt[n]{\arctg^n\frac{\sqrt{3n+1}}{\sqrt{n+2}}} =
+        \arctg\frac{\sqrt{3n+1}}{\sqrt{n+2}} \sim\arctg\sqrt{\frac{3n}{n}} =
+        \arctg\sqrt{3}=\frac{\pi}{3} > 1 \implies
+        $ ряд расходится.
+    \end{problem}
+    \begin{problem}
+        \ \\
+        % Task 12
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\frac{n^2}{\left(3+\frac{1}{n}\right)^n}$\\[3pt]
+        Применим признак Коши:\\[3pt]
+        $\displaystyle\lim\sqrt[n]{a_n} = \sqrt[n]{\frac{n^2}{\left(3+\frac{1}{n}\right)^n}} = \frac{\sqrt[n]{n^2}}{3 + \frac{1}{n}} \sim\frac{\sqrt[n]{n^2}}{3} =\frac{\sqrt[n]{n}\sqrt[n]{n}}{3} =
+        \left|\sqrt[n]{n}\to 1\right| \to \frac{1}{3} < 1 \implies
+        $ ряд сходится.\\[3pt]
+        Оценим теперь $N$-ый остаток ряда:\\[3pt]
+        $\displaystyle
+        \sqrt[n]{a_n} \approx \frac{1}{3} \implies a_n \leq \left(\frac{1}{3}\right)^n
+        \implies r_N = \sum\limits_{n = N + 1}^{\infty} a_n \leq
+        \left(\frac{1}{3}\right)^{N} + \left(\frac{1}{3}\right)^{N + 1} + \left(\frac{1}{3}\right)^{N+2} + \ldots
+        \leq\frac{(1/3)^N}{1 - 1/3}
+        $
+    \end{problem}
+    
+    % Task 13
+    \begin{problem}
+        $\displaystyle S = \sum_{n = 1}^{\infty} \frac{(2n - 1)!!}{(2n)!!} \cdot \frac{1}{2n + 1}$, где $n!!$ --- двойной факториал
+        \\[4 pt]
+        $\displaystyle \frac{a_{n+1}}{a_n} = \left( \frac{(2n + 1)!!}{(2n + 2)!!} \cdot \frac{1}{2n + 3} \right) 
+        \div \left( \frac{(2n - 1)!!}{(2n)!!} \cdot \frac{1}{2n + 1} \right) = \frac{(2n + 1)^2}{(2n + 2)(2n + 3)} 
+        \xrightarrow{n \to \infty} \frac44 = 1$ (фиаско)
+        \\[4 pt]
+        Признак Гаусса: если $\displaystyle \exists \, \delta > 0: \, \frac{a_{n+1}}{a_n} = 
+        1 - \frac{p}{n} + O\left(\frac{1}{n^{1+\delta}}\right)$, то $\displaystyle \sum a_n \;
+        \begin{cases}
+        \text{ сходится, } & p > 1 \\
+        \text{ расходится, } & p \le 1 \\
+        \end{cases}
+        \\[4 pt]
+        \frac{a_{n+1}}{a_n} = \frac{(2 + \frac1n)^2}{(2 + \frac2n)(2 + \frac3n)} = 
+        \frac{4 + \frac4n + O(\frac1{n^2})}{4 + \frac{10}{n} + O(\frac1{n^2})} = 
+        \frac{1 + \frac1n + O(\frac1{n^2})}{1 + \frac{5/2}{n} + O(\frac1{n^2})} = \; ?$
+        \\[4 pt]
+        Бахнем Тейлора: $\displaystyle \frac1{1 + x} = 1 - x + O(x^2)$ при $\displaystyle x \to 0$. 
+        Пусть $\displaystyle x = \frac{5/2}{n} + O\left(\frac1{n^2}\right) \;\Rightarrow\; 
+        \frac{1}{1 + \frac{5/2}{n} + O\left(\frac1{n^2}\right)} = 
+        1 - \left(\frac{5/2}{n} + O\left(\frac1{n^2}\right)\right) + O\left(\left(\frac{5/2}{n} + O\left(\frac1{n^2}\right)\right)^2\right) = 
+        1 - \left(\frac{5/2}{n} + O\left(\frac1{n^2}\right)\right) + O\left(\frac{25/4}{n^2} + O\left(\frac1{n^3}\right)\right) = 
+        1 - \frac{5/2}{n} + O\left(\frac1{n^2}\right)
+        \\[4 pt]
+        \frac{a_{n+1}}{a_n} = \left(1 + \frac1n + O\left(\frac1{n^2}\right)\right) \cdot 
+        \left(1 - \frac{5/2}{n} + O\left(\frac1{n^2}\right)\right) = 1 - \frac{3/2}{n} + O\left(\frac1{n^2}\right) 
+        \Rightarrow \delta = 1, \; p = \frac32 > 1 \Rightarrow$ ряд сходится по признаку Гаусса
+    \end{problem}
+    
+    \begin{problem}
+        \ \\
+        % Task 14
+        $\displaystyle
+        S = \sum\limits_{n=1}^{\infty}\left(\frac{(2n - 1)!!}{(2n)!!}\right)^2$\\[3pt]
+        Применим признак Гаусса:\\[3pt]
+        $\displaystyle
+        \frac{a_{n+1}}{a_n} = \left(\frac{(2n + 1)!!}{(2n + 2)!!}\right)^2\cdot\left(\frac{(2n)!!}{(2n - 1)!!}\right)^2 =
+        \left(\frac{(2n + 1)!!}{(2n + 2)!!}\cdot\frac{(2n)!!}{(2n - 1)!!}\right)^2 = \left(\frac{2n + 1}{2n+2}\right)^2 =
+        \left(\frac{2 + \frac{1}{n}}{2+\frac{2}{n}}\right)^2
+        =\frac{4 + \frac{4}{n} + O\left(\frac{1}{n^2}\right)}{4 + \frac{8}{n} + O\left(\frac{1}{n^2}\right)}=\\[3pt]
+        =\frac{1 + \frac{1}{n} + O\left(\frac{1}{n^2}\right)}{1 + \frac{2}{n} + O\left(\frac{1}{n^2}\right)}
+        =\left(1 + \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)\left(1 - \frac{2}{n} + O\left(\frac{1}{n^2}\right)\right)
+        =1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right) \implies\\[3pt]
+        \implies
+        \begin{cases}
+            \delta = 1 \\
+            p = 1 & = 1
+        \end{cases}
+        \implies
+        $ ряд расходится.
+    \end{problem}
+    % Task 15
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 2}^{\infty}
+        \frac{2 \cdot 5 \cdot 8 \cdot \ldots \cdot (3n - 4)}{3^n \cdot n!}$ \\[3pt]
+        $\displaystyle \frac{a_{n + 1}}{a_n} =
+         \frac{(3(n + 1) - 4) \cdot 3^n \cdot n!}{3^{n + 1} \cdot (n + 1)!} = 
+         \frac{3(n + 1) - 4}{3(n + 1)} = \frac{3n - 1}{3n + 3} =
+         \frac{1 - \frac{\frac{1}{3}}{n}}{1 + \frac{1}{n}} =
+         \left(1 - \frac{1}{3n}\right)\left(1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)=\\[3pt]
+         =1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right) 
+         - \frac{\frac{1}{3}}{n} + \frac{\frac{1}{3}}{n^2} - O\left(\frac{1}{3n^3}\right) =
+         1 - \frac{\frac{4}{3}}{n} + O\left(\frac{1}{n^2}\right) \implies
+         \begin{cases}
+            p = \frac{4}{3}\\
+            \delta = 1     
+         \end{cases} \implies 
+         $ ряд сходится по признаку Гаусса.
+    \end{problem}
+    
+    \begin{problem}
+        % Task 16
+        $\displaystyle
+        S = \sum\limits_{n=3}^{\infty}\frac{\ln n}{n}\\[3pt]
+        S_N = \sum\limits_{n=3}^{N}\frac{\ln n}{n}
+        f(n) = \frac{\ln n}{n};\; f'(n) = \frac{\frac{1}{n}\cdot n - \ln n}{n^2} = \frac{1 - \ln n}{n^2} < 0$ при
+        $\displaystyle
+        x > e
+        $\\[3pt]
+        $\displaystyle
+        f(n + t) \leq f(n) \leq f(n - 1 + t), t \in [0; 1], n\geq 4
+        $\\[3pt]
+        Проинтегрируем неравенство по переменной $t$ от $0$ до $1$:\\[3pt]
+        $\displaystyle
+        \int\limits_{0}^1 f(n + t)dt \leq \int\limits_{0}^1 f(n)dt \leq \int\limits_{0}^{1} f(n-1+t)dt
+        $\\[3pt]
+        Сделаем замену:
+        $\displaystyle
+        x_1 = n + t,\; x_2 = n - 1 + t
+        $\\[3pt]
+        $\displaystyle
+        \int\limits_{n}^{n+1} f(x_1)dx_1 \leq f(n) \leq \int\limits_{n-1}^{n} f(x_2)dx_2
+        $\\[3pt]
+        Просуммируем всё от $4$ до $N$:\\[3pt]
+        $\displaystyle
+        \int\limits_{4}^{N+1} f(x_1)dx_1 \leq \sum\limits_4^Nf(n) \leq \int\limits_{3}^{N} f(x_2)dx_2
+        $\\[3pt]
+        Найдём первообразную функции $f(x) = \frac{\ln x}{x}$:\\[3pt]
+        $\displaystyle
+        \int f(x)dx = \int\frac{\ln x}{x}dx = \int\ln xd(\ln x) = \frac{1}{2}\ln^{2}x + C
+        $\\[3pt]
+        Подставим первообразную в двойное неравенство:\\[3pt]
+        $\displaystyle
+        \frac{1}{2}\ln^2(N + 1) - \frac{1}{2}\ln^{2}4 \leq \sum\limits_4^Nf(n) \leq
+        \frac{1}{2}\ln^2(N) - \frac{1}{2}\ln^{2}3
+        $\\[3pt]
+        Прибавим ко всем частям $\frac{\ln3}{3}$:\\[3pt]
+        $\displaystyle
+        \frac{1}{2}\ln^2(N + 1) - \frac{1}{2}\ln^{2}4 + \frac{\ln3}{3} \leq
+        S_N \leq
+        \frac{1}{2}\ln^2(N) - \frac{1}{2}\ln^{2}3 + \frac{\ln3}{3}
+        $\\[3pt]
+        Получили необходимую оценку на частичную сумму.
+    \end{problem}
+    % Task 17
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 2}^{\infty}\frac{1}{n\ln{n}},
+         \ f(x) = \frac{1}{x \ln{x}}$ \\[3pt]
+        $\displaystyle f'(x) = -\frac{\ln{x} + 1}{x^2 \ln^2{x}} = 0 \iff
+        \begin{cases}
+            x \neq 0 \\
+            x \neq 1 \\
+            x = \frac{1}{e}
+        \end{cases} \implies f(x)$ монотонно убывает при $\displaystyle x > 1$ \\[3pt]
+        $\displaystyle f(n + t) \leq a_n \leq f((n - 1) + t)\\[3pt]$
+        $\displaystyle \int_{n}^{n + 1}{f(x)dx} \leq a_n \leq \int_{n - 1}^n{f(x)dx}$ \\[3pt]
+        $\displaystyle \int_{2}^{N + 1}{f(x)dx} \leq \sum_{n = 2}^{N}a_n \leq \int_{1}^N{f(x)dx}$ \\[3pt]
+        $\displaystyle \int{\frac{1}{x\ln{x}}}dx =
+         \left[\begin{aligned}t &= \ln{x}\\e^t &= x \\ dx &= e^tdt\end{aligned}\right] =
+         \int{\frac{e^t}{t\cdot e^t}}dt = \int{\frac{1}{t}}dt = \ln{t} + C = \ln{\ln{x}} + C$\\[3pt]
+         $\displaystyle \int_{2}^{N + 1}f(x)dx = \ln{\ln(N + 1)} - \ln{\ln{2}}$ \\[3pt]
+         $\displaystyle \int_{1}^{N}f(x)dx = \ln{\ln{N}} - 0 = \ln{\ln{N}}$ \\[3pt]
+         \textbf{Ответ:} $\displaystyle \ln{\ln(N + 1)} - \ln{\ln{2}} \leq \sum_2^{N} \frac{1}{n \ln{n}}\leq \ln{\ln{N}}$
+    \end{problem}
+    
+    \problem[19]
+        $\displaystyle \\
+          S_n = \sum_{n=1}^N \frac{1}{n^2} \text{--- сходящийся ряд} \\
+          S_N \to S, N \to \infty \\
+          \text{Доказать: } S_N = S - \frac{1}{N} + o(\frac{1}{N}), N \to \infty
+        $
 
-% Task 15
-\begin{problem} \ \\[3pt]
-$\displaystyle \sum_{n = 2}^{\infty}
-    \frac{2 \cdot 5 \cdot 8 \cdot \ldots \cdot (3n - 4)}{3^n \cdot n!}$ \\[3pt]
-$\displaystyle \frac{a_{n + 1}}{a_n} =
-\frac{(3(n + 1) - 4) \cdot 3^n \cdot n!}{3^{n + 1} \cdot (n + 1)!} =
-\frac{3(n + 1) - 4}{3(n + 1)} = \frac{3n - 1}{3n + 3} =
-\frac{1 - \frac{\frac{1}{3}}{n}}{1 + \frac{1}{n}} =
-\left(1 - \frac{1}{3n}\right)\left(1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)=\\[3pt]
-=1 - \frac{1}{n} + O\left(\frac{1}{n^2}\right)
-- \frac{\frac{1}{3}}{n} + \frac{\frac{1}{3}}{n^2} - O\left(\frac{1}{3n^3}\right) =
-1 - \frac{\frac{4}{3}}{n} + O\left(\frac{1}{n^2}\right) \implies
-\begin{cases}
-    p = \frac{4}{3} \\
-    \delta = 1
-\end{cases} \implies
-$ ряд сходится по признаку Гаусса.
-\end{problem}
+        Теорема Штольца: Пусть $x_n$ и $y_n$ обе сходится к нулю, причём $0 < y_n < y_{n-1} ~ \forall n$
+        т.е. $\lim_{n \to \infty} \frac{x_n}{y_n} = \left[\frac{0}{0}\right]$. Тогда, если
+        $\exists \lim_{n \to \infty} \frac{x_n - x{n-1}}{y_n - y_{n-1}} = A$, то
+        $\exists \lim_{n \to \infty} \frac{x_n}{y_n} = A$.
 
-% Task 17
-\begin{problem} \ \\[3pt]
-$\displaystyle \sum_{n = 2}^{\infty}\frac{1}{n\ln{n}},
-    \ f(x) = \frac{1}{x \ln{x}}$ \\[3pt]
-$\displaystyle f'(x) = -\frac{\ln{x} + 1}{x^2 \ln^2{x}} = 0 \iff
-    \begin{cases}
-        x \neq 0 \\
-        x \neq 1 \\
-        x = \frac{1}{e}
-    \end{cases} \implies f(x)$ монотонно убывает при $\displaystyle x > 1$ \\[3pt]
-$\displaystyle f(n + t) \leq a_n \leq f((n - 1) + t)\\[3pt]$
-$\displaystyle \int_{n}^{n + 1}{f(x)dx} \leq a_n \leq \int_{n - 1}^n{f(x)dx}$ \\[3pt]
-$\displaystyle \int_{2}^{N + 1}{f(x)dx} \leq \sum_{n = 2}^{N}a_n \leq \int_{1}^N{f(x)dx}$ \\[3pt]
-$\displaystyle \int{\frac{1}{x\ln{x}}}dx =
-    \left[\begin{aligned}t &= \ln{x}\\e^t &= x \\ dx &= e^tdt\end{aligned}\right] =
-    \int{\frac{e^t}{t\cdot e^t}}dt = \int{\frac{1}{t}}dt = \ln{t} + C = \ln{\ln{x}} + C$\\[3pt]
-$\displaystyle \int_{2}^{N + 1}f(x)dx = \ln{\ln(N + 1)} - \ln{\ln{2}}$ \\[3pt]
-$\displaystyle \int_{1}^{N}f(x)dx = \ln{\ln{N}} - 0 = \ln{\ln{N}}$ \\[3pt]
-\textbf{Ответ:} $\displaystyle \ln{\ln(N + 1)} - \ln{\ln{2}} \leq \sum_2^{N} \frac{1}{n \ln{n}}\leq \ln{\ln{N}}$
-\end{problem}
+        Обозначим $\displaystyle
+          x_n = S - S_n \to 0,  y_n = \frac{1}{n} \to 0,
+          \lim_{n \to \infty} \frac{x_n}{y_n} = \left[\frac{0}{0}\right]
+        $
 
-\problem[19]
-$\displaystyle \\
-    S_n = \sum_{n=1}^N \frac{1}{n^2} \text{--- сходящийся ряд} \\
-    S_N \to S, N \to \infty \\
-    \text{Доказать: } S_N = S - \frac{1}{N} + o(\frac{1}{N}), N \to \infty
-$
+        Расмотрим $\displaystyle
+          \frac{x_n - x{n-1}}{y_n - y_{n-1}} = \frac{S - S_n - (S - S_{n - 1})}{\frac{1}{n} - \frac{1}{n-1}} =
+          \frac{S_{n-1} - S_n}{\frac{n - 1 - n}{n(n - 1)}} = \frac{S_n -  S_{n-1}}{\frac{1}{n(n - 1)}}  =
+          \frac{1/n^2}{\frac{1}{n^2 - n}} = \frac{n^2 - n}{n^2} = \frac{1 - \frac{1}{n}}{1}
+          \xrightarrow{n \to \infty} 1
+        $
 
-Теорема Штольца: Пусть $x_n$ и $y_n$ обе сходится к нулю, причём $0 < y_n < y_{n-1} ~ \forall n$
-т.е. $\lim_{n \to \infty} \frac{x_n}{y_n} = \left[\frac{0}{0}\right]$. Тогда, если
-$\exists \lim_{n \to \infty} \frac{x_n - x{n-1}}{y_n - y_{n-1}} = A$, то
-$\exists \lim_{n \to \infty} \frac{x_n}{y_n} = A$.
+        По т. Штольца $\displaystyle \lim_{n \to \infty} \frac{x_n}{y_n} = 1$, т.е.
+        $\displaystyle \frac{x_n}{y_n} = 1 + o(1), x_n = y_n + o(y_n)$
 
-Обозначим $\displaystyle
-    x_n = S - S_n \to 0,  y_n = \frac{1}{n} \to 0,
-    \lim_{n \to \infty} \frac{x_n}{y_n} = \left[\frac{0}{0}\right]
-$
+        $\displaystyle
+          x_n = S - S_n = \frac{1}{n} + \text{o}\left(\frac{1}{n}\right) \implies S_n = S - \frac{1}{n} +
+          \text{o}\left(\frac{1}{n}\right)
+        $, ч.т.д.
 
-Расмотрим $\displaystyle
-    \frac{x_n - x{n-1}}{y_n - y_{n-1}} = \frac{S - S_n - (S - S_{n - 1})}{\frac{1}{n} - \frac{1}{n-1}} =
-    \frac{S_{n-1} - S_n}{\frac{n - 1 - n}{n(n - 1)}} = \frac{S_n -  S_{n-1}}{\frac{1}{n(n - 1)}}  =
-    \frac{1/n^2}{\frac{1}{n^2 - n}} = \frac{n^2 - n}{n^2} = \frac{1 - \frac{1}{n}}{1}
-    \xrightarrow{n \to \infty} 1
-$
+  
+    % Task 22
+    \begin{problem} \ \\[3pt]
+        $\displaystyle \sum_{n = 1}^{N} \frac{1}{n 2^n} =
+         S - \frac{1}{N 2^N} + o\left(\frac{1}{N 2^N}\right)$ \\[3pt]
+        $\displaystyle q_n = S - \sum_{n = 1}^{N} \frac{1}{n 2^n}, \;\;\;
+        \displaystyle p_n = \frac{1}{N 2^N}$ \\[3pt]
+        По теореме Штольца: $\displaystyle \lim_{n \to \infty} \frac{q_n}{p_n} =
+        \lim_{n \to \infty}\frac{q_{n} - q_{n - 1}}{p_{n} - p_{n - 1}} =
+        \lim_{n \to \infty} \frac{S - S_{n} - S + S_{n - 1}}
+        {\frac{1}{N 2^N} - \frac{1}{(N - 1) 2^{N - 1}}} = 
+        \frac{-\frac{1}{N 2^N} \cdot N(N - 1) 2^{2N-1}}{2^{N-1}(N-1-2N)} = 1,\\[3 pt]
+        \frac{q_n}{p_n} = 1 + o(1) \; \Rightarrow \; q_n = p_n + o(p_n) 
+        \Leftrightarrow S - \sum_{n = 1}^{N} \frac{1}{n 2^n} = 
+        \frac{1}{N 2^N} + o\left(\frac{1}{N 2^N}\right)
+        \Leftrightarrow \sum_{n = 1}^{N} \frac{1}{n 2^n} =
+         S - \frac{1}{N 2^N} \pm o\left(\frac{1}{N 2^N}\right)$,\\[3pt]
+         что и требовалось доказать.
+    \end{problem}
+    
+    \problem[23]
+        $\displaystyle \\
+          S = \sum_{n=1}^\infty \sin \frac{1}{n^2}$ - представить $S$ в виде суммы ряда с
+        общим членом $a_n  = \text{O}\left(\frac{1}{n^3}\right)$.
 
-По т. Штольца $\displaystyle \lim_{n \to \infty} \frac{x_n}{y_n} = 1$, т.е.
-$\displaystyle \frac{x_n}{y_n} = 1 + o(1), x_n = y_n + o(y_n)$
+        $\displaystyle
+          b_n = \frac{1}{n(n + 1)} \approx \frac{1}{n^2} \\
+          sin \frac{1}{n^2} = u_n \approx \frac{1}{n^2}  \\
+          u_n - b_n = a_n \approx ? \\
+          \sum_{n=1}^\infty b_n = \sum_{n=1}^\infty \frac{1}{n(n+1)} = \sum_{n=1}^\infty \left(\frac{1}{n} -
+          \frac{1}{n+1}\right) = 1 - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \dots = 1 \\
+          \sum_{n=1}^\infty a_n = \sum_{n=1}^\infty u_n - \sum_{n=1}^\infty = S - 1 \implies S = 1 +
+          \sum_{n=1}^\infty a_n
+        $
 
-$\displaystyle
-    x_n = S - S_n = \frac{1}{n} + \text{o}\left(\frac{1}{n}\right) \implies S_n = S - \frac{1}{n} +
-    \text{o}\left(\frac{1}{n}\right)
-$, ч.т.д.
+        $\displaystyle
+          a_n = u_n - b_n = \sin \frac{1}{n^2} - \frac{1}{n(n + 1)} = \frac{1}{n^2} - \frac{1}{6}\frac{1}{n^6}
+          - \frac{1}{n^2}\frac{1}{1 + \frac{1}{n}} \approx \frac{1}{n^2} - \frac{1}{6n^6} - \frac{1}{n^2}
+          \left(1 - \frac{1}{n}\right) = -\frac{1}{6n^6} + \frac{1}{n^3} \approx \frac{1}{n^3}
+        $
 
-
-% Task 22
-\begin{problem} \ \\[3pt]
-$\displaystyle \sum_{n = 1}^{N} \frac{1}{n 2^n} =
-    S - \frac{1}{N 2^N} + o\left(\frac{1}{N 2^N}\right)$ \\[3pt]
-$\displaystyle q_n = S - \sum_{n = 1}^{N} \frac{1}{n 2^n}, \;\;\;
-    \displaystyle p_n = \frac{1}{N 2^N}$ \\[3pt]
-По теореме Штольца: $\displaystyle \lim_{n \to \infty} \frac{q_n}{p_n} =
-\lim_{n \to \infty}\frac{q_{n} - q_{n - 1}}{p_{n} - p_{n - 1}} =
-\lim_{n \to \infty} \frac{S - S_{n} - S + S_{n - 1}}
-{\frac{1}{N 2^N} - \frac{1}{(N - 1) 2^{N - 1}}} =
-\frac{-\frac{1}{N 2^N} \cdot N(N - 1) 2^{2N-1}}{2^{N-1}(N-1-2N)} = 1,\\[3 pt]
-\frac{q_n}{p_n} = 1 + o(1) \; \Rightarrow \; q_n = p_n + o(p_n)
-\Leftrightarrow S - \sum_{n = 1}^{N} \frac{1}{n 2^n} =
-\frac{1}{N 2^N} + o\left(\frac{1}{N 2^N}\right)
-\Leftrightarrow \sum_{n = 1}^{N} \frac{1}{n 2^n} =
-S - \frac{1}{N 2^N} \pm o\left(\frac{1}{N 2^N}\right)$,\\[3pt]
-что и требовалось доказать.
-\end{problem}
-
-\problem[23]
-$\displaystyle \\
-    S = \sum_{n=1}^\infty \sin \frac{1}{n^2}$ - представить $S$ в виде суммы ряда с
-общим членом $a_n  = \text{O}\left(\frac{1}{n^3}\right)$.
-
-$\displaystyle
-    b_n = \frac{1}{n(n + 1)} \approx \frac{1}{n^2} \\
-    sin \frac{1}{n^2} = u_n \approx \frac{1}{n^2}  \\
-    u_n - b_n = a_n \approx ? \\
-    \sum_{n=1}^\infty b_n = \sum_{n=1}^\infty \frac{1}{n(n+1)} = \sum_{n=1}^\infty \left(\frac{1}{n} -
-    \frac{1}{n+1}\right) = 1 - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \dots = 1 \\
-    \sum_{n=1}^\infty a_n = \sum_{n=1}^\infty u_n - \sum_{n=1}^\infty = S - 1 \implies S = 1 +
-    \sum_{n=1}^\infty a_n
-$
-
-$\displaystyle
-    a_n = u_n - b_n = \sin \frac{1}{n^2} - \frac{1}{n(n + 1)} = \frac{1}{n^2} - \frac{1}{6}\frac{1}{n^6}
-    - \frac{1}{n^2}\frac{1}{1 + \frac{1}{n}} \approx \frac{1}{n^2} - \frac{1}{6n^6} - \frac{1}{n^2}
-    \left(1 - \frac{1}{n}\right) = -\frac{1}{6n^6} + \frac{1}{n^3} \approx \frac{1}{n^3}
-$
-
-$\displaystyle
-    \implies S = 1 + \sum_{n=1}^\infty\left(\sin \frac{1}{n^2} - \frac{1}{n(n + 1)}\right)
-$
-
+        $\displaystyle
+          \implies S = 1 + \sum_{n=1}^\infty\left(\sin \frac{1}{n^2} - \frac{1}{n(n + 1)}\right)
+        $
 
 \end{document}
