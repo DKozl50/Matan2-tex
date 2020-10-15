@@ -96,7 +96,19 @@
         исходное утверждение следует очевидно.
 	\end{proof}    
     % вопрос 16
-        
+    \subsection*{16}
+        \textbf{ Доказать, что если для $\sum a_n$ существует $\lim \dfrac{a_{n+1}}{a_n} = q$, то существует и $\lim \sqrt[n]{a_n} = q$.} \\[5 pt]
+        $\exists \lim \dfrac{a_{n+1}}{a_n} = q \; \Rightarrow \; \exists \lim \sqrt[n]{a_n} = q$ \\[3 pt]
+        \begin{proof}
+        Рассмотрим неравенство (доказанное в п. 15): \\[3 pt]
+        $\varliminf \, \dfrac{a_{n+1}}{a_n} \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} 
+        \le \varlimsup \, \dfrac{a_{n+1}}{a_n}$ \\[3 pt]
+        $\exists \lim \dfrac{a_{n+1}}{a_n} = q \; \Leftrightarrow \; 
+        \varliminf \, \dfrac{a_{n+1}}{a_n} = \varlimsup \, \dfrac{a_{n+1}}{a_n} = q \; \Rightarrow \\[3 pt]
+        \Rightarrow \; q \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \le q \; \Rightarrow 
+        \varliminf \sqrt[n]{a_n} = \varlimsup \sqrt[n]{a_n} = q \; \Leftrightarrow \; \exists \lim \sqrt[n]{a_n} = q$, \\[5 pt]
+        что и требовалось доказать.
+        \end{proof}    
     % вопрос 17
         
     % вопрос 18
