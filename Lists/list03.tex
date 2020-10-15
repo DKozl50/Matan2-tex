@@ -1,0 +1,398 @@
+\documentclass[a4paper,fleqn]{article}
+\usepackage{header}
+
+\title{Семинарский лист 3}
+\author{
+	Александр Богданов \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+	Алиса Вернигор     \\ \href{https://t.me/allisyonok}{Telegram} \and
+	Василий Шныпко     \\ \href{https://t.me/yourvash}{Telegram} \and
+	Денис Козлов       \\ \href{https://t.me/DKozl50}{Telegram} \and
+	Иван Пешехонов     \\ \href{https://t.me/JohanDDC}{Telegram}\and
+	Иван Добросовестнов \\ \href{https://t.me/ivankot13}{Telegram}\and
+	Елизавета Орешонок \\ \href{https://t.me/eaoresh}{Telegram}\and
+	Никита Насонков \\ \href{https://t.me/nnv_nick}{Telegram}
+}
+
+\date{Версия от {\ddmmyyyydate\today} \currenttime}
+
+\begin{document}
+	\maketitle
+	\section*{Применяя признак Вейрштрасса, покажите, что ряд сходится абсолютно.}
+	%Task 1 
+	\subsection*{Задача 1}
+	$ \sum_{n=1}^{\infty} \frac{(-1)^{n} \cos n^{2}}{\sqrt{n^{3}+3}} $ --- сходится по признаку сравнения
+	
+	$ |a_n| = \frac{|\cos n^{2}|}{\sqrt{n^{3}+3}} \leq \dfrac{1}{\sqrt{n^{3}+3}} \sim \dfrac{1}{\sqrt{n^3}} = \dfrac{1}{n^{3/2}} $ --- сходящийся ряд
+	
+	%Task 2
+	\subsection*{Задача 2}
+	$ \sum_{n=1}^{\infty} \frac{(-1)^{n} n^{\ln n}}{2^{\sqrt{n}}} $
+	$\; \; \; \; \;  |a_n| = \dfrac{n^{\ln n}}{2^{\sqrt{n}}} = \exp \underbrace{\left[\ln^2 n - \sqrt{n}\ln 2\right]}_{b_n}  = e^{b_n}$
+	
+	Рассмотрим $ b_n $.
+	Заметим, что $ \ln n  = o(n^p), \; n \to \inf, \; p>0$. В нашем случае $ p_n = \dfrac{1}{2}, \; \; \; \ln^2n = o(\sqrt{n}) \Rightarrow b_n \sim -\sqrt{n}\ln 2$ 
+	
+	Оценим $ b_n $   --- $ \; \sqrt{n}\ln2 \geq 2 \ln n \Rightarrow -\sqrt{n}\ln 2 \leq -2\ln n$
+	
+	Подставим эту оценку для $ b_n $ --- $\; e^{b_n} \leq e^{-2\ln n}  = \dfrac{1}{n^2}$ 
+	
+	$ |a_n| $ мажорируется $ \dfrac{1}{n^2} \Rightarrow \;$ ряд $ \sum_{i = 1}^{\infty} |a_n|$ сходится по признаку сравнения 
+	%Task 3
+	
+	\subsection*{Задача 3}
+	$ \sum_{n=1}^{\infty} \frac{\left(2^{n}+3^{n}\right) \sin n}{2^{n}+n^{2} \cdot 3^{n}} \; \; \; \; \; |a_n| \leq \dfrac{2^n + 3^n}{2^n + n^2\cdot 3^n}  = \dfrac{\left(\dfrac{2}{3}\right)^n+1 }{\left(\dfrac{2}{3}\right)^n + n^2} \leq\dfrac{2}{n^2}$ --- сходится
+	\section*{Применяя признак Лейбница, покажите, что ряд сходится.}
+	%Task 4
+	\subsection*{4}
+	\[ \sum_{n=1}^{\infty} \dfrac{(-1)^n (2n-1)}{n^2 + 3n + 5} \text{ --- знакочередующийся ряд}, \;\;\;
+	a_n = \dfrac{(-1)^n (2n-1)}{n^2 + 3n + 5}, \;\; |a_n|  = \dfrac{2n-1}{n^2 + 3n + 5} \]
+	\[ \text{Проверим, что $|a_n|$ монотонно убывает. Рассмотрим $f(x) = \dfrac{2x-1}{x^2 + 3x + 5}$:} \]
+	\[ f'(x) = \dfrac{2(x^2 + 3x + 5) - (2x-1)(2x+3)}{(x^2 + 3x + 5)^2} = 
+	\dfrac{2x^2 + 6x + 10 - 4x^2 - 4x + 3}{(x^2 + 3x + 5)^2} = 
+	-\dfrac{2x^2 - 2x - 3}{(x^2 + 3x + 5)^2} = \]
+	\[ = -\dfrac{2\left(x - \dfrac12\right)^2 - \dfrac72}{(x^2 + 3x + 5)^2} < 0 \text{ при } x \ge 2  \;\Rightarrow \]
+	\[ \Rightarrow \; |a_n| \searrow \text{ начиная с } n = 2 \]\\[-20 pt]
+	\[ \lim_{n\to\infty} |a_n| = \lim_{n\to\infty} \dfrac{2n-1}{n^2 + 3n + 5} = \lim_{n\to\infty}\dfrac{2-\dfrac1n}{n + 3 + \dfrac5n} = 0 \]\\[-10 pt]
+	\[ \left\{\begin{array}{l} 
+	\text{ряд знакочередующийся},\\[5 pt]
+	|a_n| > |a_{n+1}| \; \forall n \ge 2,\\[5 pt]
+	\lim_{n\to\infty} |a_n| = 0
+	\end{array}\right.
+	\Rightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^n (2n-1)}{n^2 + 3n + 5} \; \text{ сходится условно по признаку Лейбница.} \]\\[-5 pt]
+	\[ \sum_{n=1}^{\infty} |a_n| = \sum_{n=1}^{\infty} \dfrac{2n-1}{n^2 + 3n + 5} \sim \sum_{n=1}^{\infty} \dfrac{1}{n} \text{ --- расходится по признаку сравнения } \Rightarrow \text{ абсолютной сходимости нет.} \]\\
+	
+	%Task 5
+	\subsection*{5}
+	\[ \sum_{n=1}^{\infty} \dfrac{(-1)^n \ln^2 n}{\sqrt{2n + 3}} \text{ --- знакочередующийся ряд}, \;\;\;
+	a_n = \dfrac{(-1)^n \ln^2 n}{\sqrt{2n + 3}}, \;\; |a_n|  = \dfrac{\ln^2 n}{\sqrt{2n + 3}} \]
+	\[ \text{Проверим, что $|a_n|$ монотонно убывает. Рассмотрим $f(x) = \dfrac{\ln^2 x}{\sqrt{2x + 3}}$:} \]
+	\[ f'(x) = \dfrac{\dfrac{2\ln x}x \sqrt{2x + 3} - \ln^2 x \dfrac{2}{2\sqrt{2x + 3}}}{2x + 3} = 
+	\dfrac{\ln x (4x + 6 - x \ln x)}{x (2x + 2)^{3/2}} = 
+	-\dfrac{\ln x }{(2x + 2)^{3/2}} \left( \ln x - 4 - \dfrac6x \right) < 0 \text{ при } x \ge 50  \;\Rightarrow \]
+	\[ \Rightarrow \; |a_n| \searrow \text{ начиная с } n = 50 \]\\[-20 pt]
+	\[ \lim_{n\to\infty} |a_n| = \lim_{n\to\infty} \dfrac{\ln^2 n}{\sqrt{2n + 3}} =  0, \; \text{ т.к. } \ln^2 n = o(\sqrt{n}) \]\\[-10 pt]
+	\[ \left\{\begin{array}{l} 
+	\text{ряд знакочередующийся},\\[5 pt]
+	|a_n| > |a_{n+1}| \; \forall n \ge 50,\\[5 pt]
+	\lim_{n\to\infty} |a_n| = 0
+	\end{array}\right.
+	\Rightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^n \ln^2 n}{\sqrt{2n + 3}} \; \text{ сходится условно по признаку Лейбница.} \]\\[-5 pt]
+	\[ \sum_{n=1}^{\infty} |a_n| = \sum_{n=1}^{\infty} \dfrac{\ln^2 n}{\sqrt{2n + 3}} > \sum_{n=1}^{\infty} \dfrac{1}{n} \text{ --- расходится по признаку сравнения } \Rightarrow \text{ абсолютной сходимости нет.} \]\\
+	
+	%Task 6
+ \subsection*{6}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \frac{{(-1)}^n \sqrt{n}}{3n - 2} \;\;\;\;\;\;
+		a_n = \frac{{(-1)}^n \sqrt{n}}{3n - 2} \text{ очевидно знакочередующийся} \;\;\;\;\;\; 
+		|a_n| = \frac{\sqrt{n}}{3n - 2} \\
+		& \lim_{n \to \infty} \left| a_n \right| = 0 \;\;\;\;\;\; 
+		|a_n|' = \frac{\frac{3n-2}{2\sqrt{n}} - 3\sqrt{n}}{{(3n-2)}^2} = 
+		\frac{3n - 2 - 6n}{2\sqrt{n}{(3n-2)}^2} = - \frac{3n + 2}{2 \sqrt{n} {(3n - 2)}^2} < 0 \; \forall n > 0 
+		\implies \text{ монотонно убывает} \\
+		& \text{По признаку Лейбница ряд сходится} 
+	\end{flalign*}
+
+	\section*{Применяя группировку членов постоянного знака, покажите, что ряд расходится.}
+	%Task 7
+	\subsection*{7}
+	\[ \sum_{n=1}^{\infty} \dfrac{(-1)^{[\ln n]}}{2n + 1} \text{ --- знакопеременный ряд} \]
+	\[ \text{При $2k \le [\ln n] < 2k + 1 \; \Leftrightarrow \; [e^{2k}] \le n < [e^{2k+1}]$
+		$n$-е слагаемое положительно.\\[5 pt]} \]
+	\[ \text{Перестановка:} \]
+	\[ \sum_{k=1}^{\infty} \sum_{n=[e^{2k}]}^{[e^{2k+1}]-1} \dfrac{(-1)^{[\ln n]}}{2n + 1} =
+	\sum_{k=1}^{\infty} \sum_{n=[e^{2k}]}^{[e^{2k+1}]-1} \dfrac{1}{2n + 1} \]
+	\[ \text{Оценим сумму группы 
+		$A_k = \displaystyle \sum_{n=[e^{2k}]}^{[e^{2k+1}]-1} \dfrac{1}{2n + 1}$ снизу:} \]
+	\[ \sum_{n=[e^{2k}]}^{[e^{2k+1}]-1} \dfrac{1}{2n + 1} \ge 
+	\dfrac1{2[e^{2k+1}] - 1}\left( [e^{2k+1}]-1 - [e^{2k}] \right) \ge 
+	\dfrac{2[e^{2k}] - [e^{2k}]-1}{2[e^{2k+1}] - 1} \ge 
+	\dfrac{ [e^{2k}]-1}{2[e^{2k+1}] - 1} \ge
+	\dfrac{ [e^{2k + 1}]}{2[e^{2k+1}]} = \dfrac12 \ne 0 \]\\[-20 pt]
+	\[ \lim_{k\to\infty} |A_k| = \dfrac12 \ne 0 \; \Rightarrow \; 
+	\sum_{k=1}^{\infty} A_k \text{ расходится, т.к. не выполнено необходимое условие сходимости} \; \Leftrightarrow \]
+	\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^{[\ln n]}}{2n + 1} \; \text{ тоже расходится} \]
+	
+	%Task 8
+	\subsection*{8}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \frac{{(-1)}^{\left[ \sqrt{n} \right]}}{\sqrt{n} + 2} = \sum_{k=1}^{\infty} A_k \\
+		& \left[ \sqrt{n} \right] = k \implies k \leq \sqrt{n} < k + 1 \implies
+		k^2 \leq n < {(k+1)}^2 \;\;\;\;\;\; 
+		A_k = {(-1)}^k \sum_{n = k^2}^{{(k+1)}^2 - 1} \frac{1}{\sqrt{n} + 2} \\
+		& |A_k| = \sum_{n = k^2}^{{(k+1)}^2 - 1} \frac{1}{\sqrt{n} + 2} \geq 
+		\frac{{(k+1)}^2 - 1 - k^2 + 1 }{\sqrt{{(k + 1)}^2 - 1} + 2} \geq 
+		\frac{2k + 1}{\sqrt{{(k+1)}^2} + 2} = \frac{2k + 1}{k + 3} \to 2 \neq 0 \implies \\
+		& \implies \text{ не выполняется необходимое условие сходимости.}
+	\end{flalign*}
+	%Task 9
+	\subsection*{9}
+	\[ \sum_{n=1}^{\infty} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} \text{ --- знакопеременный ряд} \]
+	\[ \text{При $2k \le [\sqrt[3]{n}] < 2k + 1 \; \Leftrightarrow \; 8k^3 \le n < (2k+1)^3$:
+		$n$-е слагаемое положительно.\\[5 pt]} \]
+	\[ \text{Перестановка:} \]
+	\[ \sum_{k=1}^{\infty} \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} =
+	\sum_{k=1}^{\infty} \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{1}{\sqrt[3]{n^2 + 3}} \]
+	\[ \text{Оценим сумму группы 
+		$A_k = \displaystyle  \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{1}{\sqrt[3]{n^2 + 3}}$ снизу:} \]
+	\[  \sum_{n=8k^3}^{8k^3+12k^2+6k} \dfrac{1}{\sqrt[3]{n^2 + 3}} \ge 
+	\dfrac{1}{\sqrt[3]{((2k+1)^3 - 1)^2 + 3}}(12k^2 + 6k) = 
+	\dfrac{6k(2k+1)}{\sqrt[3]{(2k+1)^6 - 2(2k + 1)^3 + 4}} = \]
+	\[ = \dfrac{6k}{\sqrt[3]{(2k+1)^3 - 2 + \dfrac4{(2k + 1)^3}}} \ge
+	\dfrac{6k}{2k+1} \; (\text{при } k \ge 1) \ge 3 \ne 0 \]\\[-20 pt]
+	\[ \lim_{k\to\infty} |A_k| = 3 \ne 0 \; \Rightarrow \; 
+	\sum_{k=1}^{\infty} A_k \text{ расходится, т.к. не выполнено необходимое условие сходимости} \; \Leftrightarrow \]
+	\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{(-1)^{[\sqrt[3]{n}]}}{\sqrt[3]{n^2 + 3}} \; \text{ тоже расходится} \]
+	
+	%Task 10
+	\subsection*{10}
+	\[ \sum_{n=1}^{\infty} \dfrac{\sin \ln n}{n + 2} \text{ --- знакопеременный ряд} \]
+	\[ \text{При $2\pi k < \ln n < 2\pi k + \pi \; \Leftrightarrow \; [e^{2\pi k}]+1 \le n < [e^{2\pi k + \pi}]$:
+		$n$-е слагаемое положительно.\\[5 pt]} \]
+	\[ \text{Оценим сумму группы 
+		$A_k = \displaystyle  \sum_{n=[e^{2\pi k}]+1}^{ [e^{2\pi k + \pi}]-1} \dfrac{\sin \ln n}{n + 2}$ снизу:} \]
+	\[ \text{при $2\pi k + \dfrac{\pi}6 \le \ln n \le 2\pi k + \dfrac{5\pi}6 \; 
+		\Leftrightarrow \; [e^{2\pi k + \frac{\pi}6}]+1 \le n \le [e^{2\pi k + \frac{5\pi}6}]$:
+		$\sin \ln n \ge \dfrac12 \; \Rightarrow$\\[5 pt]} \]
+	\[ \Rightarrow \; A_k \ge \sum_{n=[e^{2\pi k + \frac{\pi}6}]+1}^{[e^{2\pi k + \frac{5\pi}6}]} \dfrac{1}{2(n + 2)} \ge
+	\dfrac1{2([e^{2\pi k + \frac{5\pi}6}] + 2)}([e^{2\pi k + \frac{5\pi}6}] - [e^{2\pi k + \frac{\pi}6}] - 1) \]\\[-10 pt]
+	\[ 8 [e^{2\pi k + \frac{\pi}6}] < [e^{2\pi k + \frac{5\pi}6}] < 9 [e^{2\pi k + \frac{\pi}6}] \; \Rightarrow \; 
+	A_k \ge \dfrac{7[e^{2\pi k + \frac{\pi}6}] - 1}{2(9[e^{2\pi k + \frac{\pi}6}] + 2)} \xrightarrow{k \to \infty} \dfrac7{18} \ne 0 \]\\[-20 pt]
+	\[ \lim_{k\to\infty} |A_k| \ge \dfrac7{18} \ne 0 \; \Rightarrow \; 
+	\sum_{k=1}^{\infty} A_k \text{ расходится, т.к. не выполнено необходимое условие сходимости} \; \Leftrightarrow \]
+	\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{\sin \ln n}{n + 2} \; \text{ тоже расходится} \]
+	
+	%Task 11
+	\subsection*{11}
+	\[ \sum_{n=1}^{\infty} \dfrac{\sin \pi \sqrt{n}}{\sqrt{2n + 1}} \text{ --- знакопеременный ряд} \]
+	\[ \text{При $2\pi k < \pi \sqrt{n} < 2\pi k + \pi \; \Leftrightarrow \; 4k^2 < n < (2k+1)^2$:
+		$n$-е слагаемое положительно.\\[5 pt]} \]
+	\[ \text{Оценим сумму группы 
+		$A_k = \displaystyle  \sum_{n=4k^2+1}^{4k^2+4k} \dfrac{\sin \pi \sqrt{n}}{\sqrt{2n + 1}}$ снизу:} \]
+	\[ \text{при $2\pi k + \dfrac{\pi}6 \le \pi \sqrt{n} \le 2\pi k + \dfrac{5\pi}6 \; 
+		\Leftrightarrow \; \left(2k + \dfrac16\right)^2 \le n \le \left(2k + \dfrac56\right)^2$:
+		$\sin \pi \sqrt{n} \ge \dfrac12 \; \Rightarrow$\\[5 pt]} \]
+	\[ \Rightarrow \; A_k \ge \sum_{n=\left(2k + \frac{1}6\right)^2}^{(2k + \frac{5}6)^2} \dfrac{1}{2\sqrt{2n + 1}} \ge
+	\dfrac1{2\sqrt{2(2k + \frac{5}6)^2+1}}\left(\left(2k + \frac{5}6\right)^2 - \left(2k + \frac{1}6\right)^2\right) = \]
+	\[ = \dfrac{\dfrac{2}3\left(4k + 1\right)}{2\sqrt{8k^2 + \frac{20}3 k + \frac{34}{9}}} = 
+	\dfrac{1}3 \cdot \dfrac{4 + \dfrac{1}k}{\sqrt{8 + \frac{20}{3k} + \frac{34}{9k^2}}}
+	\xrightarrow{k \to \infty} \dfrac{4}{3 \cdot 2\sqrt2} = \dfrac{2}{3\sqrt2} \ne 0 \]\\[-20 pt]
+	\[ \lim_{k\to\infty} |A_k| \ge \dfrac{2}{3\sqrt2} \ne 0 \; \Rightarrow \; 
+	\sum_{k=1}^{\infty} A_k \text{ расходится, т.к. не выполнено необходимое условие сходимости} \; \Leftrightarrow \]
+	\[ \Leftrightarrow \; \sum_{n=1}^{\infty} \dfrac{\sin \pi \sqrt{n}}{\sqrt{2n + 1}} \; \text{ тоже расходится} \]
+	
+	\section*{Применяя признак Дирихле или Абеля, покажите, что ряд сходится.}
+	%Task 12
+	\subsection*{12}
+	$\displaystyle \sum\limits_{n = 1}^{\infty} \frac{cos \; \sqrt{2}n}{2n - 5}$ \\
+	Пусть $\displaystyle a_n = cos \; \sqrt{2}n$, тогда $\left| \sum\limits_{n = 1}^N a_n \right| \leq 1$, то есть частичная сумма $\displaystyle a_n$ ограничена. \\
+	Пусть $\displaystyle b_n = \frac{1}{2n - 5}$, тогда, очевидно, $b_n \searrow 0$. \\
+	Заметим, что $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{cos \; \sqrt{2}n}{2n - 5} = \sum\limits_{n = 1}^{\infty} a_n \; \cdot \; b_n =>$ ряд сходится по признаку Дирихле. \\ 
+	
+	%Task 13
+	\subsection*{13}
+	$\displaystyle \sum\limits_{n = 2}^{\infty} \frac{sin(4n)}{ln \; n - ln \; ln \; n}$ \\
+	$\displaystyle a_n = sin(4n) => \sum\limits_{n = 2}^{\infty} a_n - \text{ограничена}$. \\
+	$\displaystyle b_n = \frac{1}{ln \; n - ln \; ln \; n}$ \\
+	Покажем, что $\displaystyle b_n \searrow 0$: \\
+	Пусть $\displaystyle f(x) = \frac{1}{ln \; x - ln \; ln \; x}$. Найдём её производную и покажем, что она всегда меньше нуля. Это будет означать, что функция, а значит, и $\displaystyle b_n$ монотонно убывает: \\
+	\begin{equation*} f'(x) = -\frac{1 \; \cdot \; (ln \; x - ln \; ln \; x)'}{(ln \; x - ln \; ln \; x)^2} = -\frac{\frac{1}{x} - \frac{1}{x\; ln \; x}}{(ln \; x - ln \; ln \; x)^2} \end{equation*}
+	При $\displaystyle x \rightarrow \infty \; \; \frac{1}{x} - \frac{1}{x\; ln \; x} > 0 => f'(x) < 0 => b_n$ монотонно убывает. Также заметим, что при $\displaystyle n \rightarrow \infty \; \; ln \; n$ растёт быстрее, чем $ln\; ln\; n => (ln \; n - ln \; ln \; n) \rightarrow \infty => b_n = \frac{1}{ln \; n - ln \; ln \; n} \rightarrow 0$. Следовательно $\displaystyle b_n \searrow 0 =>$ ряд сходится по признаку Дирихле. $\displaystyle \blacksquare$ \\
+	
+	%Task 14
+	\subsection*{14}
+		\[ \sum_{n=2}^{\infty} \dfrac{(-1)^n \sqrt[n]{n}}{\ln^2 n} \]
+		\[ \text{Последовательность } \{a_n\}, \; a_n = \sqrt[n]{n} \text{ монотонно убывает при } n \ge 3 \;\;
+		 \left[\left(\sqrt[n]{n}\right)'_n = \left(e^{\frac{\ln n}n}\right)'_n = \sqrt[n]{n}\dfrac{1-\ln n}{n^2} < 0, \; n \ge 3 \right] \]
+		\[ \left\{\begin{array}{rl} \text{Ряд } \sum_{n=2}^{\infty} b_n, \; b_n = \dfrac{(-1)^n}{\ln^2 n} & \text{ --- знакопеременный},\\[10 pt]
+		|b_n| = \dfrac1{\ln^2 n} \searrow \text{ при } n > 1 & \left[\left(\dfrac1{\ln^2 n}\right)'_n \!\!\! = -\dfrac2{n \ln^3 n} < 0, \; n > 1 \right]\\[10 pt]
+		\lim_{n\to\infty} |b_n| = \lim_{n\to\infty} \dfrac1{\ln^2 n} & = 0 
+		\end{array}\right. \!\! \Rightarrow \; \sum_{n=2}^{\infty} b_n \; \text{ сходится по признаку Лейбница} \]\\[-15 pt]
+		\[ \left\{\begin{array}{rl} 
+		\{a_n\} & \text{монотонно убывает},\\[5 pt]
+		\displaystyle \sum_{n=1}^{\infty} b_n & \text{сходится} 
+		\end{array}\right. \Rightarrow \; \sum_{n=2}^{\infty} a_n \cdot b_n = \sum_{n=2}^{\infty} \dfrac{(-1)^n \sqrt[n]{n}}{\ln^2 n} \;
+		 \text{ сходится по признаку Абеля} \]
+	
+	%Task 15
+	\subsection*{15}
+	$\displaystyle \frac{(-1)^n \; \cdot \; cos \; 3n}{\sqrt{n^2 + 2}}$ \\
+	Пусть $\displaystyle a_n = (-1)^n \cdot cos\; 3n$. Докажем, что частичная сумма этого ряда ограничена. Для этого посчитаем $\displaystyle S_N^{+}$ и $\displaystyle S_N^{-}$ и докажем, что они ограничены. Для удобства рассмотрим такие $\displaystyle n$, что $\displaystyle n = 2 \cdot p, \; p \in \mathbb{N}$. \\
+	Тогда $\displaystyle S_N^{+} = \sum\limits_{p=1}^{N} cos(6p)$ ограничена (доказано на семинаре). $\displaystyle S_N^{-} = \sum\limits_{p = 1}^{N} cos(3 + 6p) = \sum\limits_{p = 1}^{N} (cos \; 3 \; cos \; 6p - sin \; 3 \; sin \; 6p) = cos\; 3 \; \sum\limits_{p = 1}^{N} cos\; 6p - sin\; 3 \; \sum\limits_{p = 1}^{N} sin\; 6p \; - $ и уменьшаемое, и вычитаемое ограничены, значит и $S_N^{-}$ ограничена. \\
+	Таким образом $\displaystyle S_N = S_N^{+} - S_N^{-}$ ограничена. \\
+	Теперь пусть $\displaystyle b_n = \frac{1}{\sqrt{n^2 + 2}}$. Докажем, что $\displaystyle b_n \searrow 0$. Очевидно, что $b_n \rightarrow 0$. Для доказательства монотонного убывания сравним $\displaystyle b_n$ и $\displaystyle b_{n + 1}$: \\
+	\begin{flalign*}
+		& \frac{1}{\sqrt{n^2 + 2}}\; \vee \; \frac{1}{\sqrt{(n+1)^2 + 2}} & \\
+		& \frac{1}{n^2 + 2}\; \vee \; \frac{1}{(n+1)^2 + 2} & \\
+		& (n + 1)^2 + 2 \; \vee \; n^2 + 2 & \\
+		& n^2 + 2n + 3 \; \vee \; n^2 + 2 & \\
+		& 2n + 1 > 0 \text{, начиная с какого-то} \; n_0. &
+	\end{flalign*}
+	Следовательно, $\displaystyle b_n \searrow 0$. Значит, наш ряд сходится по признаку Дирихле.
+	
+	%Task 16
+	\subsection*{16}
+	$\displaystyle \sum\limits_{n=1}^{\infty} \frac{(3n - 2)\; \cdot \; sin(n)}{n^2 - 3n + 1}$ \\
+	$\displaystyle a_n = sin(n) => \sum\limits_{n = 1}^{\infty} a_n$ $\displaystyle -$ ограничена. \\
+	$\displaystyle b_n = \frac{3n - 2}{n^2 - 3n + 1}$ \\ \\
+	Докажем, что $\displaystyle b_n \searrow 0$. Очевидно, что $\displaystyle b_n \rightarrow 0$. Для дальнейшего доказательства сравним $\displaystyle b_n$ и $\displaystyle b_{n + 1}$: \\
+	\begin{flalign*}
+		& \frac{3n - 2}{n^2 - 3n + 1} \; \vee \; \frac{3n + 1}{(n + 1)^2 - 3n - 2} & \\
+		& (3n - 2) ((n + 1)^2 - 3n - 2) \; \vee \; (3n + 1)(n^2 - 3n + 1) & \\
+		& (3n - 2) (n^2 - n - 1) \; \vee \; (3n + 1)(n^2 - 3n + 1) & \\
+		& 3n^3 - 3n^2 - 3n - 2n^2 + 2n + 2 \; \vee \; 3n^3 - 9n^2 + 3n + n^2 -3n + 1 & \\
+		& 3n^2 - n + 1 > 0 \; \text{начиная с какого-то} \; n_0 => \; \text{ряд сходится по признаку Дирихле.} \; \blacksquare&
+	\end{flalign*} \\
+	
+	%Task 17
+	\subsection*{Задача 17}
+	$\sum_{n=1}^{\infty} \frac{\cos \left(n+\frac{1}{n}\right)}{\ln n+1} \;\;\;\;\;\;\;\;\;\;\;\;\; \cos\left(n + \dfrac{1}{n}\right) = \cos(n)\cos\left(\dfrac{1}{n}\right) - \sin(n)\sin\left(\dfrac{1}{n}\right)$
+	
+	$ \sum_{n=1}^{\infty} \left[\dfrac{\cos(n)}{1+\ln n} \cos\left(\dfrac{1}{n}\right) - \dfrac{\sin(n) }{1+\ln n}\sin\left(\dfrac{1}{n}\right)\right]$ --- сходится по признаку Абеля
+	
+	$	
+	\left.
+	\begin{matrix}
+	&\uparrow \cos\left(\dfrac{1}{n}\right)  = 1 - \dfrac{1}{2n^2} + o\left(\dfrac{1}{n^3}\right) &\\
+	&\dfrac{\cos(n)}{1+\ln n}  \;\;\;\; \text{ --- сходящийся ряд по Дирихле   }&
+	\end{matrix} \right\} \text{ряд сходится по признаку Абеля}
+	$	
+	
+	$	
+	\left.
+	\begin{matrix}
+	&\downarrow \sin\left(\dfrac{1}{n}\right) = \dfrac{1}{n} + o\left(\dfrac{1}{n^2}\right) &\\
+	&\dfrac{\sin(n) }{1+\ln n} \;\;\;\; \text{ --- сходящийся ряд по Дирихле   }&
+	\end{matrix} \right\} \text{ряд сходится по признаку Абеля}
+	$	
+	\section*{Исследуйте ряд на сходимость и абсолютную сходимость, используя асимптотику общего члена.}
+	%Task 18
+	 \subsection*{18}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \sin \left( \pi \sqrt{n^2 + 2} \right) \\
+		& \sin \left( \pi \sqrt{n^2 + 2} \right) = \sin \left( \pi n \sqrt{1 + \frac{2}{n^2} } \right) =
+		\sin \left( \pi n \left( 1 + \frac{2}{2n^2} + \mathcal{O} \left( \frac{1}{n^4} \right) \right)  \right) = 
+		\sin \left( \pi n + \frac{1}{n} + \mathcal{O} \left( \frac{1}{n^3} \right) \right) = \\
+		& = {(-1)}^{n} \sin \left( \frac{\pi}{n} + \mathcal{O} \left( \frac{1}{n^3} \right) \right) =
+		{(-1)}^{n} \frac{\pi}{n} + \mathcal{O} \left( \frac{1}{n^3} \right) \\
+		& \sum_{n=1}^{\infty} \Bigg( {(-1)}^{n} \frac{\pi}{n} + \mathcal{O} \left( \frac{1}{n^3} \right) \Bigg) 
+		\text{ сходится по Лейбницу}
+	\end{flalign*}
+	%Task 19
+	 \subsection*{19}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \\
+		& \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) =
+		[\text{Ряд Маклорена}] \;\; \dfrac{(-1)^n}{n^{2/3}} - \dfrac{(-1)^n}{2n^{4/3}} + o\left( \dfrac1{n^{4/3}} \right) =
+		(-1)^n \dfrac{2n^{2/3} - 1}{2n^{4/3}} + o\left( \dfrac1{n^{4/3}} \right) \sim \\
+		& \sim (-1)^n \dfrac1{n^{2/3}} + \underbrace{o\left( \dfrac1{n^{4/3}} \right)}_{\text{сходится}} \\
+		& \left\{\begin{array}{rl} 
+		\text{Ряд } \sum_{n=1}^{\infty} \dfrac{(-1)^n}{n^{2/3}} & \text{ --- знакопеременный},\\[10 pt]
+		|b_n| = \dfrac{1}{n^{2/3}} \searrow & \text{ при } n \ge 1\\[10 pt]
+		\lim_{n\to\infty} |b_n| = & \lim_{n\to\infty} \dfrac{1}{n^{2/3}} = 0 
+		\end{array}\right. \!\! \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{n^{2/3}} \; \text{ сходится условно по признаку Лейбница}\\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \right| \sim 
+		\sum_{n=1}^{\infty} \left( \underbrace{\dfrac1{n^{2/3}}}_{\text{расходится}} +
+		\underbrace{o\left( \dfrac1{n^{4/3}} \right)}_{\text{сходится}} \right) \\
+		& \text{Сумма сходящегося и расходящегося рядов расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty} \ln \left( 1 + \dfrac{(-1)^n}{\sqrt[3]{n^2}} \right) \; \text{ расходится абсолютно}
+	\end{flalign*}
+	
+	%Task 20
+	 \subsection*{20}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \dfrac{\cos n}{n - \sin n} \\
+		& \dfrac{\cos n}{n - \sin n} = \dfrac{\cos n}{n} \left( \dfrac{n - \sin n}{n} \right)^{-1} = 
+		\dfrac{\cos n}{n} \left( 1 - \dfrac{\sin n}{n} \right)^{-1} = \\
+		& \left[ \text{Ряд Маклорена для } \dfrac1{1-x} \right] \;\; \dfrac{\cos n}{n} \left( 1 + \dfrac{\sin n}{n} + o\left( \dfrac1{n^2} \right) \right) = \\
+		& = \dfrac{\cos n}{n} + \underbrace{o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \cos n = \text{Re} \sum_{n=1}^{N} e^{i \cdot n}  = 
+		\text{Re} \dfrac{1 - e^{i (N+1)}}{1 - e^i} - 1 = \dfrac{\sin \frac{N}2 \cos \frac{(N+1)}2}{\sin \frac12} < 3 \; \text{ при } N \in \RR \\
+		& \left\{\begin{array}{rl} 
+		\text{Ряд } \sum_{n=1}^{\infty} \dfrac{\cos n}{n} & \text{ --- знакопеременный},\\[10 pt]
+		\dfrac{1}{n} \searrow & \text{ при } n \ge 1\\[10 pt]
+		\left\{ \sum_{n=1}^N \cos n \right\} & \text{ ограничена }
+		\end{array}\right. \!\! \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{\cos n}{n} \; \text{ сходится условно по признаку Дирихле}\\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{\cos n}{n - \sin n} \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left|\dfrac{\cos n}{n - \sin n} \right| \sim 
+		\sum_{n=1}^{\infty} \left( \underbrace{\dfrac{|\cos n|}{n}}_{\text{расходится}} +
+		\underbrace{o\left( \dfrac1{n^{2}} \right)}_{\text{сходится}} \right) \\
+		& \text{Сумма сходящегося и расходящегося рядов расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty}  \dfrac{\cos n}{n - \sin n} \; \text{ расходится абсолютно}
+	\end{flalign*}
+	
+	%Task 21
+	\subsection*{21}
+	$\displaystyle \sum\limits_{n=1}^{\infty} \frac{cos \; n}{\sqrt{n} + cos \; n}$ \\
+	\begin{equation*} a_n = \frac{cos \; n}{\sqrt{n} + cos \; n} = \frac{cos \; n}{\sqrt{n}} \cdot \frac{1}{1+\frac{cos\; n}{\sqrt{n}}} = \frac{cos\; n}{\sqrt{n}} \cdot (1 - \frac{cos\; n}{\sqrt{n}} + \frac{\frac{cos^2n}{n}}{1 + \frac{cos\; n}{\sqrt{n}}}) = \frac{cos\; n}{\sqrt{n}} - \frac{cos^2n}{n} + \frac{\frac{cos^3n}{n^{1.5}}}{1 + \frac{cos\; n}{\sqrt{n}}} = O(\frac{cos \; n}{\sqrt{n}})\end{equation*}
+	$\displaystyle \frac{cos \; n}{\sqrt{n}}$ сходится по признаку Дирихле $\displaystyle => \sum\limits_{n=1}^{\infty} a_n$ сходится условно. \\
+	Рассмотрим теперь абсолютную сходимость. $\displaystyle |a_n| = \left|\frac{cos \; n}{\sqrt{n}}\right| = \frac{|cos \; n|}{\sqrt{n}}$. С семинара известно, что $\displaystyle \sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{n}$ расходится, следовательно, так как $\displaystyle \frac{|cos\; n|}{n} \leq \frac{|cos\; n|}{\sqrt{n}}$, то по признаку сравнения $\sum\limits_{n = 1}^{\infty} \frac{|cos\; n|}{\sqrt{n}}$ расходится $\displaystyle \Rightarrow$ ряд расходится абсолютно. \\
+	
+	%Task 22
+	\subsection*{22}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \\
+		& \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} = \dfrac{(-1)^n}{\sqrt{n}} \cdot \dfrac1{\sqrt{1 - \frac{(-1)^n}{n}}} = \\
+		& = \left[ \text{Ряд Маклорена для } (1+x)^{-1/2}, \; x = \frac{(-1)^{n+1}}{n} \right] \;\;
+		\dfrac{(-1)^n}{\sqrt{n}} \left( 1 - \dfrac{(-1)^{n+1}}{2n} + \dfrac{3}{8n^2} + o\left( \dfrac1{n^{2}} \right) \right) = \\
+		& = \dfrac{(-1)^n}{\sqrt{n}} + \underbrace{\dfrac{1}{2n^{3/2}} + o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \dfrac{(-1)^n}{\sqrt{n}} \; \text{ сходится условно по признаку Лейбница} \\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \right| = 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n - (-1)^n}} \sim 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n}} \; \text{ --- расходится } \Rightarrow \;  
+		\sum_{n=1}^{\infty} \dfrac{(-1)^n}{\sqrt{n - (-1)^n}} \; \text{ расходится абсолютно}
+	\end{flalign*}
+	
+	%Task 23
+	\subsection*{23}
+	\begin{flalign*}
+		& \sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \\
+		& (\sqrt{n + (-1)^n} - \sqrt{n}) = \sqrt{n} \left( \sqrt{1 + \frac{(-1)^n}n} - 1 \right) = \\
+		& = \left[ \text{Ряд Маклорена для } (1+x)^{1/2}, \; x = \frac{(-1)^n}{n} \right] \;\;
+		\sqrt{n} \left( \cancel{1} + \dfrac{(-1)^{n}}{2n} - \dfrac{1}{8n^2} + o\left( \dfrac1{n^{2}} \right) - \cancel{1} \right) = \\
+		& = \dfrac{(-1)^n}{2\sqrt{n}} - \underbrace{\dfrac{1}{8n^{3/2}} + o\left( \dfrac1{n^2} \right)}_{\text{сходится}} \\
+		& \sum_{n=1}^{N} \dfrac{(-1)^n}{2\sqrt{n}} \; \text{ сходится условно по признаку Лейбница} \\
+		& \text{Сумма сходящихся рядов также сходится } \Rightarrow \; 
+		\sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \; \text{ сходится условно} \\
+		& \sum_{n=1}^{\infty} \left| (\sqrt{n + (-1)^n} - \sqrt{n}) \right| = 
+		\sum_{n=1}^{\infty} \left( \dfrac{1}{2\sqrt{n}} + o\left( \dfrac1{n^2} \right) \right) \sim 
+		\sum_{n=1}^{\infty} \dfrac{1}{\sqrt{n}} \; \text{ --- расходится } \Rightarrow \;  \\
+		& \Rightarrow \; \sum_{n=1}^{\infty} (\sqrt{n + (-1)^n} - \sqrt{n}) \; \text{ расходится абсолютно}
+	\end{flalign*}
+	
+	\section*{Вычислите произведение рядов.}
+	%Task 24
+	\subsection*{24}
+	\begin{flalign*}
+		& \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) \\
+		& \text{Ряды } \; \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \text{ и } \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \;
+		\text{ сходятся абсолютно по признаку сравнения с } \dfrac1{n!} \; \Rightarrow \\
+		& \Rightarrow \; \text{ их произведение } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) \;
+		\text{ также сходится абсолютно} \\
+		& \text{Тогда } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) =
+		\sum_{n=0}^{\infty} c_n, \\
+		& \text{где } c_n = \sum_{i+j=n} a_i b_j = \sum_{i+j=n} \dfrac{(-1)^i}{(2i + 1)!} \cdot \dfrac{(-1)^j}{(2j)!} =
+		\sum_{i+j=n} \dfrac{(-1)^{i + j}}{(2i + 1)!(2j)!} = \\
+		& \sum_{j=1}^n \dfrac{(-1)^{n}}{(2n + 1)!} \cdot \dfrac{(2n + 1)!}{(2n + 1 - 2j)!(2j)!} = 
+		\dfrac{(-1)^{n}}{(2n + 1)!} \cdot \sum_{j=1}^n C_{2n+1}^j = 
+		\dfrac{(-1)^{n}}{(2n + 1)!} \cdot 2^{2n} = \dfrac{(-1)^{n} \cdot 4^n}{(2n + 1)!} \\
+		& \text{И тогда произведение: } \; 
+		\left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n + 1)!} \right) \cdot \left( \sum_{n=0}^{\infty} \dfrac{(-1)^n}{(2n)!} \right) =
+		\sum_{n = 0}^{\infty} \dfrac{(-1)^{n} \cdot 4^n}{(2n + 1)!}
+	\end{flalign*}
+	
+	%Task 25
+	\subsection*{Задача 25}
+	$ \left(\sum_{n = 0}^{\infty}\dfrac{3^n}{n!}\right)^2  = \sum_{n=0}^{\infty} c_n \;\;\;\;\;\;\; a_n = b_n = \dfrac{3^n}{n!}$
+	
+	$ c_n = \sum_{k=0}^{n} \dfrac{3^k}{k!}\cdot \dfrac{3^{n-k}}{(n-k)!} = \dfrac{3^n}{n!} \sum_{k=0}^{n}\dfrac{n!}{k!(n-k)!} = \dfrac{3^n}{n!}\sum_{k=0}^{n}C_n^k 1^k1^{n-k} = \dfrac{3^n}{n!}(1+1)^n = \dfrac{3^n \cdot 2^n}{n!}  = \dfrac{6^n}{n!}$
+	
+\end{document}
