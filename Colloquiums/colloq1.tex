@@ -4,7 +4,7 @@
 \title{Коллоквиум 1}
 \author{
         % ОТКОММЕНТИРУЙ СЕБЯ
-    Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+    % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
     % Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
     % Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
@@ -15,10 +15,11 @@
     % Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
     % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
     % Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
-    % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
+    Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
+
 
 \begin{document}
     \maketitle
@@ -31,29 +32,54 @@
     % вопрос 1
 
     % вопрос 2
-
+        \subsection*{2. Критерий Коши сходимости числовой последовательности}
+        Последовательность $\{x_n\}$ сходится, если $\forall \varepsilon > 0\ \exists N = N(\varepsilon) : \forall n, m \geqslant N \implies |x_n - x_m| < \varepsilon$\\
+        Критерий Коши сходимости числового ряда\\
+        Ряд $\sum x_n$ сходится тогда, и только тогда, когда $\forall\varepsilon > 0 \exists N = N(\varepsilon) : \forall n, m \geqslant N,\ n > m \implies |\sum\limits_{i = m}^n x_i| < \varepsilon$
+\begin{proof}
+        Рассмотрим последовательность частных сумм $\{S_n\}$\\
+        Ряд сходится тогда, и только тогда, когда сходится $\{S_n\}$\\
+        То есть ряд $\sum x_n$ сходится тогда, и только тогда, когда $\forall \varepsilon > 0 \exists N = N(\varepsilon) : \forall n, m \geqslant N,\ n > m \implies |S_n - S_m| < \varepsilon \implies |\sum\limits_{i = m}^n x_i| < \varepsilon$
+\end{proof}
     % вопрос 3
-
+        
     % вопрос 4
-
+    \subsection*{4. Сформулируйте и докажите признак сравнения положительных числовых рядов, основанный на неравенстве $\frac{a_{n+1}}{a_n} \leq \frac{b_{n+1}}{b_n}$.}
+    \begin{proposition}[Сравнение отношений]
+        Пусть $\frac{a_{n+1}}{a_n} \leq \frac{b_{n+1}}{b_n}$ при $n \geq n_0$. Тогда:
+        \begin{flalign*}
+            & \sum b_n \text{ сходится } \implies \sum a_n \text{ сходится }\\
+            & \sum a_n \text{ расходится } \implies \sum b_n \text{ расходится }
+        \end{flalign*}
+    \end{proposition}
+    \begin{proof} 
+        Предполагаем, что $a_n > 0, b_n > 0$.
+        \begin{flalign*}
+            & a_{n_0 + 1} \leq \frac{a_{n_0}}{b_{n_0}} \cdot b_{n_0 + 1} \\
+            & a_{n_0 + 2} \leq \frac{a_{n_0 + 1}}{b_{n_0 + 1}} \cdot b_{n_0 + 2} \leq \frac{a_{n_0}}{b_{n_0}} \cdot b_{n_0 + 2} \\
+            & \cdots \\
+            & a_{n_0 + k} \leq \frac{a_{n_0}}{b_{n_0}} \cdot b_{n_0 + k} \\
+            & \sum_{n=n_0}^N a_n \leq \frac{a_{n_0}}{b_{n_0}} \cdot \sum_{n=n_0}^N b_n
+        \end{flalign*}
+    \end{proof}
+        
     % вопрос 5
-
+        
     % вопрос 6
-
+        
     % вопрос 7
-
     \subsection*{7. Сформулируйте и докажите признак Лобачевского-Коши}
-    
+
     \begin{proposition}{1}
         Пусть $a_n \downarrow$. Рассмотрим ряды:
-    
+
         \begin{flalign*}
             \sum a_n ~ (1) \text{ и } \sum 2^n \cdot a_{2^n} ~ (2)
         \end{flalign*}
-    
+
         Тогда ряды (1) и (2) ведут себя одинаково
     \end{proposition}
-    
+
     \begin{proof}
         \begin{flalign*}
             &2^m \text{ слаг.: } a_1 + \underbrace{a_2}_{\substack{\leq a_1 \\ \geq a_2}} +
@@ -67,27 +93,75 @@
             &\text{Левая часть -- сумма нижних оценок, правая -- сумма верхних}
         \end{flalign*}
     \end{proof}
-
+        
     % вопрос 8
-
+        
     % вопрос 9
-
+        
     % вопрос 10
-
+        
     % вопрос 11
-
+        
     % вопрос 12
+        \subsection*{12. Пусть положительный ряд $\sum a_n$ расходится и $S_n$ его частичная сумма. Докажите, что ряд $\sum (\sqrt{S_{n+1}} - \sqrt{S_n})$ также расходится, причём медленнее, чем ряд $\sum a_{n+1}$}
 
+        Докажем расходимость:
+        \begin{align*}
+            \sum_{n=0}^{N} (\sqrt{S_{n+1}} - \sqrt{S_n}) 
+            &= \sqrt{S_1} - \sqrt{S_0} + \sqrt{S_2} - \sqrt{S_1} + \dots + \sqrt{S_{N+1}} - \sqrt{S_{N}} \\
+            &= \sqrt{S_{N+1}} - \sqrt{S_0} \\
+            &= \sqrt{S_{N+1}} \to \sqrt{S}.
+        \end{align*}
+
+        Перейдем ко второй части вопроса:
+        \begin{align*}
+            \dfrac{\sqrt{S_{n+1}} - \sqrt{S_n}}{a_{n+1}} 
+            &= \dfrac{\sqrt{S_{n+1}} - \sqrt{S_n}}{S_{n+1} - S_n} \\
+            &= \dfrac{1}{\sqrt{S_{n+1}} + \sqrt{S_n}},
+        \end{align*}
+        где $\sqrt{S_{n+1}} + \sqrt{S_n} \to \infty$. Это значит, что $\dfrac{1}{\sqrt{S_{n+1}} + \sqrt{S_n}}$ стремится к $0$. Тогда ряд $\sum (\sqrt{S_{n+1}} - \sqrt{S_n})$ расходится, причём медленнее, чем ряд $\sum a_{n+1}$.
     % вопрос 13
-
+        
     % вопрос 14
+    \subsection*{14. Сформулируйте (предельный) радикальный признак Коши для положительного ряда.}
+    \begin{proposition}[Радикальный признак Коши.]
+        Пусть $a_n \geq 0$. Тогда:
+        \begin{equation*}
+            \varlimsup a_n = \begin{dcases}
+                < 1 &\implies \text{ ряд } \sum a_n \text{ сход. } \\
+                > 1 &\implies \text{ ряд } \sum a_n \text{ расх. }
+            \end{dcases}
+        \end{equation*}
+    \end{proposition}
+    \begin{proof}
+        Пусть $q = \varlimsup \sqrt[n]{a_n}$.
+        
+        Пусть $q < 1$.
+        \begin{flalign*}
+            & \forall \varepsilon > 0\ \exists n_0 : \sqrt[n]{a_n} \leq q + \varepsilon \text{ при } n \geq n_0 \\
+            & \forall \varepsilon > 0\ \exists n_0 : a_n \leq \left(q + \varepsilon\right)^n \text{ при } n \geq n_0
+        \end{flalign*}
+        Пусть $\varepsilon : q + \varepsilon < 1$
 
+        Тогда $\sum a_n$ сходится, поскольку сходится $\sum \left(q + \varepsilon\right)^n$.
+
+        Пусть $q > 1$.
+        
+        Тогда $\exists \left\{n_k\right\} : \sqrt[n_k]{a_{n_k}} \geq q - \varepsilon$ при $k = k_0, k_0 + 1, \ldots$
+
+        Пусть $\varepsilon : q - \varepsilon \geq 1$
+
+        Тогда $a_{n_k} \geq \left(q - \varepsilon\right)^{n_k} \geq 1 \implies \sum_{k=1}^\infty a_{n_k} = \infty, \sum_{n=1}^\infty a_n \geq \sum_{k=1}^\infty a_{n_k}$
+        
+        $\implies \text{ ряд } \sum a_n \text{ расходится }$
+    \end{proof}
+
+        
     % вопрос 15
-
+        
     % вопрос 16
-
+        
     % вопрос 17
-
     \subsection*{17. Приведите пример положительного ряда, вопрос о поведении которого не может быть решён с помощью
         признака Даламбера, но может быть решён с помощью радикального признака Коши (с обоснованием)}
     \begin{example}
@@ -113,29 +187,46 @@
             & \text{Если } a \neq b \text{, то радикальный признак работает}
         \end{flalign*}
     \end{example}
-
+        
     % вопрос 18
-
+        
     % вопрос 19
-
+        
     % вопрос 20
+        
     % вопрос 21
-
+        
     % вопрос 22
+        \subsection*{22. Что такое улучшение сходимости положительного ряда? Покажите на примере как можно улучшить сходимость ряда.}
 
+        Пусть у нас есть некоторый ряд $\sum a_n$ и он сходится медленно. В таких случаях для расчёта суммы ряда с необходимой точностью потребуется взять больше членов, что неудобно. Мы можем преобразовать наш ряд для улучшения сходимости, т.е. получить некоторый ряд $\sum a_n'$, который будет сходиться быстрее, чем исходный $\sum a_n$.
+        Пусть у нас есть ряд $S = \sum_{n = 1}^{\infty} \dfrac{1}{n^2 + 2} \approx \sum_{n = 1}^{\infty} \dfrac{1}{n^2}$. Воспользуемся  методом Куммера. Для улучшения сходимости будем брать ряды вида $\sum_{n = 1}^{\infty} \dfrac{1}{n(n+1)} = 1, \sum_{n = 1}^{\infty} \dfrac{1}{n(n+1)(n+2)} = \dfrac{1}{4}, \dots$. 
+            
+        В данном случае нам подойдёт первый ряд в этом списке, поскольку $\dfrac{1}{n^2} \sim \dfrac{1}{n(n+1)}$.
+        \begin{flalign*}    
+		&\sum_{n=1}^{\infty} \left(\frac{1}{n^2+2} - \frac{1}{n(n+1)}\right) = S - 1 \implies S = 1 + \sum_{n=1}^{\infty} \left(\frac{1}{n^2 + 2} - \frac{1}{n(n+1)}\right)\\
+		&\frac{1}{n^2+2} - \frac{1}{n(n+1)} = \frac{1}{n^2} \cdot \left(\frac{1}{1 + \frac{2}{n^2}} - \frac{1}{1 + \frac{1}{n}}\right) = \frac{1}{n^2} \cdot \left(1 - \frac{2}{n^2} + o\left(\frac{1}{n^2}\right) - \left(1 - \frac{1}{n} + \frac{1}{n^2} + o\left(\frac{1}{n^2}\right)\right)\right) = \frac{1}{n^3} + o\left(\frac{1}{n^3}\right)
     % вопрос 23
-
+        
     % вопрос 24
+    \subsection*{24. Докажите, что ряд сходится абсолютно ровно в том случае, когда сходятся его положительная и отрицательная части.}
+    \begin{proposition}
+        Ряд $\sum a_n$ сходится абсолютно $\iff \sum a_n^+, \sum a_n^- < \infty$ сходятся. 
+    \end{proposition}
+    \begin{proof}
+        Если $\sum \left|a_n\right| < \infty$, то $S_N^+,\ S_N^-$ ограничены $\implies$ сходятся.
 
+        Если $S_N^+ \to S^+,\ S_N^- \to S^-$, то $\sum_{n=1}^N a_n \to S^+ - S^-,\ \sum_{n=1}^N \left|a_n\right| \to S^+ + S^-$.
+    \end{proof}
+        
     % вопрос 25
-
+        
     % вопрос 26
-
+        
     % вопрос 27
-
     \subsection*{27. Что такое группировка членов ряда? Докажите, что любой ряд, полученный из сходящегося
         группировкой его членов, сходится и имеет ту же сумму.}
-    
+
     \begin{definition}
         Говорят, что ряд $\sum A_k$ получен из ряда $\sum a_n$ группировкой членов, если
         $\exists n_1, n_2, \dots \colon 1 \leq n_1 < n_2 < \dots$ такие, что
@@ -145,61 +236,97 @@
             & A_2 = a_{n_1 + 1} + a_{n_1 + 2} + \dots + a_{n_2}
         \end{flalign*}
     \end{definition}
-    
+
     \begin{proposition}
         Если яд $\sum a_n$ сходится, то ряд $\sum A_k$ тоже сходится, причём к той же сумме.
     \end{proposition}
-    
+
     \begin{proof}
         Последовательность частичных сумм $S_k' = A_1 + \dots + A_k$ ряда $\sum A_k$
         явл. подпоследовательностью последовательности частичных сумм $S_n = a_1 + \dots + a_n$ ряда $\sum a_n$
     \end{proof}
-
+        
     % вопрос 28
-
+        
     % вопрос 29
-
+        
     % вопрос 30
-
+        
     % вопрос 31
-
+        
     % вопрос 32
+        \subsection*{32. Покажите на примере, что к знакопеременным рядам неприменим предельный признак сравнения}
 
+        Рассмотрим 2 ряда: $\sum_{n=1}^{\infty} \dfrac{(-1)^{n}}{\sqrt{n} - (-1)^{n}}$ и $\sum_{n=1}^{\infty} \dfrac{(-1)^{n}}{\sqrt{n}}$. Второй ряд сходится по признаку Лейбница.
+
+        $\dfrac{(-1)^{n}}{\sqrt{n} - (-1)^{n}} \approx \dfrac{(-1)^{n}}{\sqrt{n}}$
+
+        $\dfrac{(-1)^{n}}{\sqrt{n} - (-1)^{n}} - \dfrac{(-1)^{n}}{\sqrt{n}} = \dfrac{1}{\sqrt{n}(\sqrt{n} - (-1)^{n})} \approx \dfrac{1}{n}$ -- расходится
+
+        $\sum_{n=1}^{N} \dfrac{(-1)^{n}}{\sqrt{n} - (-1)^{n}} = \sum_{n=1}^{N} \dfrac{(-1)^{n}}{\sqrt{n}} + \sum_{n=1}^{N} \dfrac{1}{\sqrt{n}(\sqrt{n} - (-1)^{n})}$ -- расходится как сумма сходящегося и расходящегося ряда.
     % вопрос 33
-
+        
     % вопрос 34
-
+    \subsection*{34. Сформулируйте признак Дирихле. Приведите пример его применения.}
+    \begin{proposition}[Признак Дирихле.]
+        Если $a_n \searrow 0$ и $\left| \sum_{n=1}^N b_n \right| = \left| B_N \right| \leq C$~--- ограничена, то ряд $\sum a_n b_n$ сходится. 
+    \end{proposition}
+    \begin{example}
+        \begin{flalign*}    
+            &\sum_{n=1}^\infty \frac{\sin nx}{n^p},\ x \neq \pi k,\ p > 0 \\
+            &a_n = \frac{1}{n^p},\ b_n = \sin nx \\
+            &B_n = \sin x + \sin 2x + \ldots + \sin nx = \frac{\cos \frac{x}{2} - \cos\left(\left(n + \frac{1}{2}\right)x\right)}{2 \sin \frac{x}{2}}; \hspace{1cm} \left| B_n \right| \leq \frac{1}{\left| \sin \frac{x}{2} \right|} \\
+            &\implies \text{ ряд сходится по признаку Дирихле. }
+        \end{flalign*}
+    \end{example}
+        
     % вопрос 35
-
+        
     % вопрос 36
-
+        
     % вопрос 37
-
     \subsection*{37. Сформулируйте свойство абсолютно сходящегося ряда, связанное с перестановкой членов.}
     \begin{proposition}
         Сумма абс. сходящегося ряда не меняется при любой перестановке его членов
     \end{proposition}
-
+        
     % вопрос 38
-
+        
     % вопрос 39
-
+        
     % вопрос 40
-
+        
     % вопрос 41
-
+        
     % вопрос 42
+        \subsection*{42. Дайте определения: бесконечное произведение, частичное произведение, сходящееся бесконечное произведение, расходящееся бесконечное произведение.}
+ 
+        $\prod_{n=1}^{N} a_n = a_1 \cdot a_2 \cdot \dots \cdot a_N$ -- частичное произведение.
 
+        Бесконечным произведением называют формальную запись $\prod_{n=1}^{\infty} a_n$
+
+        Значением бесконечного произведения является предел частичного произведения:
+
+        $\prod_{n=1}^{\infty} a_n = \lim_{N \to \infty} \prod_{n=1}^{N} a_n$
+
+        Если предел существует и он конечен -- то бесконечное произведение сходится, иначе расходится.
     % вопрос 43
-
+        
     % вопрос 44
-
+    \subsection*{44. Пусть последовательности $\left\{ a_n\right\},\ \left\{A_n\right\},\ A_n \neq 0$ таковы, что $a_n = \frac{A_n}{A_{n-1}} \cdot c_n$ и бесконечное произведение $\prod c_n$ сходится. Докажите, что существует число $C \neq 0$ такое, что $\prod_{n=1}^N a_n = A_N \left(C + o(1)\right)$.}
+    \begin{proof}
+        \begin{flalign*}
+            &a_n = \frac{A_n}{A_{n-1}} \cdot c_n, \hspace{1cm} \prod c_n \text{ сходится, то есть } \prod_{n=1}^N c_n \to P \neq 0 \\
+            &\prod_{n=1}^N = \frac{\cancel{A_1}}{A_0} \cdot c_1 \cdot \frac{\cancel{A_2}}{\cancel{A_1}} \cdot c_2 \cdot \ldots \cdot \frac{A_N}{\cancel{A_{N-1}}} \cdot c_N = A_N \cdot \underbrace{\frac{1}{A_0} \cdot \prod_{n=1}^N c_n}_{\to \frac{P}{A_0} \neq 0} \\
+            & \implies \prod_{n=1}^N a_n = A_N \cdot \left(C + o(1)\right), \hspace{1cm} C = \frac{P}{A_0} \neq 0
+        \end{flalign*}
+    \end{proof}
+        
     % вопрос 45
-
+        
     % вопрос 46
-
+        
     % вопрос 47
-
     \subsection*{47. Напишите произведение Валлиса и его значение (формула Валлиса). Вычисление каких
         интегралов приводит к этой формуле?}
     \begin{proposition}
@@ -210,31 +337,45 @@
             &  \text{-- получается из анализа интегралов } \int_{0}^{\frac{\pi}{2}}\sin^4x dx
         \end{flalign*}
     \end{proposition}
-
+        
     % вопрос 48
-
+        
     % вопрос 49
-
+        
     % вопрос 50
-
+        
     % вопрос 51
-
+        
     % вопрос 52
+        \subsection*{52. Докажите, что из равномерной сходимости следует поточечная сходимость на данном множестве.}
+        Определение поточечной сходимости $\forall x \in E\ \forall \varepsilon > 0\ \exists N = N(\varepsilon, x) : \forall n \geqslant N\ |f_n(x) - f(x)| < \varepsilon$
 
+        Определение равномерной сходимости $\forall \varepsilon > 0\ \exists N = N(\varepsilon) : \forall n \geqslant N\ \forall x \in E\ |f_n(x) - f(x)| < \varepsilon$
+        \begin{proof}
+        Видно, что в определении равномерной сходимости номер $N$ зависит от $\varepsilon$ и не зависит от $x$, а в определении поточечной - и от $\varepsilon$, и от $x$. Если выполняется равномерная сходимость, то $\forall x \in E\ \exists$ нужное $N$, то есть выполняется поточечная сходимость.
+        \end{proof}
     % вопрос 53
-
+        
     % вопрос 54
-
+    \subsection*{54. Приведите пример функциональной последовательности $\left\{f_n(x)\right\}$ (с нетривиальной зависимостью от $n$ и $x$), равномерно сходящейся на некотором множестве (с обоснованием).}
+    \begin{example}
+        \begin{flalign*}
+            &f_n(x) = \frac{1}{n + x}, \hspace{1cm} D = \left[ 0; +\infty \right) \\
+            &f_n(x) \overset{D}{\rightrightarrows} 0 \\
+            & \norm{f_n - 0} = \norm{f_n} = \sup_{x \in D} \left| f_n(x) \right| = \frac{1}{n} \to 0 \\
+            & \implies \text{ последовательность сходится равномерно.}
+        \end{flalign*}
+    \end{example}
+        
     % вопрос 55
-
+        
     % вопрос 56
-
+        
     % вопрос 57
-
     \subsection*{57. Пусть функциональная последовательность $\{f_n\}$ сходится равномерно на множестве $D$
         к предельной функции $f$, отделённой от нуля (т.е. $\inf_{x \in D} |f(x)| > 0$), то функциональная
         последовательность $\frac{1}{f_n}$ сходится равномерно на $D$ к $\frac{1}{f}$.}
-    
+
     \begin{proof}
         \begin{flalign*}
             & \norm{\frac{1}{f_n} - \frac{1}{n}} = \norm{\frac{f_n - f}{f_n \cdot f}} =
@@ -251,27 +392,28 @@
             & \circled{\leq} \frac{\epsilon}{(m - \epsilon)m} \leq \frac{\epsilon}{m/2 \cdot m}
         \end{flalign*}
     \end{proof}
-
+        
     % вопрос 58
-
+        
     % вопрос 59
-
+        
     % вопрос 60
-
+        
     % вопрос 61
-
+        
     % вопрос 62
-
+       \subsection*{62. Сформулируйте теорему Дини о монотонной сходимости. Приведите пример её применения для доказательства равномерной сходимости функциональной последовательности (с обоснованием)}
+        
     % вопрос 63
-
+        
     % вопрос 64
+    \subsection*{64. Покажите на примере как доказать неравномерность сходимости функциональной последовательности с помощью локализации особенности (с обоснованием).}
 
     % вопрос 65
-
+        
     % вопрос 66
-
+        
     % вопрос 67
-
     \subsection*{67. Сформулируйте теорему о почленном интегрировании функциональной последовательности.}
     \begin{proposition}
         \begin{flalign*}
@@ -285,75 +427,97 @@
             & \text{т.е. } \int_a^x \lim_{n \to \infty} f_n(t) dt = \lim_{n \to \infty} \int_a^x f_n(t) dt
         \end{flalign*}
     \end{proposition}
-
+        
     % вопрос 68
-
+        
     % вопрос 69
-
+        
     % вопрос 70
-
+        
     % вопрос 71
-
+        
     % вопрос 72
+        \subsection*{72. Сформулируйте следствие критерия Коши -- достаточное условие того, что функциональный ряд не является сходящимся равномерно.}
+        Отрицание критерия Коши 
+            
+        $\exists \varepsilon > 0\ \forall N \in \NN\ \exists m,n > N\ \exists x = x(N) \in E: |\sum_{k = m}^n| \geqslant \varepsilon \iff$ ряд сходится на $E$ неравномерно
+            
 
     % вопрос 73
-
+        
     % вопрос 74
-
+    \subsection*{74. Сформулируйте мажорантный признак Вейерштрасса абсолютной и равномерной сходимости функционального ряда.}
+    \begin{proposition}[Признак Вейерштрасса для функционального ряда.]
+        Если $\left|a_n(x)\right| \leq b_n$ при $\forall n \geq n_0,\ \forall x \in D$, а ряд $\sum b_n$ сходится, то $\sum a_n(x)$ сходится на $D$ абсолютно и равномерно.
+    \end{proposition}
+        
     % вопрос 75
-
+        
     % вопрос 76
-
+        
     % вопрос 77
-
+        
     % вопрос 78
-
+        
     % вопрос 79
-
+        
     % вопрос 80
-
+        
     % вопрос 81
-
+        
     % вопрос 82
+        \subsection*{82. Сформулируйте теорему о почленном интегрировании функционального ряда.}
+        Пусть $-\infty < a < b < +\infty$, $D= (a; b)$, $D = [a; b]$, $c_n$ равномерно сходится на $D$ и имеет суммой функцию $s(x)$
 
+        $\int_{a}^{x}\left(\sum_{n=1}^{\infty} c_n(t)\right) dt = \sum_{n=1}^{\infty} \int_{a}^{x} c_n(t) dt$ -- сходится равномерно на $D$ и имееет суммой функцию $\int_a^x s_n$.
+    
     % вопрос 83
-
+        
     % вопрос 84
-
+    \subsection*{84. Что можно утверждать про равномерную сходимость степенного ряда?}
+        
     % вопрос 85
-
+        
     % вопрос 86
-
+        
     % вопрос 87
-
+        
     % вопрос 88
-
+        
     % вопрос 89
-
+        
     % вопрос 90
-
+        
     % вопрос 91
-
+        
     % вопрос 92
-
+        
     % вопрос 93
-
+        
     % вопрос 94
+    \subsection*{94. Сформулируйте и докажите теорему о почленном дифференцировании степенного ряда.}
+    \begin{theorem}[Почленное дифференцирование степенного ряда.]
+        $\sum c_n\left(x - x_0\right)^n$, $R > 0$~--- его радиус сходимости.
 
+        При почленном дифференцировании получаем ряд $\sum_{n=0}^\infty c_n \cdot n \cdot \left(x - \right)^{n - 1}$.
+
+        Его радиус сходимости равен радиусу сходимости исходного ряда, то есть он сходится равномерно при $\left|x - x_0\right| \leq r < R$.
+    \end{theorem}
+        
     % вопрос 95
-
+        
     % вопрос 96
-
+        
     % вопрос 97
-
+        
     % вопрос 98
-
+        
     % вопрос 99
-
+        
     % вопрос 100
-
+        
     % вопрос 101
-
+        
     % вопрос 102
 
 \end{document}
