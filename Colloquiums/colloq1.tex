@@ -280,7 +280,21 @@
     % вопрос 74
         
     % вопрос 75
-        
+    \subsection*{75}
+	\textbf{ Как применяются признаки Даламбера и Коши для исследования сходимости функционального ряда?} \\[5 pt]
+	\textbf{ Признак Даламбера} \\[5 pt] 
+	Если $\exists q < 1 : \; |a_{n+1}(x)| \le q \cdot |a_n(x)|$ при $\forall n \ge n_0, \; x \in D$, 
+	причем $a_{n0}(x)$ ограничена на $D$ (т.е. $\norm{a_{n0}} < \infty$), \\[1 pt]
+	то $\; \sum a_n(x)$ сходится на $D$ абсолютно и равномерно. \\[5 pt]
+	\textbf{ Радикальный признак Коши} \\[5 pt] 
+	Если $\sum u_n$ --- знакоположительный числовой ряд, и существует конечный предел \\[3 pt]
+	$l = \lim\limits_{n \to \infty} \sqrt[n]{u_n}$, то \\[-20 pt]
+	\begin{enumerate}
+	\item $l < 1 \;\; \Rightarrow \; $ ряд сходится
+	\item $l > 1 \;\; \Rightarrow \; $ ряд расходится
+	\item $l = 1 \;\; \Rightarrow \; $ необходимо дополнительное исследование
+	\end{enumerate}
+	Заметно, что признаки практически идентичны соответствующим признакам для числовых рядов.    
     % вопрос 76
         
     % вопрос 77
@@ -300,7 +314,22 @@
     % вопрос 84
         
     % вопрос 85
-        
+    \subsection*{85}
+	\textbf{ Сформулировать и доказать теорему Абеля о сходимости степенного ряда.} \\[5 pt]
+	\textbf{ Теорема Абеля} \\[-15 pt] 
+	\begin{enumerate}
+	\item[$1)$] Если степенной ряд $\sum c_n (x - x_0)^n$ сходится в точке $x_1 \ne x_0$, 
+	то он сходится при всех $x : |x - x_0| < |x_1 - x_0|$
+	\item[$2)$] Если степенной ряд $\sum c_n (x - x_0)^n$ расходится в точке $x_2 \ne x_0$, 
+	то он расходится при всех $x : |x - x_0| > |x_2 - x_0|$\\[-30 pt]
+	\end{enumerate}
+	\begin{proof}
+	$\left| \sum\limits_{n = m}^N c_n (x - x_0)^n \right| = 
+	\left| \sum\limits_{n = m}^N c_n \cdot (x - x_0)^n \cdot \left( \dfrac{x - x_0}{x_1 - x_0} \right)^n \right| \le  \\[3 pt]
+	\sum\limits_{n = m}^N \underbrace{\left| c_n \cdot (x - x_0)^n \right|}_{< \varepsilon \; \forall m \ge n_0} \cdot 
+	\underbrace{\left| \dfrac{x - x_0}{x_1 - x_0} \right|^n}_{q^n}  \le
+	\varepsilon \cdot (q^m + \ldots + q^N) \le \varepsilon \cdot q^m \cdot \dfrac1{1 - q} \to 0$
+	\end{proof}    
     % вопрос 86
         
     % вопрос 87
@@ -320,7 +349,19 @@
     % вопрос 94
         
     % вопрос 95
-        
+    \subsection*{95}
+	\textbf{ Сформулировать и доказать теорему о почленном интегрировании степенного ряда.} \\[5 pt]
+	$\int\limits_{x_0}^x \left( \sum\limits_{n = 0}^{\infty} c_n(t - x_0)^n \right) dt = 
+	\sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} = 
+	\sum\limits_{n = 1}^{\infty} \dfrac{c_{n - 1}}n (x - x_0)^n$
+	\begin{proof}
+	$\int\limits_{x_0}^x \left( \sum\limits_{n = 0}^{\infty} c_n(t - x_0)^n \right) dt = 
+	\sum\limits_{n = 0}^{\infty} \int\limits_{x_0}^x c_n(t - x_0)^n dt = 
+	\sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(t - x_0)^{n + 1}\Big|_{x_0}^x = \\[3 pt]
+	= \sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} - 
+	\sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x_0 - x_0)^{n + 1} = 
+	\sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} = \sum\limits_{n = 1}^{\infty} \dfrac{c_{n - 1}}n (x - x_0)^n$
+	\end{proof}    
     % вопрос 96
         
     % вопрос 97
