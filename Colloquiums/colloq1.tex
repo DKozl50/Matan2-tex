@@ -258,10 +258,6 @@
     % вопрос 21
         
     % вопрос 22
-        
-    % вопрос 23
-        
-    % вопрос 24
         \subsection*{22. Что такое улучшение сходимости положительного ряда? Покажите на примере как можно улучшить сходимость ряда.}
 
         Пусть у нас есть некоторый ряд $\sum a_n$ и он сходится медленно. В таких случаях для расчёта суммы ряда с необходимой точностью потребуется взять больше членов, что неудобно. Мы можем преобразовать наш ряд для улучшения сходимости, т.е. получить некоторый ряд $\sum a_n'$, который будет сходиться быстрее, чем исходный $\sum a_n$.
@@ -269,8 +265,9 @@
             
         В данном случае нам подойдёт первый ряд в этом списке, поскольку $\dfrac{1}{n^2} \sim \dfrac{1}{n(n+1)}$.
         \begin{flalign*}    
-		&\sum_{n=1}^{\infty} \left(\frac{1}{n^2+2} - \frac{1}{n(n+1)}\right) = S - 1 \implies S = 1 + \sum_{n=1}^{\infty} \left(\frac{1}{n^2 + 2} - \frac{1}{n(n+1)}\right)\\
-		&\frac{1}{n^2+2} - \frac{1}{n(n+1)} = \frac{1}{n^2} \cdot \left(\frac{1}{1 + \frac{2}{n^2}} - \frac{1}{1 + \frac{1}{n}}\right) = \frac{1}{n^2} \cdot \left(1 - \frac{2}{n^2} + o\left(\frac{1}{n^2}\right) - \left(1 - \frac{1}{n} + \frac{1}{n^2} + o\left(\frac{1}{n^2}\right)\right)\right) = \frac{1}{n^3} + o\left(\frac{1}{n^3}\right)
+        &\sum_{n=1}^{\infty} \left(\frac{1}{n^2+2} - \frac{1}{n(n+1)}\right) = S - 1 \implies S = 1 + \sum_{n=1}^{\infty} \left(\frac{1}{n^2 + 2} - \frac{1}{n(n+1)}\right)\\
+        &\frac{1}{n^2+2} - \frac{1}{n(n+1)} = \frac{1}{n^2} \cdot \left(\frac{1}{1 + \frac{2}{n^2}} - \frac{1}{1 + \frac{1}{n}}\right) = \frac{1}{n^2} \cdot \left(1 - \frac{2}{n^2} + o\left(\frac{1}{n^2}\right) - \left(1 - \frac{1}{n} + \frac{1}{n^2} + o\left(\frac{1}{n^2}\right)\right)\right) = \frac{1}{n^3} + o\left(\frac{1}{n^3}\right) 
+        \end{flalign*}
     % вопрос 23
         
     % вопрос 24
