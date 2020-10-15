@@ -15,10 +15,11 @@
     % Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
     % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
     % Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
-    % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
+    Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
+
 
 \begin{document}
     \maketitle
@@ -35,6 +36,24 @@
     % вопрос 3
         
     % вопрос 4
+    \subsection*{4. Сформулируйте и докажите признак сравнения положительных числовых рядов, основанный на неравенстве $\frac{a_{n+1}}{a_n} \leq \frac{b_{n+1}}{b_n}$.}
+    \begin{proposition}[Сравнение отношений]
+        Пусть $\frac{a_{n+1}}{a_n} \leq \frac{b_{n+1}}{b_n}$ при $n \geq n_0$. Тогда:
+        \begin{flalign*}
+            & \sum b_n \text{ сходится } \implies \sum a_n \text{ сходится }\\
+            & \sum a_n \text{ расходится } \implies \sum b_n \text{ расходится }
+        \end{flalign*}
+    \end{proposition}
+    \begin{proof} 
+        Предполагаем, что $a_n > 0, b_n > 0$.
+        \begin{flalign*}
+            & a_{n_0 + 1} \leq \frac{a_{n_0}}{b_{n_0}} \cdot b_{n_0 + 1} \\
+            & a_{n_0 + 2} \leq \frac{a_{n_0 + 1}}{b_{n_0 + 1}} \cdot b_{n_0 + 2} \leq \frac{a_{n_0}}{b_{n_0}} \cdot b_{n_0 + 2} \\
+            & \cdots \\
+            & a_{n_0 + k} \leq \frac{a_{n_0}}{b_{n_0}} \cdot b_{n_0 + k} \\
+            & \sum_{n=n_0}^N a_n \leq \frac{a_{n_0}}{b_{n_0}} \cdot \sum_{n=n_0}^N b_n
+        \end{flalign*}
+    \end{proof}
         
     % вопрос 5
         
@@ -55,6 +74,39 @@
     % вопрос 13
         
     % вопрос 14
+    \subsection*{14. Сформулируйте (предельный) радикальный признак Коши для положительного ряда.}
+    \begin{proposition}[Радикальный признак Коши.]
+        Пусть $a_n \geq 0$. Тогда:
+        \begin{equation*}
+            \varlimsup a_n = \begin{dcases}
+                < 1 &\implies \text{ ряд } \sum a_n \text{ сход. } \\
+                > 1 &\implies \text{ ряд } \sum a_n \text{ расх. }
+            \end{dcases}
+        \end{equation*}
+    \end{proposition}
+    \begin{proof}
+        Пусть $q = \varlimsup \sqrt[n]{a_n}$.
+        
+        Пусть $q < 1$.
+        \begin{flalign*}
+            & \forall \varepsilon > 0\ \exists n_0 : \sqrt[n]{a_n} \leq q + \varepsilon \text{ при } n \geq n_0 \\
+            & \forall \varepsilon > 0\ \exists n_0 : a_n \leq \left(q + \varepsilon\right)^n \text{ при } n \geq n_0
+        \end{flalign*}
+        Пусть $\varepsilon : q + \varepsilon < 1$
+
+        Тогда $\sum a_n$ сходится, поскольку сходится $\sum \left(q + \varepsilon\right)^n$.
+
+        Пусть $q > 1$.
+        
+        Тогда $\exists \left\{n_k\right\} : \sqrt[n_k]{a_{n_k}} \geq q - \varepsilon$ при $k = k_0, k_0 + 1, \ldots$
+
+        Пусть $\varepsilon : q - \varepsilon \geq 1$
+
+        Тогда $a_{n_k} \geq \left(q - \varepsilon\right)^{n_k} \geq 1 \implies \sum_{k=1}^\infty a_{n_k} = \infty, \sum_{n=1}^\infty a_n \geq \sum_{k=1}^\infty a_{n_k}$
+        
+        $\implies \text{ ряд } \sum a_n \text{ расходится }$
+    \end{proof}
+
         
     % вопрос 15
         
@@ -75,6 +127,15 @@
     % вопрос 23
         
     % вопрос 24
+    \subsection*{24. Докажите, что ряд сходится абсолютно ровно в том случае, когда сходятся его положительная и отрицательная части.}
+    \begin{proposition}
+        Ряд $\sum a_n$ сходится абсолютно $\iff \sum a_n^+, \sum a_n^- < \infty$ сходятся. 
+    \end{proposition}
+    \begin{proof}
+        Если $\sum \left|a_n\right| < \infty$, то $S_N^+,\ S_N^-$ ограничены $\implies$ сходятся.
+
+        Если $S_N^+ \to S^+,\ S_N^- \to S^-$, то $\sum_{n=1}^N a_n \to S^+ - S^-,\ \sum_{n=1}^N \left|a_n\right| \to S^+ + S^-$.
+    \end{proof}
         
     % вопрос 25
         
@@ -95,6 +156,18 @@
     % вопрос 33
         
     % вопрос 34
+    \subsection*{34. Сформулируйте признак Дирихле. Приведите пример его применения.}
+    \begin{proposition}[Признак Дирихле.]
+        Если $a_n \searrow 0$ и $\left| \sum_{n=1}^N b_n \right| = \left| B_N \right| \leq C$~--- ограничена, то ряд $\sum a_n b_n$ сходится. 
+    \end{proposition}
+    \begin{example}
+        \begin{flalign*}    
+            &\sum_{n=1}^\infty \frac{\sin nx}{n^p},\ x \neq \pi k,\ p > 0 \\
+            &a_n = \frac{1}{n^p},\ b_n = \sin nx \\
+            &B_n = \sin x + \sin 2x + \ldots + \sin nx = \frac{\cos \frac{x}{2} - \cos\left(\left(n + \frac{1}{2}\right)x\right)}{2 \sin \frac{x}{2}}; \hspace{1cm} \left| B_n \right| \leq \frac{1}{\left| \sin \frac{x}{2} \right|} \\
+            &\implies \text{ ряд сходится по признаку Дирихле. }
+        \end{flalign*}
+    \end{example}
         
     % вопрос 35
         
@@ -115,6 +188,14 @@
     % вопрос 43
         
     % вопрос 44
+    \subsection*{44. Пусть последовательности $\left\{ a_n\right\},\ \left\{A_n\right\},\ A_n \neq 0$ таковы, что $a_n = \frac{A_n}{A_{n-1}} \cdot c_n$ и бесконечное произведение $\prod c_n$ сходится. Докажите, что существует число $C \neq 0$ такое, что $\prod_{n=1}^N a_n = A_N \left(C + o(1)\right)$.}
+    \begin{proof}
+        \begin{flalign*}
+            &a_n = \frac{A_n}{A_{n-1}} \cdot c_n, \hspace{1cm} \prod c_n \text{ сходится, то есть } \prod_{n=1}^N c_n \to P \neq 0 \\
+            &\prod_{n=1}^N = \frac{\cancel{A_1}}{A_0} \cdot c_1 \cdot \frac{\cancel{A_2}}{\cancel{A_1}} \cdot c_2 \cdot \ldots \cdot \frac{A_N}{\cancel{A_{N-1}}} \cdot c_N = A_N \cdot \underbrace{\frac{1}{A_0} \cdot \prod_{n=1}^N c_n}_{\to \frac{P}{A_0} \neq 0} \\
+            & \implies \prod_{n=1}^N a_n = A_N \cdot \left(C + o(1)\right), \hspace{1cm} C = \frac{P}{A_0} \neq 0
+        \end{flalign*}
+    \end{proof}
         
     % вопрос 45
         
@@ -135,6 +216,15 @@
     % вопрос 53
         
     % вопрос 54
+    \subsection*{54. Приведите пример функциональной последовательности $\left\{f_n(x)\right\}$ (с нетривиальной зависимостью от $n$ и $x$), равномерно сходящейся на некотором множестве (с обоснованием).}
+    \begin{example}
+        \begin{flalign*}
+            &f_n(x) = \frac{1}{n + x}, \hspace{1cm} D = \left[ 0; +\infty \right) \\
+            &f_n(x) \overset{D}{\rightrightarrows} 0 \\
+            & \norm{f_n - 0} = \norm{f_n} = \sup_{x \in D} \left| f_n(x) \right| = \frac{1}{n} \to 0 \\
+            & \implies \text{ последовательность сходится равномерно.}
+        \end{flalign*}
+    \end{example}
         
     % вопрос 55
         
@@ -155,7 +245,8 @@
     % вопрос 63
         
     % вопрос 64
-        
+    \subsection*{64. Покажите на примере как доказать неравномерность сходимости функциональной последовательности с помощью локализации особенности (с обоснованием).}
+
     % вопрос 65
         
     % вопрос 66
@@ -175,6 +266,10 @@
     % вопрос 73
         
     % вопрос 74
+    \subsection*{74. Сформулируйте мажорантный признак Вейерштрасса абсолютной и равномерной сходимости функционального ряда.}
+    \begin{proposition}[Признак Вейерштрасса для функционального ряда.]
+        Если $\left|a_n(x)\right| \leq b_n$ при $\forall n \geq n_0,\ \forall x \in D$, а ряд $\sum b_n$ сходится, то $\sum a_n(x)$ сходится на $D$ абсолютно и равномерно.
+    \end{proposition}
         
     % вопрос 75
         
@@ -195,6 +290,7 @@
     % вопрос 83
         
     % вопрос 84
+    \subsection*{84. Что можно утверждать про равномерную сходимость степенного ряда?}
         
     % вопрос 85
         
@@ -215,6 +311,14 @@
     % вопрос 93
         
     % вопрос 94
+    \subsection*{94. Сформулируйте и докажите теорему о почленном дифференцировании степенного ряда.}
+    \begin{theorem}[Почленное дифференцирование степенного ряда.]
+        $\sum c_n\left(x - x_0\right)^n$, $R > 0$~--- его радиус сходимости.
+
+        При почленном дифференцировании получаем ряд $\sum_{n=0}^\infty c_n \cdot n \cdot \left(x - \right)^{n - 1}$.
+
+        Его радиус сходимости равен радиусу сходимости исходного ряда, то есть он сходится равномерно при $\left|x - x_0\right| \leq r < R$.
+    \end{theorem}
         
     % вопрос 95
         
