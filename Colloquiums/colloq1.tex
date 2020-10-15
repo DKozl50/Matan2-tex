@@ -37,7 +37,18 @@
     % вопрос 4
         
     % вопрос 5
-        
+    \subsection*{5}
+	\textbf{ Сформулировать и доказать признак сравнения числовых рядов, основанный на пределе $\lim\dfrac{a_n}{b_n}$.} \\[5 pt]
+	Пусть $\sum a_n$ и $\sum b_n$ --- положительные ряды, и $\exists \lim\limits_{n \to \infty} \dfrac{a_n}{b_n} \in (0;\, +\infty)$. \\[3 pt]
+	Тогда ряд $\sum a_n$ сходится $\Leftrightarrow$ $\sum b_n$ сходится. \\
+	\begin{proof}
+	$c = \lim\limits_{n \to \infty} \dfrac{a_n}{b_n} > 0$ \\[3 pt]
+	По определению предела: \\[3 pt]
+	$\forall \varepsilon > 0 \; \exists n_0 : c - \varepsilon \le \dfrac{a_n}{b_n} \le c + \varepsilon \;\; \forall n \ge n_0 \; 
+	\Rightarrow \; (c - \varepsilon) b_n \le a_n \le (c + \varepsilon) b_n \; \Rightarrow \\[3 pt]
+	\Rightarrow \; \sum (c - \varepsilon) b_n  \le \sum a_n \le \sum (c + \varepsilon) b_n \;
+	\Leftrightarrow \; C_1 \sum b_n  \le \sum a_n \le C_2 \sum b_n $
+	\end{proof}    
     % вопрос 6
         
     % вопрос 7
@@ -57,7 +68,33 @@
     % вопрос 14
         
     % вопрос 15
-        
+    \subsection*{15}
+        \textbf{ Доказать, что всякий раз, когда признак Даламбера даёт ответ на вопрос о сходимости или расходимости ряда, 
+	радикальный признак Коши также даёт (тот же) ответ на этот вопрос.} \\[5 pt]
+	Пусть $a_n > 0$. Тогда 
+	$\;\;\; \left\{\begin{array}{lllllll}
+	\varlimsup \, \dfrac{a_{n+1}}{a_n} & < & 1 & \Rightarrow & \varlimsup \sqrt[n]{a_n} & < & 1,\\[5 pt]
+	\varliminf \, \dfrac{a_{n+1}}{a_n} & > & 1 & \Rightarrow & \varlimsup \sqrt[n]{a_n} & > & 1,\\[5 pt]
+	\end{array}\right.$. \\
+	\begin{proof}
+	Для доказательства основного утверждения докажем неравенство: \\[3 pt]
+	$\varliminf \, \dfrac{a_{n+1}}{a_n} \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n} \\[3 pt]
+	\varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \,$ очевидно, докажем 
+	$\, \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n}$ \\[3 pt]
+	(левое неравенство доказывается аналогично): \\[3 pt]
+	Пусть $q = \varlimsup \sqrt[n]{a_n}, \; p = \varlimsup \, \dfrac{a_{n+1}}{a_n}$. \\[3 pt]
+	От противного: пусть $p < q$:\\[3 pt]
+	$\forall \varepsilon > 0 \; \exists \{ n_k \} : \sqrt[n_k]{a_{nk}} \ge q - \varepsilon \; \Rightarrow \; a_{nk} \ge (q - \varepsilon)^{n_k}$ \\[3 pt]
+	$\exists n_0 : \dfrac{a_{n+1}}{a_n} \le p + \varepsilon, \; n \ge n_0 \; \Rightarrow \; a_{n0 + m} \le a_{n0} (p + \varepsilon)^m$ \\[3 pt]
+	$(q - \varepsilon)^{n_k} \le a_{nk} \le a_{n0} (p + \varepsilon)^{n_k - n_0} \; \Rightarrow \; $
+	$\dfrac{a_{n0}}{(p + \varepsilon)^{n_0}} \ge \left( \dfrac{q - \varepsilon}{p + \varepsilon} \right)^{n_k} \;\, \forall k = 1, 2, \dots;$ \\[3 pt]
+	но $\; \dfrac{q - \varepsilon}{p + \varepsilon} > 1 \; $ при малом $\varepsilon$ по предположению $\Rightarrow$ \\[3 pt]
+	$\; \Rightarrow \; \left( \dfrac{q - \varepsilon}{p + \varepsilon} \right)^{n_k}$ --- бесконечно большое, тогда как
+	$\dfrac{a_{n0}}{(p + \varepsilon)^{n_0}} = C$ --- некоторая константа. \\[3 pt]
+	Получили неравенство $C \ge +\infty$ --- противоречие, следовательно, предположение неверно, и неравенство выполняется. \\[3 pt]
+	Из $\; \varliminf \, \dfrac{a_{n+1}}{a_n} \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n}\; $ 
+        исходное утверждение следует очевидно.
+	\end{proof}    
     % вопрос 16
         
     % вопрос 17
@@ -77,7 +114,24 @@
     % вопрос 24
         
     % вопрос 25
-        
+    \subsection*{25}
+        \textbf{ Доказать, что если ряд сходится условно, то его положительная и отрицательная части расходятся.} \\[5 pt]
+	$\sum a_n$ --- ряд, $S_{+} = \sum a_n^{+}$ и $S_{-} = \sum a_n^{-}$
+	 --- положительная и отрицательная части суммы соответственно. \\[3 pt]
+	 $\left\{\begin{array}{lll} 
+	 \sum a_n &=& C,\\[5 pt]
+	 \sum |a_n| &=& \pm \infty
+	 \end{array}\right. \Rightarrow \; S_{+}$ и $S_{-}$ расходятся.
+	\begin{proof}
+	По определению: \\[3 pt]
+	$\sum a_n = S_{+} - S_{-}, \;\; \sum |a_n| = S_{+} + S_{-}$. \\[3 pt]
+	От противного: пусть\\[-20 pt]
+	\begin{enumerate}
+	\item $S_{+}, \; S_{-}$ конечны. Тогда $\;\sum |a_n| = S_{+} + S_{-} = C_1 + C_2 = const$ --- сходится, противоречие.
+	\item $S_{+} \, $ конечна, $S_{-}$ расходится (симметричный случай аналогично). \\[0 pt]
+	Тогда $\; \sum a_n = S_{+} - S_{-} = C_1 - \underbrace{S_{-}}_{\text{беск. большое}} = -\infty$ --- расходится, противоречие.
+	\end{enumerate}
+	\end{proof}    
     % вопрос 26
         
     % вопрос 27
@@ -97,7 +151,22 @@
     % вопрос 34
         
     % вопрос 35
-        
+    \subsection*{35}
+        \textbf{Сформулировать признак Абеля. Вывести утверждение признака Абеля из признака Дирихле.} \\[5 pt]
+	\textbf{Признак Абеля. } Если $\{ a_n \}$ монотонна и ограничена $|a_n| \le C$, а $\sum b_n$ сходится,
+	ряд $\; \sum a_n \cdot b_n \;$ также сходится.\\[5 pt]
+	Пусть некоторая последовательность $a_n \cdot b_n$ удовлетворяет признаку Абеля. \\[3 pt]
+	У монотонной ограниченной последовательности существует конечный предел: $\lim a_n = A$. \\[3 pt]
+	Представим исходную последовательность в виде суммы: \\[3 pt]
+	$a_n \cdot b_n = A \cdot b_n + (a_n - A) b_n \; \Rightarrow \; 
+	\sum a_n \cdot b_n = \underbrace{\sum A \cdot b_n}_{\text{сходится}} + \sum (a_n - A) b_n$ \\[3 pt]
+	$a_n \to A \; \Rightarrow \; (a_n - A) \to 0$, причем, т.к. $\{ a_n \}$ монотонная, $\{ (a_n - A) \}$ монотонно стремится к 0. \\[3 pt]
+	Т.к. ряд $\;\sum b_n$ сходится, последовательность его частичных сумм также сходится. \\[3 pt]
+	$\left\{\begin{array}{lll} 
+	\{ (a_n - A) \} &\downarrow& 0,\\[10 pt]
+	\left\{ \sum\limits_{n=1}^N b_n \right\} &\le& B
+	\end{array}\right. \Rightarrow \; \sum (a_n - A) b_n$ сходится по признаку Дирихле.\\[3 pt]
+	$\sum a_n \cdot b_n = \underbrace{\sum A \cdot b_n}_{\text{сходится}} +\underbrace{\sum (a_n - A) b_n}_{\text{сходится}}$ --- сходится.    
     % вопрос 36
         
     % вопрос 37
@@ -117,7 +186,12 @@
     % вопрос 44
         
     % вопрос 45
-        
+    \subsection*{45}
+        \textbf{Как определяется соответствующий бесконечному произведению ряд? Сформулировать и доказать утверждение об их взаимосвязи.} \\[5 pt]
+	Пусть $\prod\limits_{n = 1}^{\infty} a_n$ --- бесконечное произведение. \\[3 pt]
+	Тогда ряд $\sum\limits_{n = 1}^{\infty} \ln a_n$ называется соответствующим этому бесконечному произведению. \\[3 pt]
+	Так как $a_n = e ^{\ln a_n}$, верно равенство $\; \prod\limits_{n = 1}^{\infty} a_n = \prod\limits_{n = 1}^{\infty} e^{\ln a_n} = $ 
+	{\large $e^{\;\sum\limits_{n = 1}^{\infty} \ln a_n}$ } (по свойству степени)    
     % вопрос 46
         
     % вопрос 47
@@ -137,7 +211,22 @@
     % вопрос 54
         
     % вопрос 55
-        
+    \subsection*{55}
+        \textbf{ Доказать, что если две функциональные последовательности сходятся равномерно к предельным функциям, то их сумма также сходится равномерно к сумме двух этих предельных функций.} \\[5 pt]
+	$\left\{\begin{array}{lll} 
+	f_n &\overset{D}{\rightrightarrows}& f, \\[5 pt]
+	g_n &\overset{D}{\rightrightarrows}& g
+	\end{array}\right. \Rightarrow \; (f_n + g_n) \overset{D}{\rightrightarrows} (f + g)$
+	\begin{proof}
+	По определению равномерной сходимости: \\[3 pt]
+	$\forall \varepsilon > 0 \; \exists N_1(\varepsilon) : |f_n(x) - f(x)| < \dfrac{\varepsilon}2 \;\;\; \forall n \ge N_1(\varepsilon)\;\; \forall x \in D$, \\[3 pt]
+	$\forall \varepsilon > 0 \; \exists N_2(\varepsilon) : |g_n(x) - g(x)| < \dfrac{\varepsilon}2 \;\;\; \forall n \ge N_2(\varepsilon)\;\; \forall x \in D$ \\[3 pt]
+	Тогда \\[3 pt]
+	$\forall x \in D \;\; \forall n \ge max(N_1, N_2) : |(f_n(x) + g_n(x)) - (f(x) + g(x))|  = |(f_n(x) - f(x)) + (g_n(x) - g(x))|  \le \\[3 pt]
+	\le |f_n(x) - f(x)| + |g_n(x) - g(x)| < \dfrac{\varepsilon}2 + \dfrac{\varepsilon}2 = \varepsilon$, т.е. \\[3 pt]
+	$\forall \varepsilon > 0 \; \exists N = max(N_1, N_2) : |(f_n(x) + g_n(x)) - (f(x) + g(x))| < \varepsilon \;\;\; n \ge N \;\; \forall x \in D$, \\[5 pt]
+	т.е. сумма $(f_n + g_n)$ равномерно сходится к $(f + g)$ на $D$.
+	\end{proof}    
     % вопрос 56
         
     % вопрос 57
@@ -157,7 +246,21 @@
     % вопрос 64
         
     % вопрос 65
-        
+    \subsection*{65}
+	\textbf{ Сформулировать и доказать теорему о почленном переходе к пределу в функциональной последовательности.} \\[5 pt]
+	$-\infty \le a < b \le +\infty$, рассмотрим $D = (a;\,b), \; D = [a;\,b]$ \\[3 pt]
+	Пусть $\; f_n \overset{D}{\rightrightarrows} f, \;\; x \in D, \;\; y_n = \lim\limits_{x \to x_0} f_n(x), \;\; \{ y_n \}$ сходится к $y$ \\[3 pt]
+	Тогда $\; \lim\limits_{x \to x_0} f(x) = y$, \\[3 pt]
+	т.е. $\; \lim\limits_{x \to x_0} \underbrace{\left( \lim\limits_{n \to \infty} f_n(x) \right)}_{f(x)} = 
+	\underbrace{\lim\limits_{n \to \infty} \overbrace{\left( \lim\limits_{x \to x_0} f_n(x) \right)}^{y_n}}_{y}$
+	\begin{proof}
+	По определению предела сходящейся последовательности: \\[3 pt]
+	$\forall \varepsilon > 0 \; \exists N : |y - y_n| < \dfrac{\varepsilon}3, \;\; \norm{f_n - f} < \dfrac{\varepsilon}3 \;\; \forall n \ge N$, \\[3 pt]
+	$\forall \varepsilon > 0 \; \exists \delta > 0 : |x - x_0| < \delta \;\Rightarrow\; |f_n(x) - y_n| < \dfrac{\varepsilon}3 \;\;\; \forall n$ \\[5 pt]
+	Тогда \\[5 pt]
+	$|y - f_n(x)| \le |y - y_n| + |y_n - f_n(x)| + |f_n(x) - f(x)| < \varepsilon$, \\[5 pt]
+	т.е. $f_n(x) \xrightarrow{x \to x_0} y$, что и требовалось доказать.
+	\end{proof}    
     % вопрос 66
         
     % вопрос 67
