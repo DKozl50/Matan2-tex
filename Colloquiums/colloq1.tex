@@ -202,34 +202,12 @@
     \begin{proposition}[Радикальный признак Коши.]
         Пусть $a_n \geq 0$. Тогда:
         \begin{equation*}
-            \varlimsup a_n = \begin{dcases}
+            \varlimsup \sqrt[n]{a_n} = \begin{dcases}
                 < 1 &\implies \text{ ряд } \sum a_n \text{ сход. } \\
                 > 1 &\implies \text{ ряд } \sum a_n \text{ расх. }
             \end{dcases}
         \end{equation*}
     \end{proposition}
-    \begin{proof}
-        Пусть $q = \varlimsup \sqrt[n]{a_n}$.
-        
-        Пусть $q < 1$.
-        \begin{flalign*}
-            & \forall \varepsilon > 0\ \exists n_0 : \sqrt[n]{a_n} \leq q + \varepsilon \text{ при } n \geq n_0 \\
-            & \forall \varepsilon > 0\ \exists n_0 : a_n \leq \left(q + \varepsilon\right)^n \text{ при } n \geq n_0
-        \end{flalign*}
-        Пусть $\varepsilon : q + \varepsilon < 1$
-
-        Тогда $\sum a_n$ сходится, поскольку сходится $\sum \left(q + \varepsilon\right)^n$.
-
-        Пусть $q > 1$.
-        
-        Тогда $\exists \left\{n_k\right\} : \sqrt[n_k]{a_{n_k}} \geq q - \varepsilon$ при $k = k_0, k_0 + 1, \ldots$
-
-        Пусть $\varepsilon : q - \varepsilon \geq 1$
-
-        Тогда $a_{n_k} \geq \left(q - \varepsilon\right)^{n_k} \geq 1 \implies \sum_{k=1}^\infty a_{n_k} = \infty, \sum_{n=1}^\infty a_n \geq \sum_{k=1}^\infty a_{n_k}$
-        
-        $\implies \text{ ряд } \sum a_n \text{ расходится }$
-    \end{proof}
 
     % вопрос 15
     \subsection*{15}
@@ -637,7 +615,7 @@
     \begin{proof}
         \begin{flalign*}
             &a_n = \frac{A_n}{A_{n-1}} \cdot c_n, \hspace{1cm} \prod c_n \text{ сходится, то есть } \prod_{n=1}^N c_n \to P \neq 0 \\
-            &\prod_{n=1}^N = \frac{\cancel{A_1}}{A_0} \cdot c_1 \cdot \frac{\cancel{A_2}}{\cancel{A_1}} \cdot c_2 \cdot \ldots \cdot \frac{A_N}{\cancel{A_{N-1}}} \cdot c_N = A_N \cdot \underbrace{\frac{1}{A_0} \cdot \prod_{n=1}^N c_n}_{\to \frac{P}{A_0} \neq 0} \\
+            &\prod_{n=1}^N a_n= \frac{\cancel{A_1}}{A_0} \cdot c_1 \cdot \frac{\cancel{A_2}}{\cancel{A_1}} \cdot c_2 \cdot \ldots \cdot \frac{A_N}{\cancel{A_{N-1}}} \cdot c_N = A_N \cdot \underbrace{\frac{1}{A_0} \cdot \prod_{n=1}^N c_n}_{\to \frac{P}{A_0} \neq 0} \\
             & \implies \prod_{n=1}^N a_n = A_N \cdot \left(C + o(1)\right), \hspace{1cm} C = \frac{P}{A_0} \neq 0
         \end{flalign*}
     \end{proof}
@@ -883,6 +861,16 @@
     непрерывность предельной функции нужно обязательно учитывать при использовании теоремы Дини.
         
     % вопрос 64
+    \subsection*{64. Покажите на примере как доказать неравномерность сходимости функциональной последовательности с помощью локализации особенности (с обоснованием).}
+    \begin{flalign*}
+        &f_n = \frac{1}{x^n}, \hspace{1cm} D = \left(1,\ +\infty\right) \\
+        &f_n \overset{D}{\to} f = 0 \\
+        &f_n \to \begin{dcases}
+            1,\ &x = 1\\
+            0,\ &x > 1
+        \end{dcases}
+    \end{flalign*}
+    Получили, что, если добавить точку, непрерывная функция стремится к разрывной $\implies$ локализовали особенность $\implies$ функциональная последовательность $f_n$ сходится неравномерно.
     
     % вопрос 65
     \subsection*{65}
@@ -1033,6 +1021,8 @@
     \end{itemize}
         
     % вопрос 84
+    \subsection*{84. Что можно утверждать про равномерную сходимость степенного ряда?}
+    Пусть есть степенной ряд $\sum a_n \left(x - x_0\right)^n$, его радиус сходимости равен $R$. Тогда в интервале $\left(x_0 - R,\ x_0 + R\right)$ этот ряд сходится абсолютно и равномерно.
         
     % вопрос 85
     \subsection*{85}
@@ -1170,7 +1160,15 @@
 
         Его радиус сходимости равен радиусу сходимости исходного ряда, то есть он сходится равномерно при $\left|x - x_0\right| \leq r < R$.
     \end{theorem}
-        
+    \begin{proof}
+        Пусть дан ряд $\sum a_n x^n = f$. Ряд, составленный из производных~--- $\sum a_n n x^{n-1} = f'$.
+        Покажем по формуле Коши-Адамара, что радиусы сходимости исходного ряда и ряда, составленного из производных, равны.
+        \begin{flalign*}
+            &\frac{1}{R_f} = \varlimsup \sqrt[n]{\left|a_n\right|} \\
+            &\frac{1}{R_f'} = \varlimsup \sqrt[n]{\left|a_n\right| \cdot n} = \left[\sqrt[n]{n} \to 1\right] = \varlimsup \sqrt[n]{\left| a_n \right|} = \frac{1}{R_f}
+        \end{flalign*}
+    \end{proof}
+    
     % вопрос 95
     \subsection*{95}
     \textbf{ Сформулировать и доказать теорему о почленном интегрировании степенного ряда.} \\[5 pt]
