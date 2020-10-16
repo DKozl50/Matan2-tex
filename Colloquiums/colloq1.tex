@@ -443,7 +443,18 @@
     \end{enumerate}
     \end{proof}    
     % вопрос 26
-        
+    \subsection*{26. Сформулируйте мажорантный признак Вейерштрасса (признак абсолютной сходимости). Приведите пример применения мажорантного признака.}
+        \textbf{Признак Вейерштрасса:} \\[5 pt]
+        Если $\; \sum a_n$ --- ряд, и $\exists n_0 : |a_n| \le b_n \;\; \forall n \ge n_0$, причем $\sum b_n \;$ сходится, 
+        то ряд $\;\sum a_n\;$ также сходится. \\[3 pt]
+        \begin{example}
+        \begin{flalign*}
+        \sum_{n = 1}^{\infty} \frac{\sin(nx)}{n^p}, \; p > 0; \;\;\;
+        |a_n| = \frac{|\sin(nx)|}{n^p} \le \frac{1}{n^p} = b_n \\[3 pt]
+        \end{flalign*}
+        Ряд $\;\sum_{n = 1}^{\infty} b_n\;$ сходится при $p > 1$, значит, и ряд $\;\sum_{n=1}^{\infty} a_n$ 
+        сходится абсолютно при $p > 1$.
+        \end{example}    
     % вопрос 27
     \subsection*{27. Что такое группировка членов ряда? Докажите, что любой ряд, полученный из сходящегося
         группировкой его членов, сходится и имеет ту же сумму.}
@@ -913,7 +924,30 @@
     \end{equation*}
 
     % вопрос 62
+        \subsection*{62. Сформулируйте теорему Дини о монотонной сходимости. Приведите пример её применения для доказательства равномерной сходимости функциональной последовательности (с обоснованием).}
+        \textbf{Теорема Дини:} \\[5 pt]
+        Пусть $\; f_n : [a, b] \to \RR$ --- непрерывная функция, монотонная по $n$ при всех $x \in [a, b]$, 
+        $f_n \xrightarrow{[a, b]} f$ и $f$ --- непрерывная, тогда $f_n \overset{[a, b]}{\rightrightarrows} f$.
+        \begin{example}
+        \begin{flalign*}
+        & f_n(x) = \left( 1 + \frac{x}n \right)^n, \;\; [a, b] = [1, 2], \;\; f_n(x) \text{ --- непрерывная}, \\[3 pt]
+        & f_{n+1}(x) - f_n(x) = \left( 1 + \frac{x}{n + 1} \right)^{n + 1} - \left( 1 + \frac{x}n \right)^n 
+        \;\; [\;\text{ Формула Тейлора для } (1+x)^{\alpha}\;] \\[3 pt]
+        & = 1 + x + \frac{nx}2 + o\left(\frac{1}{n^2}\right) - \left( 1 + x + \frac{(n-1)x}{2}  + o\left(\frac{1}{n^2}\right) \right) = 
+        \frac{x}2 + o\left(\frac{1}{n^2}\right) > 0 \text{ при } x > 0 \; \Rightarrow \\[3 pt]
+        & \Rightarrow \; f_n \text{ монотонна по } n \text{ при } x \in [a, b]\\[3 pt]
+        & \lim_{n \to \infty} \left( 1 + \frac{x}n \right)^n = e^x \; \Rightarrow \; f_n \xrightarrow{[a, b]} f, \;\;
+        f(x) = e^x \text{ --- непрерывная} \\[3 pt]
+        & \text{Выполнены условия теоремы, следовательно, $f_n \overset{[a, b]}{\rightrightarrows} f$.} \\[3 pt]
+        & \text{Покажем, что $f_n$ равномерно сходится к $f$ на $[a, b]$:} \\[3 pt]
+        & \left( e^x - \left( 1 + \frac{x}n \right)^n \right)^{`}_x = e^x - \left( 1 + \frac{x}n \right)^{n - 1} > 0 \;\; \forall x \in [a, b]
+        \; \Rightarrow \; \\[3 pt]
+        & \Rightarrow \; \underset{[1, 2]}{\sup} \norm{f_n(x) - f(x)} = \left| f_n(2) - f(2) \right| = 
+        \left| \left( 1 + \frac{2}n \right)^n - e^2 \right| \xrightarrow[n \to \infty]{} 0 \; \Rightarrow
+        \; f_n \overset{[a, b]}{\rightrightarrows} f.
+        \end{flalign*}
         
+        \end{example}        
     % вопрос 63
     \subsection*{63. Приведите контрпример, показывающий, что в формулировке теоремы Дини о равномерной сходимости 
     нельзя отказаться от условия непрерывности предельной функции (с обоснованием).}
@@ -1256,7 +1290,18 @@
     % вопрос 90
         
     % вопрос 91
-        
+    \subsection*{91. Пусть $R$ --- радиус сходимости степенного ряда. В каком случае можно утверждать, что степенной ряд сходится неравномерно на $[0; R)$? Обоснуйте ответ.}
+        Пусть ряд $\; \sum c_n \, R^n$ расходится. Тогда ряд $\; \sum c_n (x - x_0)^n$ не может равномерно сходиться 
+        на $[x_0; x_0+R)$. \\[3 pt]
+        Формально: \\[3 pt]
+        $\left.\begin{array}{l}
+        S_N(x) = \sum\limits_{n = 0}^{N} c_n (x - x_0)^n \text{ --- непр. на } [x_0, x_0 + R] \\[10 pt]
+        S_N(x) \xrightarrow{[x_0, x_0 + R)} S(x) \\[5 pt]
+        S_N(x_0 + R) \text{ --- расходится}
+        \end{array}\right\} \; \Rightarrow \;$
+         сходимость на $[x_0, x_0 + R)$ неравномерная, \\[3 pt]
+         т.к. $\;\lim\limits_{x \to x_0+R} \sum c_n (x - x_0)^n = \sum c_n \, R^n$ расходится 
+         (воспользовались локализацией особенности $x \to x_0+R$).        
     % вопрос 92
         
     % вопрос 93
