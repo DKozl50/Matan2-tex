@@ -5,7 +5,7 @@
 \title{Коллоквиум 1}
 \author{
         % ОТКОММЕНТИРУЙ СЕБЯ
-    % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+    Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
     Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
     Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
@@ -296,6 +296,22 @@
     \end{example}
         
     % вопрос 18
+    \subsection*{18. Приведите пример ряда, который сходится медленнее любого ряда геометрической прогрессии, но 
+    быстрее любого обобщенного гармонического ряда (с обоснованием).}
+    Рассмотрим $\displaystyle \sum_{n=1}^{\infty} e^{- \sqrt{n}}$ 
+
+    Ряд геометрической прогрессии: $\displaystyle \sum q^n, \;\; 0 < q < 1$;
+    Обобщенный гармонический ряд: $\displaystyle \sum \frac{1}{n^p}, \;\; p > 1$ 
+
+    $\displaystyle \lim_{n \to \infty} \frac{e^{-\sqrt{n}}}{q^n} =
+    \lim_{n \to \infty} \exp \left( -\sqrt{n} - n \ln q \right) =
+    \lim_{n \to \infty} \exp \left( -\sqrt{n} + n \ln \frac{1}{q} \right) = \infty$ так как $q < 1$. 
+    Получается ряд сходится медленнее геометрической прогрессии.
+
+    $\displaystyle \lim_{n \to \infty} \frac{e^{-\sqrt{n}}}{\frac{1}{n^p}} = 
+    \lim_{n \to \infty} \exp \left( - \sqrt{n} - p \ln \frac{1}{n}  \right) = 
+    \lim_{n \to \infty} \exp \left( - \sqrt{n} + p \ln n \right) = 0$. 
+    Получается ряд сходится быстрее обобщенного гармонического ряда. 
         
     % вопрос 19
     \subsection*{19. Сформулируйте признак Гаусса для положительного ряда. Приведите
@@ -720,7 +736,7 @@
     
     Тождество Эйлера: $\displaystyle \zeta(s) = 1/\left(\prod_{n = 1}^{\infty} \left(1 - \frac{1}{p_n^s}\right)\right),$ где $p_1 = 1, \, p_2 = 3, \, p_3 = 5, \dots$ - посл-ть всех простых чисел. 
     
-	
+    
     % вопрос 49
     \subsection*{49. Дайте определения: функциональная последовательность, точка сходимости функциональной последовательности, область (множество) сходимости функциональной последовательности, поточечная сходимость функциональной последовательности на данном множестве.}
     \definition{
@@ -1288,6 +1304,25 @@
     \end{proof}
     
     % вопрос 90
+    \subsection*{90. Пусть $R$ — радиус сходимости степенного ряда. В каком случае можно утверждать, что 
+    $\displaystyle \sum_{n=0}^{\infty} c_n R^n = \lim_{x\to R - 0} \sum_{n = 0}^{\infty} c_n x^n$?}
+    
+    В случае если $\displaystyle \sum_{n=0}^{\infty} c_n R^n$.
+
+    \begin{proof} 
+    \begin{flalign*}
+        & \sum_{n=0}^{\infty} c_n \left( x - x_0 \right)^n = 
+        \sum_{n=0}^{\infty} \left( c_n R^n \right) {\left( \frac{x - x_0}{R} \right)}^n \\
+        & \left. \begin{array} {l}
+                \sum_{n=0}^{\infty} c_n R^n \text{ сход. по условию; не зависит от } x \implies \text{сход. равномерно} \\
+                \sum_{n=0}^{\infty} { \left( \frac{x - x_0}{R} \right) }^n \text{ монотонно убывает } 
+                    \forall x \in [x_0, x_0 + R]
+        \end{array} \right\} \text{ряд сходится равномерно по Абелю} \\
+        & \text{Так как сходится равномерно, можно применить предел: } 
+        \lim_{x \to x_0 + R - 0} \sum_{n=0}^{\infty} c_n (x - x_0)^n = \sum_{n=0}^{\infty} c_n R^n \\
+        & \text{см. условие, судя по пределу } x_0 = 0 \implies \text{ все верно.}
+    \end{flalign*}   
+    \end{proof} 
         
     % вопрос 91
     \subsection*{91. Пусть $R$ --- радиус сходимости степенного ряда. В каком случае можно утверждать, что степенной ряд сходится неравномерно на $[0; R)$? Обоснуйте ответ.}
