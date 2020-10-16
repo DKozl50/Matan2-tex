@@ -64,11 +64,11 @@
 
     \begin{proof}
         Для начала удалим из обеих последовательностей первые $n_0$ элементов, чтобы неравенство $0 \leqslant a_n \leqslant b_n$ выполнялось для всех 
-	$n \in \NN$. Имеем на это право, так как конечное число элементов последовательности не влияет на ее поведение.
+    $n \in \NN$. Имеем на это право, так как конечное число элементов последовательности не влияет на ее поведение.
         \\[6 pt]
         Заметим, что последовательности частичных сумм $A_n = \sum \limits_{n = 1}^N a_n$ и $B_n = \sum \limits_{n = 1}^N b_n$ обе монотонны, так как
-	ряды положительны. Также ряд $\sum b_n$ сходится, следовательно последовательность $B_n$ ограничена сверху. Тогда ограничена сверху и
-	$A_n \leqslant B_n$, а из ее монотонности последовательность частичных сумм ряда $\sum a_n$ сходится $\implies$ ряд $\sum a_n$ сходится.
+    ряды положительны. Также ряд $\sum b_n$ сходится, следовательно последовательность $B_n$ ограничена сверху. Тогда ограничена сверху и
+    $A_n \leqslant B_n$, а из ее монотонности последовательность частичных сумм ряда $\sum a_n$ сходится $\implies$ ряд $\sum a_n$ сходится.
         \\[6 pt]
         Второе утверждение выполняется как контрапозиция первого.
     \end{proof}
@@ -95,19 +95,36 @@
     
     % вопрос 5
     \subsection*{5}
-	\textbf{ Сформулировать и доказать признак сравнения числовых рядов, основанный на пределе $\lim\dfrac{a_n}{b_n}$.} \\[5 pt]
-	Пусть $\sum a_n$ и $\sum b_n$ --- положительные ряды, и $\exists \lim\limits_{n \to \infty} \dfrac{a_n}{b_n} \in (0;\, +\infty)$. \\[3 pt]
-	Тогда ряд $\sum a_n$ сходится $\Leftrightarrow$ $\sum b_n$ сходится. \\
-	\begin{proof}
-	$c = \lim\limits_{n \to \infty} \dfrac{a_n}{b_n} > 0$ \\[3 pt]
-	По определению предела: \\[3 pt]
-	$\forall \varepsilon > 0 \; \exists n_0 : c - \varepsilon \le \dfrac{a_n}{b_n} \le c + \varepsilon \;\; \forall n \ge n_0 \; 
-	\Rightarrow \; (c - \varepsilon) b_n \le a_n \le (c + \varepsilon) b_n \; \Rightarrow \\[3 pt]
-	\Rightarrow \; \sum (c - \varepsilon) b_n  \le \sum a_n \le \sum (c + \varepsilon) b_n \;
-	\Leftrightarrow \; C_1 \sum b_n  \le \sum a_n \le C_2 \sum b_n $
-	\end{proof}    
+    \textbf{ Сформулировать и доказать признак сравнения числовых рядов, основанный на пределе $\lim\dfrac{a_n}{b_n}$.} \\[5 pt]
+    Пусть $\sum a_n$ и $\sum b_n$ --- положительные ряды, и $\exists \lim\limits_{n \to \infty} \dfrac{a_n}{b_n} \in (0;\, +\infty)$. \\[3 pt]
+    Тогда ряд $\sum a_n$ сходится $\Leftrightarrow$ $\sum b_n$ сходится. \\
+    \begin{proof}
+    $c = \lim\limits_{n \to \infty} \dfrac{a_n}{b_n} > 0$ \\[3 pt]
+    По определению предела: \\[3 pt]
+    $\forall \varepsilon > 0 \; \exists n_0 : c - \varepsilon \le \dfrac{a_n}{b_n} \le c + \varepsilon \;\; \forall n \ge n_0 \; 
+    \Rightarrow \; (c - \varepsilon) b_n \le a_n \le (c + \varepsilon) b_n \; \Rightarrow \\[3 pt]
+    \Rightarrow \; \sum (c - \varepsilon) b_n  \le \sum a_n \le \sum (c + \varepsilon) b_n \;
+    \Leftrightarrow \; C_1 \sum b_n  \le \sum a_n \le C_2 \sum b_n $
+    \end{proof}    
     % вопрос 6
+    \subsection*{6. Пусть последовательности $\{a_n\}$, $\{A_n\}$ таковы,
+     что $a_n - (A_n - A_{n - 1}) = c_n$ и ряд $\sum c_n$ сходится.
+    Докажите, что существует $C$ такое,
+     что $a_1 + a_2 + \dots + a_n = A_n + C + o(1)$.}
+    \begin{proof}~
+        $\displaystyle\sum_{n=1}^{N} c_n = \sum_{n=1}^{N} a_n 
+        - \sum_{n=1}^{N} (A_n - A_{n-1}) =
+         \sum_{n=1}^{N} a_n - A_N + A_{0} 
+         \implies a_1 + a_2 + \dots + a_{N} = 
+         A_N + \left(- A_{0} + \sum_{n=1}^{N} c_n \right)$. \\
+         Последнее равенство получено перенесением некоторых слагаемых первых
+         равенств в другую часть от знака равно.
         
+        Получим требуемое, если возьмём $\displaystyle C =
+         \lim_{N\to \infty} - A_{0} + \sum_{n=1}^{N} c_n$. \\
+         Так как ряд $\displaystyle \sum_{n = 1}^{\infty}c_n$ -- сходится,
+         то такой предел существует.  
+    \end{proof}
     % вопрос 7
     \subsection*{7. Сформулируйте и докажите признак Лобачевского-Коши}
 
@@ -186,7 +203,7 @@
             &= \dfrac{1}{\sqrt{S_{n+1}} + \sqrt{S_n}},
         \end{align*}
         где $\sqrt{S_{n+1}} + \sqrt{S_n} \to \infty$. Это значит, что $\dfrac{1}{\sqrt{S_{n+1}} + \sqrt{S_n}}$ стремится к $0$. Тогда ряд $\sum (\sqrt{S_{n+1}} - \sqrt{S_n})$ расходится, причём медленнее, чем ряд $\sum a_{n+1}$.
-    
+
     % вопрос 13
     \subsection*{13. Сформулируйте (предельный) признак Даламбера для положительного ряда.}
 
@@ -202,63 +219,41 @@
     \begin{proposition}[Радикальный признак Коши.]
         Пусть $a_n \geq 0$. Тогда:
         \begin{equation*}
-            \varlimsup a_n = \begin{dcases}
+            \varlimsup \sqrt[n]{a_n} = \begin{dcases}
                 < 1 &\implies \text{ ряд } \sum a_n \text{ сход. } \\
                 > 1 &\implies \text{ ряд } \sum a_n \text{ расх. }
             \end{dcases}
         \end{equation*}
     \end{proposition}
-    \begin{proof}
-        Пусть $q = \varlimsup \sqrt[n]{a_n}$.
-        
-        Пусть $q < 1$.
-        \begin{flalign*}
-            & \forall \varepsilon > 0\ \exists n_0 : \sqrt[n]{a_n} \leq q + \varepsilon \text{ при } n \geq n_0 \\
-            & \forall \varepsilon > 0\ \exists n_0 : a_n \leq \left(q + \varepsilon\right)^n \text{ при } n \geq n_0
-        \end{flalign*}
-        Пусть $\varepsilon : q + \varepsilon < 1$
-
-        Тогда $\sum a_n$ сходится, поскольку сходится $\sum \left(q + \varepsilon\right)^n$.
-
-        Пусть $q > 1$.
-        
-        Тогда $\exists \left\{n_k\right\} : \sqrt[n_k]{a_{n_k}} \geq q - \varepsilon$ при $k = k_0, k_0 + 1, \ldots$
-
-        Пусть $\varepsilon : q - \varepsilon \geq 1$
-
-        Тогда $a_{n_k} \geq \left(q - \varepsilon\right)^{n_k} \geq 1 \implies \sum_{k=1}^\infty a_{n_k} = \infty, \sum_{n=1}^\infty a_n \geq \sum_{k=1}^\infty a_{n_k}$
-        
-        $\implies \text{ ряд } \sum a_n \text{ расходится }$
-    \end{proof}
 
     % вопрос 15
     \subsection*{15}
         \textbf{ Доказать, что всякий раз, когда признак Даламбера даёт ответ на вопрос о сходимости или расходимости ряда, 
-	радикальный признак Коши также даёт (тот же) ответ на этот вопрос.} \\[5 pt]
-	Пусть $a_n > 0$. Тогда 
-	$\;\;\; \left\{\begin{array}{lllllll}
-	\varlimsup \, \dfrac{a_{n+1}}{a_n} & < & 1 & \Rightarrow & \varlimsup \sqrt[n]{a_n} & < & 1,\\[5 pt]
-	\varliminf \, \dfrac{a_{n+1}}{a_n} & > & 1 & \Rightarrow & \varlimsup \sqrt[n]{a_n} & > & 1,\\[5 pt]
-	\end{array}\right.$. \\
-	\begin{proof}
-	Для доказательства основного утверждения докажем неравенство: \\[3 pt]
-	$\varliminf \, \dfrac{a_{n+1}}{a_n} \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n} \\[3 pt]
-	\varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \,$ очевидно, докажем 
-	$\, \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n}$ \\[3 pt]
-	(левое неравенство доказывается аналогично): \\[3 pt]
-	Пусть $q = \varlimsup \sqrt[n]{a_n}, \; p = \varlimsup \, \dfrac{a_{n+1}}{a_n}$. \\[3 pt]
-	От противного: пусть $p < q$:\\[3 pt]
-	$\forall \varepsilon > 0 \; \exists \{ n_k \} : \sqrt[n_k]{a_{nk}} \ge q - \varepsilon \; \Rightarrow \; a_{nk} \ge (q - \varepsilon)^{n_k}$ \\[3 pt]
-	$\exists n_0 : \dfrac{a_{n+1}}{a_n} \le p + \varepsilon, \; n \ge n_0 \; \Rightarrow \; a_{n0 + m} \le a_{n0} (p + \varepsilon)^m$ \\[3 pt]
-	$(q - \varepsilon)^{n_k} \le a_{nk} \le a_{n0} (p + \varepsilon)^{n_k - n_0} \; \Rightarrow \; $
-	$\dfrac{a_{n0}}{(p + \varepsilon)^{n_0}} \ge \left( \dfrac{q - \varepsilon}{p + \varepsilon} \right)^{n_k} \;\, \forall k = 1, 2, \dots;$ \\[3 pt]
-	но $\; \dfrac{q - \varepsilon}{p + \varepsilon} > 1 \; $ при малом $\varepsilon$ по предположению $\Rightarrow$ \\[3 pt]
-	$\; \Rightarrow \; \left( \dfrac{q - \varepsilon}{p + \varepsilon} \right)^{n_k}$ --- бесконечно большое, тогда как
-	$\dfrac{a_{n0}}{(p + \varepsilon)^{n_0}} = C$ --- некоторая константа. \\[3 pt]
-	Получили неравенство $C \ge +\infty$ --- противоречие, следовательно, предположение неверно, и неравенство выполняется. \\[3 pt]
-	Из $\; \varliminf \, \dfrac{a_{n+1}}{a_n} \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n}\; $ 
+    радикальный признак Коши также даёт (тот же) ответ на этот вопрос.} \\[5 pt]
+    Пусть $a_n > 0$. Тогда 
+    $\;\;\; \left\{\begin{array}{lllllll}
+    \varlimsup \, \dfrac{a_{n+1}}{a_n} & < & 1 & \Rightarrow & \varlimsup \sqrt[n]{a_n} & < & 1,\\[5 pt]
+    \varliminf \, \dfrac{a_{n+1}}{a_n} & > & 1 & \Rightarrow & \varlimsup \sqrt[n]{a_n} & > & 1,\\[5 pt]
+    \end{array}\right.$. \\
+    \begin{proof}
+    Для доказательства основного утверждения докажем неравенство: \\[3 pt]
+    $\varliminf \, \dfrac{a_{n+1}}{a_n} \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n} \\[3 pt]
+    \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \,$ очевидно, докажем 
+    $\, \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n}$ \\[3 pt]
+    (левое неравенство доказывается аналогично): \\[3 pt]
+    Пусть $q = \varlimsup \sqrt[n]{a_n}, \; p = \varlimsup \, \dfrac{a_{n+1}}{a_n}$. \\[3 pt]
+    От противного: пусть $p < q$:\\[3 pt]
+    $\forall \varepsilon > 0 \; \exists \{ n_k \} : \sqrt[n_k]{a_{nk}} \ge q - \varepsilon \; \Rightarrow \; a_{nk} \ge (q - \varepsilon)^{n_k}$ \\[3 pt]
+    $\exists n_0 : \dfrac{a_{n+1}}{a_n} \le p + \varepsilon, \; n \ge n_0 \; \Rightarrow \; a_{n0 + m} \le a_{n0} (p + \varepsilon)^m$ \\[3 pt]
+    $(q - \varepsilon)^{n_k} \le a_{nk} \le a_{n0} (p + \varepsilon)^{n_k - n_0} \; \Rightarrow \; $
+    $\dfrac{a_{n0}}{(p + \varepsilon)^{n_0}} \ge \left( \dfrac{q - \varepsilon}{p + \varepsilon} \right)^{n_k} \;\, \forall k = 1, 2, \dots;$ \\[3 pt]
+    но $\; \dfrac{q - \varepsilon}{p + \varepsilon} > 1 \; $ при малом $\varepsilon$ по предположению $\Rightarrow$ \\[3 pt]
+    $\; \Rightarrow \; \left( \dfrac{q - \varepsilon}{p + \varepsilon} \right)^{n_k}$ --- бесконечно большое, тогда как
+    $\dfrac{a_{n0}}{(p + \varepsilon)^{n_0}} = C$ --- некоторая константа. \\[3 pt]
+    Получили неравенство $C \ge +\infty$ --- противоречие, следовательно, предположение неверно, и неравенство выполняется. \\[3 pt]
+    Из $\; \varliminf \, \dfrac{a_{n+1}}{a_n} \le \varliminf \sqrt[n]{a_n} \le \varlimsup \sqrt[n]{a_n} \le \varlimsup \, \dfrac{a_{n+1}}{a_n}\; $ 
         исходное утверждение следует очевидно.
-	\end{proof}    
+    \end{proof}    
     % вопрос 16
     \subsection*{16}
         \textbf{ Доказать, что если для $\sum a_n$ существует $\lim \dfrac{a_{n+1}}{a_n} = q$, то существует и $\lim \sqrt[n]{a_n} = q$.} \\[5 pt]
@@ -400,7 +395,7 @@
 
     \begin{itemize}
         \item Ряд $\sum a_n$ называется знакопеременным, если на знаки его элементов $a_n$ не наложены ограничения. 
-	Фактически любой ряд --- знакопеременный.
+    Фактически любой ряд --- знакопеременный.
         \item Ряд $\sum a_n$ называется знакочередующимся, если $a_i \cdot a_{i+1} < 0 \;\; \forall i \in \NN$.
 
         \item Ряд $\sum a_n$ сходится абсолютно, если сходятся ряды $\sum a_n$ и $\sum |a_n|$.
@@ -416,7 +411,7 @@
         0, & a_n \geqslant 0 \\
         \end{cases} \implies \\[4 pt] \implies$ ряды $\sum a_n^+$ и $\sum a_n^-$ --- положительная и отрицательная части ряда $\sum a_n$ соответственно.
     \end{itemize}
-        
+
     % вопрос 24
     \subsection*{24. Докажите, что ряд сходится абсолютно ровно в том случае, когда сходятся его положительная и отрицательная части.}
     \begin{proposition}
@@ -431,22 +426,22 @@
     % вопрос 25
     \subsection*{25}
         \textbf{ Доказать, что если ряд сходится условно, то его положительная и отрицательная части расходятся.} \\[5 pt]
-	$\sum a_n$ --- ряд, $S_{+} = \sum a_n^{+}$ и $S_{-} = \sum a_n^{-}$
-	 --- положительная и отрицательная части суммы соответственно. \\[3 pt]
-	 $\left\{\begin{array}{lll} 
-	 \sum a_n &=& C,\\[5 pt]
-	 \sum |a_n| &=& \pm \infty
-	 \end{array}\right. \Rightarrow \; S_{+}$ и $S_{-}$ расходятся.
-	\begin{proof}
-	По определению: \\[3 pt]
-	$\sum a_n = S_{+} - S_{-}, \;\; \sum |a_n| = S_{+} + S_{-}$. \\[3 pt]
-	От противного: пусть\\[-20 pt]
-	\begin{enumerate}
-	\item $S_{+}, \; S_{-}$ конечны. Тогда $\;\sum |a_n| = S_{+} + S_{-} = C_1 + C_2 = const$ --- сходится, противоречие.
-	\item $S_{+} \, $ конечна, $S_{-}$ расходится (симметричный случай аналогично). \\[0 pt]
-	Тогда $\; \sum a_n = S_{+} - S_{-} = C_1 - \underbrace{S_{-}}_{\text{беск. большое}} = -\infty$ --- расходится, противоречие.
-	\end{enumerate}
-	\end{proof}    
+    $\sum a_n$ --- ряд, $S_{+} = \sum a_n^{+}$ и $S_{-} = \sum a_n^{-}$
+     --- положительная и отрицательная части суммы соответственно. \\[3 pt]
+     $\left\{\begin{array}{lll} 
+     \sum a_n &=& C,\\[5 pt]
+     \sum |a_n| &=& \pm \infty
+     \end{array}\right. \Rightarrow \; S_{+}$ и $S_{-}$ расходятся.
+    \begin{proof}
+    По определению: \\[3 pt]
+    $\sum a_n = S_{+} - S_{-}, \;\; \sum |a_n| = S_{+} + S_{-}$. \\[3 pt]
+    От противного: пусть\\[-20 pt]
+    \begin{enumerate}
+    \item $S_{+}, \; S_{-}$ конечны. Тогда $\;\sum |a_n| = S_{+} + S_{-} = C_1 + C_2 = const$ --- сходится, противоречие.
+    \item $S_{+} \, $ конечна, $S_{-}$ расходится (симметричный случай аналогично). \\[0 pt]
+    Тогда $\; \sum a_n = S_{+} - S_{-} = C_1 - \underbrace{S_{-}}_{\text{беск. большое}} = -\infty$ --- расходится, противоречие.
+    \end{enumerate}
+    \end{proof}    
     % вопрос 26
         
     % вопрос 27
@@ -540,20 +535,20 @@
     % вопрос 35
     \subsection*{35}
         \textbf{Сформулировать признак Абеля. Вывести утверждение признака Абеля из признака Дирихле.} \\[5 pt]
-	\textbf{Признак Абеля. } Если $\{ a_n \}$ монотонна и ограничена $|a_n| \le C$, а $\sum b_n$ сходится,
-	ряд $\; \sum a_n \cdot b_n \;$ также сходится.\\[5 pt]
-	Пусть некоторая последовательность $a_n \cdot b_n$ удовлетворяет признаку Абеля. \\[3 pt]
-	У монотонной ограниченной последовательности существует конечный предел: $\lim a_n = A$. \\[3 pt]
-	Представим исходную последовательность в виде суммы: \\[3 pt]
-	$a_n \cdot b_n = A \cdot b_n + (a_n - A) b_n \; \Rightarrow \; 
-	\sum a_n \cdot b_n = \underbrace{\sum A \cdot b_n}_{\text{сходится}} + \sum (a_n - A) b_n$ \\[3 pt]
-	$a_n \to A \; \Rightarrow \; (a_n - A) \to 0$, причем, т.к. $\{ a_n \}$ монотонная, $\{ (a_n - A) \}$ монотонно стремится к 0. \\[3 pt]
-	Т.к. ряд $\;\sum b_n$ сходится, последовательность его частичных сумм также сходится. \\[3 pt]
-	$\left\{\begin{array}{lll} 
-	\{ (a_n - A) \} &\downarrow& 0,\\[10 pt]
-	\left\{ \sum\limits_{n=1}^N b_n \right\} &\le& B
-	\end{array}\right. \Rightarrow \; \sum (a_n - A) b_n$ сходится по признаку Дирихле.\\[3 pt]
-	$\sum a_n \cdot b_n = \underbrace{\sum A \cdot b_n}_{\text{сходится}} +\underbrace{\sum (a_n - A) b_n}_{\text{сходится}}$ --- сходится.    
+    \textbf{Признак Абеля. } Если $\{ a_n \}$ монотонна и ограничена $|a_n| \le C$, а $\sum b_n$ сходится,
+    ряд $\; \sum a_n \cdot b_n \;$ также сходится.\\[5 pt]
+    Пусть некоторая последовательность $a_n \cdot b_n$ удовлетворяет признаку Абеля. \\[3 pt]
+    У монотонной ограниченной последовательности существует конечный предел: $\lim a_n = A$. \\[3 pt]
+    Представим исходную последовательность в виде суммы: \\[3 pt]
+    $a_n \cdot b_n = A \cdot b_n + (a_n - A) b_n \; \Rightarrow \; 
+    \sum a_n \cdot b_n = \underbrace{\sum A \cdot b_n}_{\text{сходится}} + \sum (a_n - A) b_n$ \\[3 pt]
+    $a_n \to A \; \Rightarrow \; (a_n - A) \to 0$, причем, т.к. $\{ a_n \}$ монотонная, $\{ (a_n - A) \}$ монотонно стремится к 0. \\[3 pt]
+    Т.к. ряд $\;\sum b_n$ сходится, последовательность его частичных сумм также сходится. \\[3 pt]
+    $\left\{\begin{array}{lll} 
+    \{ (a_n - A) \} &\downarrow& 0,\\[10 pt]
+    \left\{ \sum\limits_{n=1}^N b_n \right\} &\le& B
+    \end{array}\right. \Rightarrow \; \sum (a_n - A) b_n$ сходится по признаку Дирихле.\\[3 pt]
+    $\sum a_n \cdot b_n = \underbrace{\sum A \cdot b_n}_{\text{сходится}} +\underbrace{\sum (a_n - A) b_n}_{\text{сходится}}$ --- сходится.    
     % вопрос 36
     
     \subsection*{36. Что такое перестановка членов ряда? Приведите пример.}
@@ -575,6 +570,11 @@
     \end{proposition}
         
     % вопрос 38
+    \subsection*{38. Сформулируйте свойство условно сходящегося ряда, связанное с перестановкой членов (теорема Римана).}
+    \begin{theorem}[Свойство условно сходящегося ряда (теорема Римана)]
+        Каков бы ни был условно сходящийся ряд $\sum a_n$ и $S \in \left[-\infty;\ +\infty\right]$, найдётся такая перестановка $f: \NN \to \NN$, что $\sum a_{f(n)} = S$.
+    \end{theorem}
+
         
     % вопрос 39
     \subsection*{39. Приведите пример условно сходящегося ряда и перестановки, меняющей его сумму
@@ -629,7 +629,7 @@
 
     \begin{proof}
         Пусть $P_N = \prod \limits_{n = 1}^N a_n$ --- частичное произведение. Тогда $a_n = \dfrac{P_n}{P_{n - 1}} \xrightarrow{n \to \infty} 1$, 
-	так как $\lim \limits_{n \to \infty} P_n = \lim \limits_{n \to \infty} P_{n - 1} = \prod \limits_{n = 1}^{\infty} a_n$.
+    так как $\lim \limits_{n \to \infty} P_n = \lim \limits_{n \to \infty} P_{n - 1} = \prod \limits_{n = 1}^{\infty} a_n$.
     \end{proof}
         
     % вопрос 44
@@ -637,7 +637,7 @@
     \begin{proof}
         \begin{flalign*}
             &a_n = \frac{A_n}{A_{n-1}} \cdot c_n, \hspace{1cm} \prod c_n \text{ сходится, то есть } \prod_{n=1}^N c_n \to P \neq 0 \\
-            &\prod_{n=1}^N = \frac{\cancel{A_1}}{A_0} \cdot c_1 \cdot \frac{\cancel{A_2}}{\cancel{A_1}} \cdot c_2 \cdot \ldots \cdot \frac{A_N}{\cancel{A_{N-1}}} \cdot c_N = A_N \cdot \underbrace{\frac{1}{A_0} \cdot \prod_{n=1}^N c_n}_{\to \frac{P}{A_0} \neq 0} \\
+            &\prod_{n=1}^N a_n= \frac{\cancel{A_1}}{A_0} \cdot c_1 \cdot \frac{\cancel{A_2}}{\cancel{A_1}} \cdot c_2 \cdot \ldots \cdot \frac{A_N}{\cancel{A_{N-1}}} \cdot c_N = A_N \cdot \underbrace{\frac{1}{A_0} \cdot \prod_{n=1}^N c_n}_{\to \frac{P}{A_0} \neq 0} \\
             & \implies \prod_{n=1}^N a_n = A_N \cdot \left(C + o(1)\right), \hspace{1cm} C = \frac{P}{A_0} \neq 0
         \end{flalign*}
     \end{proof}
@@ -645,10 +645,10 @@
     % вопрос 45
     \subsection*{45}
         \textbf{Как определяется соответствующий бесконечному произведению ряд? Сформулировать и доказать утверждение об их взаимосвязи.} \\[5 pt]
-	Пусть $\prod\limits_{n = 1}^{\infty} a_n$ --- бесконечное произведение. \\[3 pt]
-	Тогда ряд $\sum\limits_{n = 1}^{\infty} \ln a_n$ называется соответствующим этому бесконечному произведению. \\[3 pt]
-	Так как $a_n = e ^{\ln a_n}$, верно равенство $\; \prod\limits_{n = 1}^{\infty} a_n = \prod\limits_{n = 1}^{\infty} e^{\ln a_n} = $ 
-	{\large $e^{\;\sum\limits_{n = 1}^{\infty} \ln a_n}$ } (по свойству степени)    
+    Пусть $\prod\limits_{n = 1}^{\infty} a_n$ --- бесконечное произведение. \\[3 pt]
+    Тогда ряд $\sum\limits_{n = 1}^{\infty} \ln a_n$ называется соответствующим этому бесконечному произведению. \\[3 pt]
+    Так как $a_n = e ^{\ln a_n}$, верно равенство $\; \prod\limits_{n = 1}^{\infty} a_n = \prod\limits_{n = 1}^{\infty} e^{\ln a_n} = $ 
+    {\large $e^{\;\sum\limits_{n = 1}^{\infty} \ln a_n}$ } (по свойству степени)    
     % вопрос 46
         
     \subsection*{46. В каком случае бесконечное произведение называется сходящимся абсолютно? Сформулируйте и докажите критерий абсолютной сходимости бесконечного произведения.}
@@ -684,6 +684,12 @@
         
     % вопрос 48
         
+    \subsection*{48. Дайте определение дзета-функции ($\zeta$-функции) Римана. Сформулируйте тождество Эйлера для $\zeta$ - функции.}
+        
+    $\zeta$-функция Римана по определению: $\displaystyle \zeta(s) = \sum_{n = 1}^{\infty} \frac{1}{n^s}, \; s > 1$ (т.е. это сумма обощенного гарм. ряда).
+    
+    Тождество Эйлера: $\displaystyle \zeta(s) = 1/\left(\prod_{n = 1}^{\infty} \left(1 - \frac{1}{p_n^s}\right)\right),$ где $p_1 = 1, \, p_2 = 3, \, p_3 = 5, \dots$ - посл-ть всех простых чисел. 
+    
     % вопрос 49
     \subsection*{49. Дайте определения: функциональная последовательность, точка сходимости функциональной последовательности, область (множество) сходимости функциональной последовательности, поточечная сходимость функциональной последовательности на данном множестве.}
     \definition{
@@ -701,7 +707,30 @@
         Говорят, что последовательность сходится на $D$ поточечно, если $D$ – множество сходимости.
    }
     % вопрос 50
-        
+        \subsection*{50. Что такое равномерная норма? Покажите (исходя из определения нормы), что равномерная норма явл-ся нормой в линейном пр-ве всех числовых функций, определенных на $D \subseteq \RR$.}
+    
+    Рассмотрим пространство функций $D \to \RR.$
+    
+    Равномерной нормой называется $\displaystyle \|f\| := \sup_{x \in D} |f(x)|.$
+    
+    Равномерная норма явл-ся нормой в линейном пр-ве всех числовых функций, определенных на $D \subseteq \RR.$
+    
+    \begin{proof} Для нормы в лин. пр-ве $\mathbb{V}$ должны выполняться следующие св-ва:
+    \begin{flalign}
+    & 1.0. \; \| x \| \geq 0 \; \forall \, x \in \mathbb{V};\\ \\
+    & 1.1. \; \| x \| = 0 \implies x = 0;\\ \\
+    & 2. \; \| x + y \| \leq \| x \| + \| y \| \; \forall \, x, y \in \mathbb{V}\\ \\
+    & 3. \; \| \alpha x \|  = |\alpha| \cdot \| x \| \; \forall \, x \in \mathbb{V}, \alpha \in D. \\ \\
+    & \text{Проверим  их напрямую.}\\ \\
+    & 1.0. \; \| f \| = \sup_{x \in D} |f(x)| \geq 0 \; \forall f \in \mathbb{V};\\
+    & 1.1. \; \| f \| = \sup_{x \in D} |f(x)|= 0 \implies \forall \, x \; |f(x)| \leq 0 \implies \forall \, x \;  |f(x)| = 0 \implies \forall \, x \;  f(x) = 0  \iff f = 0;\\
+    & 2. \; \| f + g \| = \sup_{x \in D} |f(x) + g(x)| \leq \sup_{x \in D} (|f(x)| + |g(x)|) = \sup_{x \in D} |f(x)| + \sup_{x \in D} |g(x)| = \|f\| + \|g \| \; \forall \, f, g \in \mathbb{V};\\
+    & 3. \; \| \alpha f \|  = \sup_{x \in D} |\alpha \cdot f(x)| = |\alpha| \sup_{x \in D} |f(x)| = |\alpha | \cdot \| f \| \; \forall \, f \in \mathbb{V}, \alpha \in  D. \\
+    \end{flalign} 
+    \end{proof}
+    
+	
+	
     % вопрос 51
     \subsection*{51. Сформулируйте определения равномерной сходимости функциональной последовательности: в терминах нормы и на языке $\varepsilon - \delta$.}
     \begin{enumerate}
@@ -740,20 +769,20 @@
     % вопрос 55
     \subsection*{55}
         \textbf{ Доказать, что если две функциональные последовательности сходятся равномерно к предельным функциям, то их сумма также сходится равномерно к сумме двух этих предельных функций.} \\[5 pt]
-	$\left\{\begin{array}{lll} 
-	f_n &\overset{D}{\rightrightarrows}& f, \\[5 pt]
-	g_n &\overset{D}{\rightrightarrows}& g
-	\end{array}\right. \Rightarrow \; (f_n + g_n) \overset{D}{\rightrightarrows} (f + g)$
-	\begin{proof}
-	По определению равномерной сходимости: \\[3 pt]
-	$\forall \varepsilon > 0 \; \exists N_1(\varepsilon) : |f_n(x) - f(x)| < \dfrac{\varepsilon}2 \;\;\; \forall n \ge N_1(\varepsilon)\;\; \forall x \in D$, \\[3 pt]
-	$\forall \varepsilon > 0 \; \exists N_2(\varepsilon) : |g_n(x) - g(x)| < \dfrac{\varepsilon}2 \;\;\; \forall n \ge N_2(\varepsilon)\;\; \forall x \in D$ \\[3 pt]
-	Тогда \\[3 pt]
-	$\forall x \in D \;\; \forall n \ge max(N_1, N_2) : |(f_n(x) + g_n(x)) - (f(x) + g(x))|  = |(f_n(x) - f(x)) + (g_n(x) - g(x))|  \le \\[3 pt]
-	\le |f_n(x) - f(x)| + |g_n(x) - g(x)| < \dfrac{\varepsilon}2 + \dfrac{\varepsilon}2 = \varepsilon$, т.е. \\[3 pt]
-	$\forall \varepsilon > 0 \; \exists N = max(N_1, N_2) : |(f_n(x) + g_n(x)) - (f(x) + g(x))| < \varepsilon \;\;\; n \ge N \;\; \forall x \in D$, \\[5 pt]
-	т.е. сумма $(f_n + g_n)$ равномерно сходится к $(f + g)$ на $D$.
-	\end{proof}    
+    $\left\{\begin{array}{lll} 
+    f_n &\overset{D}{\rightrightarrows}& f, \\[5 pt]
+    g_n &\overset{D}{\rightrightarrows}& g
+    \end{array}\right. \Rightarrow \; (f_n + g_n) \overset{D}{\rightrightarrows} (f + g)$
+    \begin{proof}
+    По определению равномерной сходимости: \\[3 pt]
+    $\forall \varepsilon > 0 \; \exists N_1(\varepsilon) : |f_n(x) - f(x)| < \dfrac{\varepsilon}2 \;\;\; \forall n \ge N_1(\varepsilon)\;\; \forall x \in D$, \\[3 pt]
+    $\forall \varepsilon > 0 \; \exists N_2(\varepsilon) : |g_n(x) - g(x)| < \dfrac{\varepsilon}2 \;\;\; \forall n \ge N_2(\varepsilon)\;\; \forall x \in D$ \\[3 pt]
+    Тогда \\[3 pt]
+    $\forall x \in D \;\; \forall n \ge max(N_1, N_2) : |(f_n(x) + g_n(x)) - (f(x) + g(x))|  = |(f_n(x) - f(x)) + (g_n(x) - g(x))|  \le \\[3 pt]
+    \le |f_n(x) - f(x)| + |g_n(x) - g(x)| < \dfrac{\varepsilon}2 + \dfrac{\varepsilon}2 = \varepsilon$, т.е. \\[3 pt]
+    $\forall \varepsilon > 0 \; \exists N = max(N_1, N_2) : |(f_n(x) + g_n(x)) - (f(x) + g(x))| < \varepsilon \;\;\; n \ge N \;\; \forall x \in D$, \\[5 pt]
+    т.е. сумма $(f_n + g_n)$ равномерно сходится к $(f + g)$ на $D$.
+    \end{proof}    
     % вопрос 56
     
     \subsection*{56. Докажите, что если 2 функциональные последовательности сходятся равномерно к ограниченным предельным функциям, то их произведение также сходится равномерно к произведению этих предельных функций.}
@@ -883,23 +912,33 @@
     непрерывность предельной функции нужно обязательно учитывать при использовании теоремы Дини.
         
     % вопрос 64
+    \subsection*{64. Покажите на примере как доказать неравномерность сходимости функциональной последовательности с помощью локализации особенности (с обоснованием).}
+    \begin{flalign*}
+        &f_n = \frac{1}{x^n}, \hspace{1cm} D = \left(1,\ +\infty\right) \\
+        &f_n \overset{D}{\to} f = 0 \\
+        &f_n \to \begin{dcases}
+            1,\ &x = 1\\
+            0,\ &x > 1
+        \end{dcases}
+    \end{flalign*}
+    Получили, что, если добавить точку, непрерывная функция стремится к разрывной $\implies$ локализовали особенность $\implies$ функциональная последовательность $f_n$ сходится неравномерно.
     
     % вопрос 65
     \subsection*{65}
-	\textbf{ Сформулировать и доказать теорему о почленном переходе к пределу в функциональной последовательности.} \\[5 pt]
-	$-\infty \le a < b \le +\infty$, рассмотрим $D = (a;\,b), \; D = [a;\,b]$ \\[3 pt]
-	Пусть $\; f_n \overset{D}{\rightrightarrows} f, \;\; x \in D, \;\; y_n = \lim\limits_{x \to x_0} f_n(x), \;\; \{ y_n \}$ сходится к $y$ \\[3 pt]
-	Тогда $\; \lim\limits_{x \to x_0} f(x) = y$, \\[3 pt]
-	т.е. $\; \lim\limits_{x \to x_0} \underbrace{\left( \lim\limits_{n \to \infty} f_n(x) \right)}_{f(x)} = 
-	\underbrace{\lim\limits_{n \to \infty} \overbrace{\left( \lim\limits_{x \to x_0} f_n(x) \right)}^{y_n}}_{y}$
-	\begin{proof}
-	По определению предела сходящейся последовательности: \\[3 pt]
-	$\forall \varepsilon > 0 \; \exists N : |y - y_n| < \dfrac{\varepsilon}3, \;\; \norm{f_n - f} < \dfrac{\varepsilon}3 \;\; \forall n \ge N$, \\[3 pt]
-	$\forall \varepsilon > 0 \; \exists \delta > 0 : |x - x_0| < \delta \;\Rightarrow\; |f_n(x) - y_n| < \dfrac{\varepsilon}3 \;\;\; \forall n$ \\[5 pt]
-	Тогда \\[5 pt]
-	$|y - f_n(x)| \le |y - y_n| + |y_n - f_n(x)| + |f_n(x) - f(x)| < \varepsilon$, \\[5 pt]
-	т.е. $f_n(x) \xrightarrow{x \to x_0} y$, что и требовалось доказать.
-	\end{proof}    
+    \textbf{ Сформулировать и доказать теорему о почленном переходе к пределу в функциональной последовательности.} \\[5 pt]
+    $-\infty \le a < b \le +\infty$, рассмотрим $D = (a;\,b), \; D = [a;\,b]$ \\[3 pt]
+    Пусть $\; f_n \overset{D}{\rightrightarrows} f, \;\; x \in D, \;\; y_n = \lim\limits_{x \to x_0} f_n(x), \;\; \{ y_n \}$ сходится к $y$ \\[3 pt]
+    Тогда $\; \lim\limits_{x \to x_0} f(x) = y$, \\[3 pt]
+    т.е. $\; \lim\limits_{x \to x_0} \underbrace{\left( \lim\limits_{n \to \infty} f_n(x) \right)}_{f(x)} = 
+    \underbrace{\lim\limits_{n \to \infty} \overbrace{\left( \lim\limits_{x \to x_0} f_n(x) \right)}^{y_n}}_{y}$
+    \begin{proof}
+    По определению предела сходящейся последовательности: \\[3 pt]
+    $\forall \varepsilon > 0 \; \exists N : |y - y_n| < \dfrac{\varepsilon}3, \;\; \norm{f_n - f} < \dfrac{\varepsilon}3 \;\; \forall n \ge N$, \\[3 pt]
+    $\forall \varepsilon > 0 \; \exists \delta > 0 : |x - x_0| < \delta \;\Rightarrow\; |f_n(x) - y_n| < \dfrac{\varepsilon}3 \;\;\; \forall n$ \\[5 pt]
+    Тогда \\[5 pt]
+    $|y - f_n(x)| \le |y - y_n| + |y_n - f_n(x)| + |f_n(x) - f(x)| < \varepsilon$, \\[5 pt]
+    т.е. $f_n(x) \xrightarrow{x \to x_0} y$, что и требовалось доказать.
+    \end{proof}    
     % вопрос 66
     
     \subsection*{66. Сформулируйте теорему о почленном дифференцировании функциональной последовательности.}
@@ -955,6 +994,17 @@
         $\exists \varepsilon > 0\ \forall N \in \NN\ \exists m,n > N\ \exists x = x(N) \in E: |\sum_{k = m}^n x_k| \geqslant \varepsilon \iff$ ряд $\sum x_n$ сходится на $E$ неравномерно
             
     % вопрос 73
+    \subsection*{73. Приведите пример функционального ряда, сходящегося на некотором множестве поточечно, но не равномерно (с обоснованием).}
+    \begin{example}
+        \begin{flalign*}
+            & \sum \frac{1}{1 + \left(x - n\right)^2}, \hspace{1cm} D = \RR \\
+            & \text{Очевидно, что } \sum \frac{1}{1 + \left(x - n\right)^2} \text{ сходится как гармонический ряд.} \\
+            & \text{Проверим необходимое условие равномерной сходимости. } \\
+            & a_n(x) = \frac{1}{1 + \left(x - n\right)^ 2} \to 0 \\
+            & \text{Но } \sup_{x \in D} \norm{\frac{1}{1 + \left(x - n\right)^2}} \underset{x_n = n}{\geq} \frac{1}{1} \nrightarrow 0 \\
+            & \implies \text{ необходимое условие не выполняется } \implies \text{ функциональный ряд сходится неравномерно.} 
+        \end{flalign*}
+    \end{example}
         
     % вопрос 74
     \subsection*{74. Сформулируйте мажорантный признак Вейерштрасса абсолютной и равномерной сходимости функционального ряда.}
@@ -964,20 +1014,20 @@
         
     % вопрос 75
     \subsection*{75}
-	\textbf{ Как применяются признаки Даламбера и Коши для исследования сходимости функционального ряда?} \\[5 pt]
-	\textbf{ Признак Даламбера} \\[5 pt] 
-	Если $\exists q < 1 : \; |a_{n+1}(x)| \le q \cdot |a_n(x)|$ при $\forall n \ge n_0, \; x \in D$, 
-	причем $a_{n0}(x)$ ограничена на $D$ (т.е. $\norm{a_{n0}} < \infty$), \\[1 pt]
-	то $\; \sum a_n(x)$ сходится на $D$ абсолютно и равномерно. \\[5 pt]
-	\textbf{ Радикальный признак Коши} \\[5 pt] 
-	Если $\sum u_n$ --- знакоположительный числовой ряд, и существует конечный предел \\[3 pt]
-	$l = \lim\limits_{n \to \infty} \sqrt[n]{u_n}$, то \\[-20 pt]
-	\begin{enumerate}
-	\item $l < 1 \;\; \Rightarrow \; $ ряд сходится
-	\item $l > 1 \;\; \Rightarrow \; $ ряд расходится
-	\item $l = 1 \;\; \Rightarrow \; $ необходимо дополнительное исследование
-	\end{enumerate}
-	Заметно, что признаки практически идентичны соответствующим признакам для числовых рядов.    
+    \textbf{ Как применяются признаки Даламбера и Коши для исследования сходимости функционального ряда?} \\[5 pt]
+    \textbf{ Признак Даламбера} \\[5 pt] 
+    Если $\exists q < 1 : \; |a_{n+1}(x)| \le q \cdot |a_n(x)|$ при $\forall n \ge n_0, \; x \in D$, 
+    причем $a_{n0}(x)$ ограничена на $D$ (т.е. $\norm{a_{n0}} < \infty$), \\[1 pt]
+    то $\; \sum a_n(x)$ сходится на $D$ абсолютно и равномерно. \\[5 pt]
+    \textbf{ Радикальный признак Коши} \\[5 pt] 
+    Если $\sum u_n$ --- знакоположительный числовой ряд, и существует конечный предел \\[3 pt]
+    $l = \lim\limits_{n \to \infty} \sqrt[n]{u_n}$, то \\[-20 pt]
+    \begin{enumerate}
+    \item $l < 1 \;\; \Rightarrow \; $ ряд сходится
+    \item $l > 1 \;\; \Rightarrow \; $ ряд расходится
+    \item $l = 1 \;\; \Rightarrow \; $ необходимо дополнительное исследование
+    \end{enumerate}
+    Заметно, что признаки практически идентичны соответствующим признакам для числовых рядов.    
     % вопрос 76
     
     % вопрос 77
@@ -989,6 +1039,13 @@
     Если $u_n(x) \downarrow_{(n)}$ и $u_n \stackrel{D}{\rightrightarrows} 0$, то ряд сходится равномерно.
         
     % вопрос 78
+    
+        
+    \subsection*{78. Сформулируйте пр-к Дирихле равномерной сходимости функционального ряда.}
+    
+    Рассм. функциональный ряд $\displaystyle \sum_{n = 1}^{\infty} a_n(x) \cdot b_n(x) = \circledast.$
+    
+    Если $a_n(x) \downarrow_{(n)}$ и $a_n\stackrel{D}{\rightrightarrows} 0, $  и при этом $\| b_1 + \dots + b_n\| \leq C = const $ при всех $n$, то ряд $\circledast$ сх-ся равномерно на $D$.
         
     % вопрос 79
     
@@ -1001,7 +1058,19 @@
         а ряд $\sum b_n(x)$ сх-ся равномерно, то $\circledast$ сх-ся равномерно.
         
     % вопрос 80
-        
+    \subsection*{80. Сформулируйте теорему о почленном переходе
+     к пределу в функциональном ряде.}
+    \theorem{
+        $-\infty \leq a < b \leq +\infty$, $D= (a; b)$, $D = [a; b]$
+
+        Пусть функциональный ряд $\sum_{n=1}^{\infty} c_n(x)$
+         сходится равномерно на $D$, $x_0 \in D$,
+          $\exists \lim_{x \to x_0} c_n(x) = y_n$ и
+           $\exists \sum_{n=1}^{\infty} y_n = y$.
+
+        Тогда $\lim_{x \to x_0} \sum_{n = 1}^{\infty} c_n(x) 
+        = \sum_{n=1}^{\infty} \lim_{x \to x_0} c_n(x) =
+         \sum_{n=1}^{\infty} y_n = y$}
     % вопрос 81
     \subsection*{81. Сформулируйте теорему о почленном дифференцировании функционального ряда.}
     $-\infty \leq a < b \leq +\infty$, $D= (a; b)$, $D = [a; b]$ \\
@@ -1020,37 +1089,39 @@
 
     \begin{itemize}
         \item Степенным рядом называется функциональный ряд вида $\sum \limits_{n = 0}^{\infty} c_n \, (x - x_0)^n$, 
-	где $c_n$ --- числовая последовательность и $x_0 =$ const.
+    где $c_n$ --- числовая последовательность и $x_0 =$ const.
 
-        \item Радиусом сходимости степенного ряда $\sum \limits_{n = 0}^{\infty} c_n \, (x - x_0)^n$ называется такое число $R$, 
-	равное \\ ${\sup \, \bigl\{|x - x_0| : \text{ряд сходится}\bigr\}} = {\inf \, \bigl\{|x - x_0| : \text{ряд расходится}\bigr\}}$ 
-	(если ряд сходится всюду, то ${R = +\infty}$). Также по формуле Коши-Адамара $R = \dfrac1{\overline{\lim} \sqrt[n]{|c_n|}}$.
+        \item Радиусом сходимости степенного ряда $\sum \limits_{n = 0}^{\infty} c_n \, (x - x_0)^n$ называется такое число $R$,
+    равное \\ ${\sup \, \bigl\{|x - x_0| : \text{ряд сходится}\bigr\}} = {\inf \, \bigl\{|x - x_0| : \text{ряд расходится}\bigr\}}$
+    (если ряд сходится всюду, то ${R = +\infty}$). Также по формуле Коши-Адамара $R = \dfrac1{\overline{\lim} \sqrt[n]{|c_n|}}$.
 
         \item Интервалом сходимости степенного ряда $\sum c_n \, (x - x_0)^n$ с радиусом сходимости $R$ называется интервал $(x_0 - R, \: x_0 + R)$.
 
         \item Степенной ряд сходится равномерно на отрезке $[x_0 - r, \; x_0 + r]$, если $0 \leqslant r < R$ 
-	(неверно утверждать, что это происходит на интервале $(x_0 - R, \: x_0 + R)$). 
+    (неверно утверждать, что это происходит на интервале $(x_0 - R, \: x_0 + R)$). 
     \end{itemize}
         
     % вопрос 84
+    \subsection*{84. Что можно утверждать про равномерную сходимость степенного ряда?}
+    Пусть есть степенной ряд $\sum a_n \left(x - x_0\right)^n$, его радиус сходимости равен $R$. Тогда в интервале $\left(x_0 - R,\ x_0 + R\right)$ этот ряд сходится абсолютно и равномерно.
         
     % вопрос 85
     \subsection*{85}
-	\textbf{ Сформулировать и доказать теорему Абеля о сходимости степенного ряда.} \\[5 pt]
-	\textbf{ Теорема Абеля} \\[-15 pt] 
-	\begin{enumerate}
-	\item[$1)$] Если степенной ряд $\sum c_n (x - x_0)^n$ сходится в точке $x_1 \ne x_0$, 
-	то он сходится при всех $x : |x - x_0| < |x_1 - x_0|$
-	\item[$2)$] Если степенной ряд $\sum c_n (x - x_0)^n$ расходится в точке $x_2 \ne x_0$, 
-	то он расходится при всех $x : |x - x_0| > |x_2 - x_0|$\\[-30 pt]
-	\end{enumerate}
-	\begin{proof}
-	$\left| \sum\limits_{n = m}^N c_n (x - x_0)^n \right| = 
-	\left| \sum\limits_{n = m}^N c_n \cdot (x - x_0)^n \cdot \left( \dfrac{x - x_0}{x_1 - x_0} \right)^n \right| \le  \\[3 pt]
-	\sum\limits_{n = m}^N \underbrace{\left| c_n \cdot (x - x_0)^n \right|}_{< \varepsilon \; \forall m \ge n_0} \cdot 
-	\underbrace{\left| \dfrac{x - x_0}{x_1 - x_0} \right|^n}_{q^n}  \le
-	\varepsilon \cdot (q^m + \ldots + q^N) \le \varepsilon \cdot q^m \cdot \dfrac1{1 - q} \to 0$
-	\end{proof}    
+    \textbf{ Сформулировать и доказать теорему Абеля о сходимости степенного ряда.} \\[5 pt]
+    \textbf{ Теорема Абеля} \\[-15 pt] 
+    \begin{enumerate}
+    \item[$1)$] Если степенной ряд $\sum c_n (x - x_0)^n$ сходится в точке $x_1 \ne x_0$, 
+    то он сходится при всех $x : |x - x_0| < |x_1 - x_0|$
+    \item[$2)$] Если степенной ряд $\sum c_n (x - x_0)^n$ расходится в точке $x_2 \ne x_0$, 
+    то он расходится при всех $x : |x - x_0| > |x_2 - x_0|$\\[-30 pt]
+    \end{enumerate}
+    \begin{proof}
+    $\left| \sum\limits_{n = m}^N c_n (x - x_0)^n \right| = 
+    \left| \sum\limits_{n = m}^N c_n \cdot (x - x_0)^n \cdot \left( \dfrac{x - x_0}{x_1 - x_0} \right)^n \right| \le  \\[3 pt]
+    \sum\limits_{n = m}^N \underbrace{\left| c_n \cdot (x - x_0)^n \right|}_{< \varepsilon \; \forall m \ge n_0} \cdot 
+    \underbrace{\left| \dfrac{x - x_0}{x_1 - x_0} \right|^n}_{q^n}  \le
+    \varepsilon \cdot (q^m + \ldots + q^N) \le \varepsilon \cdot q^m \cdot \dfrac1{1 - q} \to 0$
+    \end{proof}    
     % вопрос 86
     
     \subsection*{86. Докажите, что если степенной ряд $\displaystyle \sum c_n (x - x_0)^n$ расходится в точке $x_1$, то он расходится во всех точках $x$, для которых $|x - x_0| > |x_1 - x_0|.$}
@@ -1108,6 +1179,28 @@
     % вопрос 88
         
     % вопрос 89
+    \subsection*{89. Пусть $\displaystyle R$ -- радиус сходимости степенного
+    ряда. Сформулируйте и докажите теорему о равномерной сходимости степенного ряда
+    на $\displaystyle [0; R]$.}
+    \theorem{Пусть $\displaystyle \sum c_n R^n$ сходится. Тогда степенной ряд
+    $\displaystyle \sum c_n(x - x_0)^n$ сходится равномерно на $\displaystyle
+     [x_0, x_0 + R]$}
+    \begin{proof} \ \\
+        В начале доказательства хочу заметить,
+         что доказываю не совсем то, что в вопросе просят, однако это вроде 
+         ошибка Маевского, а не моя. Для того, чтобы всё было, как вопросе, возьмите
+         $\displaystyle x_0 = 0$. \\ 
+         $\displaystyle \sum_{n = 0}^{\infty}c_n(x - x_0)^n =
+         \sum_{n = 0}^{\infty}(c_nR^n)\cdot \left(\frac{x - x_0}{R}\right)^n$\\
+         $\displaystyle \sum_{n = 0}^{\infty}(c_nR^n)$ -- сходится равномерно 
+         (от $\displaystyle x$ не зависит) \\ 
+         $\displaystyle \sum_{n = 0}^{\infty}\left(\frac{x - x_0}{R}\right)^n 
+         \downarrow_{(n)}$ \ $\displaystyle \forall x \in [x_0, x_0 + R]$ \\ 
+         $\displaystyle \Rightarrow \sum_{n = 0}^{\infty}c_n(x - x_0)^n$ -- сходится
+         равномерно на $\displaystyle
+         [x_0, x_0 + R]$
+         по признаку Абеля 
+    \end{proof}
     
     % вопрос 90
         
@@ -1124,8 +1217,8 @@
         Пусть дан степенной ряд $\sum c_n \, (x - x_0)^n$ с радиусом сходимости $R$. Утверждается (доказательство в пункте 95), что
         \begin{flalign*}
             \int_{x_0}^x \!\left( \sum_{n = 0}^{\infty} c_n \, (t - x_0)^n \right) \! dt \;=\; 
-	    \sum_{n = 0}^{\infty} \frac{c_n}{n + 1} \, (x - x_0)^{n + 1} = 
-	    \sum_{n = 0}^{\infty} c'_n (x - x_0)^{n} \text{, где } c'_n =
+        \sum_{n = 0}^{\infty} \frac{c_n}{n + 1} \, (x - x_0)^{n + 1} = 
+        \sum_{n = 0}^{\infty} c'_n (x - x_0)^{n} \text{, где } c'_n =
             \begin{cases}
             0, & n = 0 \\[2 pt]
             \dfrac{c_{n - 1}}{n}, & n > 0 \\
@@ -1134,8 +1227,8 @@
         По формуле Коши-Адамара радиус $R'$ сходимости нового ряда равен
         \begin{flalign*}
             \frac1{\overline{\lim} \sqrt[n]{|c'_n|}} = 
-	    \frac{\underline{\lim} \sqrt[n]{n}}{\overline{\lim} \sqrt[n]{|c_n|}} = 
-	    \frac1{\overline{\lim} \sqrt[n]{|c_n|}} = R
+        \frac{\underline{\lim} \sqrt[n]{n}}{\overline{\lim} \sqrt[n]{|c_n|}} = 
+        \frac1{\overline{\lim} \sqrt[n]{|c_n|}} = R
         \end{flalign*}
     \end{proof}
         
@@ -1148,21 +1241,29 @@
 
         Его радиус сходимости равен радиусу сходимости исходного ряда, то есть он сходится равномерно при $\left|x - x_0\right| \leq r < R$.
     \end{theorem}
-        
+    \begin{proof}
+        Пусть дан ряд $\sum a_n x^n = f$. Ряд, составленный из производных~--- $\sum a_n n x^{n-1} = f'$.
+        Покажем по формуле Коши-Адамара, что радиусы сходимости исходного ряда и ряда, составленного из производных, равны.
+        \begin{flalign*}
+            &\frac{1}{R_f} = \varlimsup \sqrt[n]{\left|a_n\right|} \\
+            &\frac{1}{R_f'} = \varlimsup \sqrt[n]{\left|a_n\right| \cdot n} = \left[\sqrt[n]{n} \to 1\right] = \varlimsup \sqrt[n]{\left| a_n \right|} = \frac{1}{R_f}
+        \end{flalign*}
+    \end{proof}
+    
     % вопрос 95
     \subsection*{95}
-	\textbf{ Сформулировать и доказать теорему о почленном интегрировании степенного ряда.} \\[5 pt]
-	$\int\limits_{x_0}^x \left( \sum\limits_{n = 0}^{\infty} c_n(t - x_0)^n \right) dt = 
-	\sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} = 
-	\sum\limits_{n = 1}^{\infty} \dfrac{c_{n - 1}}n (x - x_0)^n$
-	\begin{proof}
-	$\int\limits_{x_0}^x \left( \sum\limits_{n = 0}^{\infty} c_n(t - x_0)^n \right) dt = 
-	\sum\limits_{n = 0}^{\infty} \int\limits_{x_0}^x c_n(t - x_0)^n dt = 
-	\sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(t - x_0)^{n + 1}\Big|_{x_0}^x = \\[3 pt]
-	= \sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} - 
-	\sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x_0 - x_0)^{n + 1} = 
-	\sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} = \sum\limits_{n = 1}^{\infty} \dfrac{c_{n - 1}}n (x - x_0)^n$
-	\end{proof}    
+    \textbf{ Сформулировать и доказать теорему о почленном интегрировании степенного ряда.} \\[5 pt]
+    $\int\limits_{x_0}^x \left( \sum\limits_{n = 0}^{\infty} c_n(t - x_0)^n \right) dt = 
+    \sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} = 
+    \sum\limits_{n = 1}^{\infty} \dfrac{c_{n - 1}}n (x - x_0)^n$
+    \begin{proof}
+    $\int\limits_{x_0}^x \left( \sum\limits_{n = 0}^{\infty} c_n(t - x_0)^n \right) dt = 
+    \sum\limits_{n = 0}^{\infty} \int\limits_{x_0}^x c_n(t - x_0)^n dt = 
+    \sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(t - x_0)^{n + 1}\Big|_{x_0}^x = \\[3 pt]
+    = \sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} - 
+    \sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x_0 - x_0)^{n + 1} = 
+    \sum\limits_{n = 0}^{\infty} \dfrac{c_n}{n + 1}(x - x_0)^{n + 1} = \sum\limits_{n = 1}^{\infty} \dfrac{c_{n - 1}}n (x - x_0)^n$
+    \end{proof}    
     % вопрос 96
     
     \subsection*{96. Запишите формулу Тейлора для бесконечно дифференцируемой функции с остаточным членом в формах Лагранжа и Коши.}
@@ -1212,9 +1313,37 @@
         То есть, такая функция не является аналитической.
     }    
     % вопрос 100
-        
+    \subsection*{100. Запишите разложения в степенной ряд с центром в нуле для функций $e^x$, $\sin x$, $\cos x$. Каково множество сходимости ряда? На каком множестве сумма ряда представляет собой исходную функцию? Обоснуйте ответ.}
+    \begin{enumerate}
+        \item 
+        \begin{flalign*}
+            & e^x = \sum_{n=0}^\infty \frac{x^n}{n!}, \hspace{1cm} R = \infty \\
+            &\text{Докажем равенство. Оценим остаток по формуле Лагранжа.} \\
+            & r_N(x) = \underbrace{e^{\Theta x}}_\text{const} \cdot \underbrace{\frac{x^{N+1}}{\left(N + 1\right)!}}_{\to 0 \text{ при }\forall x}, \hspace{1cm} \Theta \in \left(0;\ 1\right)
+        \end{flalign*}
+        Множество сходимости~--- $\RR$, на множестве $\RR$ сумма ряда представляет собой исходную функцию.
+        \item Для $\cos x$ аналогично:
+        \begin{flalign*}
+            & \cos x = \sum_{n=0}^\infty \left(-1\right)^n \cdot \frac{x^{2n}}{\left(2n\right)!} \hspace{1cm} x \in \RR, \hspace{0.5cm} R = \infty
+        \end{flalign*}
+        \item Для $\sin x$ аналогично:
+        \begin{flalign*}
+            & \sin x = \sum_{n=0}^\infty \left(-1\right)^n \cdot \frac{x^{2n+1}}{\left(2n+1\right)!} \hspace{1cm} x \in \RR, \hspace{0.5cm} R = \infty
+        \end{flalign*}
+    \end{enumerate}
+
+    
     % вопрос 101
         
     % вопрос 102
+    
+        
+    \subsection*{102. Получите разложение для $\ln (1 + x)$ интегрированием разложения для $(1 + x)^{-1}.$ Каково мн-во сходимости ряда? На каком мн-ве сумма ряда представляет собой исходную функцию?}
+    
+    Рассмотрим $\displaystyle f(x) = (1+ x)^{-1} = \sum_{n = 0}^{\infty} (-x)^n$ - сходится при $|x| < 1.$ оответственно, радиус сх-ти $ = 1.$
+    \begin{flalign}
+    & \displaystyle \ln (1 + x) = \int_{0}^{x} \frac{1}{1 + t} dt = \int_{0}^{x} \left (\sum_{n = 0}^{\infty} (-t)^n \right) dt = \sum_{n = 0}^{\infty} \frac{(-1)^{n} \cdot x^{n + 1}}{n + 1}   \text{ при } |x| <  1.
+    \end{flalign} 
+    Заметим, что у нового ряда $R = 1$ (совпадает с  исходным). А при $x = 1$ ряд $\; \displaystyle \sum_{n = 0}^{\infty} \frac{(-1)^n}{n + 1} $ сходится. Следовательно, мн-во сходимости нового ряда будет $(-1; 1].$ 
 
 \end{document}
