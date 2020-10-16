@@ -153,6 +153,24 @@
     \end{proof}
         
     % вопрос 8
+    \subsection*{8. Сформулируйте теорему Штольца о пределе последовательности $\dfrac{p_n}{q_n}$, где $p_n, \, q_n \to 0$. 
+    Покажите на примере, как можно с помощью этой теоремы уточнить асимптотическую оценку для частичной суммы ряда.}
+
+    Пусть $p_n, \, q_n \to 0$ и $q_n$ монотонна. Тогда если $\displaystyle \exists \lim_{n \to \infty} \frac{p_{n + 1} - p_n}{q_{n + 1} - q_n}$, 
+    то $\displaystyle \lim_{n \to \infty} \frac{p_n}{q_n} = \lim_{n \to \infty} \frac{p_{n + 1} - p_n}{q_{n + 1} - q_n}$.
+    \\[8 pt]
+    Докажем, что $S_N = S - \dfrac1N + o\!\left(\dfrac1N\right)$ для ряда $S = \sum \limits_{n = 1}^{\infty} \dfrac1{n^2}$ (семинарская задача 2.19).
+
+    Пусть $p_n = S - S_n \xrightarrow{n \to \infty} 0$ и $q_n = \dfrac1n \xrightarrow{n \to \infty} 0$, причем $q_n$ монотонно убывает. Тогда
+
+    \begin{flalign*}
+        & \frac{p_{n + 1} - p_n}{q_{n + 1} - q_n} = \frac{(S - S_{n + 1}) - (S - S_n)}{\frac1{n + 1} - \frac1n} = 
+	\frac{S_n - S_{n + 1}}{\frac{n - (n + 1)}{n(n + 1)}} = \frac{-\frac1{(n + 1)^2}}{-\frac1{n(n + 1)}} = 
+	\frac{n}{n + 1} = \frac{1}{1 + \frac1n} \xrightarrow{n \to \infty} 1 \implies \\
+        & \implies \lim_{n \to \infty} \frac{p_n}{q_n} = 1 \text{ (по теореме Штольца)} \implies 
+	\frac{p_n}{q_n} = 1 + o(1) \implies p_n = q_n + o(q_n) \implies \\
+        & \implies S - S_n = \frac1N + o\!\left(\dfrac1N\right) \implies S_N = S - \dfrac1N + o\!\left(\dfrac1N\right) \;\; \blacksquare
+    \end{flalign*}
         
     % вопрос 9
     \subsection*{9. Пусть $ \Sigma a_n, \Sigma a_n'$ -- сходящиеся положительные
@@ -858,6 +876,26 @@
     \end{proof}
         
     % вопрос 58
+    \subsection*{58. Докажите, что равномерная сходимость последовательности на множестве $D = D_1 \cup D_2$ 
+    равносильна равномерной сходимости на $D_1$ и $D_2$ одновременно.}
+
+    Пусть $D = D_1 \cup D_2$ и $f_n$ --- функциональная последовательность. 
+    Хотим доказать 
+    \begin{flalign*}
+        f_n \overset{D}{\rightrightarrows} f \iff f_n \overset{D_1}{\rightrightarrows} f \wedge f_n \overset{D_2}{\rightrightarrows} f
+    \end{flalign*}
+
+    \begin{proof}
+        Очевидно, что для поточечной сходимости эквивалентность есть из определения, то есть 
+	$f_n \xrightarrow{D} f \iff f_n \xrightarrow{D_1} f \wedge f_n \xrightarrow{D_2} f$. 
+	Тогда рассмотрим условие равномерной сходимости и заметим, что
+        \begin{flalign*}
+            & \sup_{x \in D} |f_n(x) - f(x)| = \max \,\left(\sup_{x \in D_1} |f_n(x) - f(x)|, \; \sup_{x \in D_2} |f_n(x) - f(x)|\right) \implies \\
+            & \implies \sup_{x \in D} |f_n(x) - f(x)| \xrightarrow{n \to \infty} 0 \iff 
+	    \sup_{x \in D_1} |f_n(x) - f(x)| \xrightarrow{n \to \infty} 0 \;\wedge\; \sup_{x \in D_2} |f_n(x) - f(x)| \xrightarrow{n \to \infty} 0
+        \end{flalign*}
+        Отсюда следует доказываемое утверждение.
+    \end{proof}
         
     % вопрос 59
     \subsection*{59. Пусть $\displaystyle \varphi: G \to D$ -- биекция. Докажите, что
@@ -1262,6 +1300,39 @@
         \end{proof}
         
     % вопрос 88
+    \subsection*{88. Приведите примеры степенных рядов, радиус сходимости $R$ которых: $R \in (0, \, +\infty), \; R = 0, \; R = +\infty$.}
+
+    \begin{itemize}
+        \item Возьмем $\sum \limits_{n = 0}^{\infty} x^n$. Найти радиус сходимости этого ряда можно как через сумму, так и по формуле Коши-Адамара:
+        \begin{flalign*}
+            & \circ\; \sum_{n = 0}^{\infty} x^n = 1 + x + x^2 + \ldots = \lim_{n \to \infty} \frac{1 \cdot (1 - x^n)}{1 - x} 
+	    \text{ --- сходится только при } |x| < 1, \; S = \frac{1}{1 - x} \implies R = 1 \\
+            & \circ\; R = \frac1{\overline{\lim} \sqrt[n]{|c_n|}} = \frac1{\overline{\lim} \sqrt[n]{1}} = 1
+        \end{flalign*}
+        Аналогично $R = 1$ для ряда $\sum \limits_{n = 0}^{\infty} (x - x_0)^n$, где $x_0 =$ const.
+
+        \item Пусть дан ряд $\sum \limits_{n = 0}^{\infty} n x^n$. Найдем радиус аналогично предыдущему пункту:
+        \begin{flalign*}
+            & \circ\; \sum_{n = 0}^{\infty} n x^n = 1 + 2x + 3x^2 + \ldots = 
+	    (x)' + \left(x^2\right)' + \left(x^3\right)' + \ldots = 
+	    \lim_{n \to \infty} \left( \frac{x \cdot (1 - x^n)}{1 - x} \right)' = \\
+            & \;\;\: \lim_{n \to \infty} \frac{n x^{n + 1} - (n + 1) \,x^n + 1}{(1 - x)^2} 
+	    \text{ --- сходится при } |x| < 1, S = \frac1{(1 - x)^2} \implies R = 1 \\
+            & \circ\; R = \frac1{\overline{\lim} \sqrt[n]{|c_n|}} = \frac1{\overline{\lim} \sqrt[n]{n}} = 1, 
+	    \text{ так как } \sqrt[n]{n} \xrightarrow{n \to \infty} 1
+        \end{flalign*}
+        Аналогично $R = 1$ для ряда $\sum \limits_{n = 0}^{\infty} n (x - x_0)^n$, где $x_0 =$ const.
+
+        \item Рассмотрим степенной ряд $\sum \limits_{n = 0}^{\infty} (-1)^n \,n!\, (x - x_0)^n$, найдем радиус: 
+	$\displaystyle R = \frac1{\overline{\lim} \sqrt[n]{|(-1)^n \, n!|}} = \frac1{\infty} = 0$. \\[4 pt] 
+	То есть ряд сходится только при $x = x_0 \implies S = 0 + 0 + \ldots = 0$, 
+	иначе факториал растет быстрее экспоненты и потому ряд разойдется.
+
+        \item Степенные ряды с радиусом сходимости $R = +\infty$ можно найти в билетах 100--102 --- например, 
+	$\displaystyle e^x = \sum_{n = 0}^{\infty} \frac{x^n}{n!}, \;\; 
+	\cos x = \sum_{n = 0}^{\infty} (-1)^n \, \frac{x^{2n}}{(2n)!}, \;\; 
+	\sin x = \sum_{n = 0}^{\infty} (-1)^n \, \frac{x^{2n + 1}}{(2n + 1)!}$.
+    \end{itemize}
         
     % вопрос 89
     \subsection*{89. Пусть $\displaystyle R$ -- радиус сходимости степенного
@@ -1303,6 +1374,22 @@
          т.к. $\;\lim\limits_{x \to x_0+R} \sum c_n (x - x_0)^n = \sum c_n \, R^n$ расходится 
          (воспользовались локализацией особенности $x \to x_0+R$).        
     % вопрос 92
+    \subsection*{92. Что можно утверждать о радиусе сходимости степенного ряда, полученного почленным дифференцированием исходного ряда? Обоснуйте ответ.}
+
+    Радиус сходимости при дифференцировании степенного ряда не изменяется.
+
+    \begin{proof}
+        Пусть дан степенной ряд $\sum c_n \, (x - x_0)^n$ с радиусом сходимости $R$. Утверждается (доказательство в пункте 94), что
+        \begin{flalign*}
+            \left( \sum_{n = 0}^{\infty} c_n (x - x_0)^n \right)' = \sum_{n = 0}^{\infty} c'_n (x - x_0)^n, \text{ где } c'_n = c_{n + 1} (n + 1)
+        \end{flalign*}
+        По формуле Коши-Адамара радиус $R'$ сходимости нового ряда равен
+        \begin{flalign*}
+            \frac1{\overline{\lim} \sqrt[n]{|c'_n|}} = 
+	    \frac1{\overline{\lim} \sqrt[n]{|c_{n + 1}|} \cdot \sqrt[n]{n + 1}} = 
+	    \frac1{\overline{\lim} \sqrt[n]{|c_n|}} = R, \text{ так как } \sqrt[n]{n} \xrightarrow{n \to \infty} 1
+        \end{flalign*}
+    \end{proof}
         
     % вопрос 93
     \subsection*{93. Что можно утверждать о радиусе сходимости степенного ряда, полученного почленным интегрировании исходного ряда? Обоснуйте ответ.}
@@ -1392,7 +1479,26 @@
     То есть функция может быть представлена в виде степенного ряда единственным образом - и это будет ее р.Т.\\
     
         \end{proof}
+    
     % вопрос 98
+    \subsection*{98. Что такое функция, аналитическая в данной точке? Каково соотношение между понятиями бесконечной дифференцируемости и аналитичности?}
+
+    \begin{itemize}
+        \item Функция $f(x)$ называется бесконечно дифференцируемой в точке $x_0$, если $\forall n \in \NN \;\; \exists f^{(n)}(x_0)$.
+        \item Функция $f(x)$ называется аналитической в точке $x_0$, если она представима степенным рядом в окрестности этой точки, 
+	то есть $\forall \delta > 0 \;\; \forall x \in U_{\delta}(x_0) \;\; f(x) = \sum_{n = 0}^{\infty} c_n (x - x_0)^n$. 
+	Так как степенные ряды бесконечно дифференцируемы, то из аналитичности функции в точке следует 
+	бесконечная дифференцируемость в этой же точке. Обратное утверждение неверно:
+    \end{itemize}
+    \begin{flalign*}
+        & f(x) = 
+        \begin{cases}
+        e^{-\frac1{x^2}}, & x \ne 0 \\
+        0, & x = 0 \\
+        \end{cases} \text{ --- бесконечно дифференцируема: } f(0) = f'(0) = f''(0) = \ldots = 0 \implies \\[4 pt]
+        & \implies 0 + 0 \cdot x + 0 \cdot x^2 + \ldots = 0 
+	\text{ --- (единственное!) разложение по Тейлору } \implies \text{ аналитичность не выполняется.}
+    \end{flalign*}
         
     % вопрос 99
     \subsection*{99. Приведите пример бесконечной дифференцируемой функции, 
