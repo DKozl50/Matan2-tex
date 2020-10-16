@@ -553,6 +553,11 @@
     \end{proposition}
         
     % вопрос 38
+    \subsection*{38. Сформулируйте свойство условно сходящегося ряда, связанное с перестановкой членов (теорема Римана).}
+    \begin{theorem}[Свойство условно сходящегося ряда (теорема Римана)]
+        Каков бы ни был условно сходящийся ряд $\sum a_n$ и $S \in \left[-\infty;\ +\infty\right]$, найдётся такая перестановка $f: \NN \to \NN$, что $\sum a_{f(n)} = S$.
+    \end{theorem}
+
         
     % вопрос 39
     \subsection*{39. Приведите пример условно сходящегося ряда и перестановки, меняющей его сумму
@@ -943,6 +948,17 @@
         $\exists \varepsilon > 0\ \forall N \in \NN\ \exists m,n > N\ \exists x = x(N) \in E: |\sum_{k = m}^n x_k| \geqslant \varepsilon \iff$ ряд $\sum x_n$ сходится на $E$ неравномерно
             
     % вопрос 73
+    \subsection*{73. Приведите пример функционального ряда, сходящегося на некотором множестве поточечно, но не равномерно (с обоснованием).}
+    \begin{example}
+        \begin{flalign*}
+            & \sum \frac{1}{1 + \left(x - n\right)^2}, \hspace{1cm} D = \RR \\
+            & \text{Очевидно, что } \sum \frac{1}{1 + \left(x - n\right)^2} \text{ сходится как гармонический ряд.} \\
+            & \text{Проверим необходимое условие равномерной сходимости. } \\
+            & a_n(x) = \frac{1}{1 + \left(x - n\right)^ 2} \to 0 \\
+            & \text{Но } \sup_{x \in D} \norm{\frac{1}{1 + \left(x - n\right)^2}} \underset{x_n = n}{\geq} \frac{1}{1} \nrightarrow 0 \\
+            & \implies \text{ необходимое условие не выполняется } \implies \text{ функциональный ряд сходится неравномерно.} 
+        \end{flalign*}
+    \end{example}
         
     % вопрос 74
     \subsection*{74. Сформулируйте мажорантный признак Вейерштрасса абсолютной и равномерной сходимости функционального ряда.}
@@ -1232,7 +1248,26 @@
         То есть, такая функция не является аналитической.
     }    
     % вопрос 100
-        
+    \subsection*{100. Запишите разложения в степенной ряд с центром в нуле для функций $e^x$, $\sin x$, $\cos x$. Каково множество сходимости ряда? На каком множестве сумма ряда представляет собой исходную функцию? Обоснуйте ответ.}
+    \begin{enumerate}
+        \item 
+        \begin{flalign*}
+            & e^x = \sum_{n=0}^\infty \frac{x^n}{n!}, \hspace{1cm} R = \infty \\
+            &\text{Докажем равенство. Оценим остаток по формуле Лагранжа.} \\
+            & r_N(x) = \underbrace{e^{\Theta x}}_\text{const} \cdot \underbrace{\frac{x^{N+1}}{\left(N + 1\right)!}}_{\to 0 \text{ при }\forall x}, \hspace{1cm} \Theta \in \left(0;\ 1\right)
+        \end{flalign*}
+        Множество сходимости~--- $\RR$, на множестве $\RR$ сумма ряда представляет собой исходную функцию.
+        \item Для $\cos x$ аналогично:
+        \begin{flalign*}
+            & \cos x = \sum_{n=0}^\infty \left(-1\right)^n \cdot \frac{x^{2n}}{\left(2n\right)!} \hspace{1cm} x \in \RR, \hspace{0.5cm} R = \infty
+        \end{flalign*}
+        \item Для $\sin x$ аналогично:
+        \begin{flalign*}
+            & \sin x = \sum_{n=0}^\infty \left(-1\right)^n \cdot \frac{x^{2n+1}}{\left(2n+1\right)!} \hspace{1cm} x \in \RR, \hspace{0.5cm} R = \infty
+        \end{flalign*}
+    \end{enumerate}
+
+    
     % вопрос 101
         
     % вопрос 102
