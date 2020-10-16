@@ -5,7 +5,7 @@
 \title{Коллоквиум 1}
 \author{
         % ОТКОММЕНТИРУЙ СЕБЯ
-    % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+    Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
     Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
     Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
@@ -646,6 +646,25 @@
         $\displaystyle \Rightarrow$ ряд сходится к числу $\displaystyle -\ln\left(2\sqrt{\frac{q}{p}}\right)$ 
     }
     % вопрос 40
+    \subsection*{40. Как определяется произведение рядов? Что можно утверждать о произведении абсолютно
+    сходящихся рядов?}
+    Рассмотрим ряды $\sum_{k=1}^\infty a_k, \sum_{m=1}^{\infty} b_m$
+        
+    $\displaystyle 
+        \left(\sum_{k=1}^K a_k \right) \cdot \left(\sum_{m=1}^M b_m \right) = \sum_{\substack{1 \leq k \leq K
+        1 \leq m \leq M}}a_k \cdot b_k
+    $
+    
+    Если эта сумма имеет предел при $K, M \to \infty$, не зависящий от порядка
+    суммирования, то говорят, что определено произведение произведение рядов
+
+    \textbf{Теорема Коши.}
+    Если $\sum a_k, \sum b_k$ сходятся аболютно, то определено их произведение
+    
+    $\left(\sum_{k=1}^\infty a_k \right) \cdot \left(\sum_{m=1}^\infty b_m \right) = 
+    \sum_{n=1}^{\infty} a_{k_n} \cdot b_{m_n}$
+    Оно не зависит от выбранного порядка суммирования, т.е. от биекции $\mathbb{N} \to \mathbb{N}times\mathbb{N}$,
+    $n \mapsto (k_n, m_n)$ и является абсолютно сходящимся рядом.
     
     % вопрос 41
     \subsection*{41. Что такое произведение рядов в форме Коши? Приведите пример вычисления такого произведения.}
@@ -1536,6 +1555,21 @@
 
     
     % вопрос 101
+    \subsection*{101. Запишите разложения в степенной ряд с центром в нуле для функций $(1 + x)^p$.
+    Каково множество сходимости ряда? На каком множестве сумма ряда представляет собой исходную
+    функцию? Обоснуйте ответ.}
+
+    $(1 + x)^p = \sum_{n=0}^\infty \frac{(p)_n}{n!} x^n$, где $(p_n) = p(p-1) \dots (p-n+1)$
+
+    Радиус сходимости у этого ряда $R = 1$. Исследуем остаточный член ряда Тейлора в форме Коши.
+
+    $r_N(x) = \frac{p(p-1)\dots(p-N) \cdot (1 + \theta x)^{p - N - 1}}{N!} \cdot (1 - \theta)^N \cdot 
+    x^{N+1} = \left(\frac{(p-1) (p-2) \dots (p - N)}{N!} x^N \right) \cdot px \cdot (1 + \theta x)^{p - 1}
+    \cdot \left(\frac{1 - \theta}{1 + \theta x}\right)^N \xrightarrow[]{N \to \infty} 0$ при 
+    $\forall x \in (-1; 1)$
+
+    Первый множитель стремится к 0, как общий член сходящегося ряда, взятого для p-1.
+    Остальное написано в Фихтенгольце.
         
     % вопрос 102
 
