@@ -872,7 +872,30 @@
     \end{equation*}
 
     % вопрос 62
+        \subsection*{62. Сформулируйте теорему Дини о монотонной сходимости. Приведите пример её применения для доказательства равномерной сходимости функциональной последовательности (с обоснованием).}
+        \textbf{Теорема Дини:} \\[5 pt]
+        Пусть $\; f_n : [a, b] \to \RR$ --- непрерывная функция, монотонная по $n$ при всех $x \in [a, b]$, 
+        $f_n \xrightarrow{[a, b]} f$ и $f$ --- непрерывная, тогда $f_n \overset{[a, b]}{\rightrightarrows} f$.
+        \begin{example}
+        \begin{flalign*}
+        & f_n(x) = \left( 1 + \frac{x}n \right)^n, \;\; [a, b] = [1, 2], \;\; f_n(x) \text{ --- непрерывная}, \\[3 pt]
+        & f_{n+1}(x) - f_n(x) = \left( 1 + \frac{x}{n + 1} \right)^{n + 1} - \left( 1 + \frac{x}n \right)^n 
+        \;\; [\;\text{ Формула Тейлора для } (1+x)^{\alpha}\;] \\[3 pt]
+        & = 1 + x + \frac{nx}2 + o\left(\frac{1}{n^2}\right) - \left( 1 + x + \frac{(n-1)x}{2}  + o\left(\frac{1}{n^2}\right) \right) = 
+        \frac{x}2 + o\left(\frac{1}{n^2}\right) > 0 \text{ при } x > 0 \; \Rightarrow \\[3 pt]
+        & \Rightarrow \; f_n \text{ монотонна по } n \text{ при } x \in [a, b]\\[3 pt]
+        & \lim_{n \to \infty} \left( 1 + \frac{x}n \right)^n = e^x \; \Rightarrow \; f_n \xrightarrow{[a, b]} f, \;\;
+        f(x) = e^x \text{ --- непрерывная} \\[3 pt]
+        & \text{Выполнены условия теоремы, следовательно, $f_n \overset{[a, b]}{\rightrightarrows} f$.} \\[3 pt]
+        & \text{Покажем, что $f_n$ равномерно сходится к $f$ на $[a, b]$:} \\[3 pt]
+        & \left( e^x - \left( 1 + \frac{x}n \right)^n \right)^{`}_x = e^x - \left( 1 + \frac{x}n \right)^{n - 1} > 0 \;\; \forall x \in [a, b]
+        \; \Rightarrow \; \\[3 pt]
+        & \Rightarrow \; \underset{[1, 2]}{\sup} \norm{f_n(x) - f(x)} = \left| f_n(2) - f(2) \right| = 
+        \left| \left( 1 + \frac{2}n \right)^n - e^2 \right| \xrightarrow[n \to \infty]{} 0 \; \Rightarrow
+        \; f_n \overset{[a, b]}{\rightrightarrows} f.
+        \end{flalign*}
         
+        \end{example}        
     % вопрос 63
     \subsection*{63. Приведите контрпример, показывающий, что в формулировке теоремы Дини о равномерной сходимости 
     нельзя отказаться от условия непрерывности предельной функции (с обоснованием).}
