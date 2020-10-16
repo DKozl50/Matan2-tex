@@ -816,10 +816,12 @@
     
     % вопрос 51
     \subsection*{51. Сформулируйте определения равномерной сходимости функциональной последовательности: в терминах нормы и на языке $\varepsilon - \delta$.}
-    \begin{enumerate}
-        \item $f_n \overset{D}{\rightrightarrows} f \iff ||f_n - f|| \rightarrow 0$. \\
-      \item $\sum f_n(x) \rightrightarrows S(x) \iff \forall \epsilon > 0, \exists N(\epsilon): \forall n \geqslant N(\epsilon), |S_n(x) - S(x)| < \epsilon$. \\
-    \end{enumerate}
+    \begin{flalign*}
+         & f_n \overset{D}{\rightrightarrows} f \iff 
+	 \sup_{x \in D} |f_n(x) - f(x)| \xrightarrow{n \to \infty} 0 \iff 
+	 \forall \varepsilon > 0 \; \exists N(\varepsilon) : \; \forall n \geqslant N(\varepsilon), 
+	 \, \forall x \in D \;\; |f_n(x) - f(x)| \leqslant \varepsilon
+    \end{flalign*}
         
         
     % вопрос 52
@@ -1264,7 +1266,9 @@
         
     % вопрос 84
     \subsection*{84. Что можно утверждать про равномерную сходимость степенного ряда?}
-    Пусть есть степенной ряд $\sum a_n \left(x - x_0\right)^n$, его радиус сходимости равен $R$. Тогда в интервале $\left(x_0 - R,\ x_0 + R\right)$ этот ряд сходится абсолютно и равномерно.
+    Степенной ряд $\sum \limits_{n = 0}^{\infty} c_n \, (x - x_0)^n$ с радиусом сходимости $R$ сходится равномерно 
+    на отрезке $[x_0 - r, \; x_0 + r]$, если $0 \leqslant r < R$ 
+    (неверно утверждать, что это происходит на интервале $(x_0 - R, \: x_0 + R)$). 
         
     % вопрос 85
     \subsection*{85. Сформулировать и доказать теорему Абеля о сходимости степенного ряда.}
