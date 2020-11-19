@@ -24,9 +24,50 @@
     
     \section*{Предполагая функцию $f$ непрерывной на $D$, приведите двойной интеграл от $f$ по $D$ к повторному 
     двумя способами: по $x$ затем по $y$ и наоборот.}
-    % \subsection*{Задача 1}
+    \subsection*{Задача 1\\[-40 pt]}
+    \begin{align*}
+        & D = \{ (x, y) \,|\, x, y \in [0; 1], x^2 + y^2 \ge 1 \} \\[3 pt]
+        & \text{Множество точек, находящихся в квадрате, ограниченном прямыми $x = 0, x = 1, y = 0, y = 1$,} \\
+        & \text{за пределами круга радиуса 1 с центром в точке $(0, 0)$:} \\[3 pt]
+        & \text{Интеграл по $x$ затем по $y$:} \\
+        & \int\limits_0^1 dy \!\!\! \int\limits_{\sqrt{1-y^2}}^1 \!\!\! dx = \int\limits_0^1 dy \cdot x \Bigm|_{\sqrt{1-y^2}}^1
+        = \int\limits_0^1 dy \left( 1 - \sqrt{1-y^2} \right) = \int\limits_0^1 dy - \int\limits_0^1 \sqrt{1-y^2} \, dy 
+        = 1 - \int\limits_0^1 \sqrt{1-y^2} \, dy \\
+        & \text{Замена: } y = \sin u \Leftrightarrow \int\limits_0^1 \sqrt{1-y^2} \, dy 
+        = \int\limits_0^{\frac{\pi}2} \cos u \, \sqrt{1-\sin^2 u} \, du = \int\limits_0^{\frac{\pi}2} \cos^2 u \, du 
+        = \int\limits_0^{\frac{\pi}2} \frac{\cos 2u + 1}2 \, du = \\
+        & = \frac12 \int\limits_0^{\frac{\pi}2} \cos 2u \, du + \frac12 \int\limits_0^{\frac{\pi}2} \! du 
+        = \frac14 \, \sin 2u \Bigm|_0^{\frac{\pi}2} + \frac12\, u \Bigm|_0^{\frac{\pi}2} = \frac{\pi}4 \\
+        & \text{Тогда:} \\
+        & \int\limits_0^1 dy \!\!\! \int\limits_{\sqrt{1-y^2}}^1 \!\!\! dx = 1 - \frac{\pi}4 \\
+        & \text{Очевидно, что повторный интеграл, взятый в другом порядке, будет вычисляться точно так же:} \\
+        & \int\limits_0^1 dx \!\!\! \int\limits_{\sqrt{1-x^2}}^1 \!\!\! dy = \int\limits_0^1 dy \cdot y \Bigm|_{\sqrt{1-x^2}}^1
+        = \int\limits_0^1 dx \left( 1 - \sqrt{1-x^2} \right) = \int\limits_0^1 dy - \int\limits_0^1 \sqrt{1-x^2} \, dy 
+        = 1 - \frac{\pi}4 \\
+        & \text{\fbox{Ответ: $1 - \dfrac{\pi}4$.}}
+    \end{align*}
     
-    % \subsection*{Задача 2}
+    \subsection*{Задача 2\\[-40 pt]}
+    \begin{align*}
+        & D = \{ (x, y) \,|\, x, y \in [0; 1], (x - 1)^2 + (y - 1)^2 \ge 1 \} \\[3 pt]
+        & \text{Множество точек, находящихся в квадрате, ограниченном прямыми $x = 0, x = 1, y = 0, y = 1$,} \\
+        & \text{за пределами круга радиуса 1 с центром в точке $(1, 1)$:} \\[3 pt]
+        & \text{Интеграл по $x$ затем по $y$:} \\
+        & \int\limits_0^1 dy \!\!\! \int\limits_0^{\sqrt{1-(y-1)^2}+1} \!\!\! dx 
+        = \int\limits_0^1 dy \cdot x \Bigm|_0^{\sqrt{1-(y-1)^2}+1} = \int\limits_0^1 dy \left( \sqrt{1-(y-1)^2} + 1 \right) 
+        = \int\limits_0^1 \sqrt{1-(y-1)^2} \, dy + 1 \\
+        & \text{Замена: } (y-1) = \sin u \Leftrightarrow \int\limits_0^1 \sqrt{1-(y-1)^2} \, dy 
+        = \int\limits_0^{\frac{\pi}2} \cos u \, \sqrt{1-\sin^2 u} \, du = \int\limits_{-\frac{\pi}2}^0 \cos^2 u \, du 
+        = \int\limits_{-\frac{\pi}2}^0 \frac{\cos 2u + 1}2 \, du = \\
+        & = \frac12 \int\limits_{-\frac{\pi}2}^0 \cos 2u \, du + \frac12 \int\limits_{-\frac{\pi}2}^0 \! du 
+        = \frac14 \, \sin 2u \Bigm|_{-\frac{\pi}2}^0 + \frac12\, u \Bigm|_{-\frac{\pi}2}^0 = -\frac{\pi}4 \\
+        & \text{Тогда:} \\
+        & \int\limits_0^1 dy \!\!\! \int\limits_0^{\sqrt{1-(y-1)^2}+1} \!\!\! dx = 1 - \frac{\pi}4 \\
+        & \text{Очевидно, что повторный интеграл, взятый в другом порядке, будет вычисляться точно так же:} \\
+        & \int\limits_0^1 dx \!\!\! \int\limits_0^{\sqrt{1-(x-1)^2}+1} \!\!\! dy = \int\limits_0^1 \sqrt{1-(x-1)^2} \, dx + 1
+        = 1 - \frac{\pi}4 \\
+        & \text{\fbox{Ответ: $1 - \dfrac{\pi}4$.}}
+    \end{align*}
     
     % \subsection*{Задача 3}
     
