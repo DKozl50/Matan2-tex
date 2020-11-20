@@ -222,7 +222,29 @@
     % \subsection*{Задача 8}
     
     \section*{Изменив порядок интегрирования, вычислите интеграл}
-    % \subsection*{Задача 9}
+    
+    \subsection*{Задача 9}
+    
+    $\int\limits_{0}^{1} dy \int\limits_{0}^{1 - y} e^{-x^2 + 2x + 1} dx.$
+    
+    Чтобы изменить порядок интегрирования, нужно знать, что представляет собой $D$.
+    
+    $y \in [0,1]$, и точки лежат под прямой $y = -x + 1$.
+    
+    \includegraphics[width=4cm, height=5cm]{task 9.png}
+    
+    Изменяем порядок: $\int\limits_{0}^{1} dx \int\limits_{0}^{1 - x} e^{-x^2 + 2x + 1} dy = 
+    \int\limits_{0}^{1} e^{-x^2 + 2x + 1}  \int\limits_{0}^{1 - x} dy \, dx =
+    \int\limits_{0}^{1} e^{-(x - 1)^2 + 2} \; \, (1 - x) \, dx.$  
+    
+    Замена $\begin{cases}
+    t = (x - 1)^2 = x^2 - 2x + 1;\\
+    dt = (2x - 2)dx;\\
+    dx = dt/(2x - 2);\\
+    \text{границы становятся } (1, 0).
+    \end{cases}$
+    
+    $\int\limits_{1}^{0} e^{-t + 2} \left( \frac{1 - x}{2x - 2}\right) dt = \int\limits_{1}^{0} e^{-t + 2} \left( - \frac{1}{2}\right) dt = -\frac{e^2}{2} \int\limits_{1}^{0} e^{-t} dt = -\frac{e^2}{2} \, \, \left(-e^{-t} \Bigg|_{t = 1}^{0} \right)=  \frac{-e^2(-e^0 + e^{-1})}{2} = \frac{e^2 - e}{2}.$
     
     \subsection*{Задача 10}
     
