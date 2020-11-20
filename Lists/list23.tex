@@ -6,18 +6,19 @@
 
 \title{Семинарский лист 2.3}
 \author{
-    Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
-    Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
+    % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+    % Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
     Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
-    Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
-    Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
+    % Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
+    % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
     Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
     Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
-    Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
-    Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
-    Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
-    Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
-    Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
+    Ира Голобородько     \\ \href{https://t.me/Ira4kgl}{Telegram}
+    % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
+    % Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
+    % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
+    % Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
+    % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
@@ -109,6 +110,45 @@
     % \subsection*{Задача 9}
     
     \subsection*{Задача 10}
+    \begin{flalign*}
+        & \int_0^2 x^2 dx \int_x^2 \ln(1 + y^2) dy = \text{ пристально смотрим на рисунок } = 
+        \int_0^2 \int_0^y x^2 \ln(1 + y^2) dx dy = \\
+        & = \int_0^2 \ln(1 + y^2) dy \int_0^y x^2 dx =
+        \int_0^2 \ln(1 + y^2) dy \left( \left. \frac{x^3}{3} \right|_0^y \right) = 
+        \frac{1}{3} \int_0^2 \ln(1 + y^2) y^3 dy = \\
+        & = \left\{ \begin{array} {ll}
+            u = \ln(1 + y^2) & \Rightarrow u' = \frac{2y}{1 + y^2} \\
+            v' = y^3 & \Rightarrow v = \frac{y^4}{4} 
+        \end{array}  \right\} = 
+        \frac{1}{3} \left. \ln(1 + y^2) \frac{y^4}{4} \right|^2_0 -
+        \frac{1}{3} \int_0^2 \frac{y^4}{4} \frac{2y}{1 + y^2} dy = 
+        \left\{ \begin{array} {l}
+            t = 1 + y^2 \\
+            dt = 2y dy \\
+            dy = \frac{dt}{2y} 
+        \end{array}  \right\} = \\
+        & = \frac{1}{3} \left( 4 \ln(5) - 0 \right) - \frac{1}{6} \int_1^5 \frac{y^5}{t} \frac{dt}{2y} = 
+        \frac{4}{3} \ln(5) - \frac{1}{12} \int_1^5 \frac{(y^4 + 2y^2 + 1) - (2y^2 - 2) + 1}{t} dt = \\
+        & = \frac{4}{3} \ln(5) - \frac{1}{12} \int_1^5 \frac{t^2 - 2t + 1}{t} dt = 
+        \frac{4}{3} \ln(5) - \frac{1}{12} \left( \int_1^5 t dt - 2 \int_1^5 dt + \int_1^5 \frac{dt}{t}  \right) = \\
+        & = \frac{4}{3} \ln (5) - \frac{1}{12} \left( \left( \frac{25}{2} - \frac{1}{2} \right) -
+        2 (5 - 1) + \ln(|t|)\big|^5_1 \right) = \frac{4}{3} \ln(5) - \frac{1}{12} \left( 12 - 8 + \ln(5) \right) = \\
+        & = \frac{4}{3} \ln(5) - \frac{1}{3} - \frac{\ln(5)}{12} = \pmb{\frac{5\ln(5)}{4} - \frac{1}{3}}
+        % \frac{1}{3} \int_0^2 \frac{y^4}{4} y^3 dy = \\
+        % & = \frac{1}{3} \left( 4 \ln(5) - 0 \right) - \frac{1}{12} \left. \frac{y^8}{8} \right|^2_0 =
+        % \frac{4}{3} \ln(5) - \frac{8}{3} 
+    \end{flalign*}
+    \begin{tikzpicture} 
+        \begin{axis}[axis lines=center, xlabel={$x$}, ylabel={$y$},
+                        xlabel near ticks, ylabel near ticks, hide obscured x ticks=false,
+                        xmin=0, xmax=2.1, ymin=0, ymax=2.1,
+                        width=4cm, height=4cm]
+            \draw[color=red] (axis cs:0, 0) -- (axis cs:0, 2);
+            \addplot [name path=A, domain=0:2, color=red] {2}; 
+            \addplot [name path=B, domain=0:2, color=red, samples=50] {x}; 
+            \addplot [pattern=dots, draw=gray] fill between[of=A and B];
+        \end{axis} 
+    \end{tikzpicture} 
     
     % \subsection*{Задача 11}
     
