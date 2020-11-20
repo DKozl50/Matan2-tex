@@ -248,7 +248,26 @@
     
     \subsection*{Задача 10}
     
-    % \subsection*{Задача 11}
+    \subsection*{Задача 11}
+    
+    $\int\limits_{0}^{\pi} x dx \int\limits_{x}^{\pi} \frac{\sin y}{y} dy.$ Как всегда, ищем $D$ с помощью границ интегрирования.
+    
+    
+    \includegraphics[width=6cm, height=6cm]{task_11.png}
+    
+    Тогда, изменив порядок, получим: $\int\limits_{0}^{\pi} dy \int\limits_{0}^{y} x \frac{\sin y}{y} dx = \int\limits_{0}^{\pi} \frac{\sin y}{y} dy \int\limits_{0}^{y} x  dx = \int\limits_{0}^{\pi} \frac{\sin y}{y}  \, \frac{y^2}{2} \, dy = \frac{1}{2} \int\limits_{0}^{\pi} (y \sin y) \, dy.$
+    
+    Интегрируем по частям.
+    
+        
+    $\begin{cases}
+    f = y \implies df = dy;\\
+    g = -\cos y \implies dg = \sin y\, dy
+    \end{cases}$
+    
+    $\frac{1}{2} \left(f \cdot g \Bigg|_{0}^{\pi} \right) - \frac{1}{2} \int\limits_{0}^{\pi} g \cdot df  =
+    \frac{1}{2} \left(-y \cos y \Bigg|_{0}^{\pi} \right) - \frac{1}{2} \int\limits_{0}^{\pi} - \cos y dy = 
+    \frac{1}{2} \left(-y \cos y \Bigg|_{0}^{\pi} \right) + \frac{1}{2}  \left(\sin y \Bigg|_{0}^{\pi} \right) = \frac{\pi}{2}.$
     
     % \subsection*{Задача 12}
     
