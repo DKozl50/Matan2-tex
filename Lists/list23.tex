@@ -32,6 +32,9 @@
         & D = \{ (x, y) \,|\, x, y \in [0; 1], x^2 + y^2 \ge 1 \} \\[3 pt]
         & \text{Множество точек, находящихся в квадрате, ограниченном прямыми $x = 0, x = 1, y = 0, y = 1$,} \\
         & \text{за пределами круга радиуса 1 с центром в точке $(0, 0)$:} \\[3 pt]
+    \end{align*}
+        \includegraphics[width=8cm, height=7cm]{task 1.png}\\
+    \begin{align*}
         & \text{Интеграл по $x$ затем по $y$:} \\
         & \int\limits_0^1 dy \!\!\! \int\limits_{\sqrt{1-y^2}}^1 \!\!\! dx = \int\limits_0^1 dy \cdot x \Bigm|_{\sqrt{1-y^2}}^1
         = \int\limits_0^1 dy \left( 1 - \sqrt{1-y^2} \right) = \int\limits_0^1 dy - \int\limits_0^1 \sqrt{1-y^2} \, dy 
@@ -50,11 +53,14 @@
         & \text{\fbox{Ответ: $1 - \dfrac{\pi}4$.}}
     \end{align*}
     
-    \subsection*{Задача 2\\[-40 pt]}
+    \subsection*{Задача 2}
     \begin{align*}
         & D = \{ (x, y) \,|\, x, y \in [0; 1], (x - 1)^2 + (y - 1)^2 \ge 1 \} \\[3 pt]
         & \text{Множество точек, находящихся в квадрате, ограниченном прямыми $x = 0, x = 1, y = 0, y = 1$,} \\
-        & \text{за пределами круга радиуса 1 с центром в точке $(1, 1)$:} \\[3 pt]
+        & \text{за пределами круга радиуса 1 с центром в точке $(1, 1)$:} 
+        \end{align*}
+        \includegraphics[width=8cm, height=7cm]{task 2.png}\\
+        \begin{align*}
         & \text{Интеграл по $x$ затем по $y$:} \\
         & \int\limits_0^1 dy \!\!\! \int\limits_0^{\sqrt{1-(y-1)^2}+1} \!\!\! dx 
         = \int\limits_0^1 dy \cdot x \Bigm|_0^{\sqrt{1-(y-1)^2}+1} = \int\limits_0^1 dy \left( \sqrt{1-(y-1)^2} + 1 \right) 
@@ -72,9 +78,61 @@
         & \text{\fbox{Ответ: $1 - \dfrac{\pi}4$.}}
     \end{align*}
     
-    % \subsection*{Задача 3}
+    \subsection*{Задача 3}
     
-    % \subsection*{Задача 4}
+    $D = \{ (x,y ) \mid x^2 + 2 y^2 \leq 16, \; x^2 - y^2 \leq 1\}.$
+    
+    
+    $\bullet$ $ x^2 + 2 y^2 = 16$ -- эллипс, нужны точки внутри него;
+    
+    $\bullet$ $x^2 - y^2 = 1$ -- гипербола, нужна область, ограниченная двумя частями ее графика. 
+    
+    
+    Найдем координаты точки пересечения кривых: $\begin{cases} x ^ 2 + 2 y^2 = 16;
+    x^2  - y^2 = 1;\end{cases} \implies \begin{cases} y = \pm \sqrt{5}; \\ x = \pm \sqrt{6} .\end{cases}$
+    
+    Эллипс пересекает ось ординат в точках $(0, \sqrt{8})$ и $(0, -\sqrt{8}).$ 
+    
+    \includegraphics[width=11cm, height=10cm]{task 3.png}
+    
+    
+    Интегрируя по $x$, видим два симметричных относительно 0 куска $\implies$ можем рассмотреть любой из них и продублировать интеграл.
+    
+    Интегрируем правую часть -- интеграл разбивается на участки до перекрытия гиперболой (до координаты 1) и после. Во втором интеграле используем симметричность относительно $Ox.$
+    
+    
+    
+    Итого: $I(D, f) = 2 \cdot \left( \displaystyle \int\limits_0^{1} dx \int\limits_{-\sqrt{(16 - x^2)/2}}^{\sqrt{(16 - x^2)/2} } f(y) dy + 2 \cdot \displaystyle \int\limits_1^{\sqrt{6}} dx \int\limits_{\sqrt{x^2 - 1}}^{\sqrt{(16 - x^2)/2} } f(y) dy \right).$
+    
+    Теперь по $y$. Тоже используем симметричность и считаем лишь верхнюю часть.
+    
+     $I(D,f ) = 2 \cdot \left( \displaystyle \int\limits_0^{\sqrt{5}} dy \int\limits_{-\sqrt{1 + y^2}}^{\sqrt{1 + y^2} } f(x) dx + \displaystyle \int\limits_{\sqrt{5}}^{\sqrt{8}} dy \int\limits_{-\sqrt{16 - 2y^2}}^{\sqrt{16 - 2y^2} } f(x) dx \right).$
+    
+     \subsection*{Задача 4}
+        
+    $D = \{ (x,y ) \mid x, y \geq 0, \; 0< xy \leq 1, \; y \leq 2x, \; x \leq 2y\}.$
+    
+    $\bullet$ $xy = 1$ -- гипербола, рассматривается участок под ней;
+    
+    $\bullet$ $y = 2x$ -- прямая, рассматривается полуплоскость под ней;
+    
+    $\bullet$ $x = 2y$ -- прямая, рассматривается полуплоскость над ней.
+    
+    Найдем точки пересечения кривых: $\begin{cases} xy = 1;\\
+    y = 2x; \end{cases} \implies\begin{cases} y = \sqrt{2}; \\  x = \sqrt{2}/2 ;\end{cases}\; \; \begin{cases}xy = 1;\\
+    x = 2y;\end{cases}\implies\begin{cases}y = \sqrt{2}/2; \\  x = \sqrt{2} .\end{cases}$
+    
+    Значит, требуется привести интеграл по следующему множеству:
+    
+    \includegraphics[width=8cm, height=9cm]{task 4.png}
+    
+    Разбивая область интегрирования по $x$ до перекрытия с гиперболой и после, получаем:
+    
+    $I(D, f) = \displaystyle \int\limits_{0}^{\sqrt{2}/2}dx \int\limits_{x/2}^{2x} f(y)dy + \displaystyle \int\limits_{\sqrt{2}/2}^{\sqrt{2}}dx \int\limits_{x/2}^{1/x} f(y)dy$;
+    
+    Разбивая область интегрирования по $y$ до перекрытия с гиперболой и после, получаем (симметрично):
+    
+    $I(D, f) = \displaystyle \int\limits_{0}^{\sqrt{2}/2}dy \int\limits_{x/2}^{2x} f(x)dx + \displaystyle \int\limits_{\sqrt{2}/2}^{\sqrt{2}}dy \int\limits_{x/2}^{1/x} f(x)dx$.
     
     \section*{Предполагая функцию $f$ непрерывной на $D$, измените порядок интегрирования в повторном интеграле}
     % \subsection*{Задача 5}
