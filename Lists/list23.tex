@@ -1,7 +1,10 @@
 \documentclass[a4paper, fleqn]{article}
 \usepackage{header}
 
-\title{Семинарский лист 1337}
+\usetikzlibrary{patterns}
+\usepgfplotslibrary{fillbetween}
+
+\title{Семинарский лист 2.3}
 \author{
     Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
     Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
@@ -76,8 +79,28 @@
     \section*{Предполагая функцию $f$ непрерывной на $D$, измените порядок интегрирования в повторном интеграле}
     % \subsection*{Задача 5}
 
-    % \subsection*{Задача 6}
-    
+    \subsection*{Задача 6}
+    \begin{flalign*}
+        & \int_0^1 dy \int_{\frac{y^2}{9}}^{y} f(x, y) dx + 
+        \int_1^3 dy \int_{\frac{y^2}{9}}^1 f(x, y) dx = \text{ пристально смотрим на рисунок } = \\
+        & = \int_0^1 \int_{x}^{3\sqrt{x}} f(x, y) dx dy = 
+        \int_0^1 dx \int_{x}^{3\sqrt{x}} f(x, y) dy 
+    \end{flalign*}
+    \begin{tikzpicture} 
+        \begin{axis}[axis lines=center, xlabel={$x$}, ylabel={$y$}, % служебные строки
+                        xlabel near ticks, ylabel near ticks, hide obscured x ticks=false, % служебные строки
+                        xmin=0, xmax=1.1, ymin=0, ymax=3.2, % диапазон значений
+                        width=3cm, height=6cm] % размер картинки
+            % чтобы рисовать линии по координатам (x, y) используйте (axis cs:x, y), как здесь:
+            \draw[color=red] (axis cs:1, 1) -- (axis cs:1, 3); % вертикальная линия справа
+            \draw[dashed, line width=2pt, color=black] (axis cs:0, 1) -- (axis cs:1.1, 1); % деление двух интегралов
+            % чтобы заполнить площадь между графиками стоит дать графикам имена (здесь A и B):
+            \addplot [name path=A, domain=0:1, color=red] {x}; 
+            \addplot [name path=B, domain=0:1, color=red, samples=50] {sqrt(x)*3}; % тикз умеет в математику
+            \addplot [pattern=dots, draw=gray] fill between[of=A and B]; % само заполнение через fill between
+        \end{axis} 
+    \end{tikzpicture} 
+
     % \subsection*{Задача 7}
     
     % \subsection*{Задача 8}
@@ -85,7 +108,7 @@
     \section*{Изменив порядок интегрирования, вычислите интеграл}
     % \subsection*{Задача 9}
     
-    % \subsection*{Задача 10}
+    \subsection*{Задача 10}
     
     % \subsection*{Задача 11}
     
@@ -94,7 +117,7 @@
     \section*{Вычислите интеграл}
     % \subsection*{Задача 13}
     
-    % \subsection*{Задача 14}
+    \subsection*{Задача 14}
     
     % \subsection*{Задача 15}
     
@@ -104,7 +127,7 @@
     всеми возможными способами}
     % \subsection*{Задача 17}
     
-    % \subsection*{Задача 18}
+    \subsection*{Задача 18}
     
     % \subsection*{Задача 19}
     
