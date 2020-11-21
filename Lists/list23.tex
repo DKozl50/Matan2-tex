@@ -341,7 +341,45 @@
 
     % \subsection*{Задача 15}
     
-    % \subsection*{Задача 16}
+    \subsection*{Задача 16}
+    
+    $\iint\limits_D xy \, dxdy$, $D$ ограничена осями координат и кривой $\begin{cases} 
+    x = \cos^3 t;\\
+    y = \sin^3 t
+    \end{cases} t \in [0, \pi / 2].$
+    
+    Заметим, что при данных ограничениях $t$ однозначно выразим через $x \Rightarrow y$  тоже однозначно выразим через $x$.
+    
+    Тоесть $y = \varphi(x)$.
+    
+    На $[0, \pi/2]$ $x$ принимает значения от $0$ до $1$. Если $D$ ограничено осями координат и графиком $\varphi(x)$, то $y \in [0, \varphi(x)]$ при фиксированном $x$  (ибо $y$ неотрицателен при $t \in [0, \pi/2]$).
+     
+     Так что пределы интегрирования знаем:
+     
+     $\int\limits_{0}^{1} dx \int\limits_{0}^{\varphi(x)} xy \; dy = \int\limits_{0}^{1} dx \left( \frac{xy^2}{2}  \Bigg|_{0}^{\varphi(x)}
+     \right)  = \int\limits_{0}^{1}  \left( \frac{x \cdot \varphi^2(x)}{2}\right) dx.$
+     
+     Пришло время подставить параметр: $\begin{cases} x = \cos^3 t;\\
+     \varphi(x) = \sin^3 t;\\
+     dx = 3 \cos^2 t \cdot (-\sin t) \, dt;\\
+     \text{пределы интегрирования теперь } [\pi/2, 0]
+     \end{cases}$
+     
+     $\int\limits_{\pi/2}^{0} -\frac{3}{2} \cos^3 t \cdot \sin^6 t \cdot \cos^2 t \cdot \sin t \, dt = \frac{3}{2} \int\limits_{0}^{\pi/ 2} \cos^5 t\cdot \sin^7 t \, dt.$
+     
+     Идея: отщепим один множитель (синус или косинус), загоним его под дифференциал. И введем новую переменную:
+     
+     $\begin{cases}
+     \cos t \,dt = d \sin t;\\
+     u := \sin t;\\
+     \cos ^ 4 t = (1 - u^2)^2;\\
+     \text{пределы интегрирования теперь } [0, 1]
+     \end{cases}$
+    
+    $\frac{3}{2} \int\limits_{0}^{1} (1 - u^2)^2 \cdot u^7 \, du = \frac{3}{2} \int\limits_{0}^{1} u^7 - 2 u^9 + u^{11} \, du = \frac{3}{2} \left( \frac{u^8}{8} - \frac{u^{10}}{5} + \frac{u^{12}}{12} \Bigg|_{u = 0}^{1}\right) = \frac{3}{2} \left(\frac{1}{8} - \frac{1}{5} + \frac{1}{12}\right) = \frac{3}{2} \cdot \frac{15 - 24 + 10}{120} = \frac{1}{80}.$
+    
+    \textit{P.s. тут картинка не нужна!}
+    
     
     \section*{Предполагая функцию $f$ непрерывной на $D$, измените порядок интегрирования в повторном интеграле
     всеми возможными способами}
