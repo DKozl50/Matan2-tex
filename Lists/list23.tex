@@ -104,11 +104,11 @@
     
     
     
-    Итого: $I(D, f) = 2 \cdot \left( \displaystyle \int\limits_0^{1} dx \int\limits_{-\sqrt{(16 - x^2)/2}}^{\sqrt{(16 - x^2)/2} } f(y) dy + 2 \cdot \displaystyle \int\limits_1^{\sqrt{6}} dx \int\limits_{\sqrt{x^2 - 1}}^{\sqrt{(16 - x^2)/2} } f(y) dy \right).$
+    Итого: $I(D, f) = 2 \cdot \left( \displaystyle \int\limits_0^{1} dx \int\limits_{-\sqrt{(16 - x^2)/2}}^{\sqrt{(16 - x^2)/2} } f(x,y) dy + 2 \cdot \displaystyle \int\limits_1^{\sqrt{6}} dx \int\limits_{\sqrt{x^2 - 1}}^{\sqrt{(16 - x^2)/2} } f(x, y) dy \right).$
     
     Теперь по $y$. Тоже используем симметричность и считаем лишь верхнюю часть.
     
-     $I(D,f ) = 2 \cdot \left( \displaystyle \int\limits_0^{\sqrt{5}} dy \int\limits_{-\sqrt{1 + y^2}}^{\sqrt{1 + y^2} } f(x) dx + \displaystyle \int\limits_{\sqrt{5}}^{\sqrt{8}} dy \int\limits_{-\sqrt{16 - 2y^2}}^{\sqrt{16 - 2y^2} } f(x) dx \right).$
+     $I(D,f ) = 2 \cdot \left( \displaystyle \int\limits_0^{\sqrt{5}} dy \int\limits_{-\sqrt{1 + y^2}}^{\sqrt{1 + y^2} } f(x, y) dx + \displaystyle \int\limits_{\sqrt{5}}^{\sqrt{8}} dy \int\limits_{-\sqrt{16 - 2y^2}}^{\sqrt{16 - 2y^2} } f(x, y) dx \right).$
     
      \subsection*{Задача 4}
         
@@ -130,11 +130,11 @@
     
     Разбивая область интегрирования по $x$ до перекрытия с гиперболой и после, получаем:
     
-    $I(D, f) = \displaystyle \int\limits_{0}^{\sqrt{2}/2}dx \int\limits_{x/2}^{2x} f(y)dy + \displaystyle \int\limits_{\sqrt{2}/2}^{\sqrt{2}}dx \int\limits_{x/2}^{1/x} f(y)dy$;
+    $I(D, f) = \displaystyle \int\limits_{0}^{\sqrt{2}/2}dx \int\limits_{x/2}^{2x} f(x, y)dy + \displaystyle \int\limits_{\sqrt{2}/2}^{\sqrt{2}}dx \int\limits_{x/2}^{1/x} f(x, y)dy$;
     
     Разбивая область интегрирования по $y$ до перекрытия с гиперболой и после, получаем (симметрично):
     
-    $I(D, f) = \displaystyle \int\limits_{0}^{\sqrt{2}/2}dy \int\limits_{x/2}^{2x} f(x)dx + \displaystyle \int\limits_{\sqrt{2}/2}^{\sqrt{2}}dy \int\limits_{x/2}^{1/x} f(x)dx$.
+    $I(D, f) = \displaystyle \int\limits_{0}^{\sqrt{2}/2}dy \int\limits_{x/2}^{2x} f(x, y)dx + \displaystyle \int\limits_{\sqrt{2}/2}^{\sqrt{2}}dy \int\limits_{x/2}^{1/x} f(x, y)dx$.
     
     \section*{Предполагая функцию $f$ непрерывной на $D$, измените порядок интегрирования в повторном интеграле}
     \subsection*{Задача 5}
