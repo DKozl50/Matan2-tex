@@ -272,7 +272,22 @@
     % \subsection*{Задача 12}
     
     \section*{Вычислите интеграл}
-    % \subsection*{Задача 13}
+    
+    \subsection*{Задача 13}
+    
+    $\displaystyle\iint\limits_D x^3 y^5 dx dy, \; D = \{(x,y) \; : \; |x| + |y| \leq 1\}.$
+    
+    Наше множество $D$ -- это следующий квадрат:
+    
+    \includegraphics[width=6cm, height=6cm]{task 13.png}
+    
+    Зная $D$, можем увидеть границы интегрирования:
+    
+    
+    $\displaystyle\int\limits_{-1}^{0} dx  \int\limits_{-1 -x}^{1 + x}x^3y^5 dy + \int\limits_{0}^{1} dx \int\limits_{-1 + x}^{1 - x} x^3y^5 dy = \int\limits_{-1}^{0} x^3 dx \int\limits_{-1 -x}^{1 + x} y^5 dy + \int\limits_{0}^{1} x^3 dx \int\limits_{-1 + x}^{1 - x} y^5 dy = \int\limits_{-1}^{0} x^3 \left( \frac{y^6}{6} \Bigg|_{y = -1 - x}^{1 + x} \right)dx +  \\
+    \int\limits_{0}^{1} x^3 \left( \frac{y^6}{6} \Bigg|_{y = -1 + x}^{1 - x} \right)dx =
+    \int\limits_{-1}^{0} x^3  \left( \frac{(1 + x)^6}{6} - \frac{(-1 - x)^6}{6}\right)dx + \int\limits_{0}^{1} x^3 \left(\frac{(1 - x)^6}{6} - \frac{(- 1 + x)^6}{6} \right) dx =0.
+    $
     
     \subsection*{Задача 14}
     
