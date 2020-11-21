@@ -468,6 +468,29 @@
     
     % \subsection*{Задача 21}
     
-    % \subsection*{Задача 22}
-    
+    \subsection*{Задача 22}
+    \begin{flalign*}
+        & \int\limits_0^1 dx \int\limits_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}} dy 
+        \int\limits_{-\sqrt{1 - x^2 - y^2}}^{\sqrt{1 - x^2 - y^2}} f(x, y, z) dz \\
+        & x \in [0, 1]; \;\; -\sqrt{1 - x^2} \leq y \leq \sqrt{1 - x^2} \;\; \implies \;\; y^2 \leq 1 - x^2 \;\;
+        \implies \;\; x^2 + y^2 \leq 1 \\
+        & -\sqrt{1 - x^2 - y^2} \leq z \leq \sqrt{1 - x^2 - y^2} \;\; \implies \;\; 
+        z^2 \leq 1 - x^2 - y^2 \;\; \implies \;\; x^2 + y^2 + z^2 \leq 1 \\
+        & \text{Получается это единичная полусфера с центром в нуле, что все иксы неотрицательные.} \\
+        & \mathbf{(x, z, y) \colon} 
+        \int\limits_0^1 dx \int\limits_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}} dz 
+        \int\limits_{-\sqrt{1 - x^2 - z^2}}^{\sqrt{1 - x^2 - z^2}} f(x, y, z) dy \\
+        & \mathbf{(y, x, z) \colon} 
+        \int\limits_{-1}^1 dy \int\limits_0^{\sqrt{1 - y^2}} dx 
+        \int\limits_{-\sqrt{1 - x^2 - y^2}}^{\sqrt{1 - x^2 - y^2}} f(x, y, z) dz \\
+        & \mathbf{(y, z, x) \colon} 
+        \int\limits_{-1}^1 dy \int\limits_{-\sqrt{1 -y^2}}^{\sqrt{1 - y^2}} dz 
+        \int\limits_{0}^{\sqrt{1 - y^2 - z^2}} f(x, y, z) dx \\
+        & \mathbf{(z, x, y) \colon}
+        \int\limits_{-1}^1 dz \int\limits_{0}^{\sqrt{1-z^2}} dx 
+        \int\limits_{-\sqrt{1 - x^2 - z^2}}^{\sqrt{1 - x^2 - z^2}} f(x, y, z) dy \\
+        & \mathbf{(z, y, x) \colon} 
+        \int\limits_{-1}^1 dz \int\limits_{-\sqrt{1-z^2}}^{\sqrt{1-z^2}} dy \int\limits_0^{\sqrt{1-y^2-z^2}} f(x, y, z) dx
+    \end{flalign*}
+    Рисовать сферу мне лень, но тут, впрочем, рисунок ни на что и не влиял
 \end{document}
