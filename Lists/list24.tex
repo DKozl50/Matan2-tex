@@ -53,7 +53,12 @@
     $0 \leq z \leq 4xy, \; x + 4y + z \leq 1. $
     
     
-    % \subsection*{Задача 4}
+    \subsection*{Задача 4}
+    
+    $y^2 \le z \le 4, \; x^2 + y^2 \le 16$\\
+    
+    Все точки рассматриваемой области находятся внутри круга радиуса 4 с центром в начале координат (его задает неравенство $x^2 + y^2 \le 16$). Значения $z$, как видно из 1-го неравенства, лежат в промежутке $[4; y^2]$. Искомый повторный интеграл может иметь вид:
+    \[ \int\limits_{-4}^{4} dx \int\limits_{-\sqrt{16-x^2}}^{\sqrt{16-x^2}} dy \int\limits_{4}^{y^2} f(x, y, z)\, dz  \]
     
     \subsection*{Задача 5}
     
@@ -78,7 +83,23 @@
     
     Итого $\displaystyle \int \limits_{-1}^{1} dz \left( \; \int \limits_{-\sqrt{z^2 + 2}}^{\sqrt{z^2 + 2}} dx \int \limits_{-\sqrt{z^2 + 2 - x^2}}^{\sqrt{z^2 + 2 - x^2}} f dy - \int \limits_{-\sqrt{3z^2}}^{\sqrt{3z^2}} dx \int \limits_{-\sqrt{3z^2- x^2}}^{\sqrt{3z^2 - x^2}} f dy  \right).$
     
-    % \subsection*{Задача 6}
+    \subsection*{Задача 6}
+    
+    $y^2 + x + z \le 1, \; x \ge z \ge 0$
+    
+    Проинтегрируем в порядке \\[3 pt]
+    $\int\limits_{\dots}^{\dots} dy \int\limits_{\dots}^{\dots} dx \int\limits_{\dots}^{\dots} f(x, y, z)\, dz$ \\
+    
+    При фиксированном $y$ неравенства $y^2 + x + z \le 1$ и $x \ge z \ge 0$ можно переписать в виде системы
+    \[ \left\{\begin{array}{rcl} z &\le& (1-y^2) - x, \\ z &\le& x, \\ z &\ge& 0 \end{array}\right., \]
+    задающей треугольник, ограниченный прямыми $z = (1-y^2)-x$, $z = x$ и $z = 0$, при условии того, что точка пересечения прямых $z = (1-y^2)-x$ и $z = x$ находится не ниже оси $Ox$:
+    \[ (1-y^2)-x = x \Leftrightarrow x = \frac{1-y^2}2 \Rightarrow z = x = \frac{1-y^2}2 \ge 0 \Rightarrow 1-y^2 \ge 0 \Leftrightarrow y \in [-1; 1] \]
+    
+    Значения $x$ нас интересуют только те, при которых $z \ge 0 \Leftrightarrow \left\{\begin{array}{rcl} (1-y^2)-x &\ge& 0, \\ x &\ge& 0 \end{array}\right. \Leftrightarrow \left\{\begin{array}{rcl} x &\le& (1-y^2), \\ x &\ge& 0 \end{array}\right.$, \\[3 pt]
+    т.е. $x \in [0; 1-y^2]$. \\
+    
+    Получили границы для повторного интеграла:
+    \[ \int\limits_{-1}^{1} dy \int\limits_{0}^{1-y^2} dx \int\limits_{0}^{x} f(x, y, z)\, dz \]
     
     \section*{Вычислите интеграл.}
     \subsection*{Задача 7} 
