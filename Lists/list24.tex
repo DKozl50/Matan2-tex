@@ -277,7 +277,38 @@
 
      Не забываем домножить всё это дело на $\frac{1}{2}$, и получаем ответ, $\boxed{\frac{\pi}{8} - \frac{1}{4}} \, .$
 
-    % \subsection*{Задача 14}
+    \subsection*{Задача 14}
+    
+    $\displaystyle \int\limits_{0}^{1} dx \int\limits_{0}^{\sqrt{1 - x^2}} dy \int\limits_{\sqrt{x^2 + y^2}}^{1} \frac{\sin \pi z}{z} dz.$
+    
+    Таким же образом, как в предыдущем номере, вытолкнем границу по $z$ наружу.
+    
+    $y \leftrightarrow z.$ При фиксированном $x$ имеем $z^2 \geq x^2 + y^2,$ это гипербола:
+    
+    \includegraphics[width=8cm, height=6cm]{list24imgs/task 2.4.14-1.png}
+    
+    Найдём координаты точки $M.$ При ней $z = 1\implies y =  \sqrt{z^2 - x^2} = \sqrt{1 - x^2}.$ Всё сходится.
+    
+    Значит, при нашей замене получим $\displaystyle \int\limits_{0}^{1} dx \int\limits_{x}^{1} dz \int\limits_{0}^{\sqrt{z^2 - x^2}} \frac{\sin \pi z}{z} dy.$
+    
+    Теперь делаем замену $z \leftrightarrow x.$
+    
+    \includegraphics[width=7.5cm, height=6cm]{list24imgs/task 2.4.13-2.png}
+    
+    Здесь всё изменилось, прямо как в предыдущем пункте.
+    
+    $\displaystyle \int\limits_{0}^{1} dz \int\limits_{0}^{z} dx \int\limits_{0}^{\sqrt{z^2 - x^2}} \frac{\sin \pi z}{z} dy = \int\limits_{0}^{1} \frac{\sin \pi z}{z}  dz \int\limits_{0}^{z} dx \int\limits_{0}^{\sqrt{z^2 - x^2}} dy = \int\limits_{0}^{1} \frac{\sin \pi z}{z}  dz \int\limits_{0}^{z} \sqrt{z^2 - x^2}  dx. $
+    
+    Производим замену (внутренний интеграл) $\begin{cases} x = z \sin t;\\
+    dx = z \cos t\, dt;\\
+    x \in (0, z) \implies \sin t \in (0,1) \implies t \in (0,\pi/2).
+    \end{cases}$
+    
+    Получаем $\int\limits_{0}^{1} \frac{\sin \pi z}{z}  dz \int\limits_{0}^{\pi / 2} z \cos t \cdot  \sqrt{z^2 - z^2 \sin^2 t} \,  dt = \int\limits_{0}^{1} \frac{\sin \pi z}{z}  dz \int\limits_{0}^{\pi / 2} z^2 \cos t \cdot  \sqrt{1 - \sin^2 t} \,  dt = \\
+    \int\limits_{0}^{1} z \sin (\pi z) \,  dz \int\limits_{0}^{\pi / 2} \cos t \cdot  \sqrt{1 - \sin^2 t} \,  dt =   \int\limits_{0}^{1} z \sin (\pi z) \,  dz \int\limits_{0}^{\pi / 2} \cos^2 t \,  dt =   \int\limits_{0}^{1} z \sin (\pi z) \,  dz \int\limits_{0}^{\pi / 2} \frac{1}{2} + \frac{1}{2} \cos (2t) \,  dt = \\ \frac{1}{2} \int\limits_{0}^{1} z \sin (\pi z) \,  dz \int\limits_{0}^{\pi / 2} 1 +  \cos (2t) \,  dt = \frac{1}{2} \int\limits_{0}^{1} z \sin (\pi z) \,  dz \left( \frac{\pi}{2} + \left( \frac{\sin 2t}{2} \Bigg|_{0}^{\pi / 2} \right)  \right) = \frac{1}{2} \int\limits_{0}^{1} z \sin (\pi z) \,  dz \left( \frac{\pi}{2} + 0 \right) = \frac{\pi}{4}  \int\limits_{0}^{1} z \sin (\pi z) \,  dz  .  $
+    
+    Считаем $ \int\limits_{0}^{1} z \sin (\pi z) \,  dz.$
+    
     
     % \subsection*{Задача 15}
     
