@@ -1,6 +1,8 @@
 \documentclass[a4paper, fleqn]{article}
 \usepackage{header}
 
+\pgfplotsset{compat=1.17}
+
 \title{Семинарский лист 2.4}
 \author{
     % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
@@ -115,8 +117,35 @@
     
     \subsection*{Задача 11}
     
-    % \subsection*{Задача 12}
+    \subsection*{Задача 12}
+    \begin{flalign*}
+        & \int_0^1 dx \int_x^1 dy \int_y^1 e^{z^3} dz = 
+        \int_0^1 e^{z^3} dz \int_0^z dy \int_0^y dx = 
+        \int_0^1 e^{z^3} dz \int_0^z y dy = 
+        \int_0^1 \frac{z^2}{2} e^{z^3} dz = \left\{ \begin{array} {rl}
+            u = & z^3 \\
+            du = & 3z^2 dz \\
+            dz = & \frac{du}{3z^2} 
+        \end{array} \right\} = \\
+        & = \int_0^1 \frac{1}{6} e^u du = \frac{e - 1}{6} 
+    \end{flalign*}
     
+    \begin{tikzpicture} 
+        \begin{axis} [width=6cm, xlabel={$x$}, ylabel={$y$}, zlabel={$z$}, axis lines=center, axis equal image,
+                        view={95}{20}, clip=false,
+                        xmin=0, xmax=1.1, ymin=0, ymax=1.1, zmin=0, zmax=1.1]
+            \coordinate (O) at (axis cs:0, 0, 0);
+            \coordinate[label=above:{$(1, 1, 1)$}] (A) at (axis cs:1, 1, 1);
+            \coordinate (B) at (axis cs:0, 0, 1);
+            \coordinate[label=above:{$(0, 1, 1)$}] (C) at (axis cs:0, 1, 1); 
+            
+            \draw[fill=red, opacity=0.1] (O) -- (A) -- (C); 
+            \draw[fill=red, opacity=0.4] (O) -- (A) -- (B); 
+            \draw[fill=red, opacity=0.2] (O) -- (C) -- (B); 
+            \draw[fill=red, opacity=0.3] (C) -- (A) -- (B); 
+        \end{axis} 
+    \end{tikzpicture} 
+
     % \subsection*{Задача 13}
     
     % \subsection*{Задача 14}
