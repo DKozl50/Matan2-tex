@@ -104,7 +104,19 @@
     \section*{Вычислите интеграл.}
     \subsection*{Задача 7} 
     
-    % \subsection*{Задача 8}
+    \subsection*{Задача 8}
+    \begin{flalign*}
+        & \int\limits_{1}^{2} dy \int\limits_{y}^{2} dx \int\limits_{0}^{1/(xy)} \frac{dz}{x(1 + x^2 y^2 z^2)}
+        = \left[\, u = xyz, \, \frac{du}{dz} = xy \Leftrightarrow dz = \frac{du}{xy} \,\right] 
+        \; \int\limits_{1}^{2} dy \int\limits_{y}^{2} \frac1x\cdot\frac1{xy}\,dx \int\limits_{0}^{1} \frac{du}{1 + u^2} = \\
+        & = \int\limits_{1}^{2} dy \int\limits_{y}^{2} \frac1x\cdot\frac1{xy}\,dx \cdot \left( \arctg u \Bigm|_{0}^{1} \right)
+        = \frac{\pi}4\, \int\limits_{1}^{2} \frac1y\, dy \int\limits_{y}^{2} \frac1{x^2}\,dx 
+        = \frac{\pi}4\, \int\limits_{1}^{2} \frac1y\, dy \cdot \left( -\frac1x \Bigm|_{y}^{2} \right)
+        = \frac{\pi}4\, \int\limits_{1}^{2} \frac1y\left( \frac1y-\frac12 \right)\, dy = \\
+        & = \frac{\pi}4\, \left( \int\limits_{1}^{2} \frac1{y^2}\, dy - \frac12\,\int\limits_{1}^{2} \frac1{y}\, dy \right) 
+        = \frac{\pi}4\, \left( -\frac1y \Bigm|_{1}^{2} - \frac12\,\ln y \Bigm|_{1}^{2} \right)
+        = \frac{\pi}4\, \left( 1-\frac12 - \frac12\,\ln 2 \right) = \frac{\pi}8\, (1 - \ln2) \\
+    \end{flalign*}
     
     \subsection*{Задача 9}
     
