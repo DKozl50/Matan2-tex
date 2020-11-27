@@ -45,8 +45,30 @@
     
     \subsection*{Задача 2}
     \begin{flalign*}
-        & x + y + z \leq 2; \;\; 0 \leq 4z \leq 4 - x^2 - y^2; \;\; x \geq 0; \;\; y \geq 0
+        & x + y + z \leq 2; \;\; 0 \leq 4z \leq 4 - x^2 - y^2; \;\; x \geq 0; \;\; y \geq 0 \\
+        & \begin{cases} 
+            x \geq 0, \;\; y \geq 0; \;\; z \geq 0 \\
+            x + y + z \leq 2 \\
+            x^2 + y^2 \leq 4 - 4z 
+        \end{cases} \Rightarrow \begin{cases} 
+            x \in [0, 2] \\
+            y \in [0, 2] \\
+            z \in [0, 1]
+        \end{cases} \\
+        & \begin{cases} 
+            z = 2 - x - y \\
+            4z = 4 - x^2 - y^2 
+        \end{cases} \implies \;\; 8 - 4x - 4y = 4 - x^2 - y^2 \Rightarrow y = \sqrt{4x - x^2} + 2 \text{ — пересечение фигур} \\
+        & \int\limits_{0}^1 dx \left\{ 
+            \int\limits_0^{\sqrt{4x - x^2} + 2} dy \int\limits_0^{1 - \frac{x^2}{4} - \frac{y^2}{4}} f(x, y, z) dx + 
+            \int\limits_{\sqrt{4x - x^2}+2}^{1-x} dy \int\limits_{0}^{2-x-y} f(x, y, z) dz
+        \right\} 
     \end{flalign*}
+    
+    Пересечение параболоида и плоскости. Первый интеграл отвечает за часть параболоида, а второй — за плоскость.
+
+    \includegraphics[width=6cm]{./list24imgs/task2.jpg}
+    
     
     \subsection*{Задача 3}
     
