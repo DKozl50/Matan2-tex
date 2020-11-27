@@ -74,6 +74,36 @@
     
     $0 \leq z \leq 4xy, \; x + 4y + z \leq 1. $
     
+    Буду интегрировать $\displaystyle \int \limits_{\dots}^{\dots} dx \int \limits_{\dots}^{\dots} dy \int \limits_{\dots}^{\dots} f(x, y, x) dz.$
+    
+    Для невырожденности $D$ требуется $\begin{cases} x \neq 0; \\ y \neq 0. \end{cases}$
+    
+    Из того, что $0 \leq xy$, делаем вывод, что $x$  и $y$ одного знака.
+    
+    \textit{Случай I.} $\begin{cases} x > 0; \\ y > 0. \end{cases}$
+    
+    При фиксированном $x$ в срезе $Oyz$ нас интересуют точки треугольника, ограниченного прямыми $z = 4xy$, $z = -4y - x + 1$ и $z = 0$.
+    
+   \includegraphics[width=12cm, height=7cm]{list24imgs/task 2.4.5.png}
+   
+   Найдём $y$-координату точки $M$: $ -4y -x + 1 = 4xy \implies 4y(x + 1) = 1 - x \implies M_y = \frac{1 - x}{4x  + 4}.$
+   
+   Множество является вырожденным, т. и т.т. прямая $z = -4y - x + 1$ проходит через $0$, т.е. при $x = 1.$
+   
+   Значит, в данном случае $x \in (0, 1)$. Интегрируем!
+   
+   $\displaystyle \int \limits_{0}^{1} dx \left( \int \limits_{0}^{M_y} dy \int \limits_{0}^{4xy} f \,  dz + \int \limits_{M_y}^{(1 - x)/4} dy \int \limits_{0}^{-4y - x + 1} f \,  dz \right), \; $ где  $M_y = \frac{1 - x}{4x  + 4}$.
+   
+   \textit{Случай II.} $\begin{cases}
+   x < 0;\\
+   y < 0.
+   \end{cases}$
+   
+   При фиксированном $x$ в срезе $Oyz$ происходит такая жуть:
+   
+   \includegraphics[width=13cm, height=7cm]{list24imgs/task 2.4.5-2.png}
+    
+    Данная область неограничена снизу по $y$, значит она бесконечная $\implies$ интеграл от неё невозможно взять.
     
     \subsection*{Задача 4}
     
