@@ -307,7 +307,9 @@
     Получаем $\int\limits_{0}^{1} \frac{\sin \pi z}{z}  dz \int\limits_{0}^{\pi / 2} z \cos t \cdot  \sqrt{z^2 - z^2 \sin^2 t} \,  dt = \int\limits_{0}^{1} \frac{\sin \pi z}{z}  dz \int\limits_{0}^{\pi / 2} z^2 \cos t \cdot  \sqrt{1 - \sin^2 t} \,  dt = \\
     \int\limits_{0}^{1} z \sin (\pi z) \,  dz \int\limits_{0}^{\pi / 2} \cos t \cdot  \sqrt{1 - \sin^2 t} \,  dt =   \int\limits_{0}^{1} z \sin (\pi z) \,  dz \int\limits_{0}^{\pi / 2} \cos^2 t \,  dt =   \int\limits_{0}^{1} z \sin (\pi z) \,  dz \int\limits_{0}^{\pi / 2} \frac{1}{2} + \frac{1}{2} \cos (2t) \,  dt = \\ \frac{1}{2} \int\limits_{0}^{1} z \sin (\pi z) \,  dz \int\limits_{0}^{\pi / 2} 1 +  \cos (2t) \,  dt = \frac{1}{2} \int\limits_{0}^{1} z \sin (\pi z) \,  dz \left( \frac{\pi}{2} + \left( \frac{\sin 2t}{2} \Bigg|_{0}^{\pi / 2} \right)  \right) = \frac{1}{2} \int\limits_{0}^{1} z \sin (\pi z) \,  dz \left( \frac{\pi}{2} + 0 \right) = \frac{\pi}{4}  \int\limits_{0}^{1} z \sin (\pi z) \,  dz  .  $
     
-    Считаем $ \int\limits_{0}^{1} z \sin (\pi z) \,  dz.$
+    Считаем $ \int\limits_{0}^{1} z \sin (\pi z) \,  dz = -\frac{z}{\pi} \cos (\pi z) \Bigm|_{0}^{1} + \int\limits_{0}^{1} \cos (\pi z) \, dz = -\frac{z}{\pi} \cos (\pi z) \Bigm|_{0}^{1} + \frac1{\pi} \int\limits_{0}^{1} \cos (\pi z) \, dz = \frac{1}{\pi} + \frac{\sin (\pi z)}{\pi^2} \Bigm|_{0}^{1} = \frac1{\pi}$\\
+    
+    Подставляем и получаем ответ: $\frac{\pi}{4}  \int\limits_{0}^{1} z \sin (\pi z) \,  dz = \frac{\pi}4 \cdot \frac1{\pi} = \frac14$
     
     
     % \subsection*{Задача 15}
