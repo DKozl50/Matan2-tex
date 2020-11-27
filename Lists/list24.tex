@@ -251,8 +251,32 @@
         \end{axis} 
     \end{tikzpicture} 
 
-    % \subsection*{Задача 13}
-    
+    \subsection*{Задача 13}
+
+    $\displaystyle \int\limits_{0}^{1} dx \int\limits_{x}^{1} dy \int\limits_{y}^{1} \frac{\arctg z}{z} dz.$
+
+    Чтобы было удобнее, сделаем первым интегралом $z$. Для этого сначала поменяем $y$ и $z$, а потом $z$ и $x$. 
+
+    $y \leftrightarrow z.$ При фиксированном $x$ такая ситуация:
+
+    \includegraphics[width=7cm, height=6cm]{list24imgs/task 2.4.13-1.png}
+
+    Значит, поменяв порядок  $y$ и $z$, получим $\displaystyle \int\limits_{0}^{1} dx \int\limits_{x}^{1} dz \int\limits_{x}^{z} \frac{\arctg z}{z} dy.$
+
+    Теперь меняем местами $x$ и $z$. Смотрим, что происходит с $z$ в зависимости от $x$:
+
+    \includegraphics[width=7cm, height=6cm]{list24imgs/task 2.4.13-2.png}
+
+    Итого выйдет $\displaystyle \int\limits_{0}^{1} dz \int\limits_{0}^{z} dx \int\limits_{x}^{z} \frac{\arctg z}{z} dy = \int\limits_{0}^{1} dz \int\limits_{0}^{z}  \frac{\arctg z}{z}  dx \int\limits_{x}^{z}  dy = \int\limits_{0}^{1} dz \int\limits_{0}^{z}  (z - x)\frac{\arctg z}{z}  dx  = \int\limits_{0}^{1} \arctg z \, dz \int\limits_{0}^{z}  1 - \frac{x}{z}  \, dx = \\ = \int\limits_{0}^{1} \left(z - \frac{z^2}{2z} \right)\arctg z \, dz = \int\limits_{0}^{1} \frac{z}{2} \arctg z \, dz = \frac{1}{2} \int\limits_{0}^{1} z \arctg z \, dz.$
+
+     Интегрируем по частям: $\begin{cases} f = \frac{z^2}{2}; \; df = zdz; \\
+     g  = \arctg z; \; dg = \frac{1}{1 + z^2} dz.
+     \end{cases}$
+
+     Тогда $\int\limits_{0}^{1} z \arctg z \, dz = \int\limits_{0}^{1} g \, df = \left( fg \,  \Bigg|_{0}^{1} \right) - \int\limits_{0}^{1} fdg =  \left( \frac{z^2}{2} \cdot \arctg z \Bigg|_{0}^{1} \right) - \int\limits_{0}^{1} \frac{z^2}{2(1 + z^2)} dz = \\ = \frac{\pi}{8} -  \frac{1}{2} \left(\int\limits_{0}^{1} \frac{1 + z^2}{1 + z^2} dz -  \int\limits_{0}^{1} \frac{1}{(1 + z^2)} dz\right) = \frac{\pi}{8} - \frac{1}{2} + \frac{1}{2} \arctg(1) = \frac{\pi}{8} - \frac{1}{2} + \frac{\pi}{8} = \frac{\pi}{4} - \frac{1}{2}.$ 
+
+     Не забываем домножить всё это дело на $\frac{1}{2}$, и получаем ответ, $\boxed{\frac{\pi}{8} - \frac{1}{4}} \, .$
+
     % \subsection*{Задача 14}
     
     % \subsection*{Задача 15}
