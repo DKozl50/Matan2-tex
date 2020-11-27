@@ -150,7 +150,7 @@
     \begin{flalign*}
         & \int\limits_{1}^{3} dz \int\limits_{1-z}^{3-z} dy \int\limits_{0}^{3-y-z} \frac{dx}{(x + y + z)^2}
         = \left[\, u = x+y+z, \, \frac{du}{dx} = 1 \Leftrightarrow dx = du \,\right] 
-        \; \int\limits_{1}^{3} dz \int\limits_{1-z}^{3-z} dy \int\limits_{x+y}^{3} \frac{du}{u^2} = \\
+        \; \int\limits_{1}^{3} dz \int\limits_{1-z}^{3-z} dy \int\limits_{y + z}^{3} \frac{du}{u^2} = \\
         & = \int\limits_{1}^{3} dz \int\limits_{1-z}^{3-z} dy \cdot \left( -\frac1u \Bigm|_{y+z}^{3} \right)
         = \int\limits_{1}^{3} dz \int\limits_{1-z}^{3-z} \left( \frac1{y+z}-\frac13 \right)dy
         = \left[\, v = y+z, \, dy = dv \,\right] \: \int\limits_{1}^{3} dz \left( \:\int\limits_{1}^{3} \frac1{v}\,dv - \frac13\int\limits_{1-z}^{3-z}dy \right) = \\
