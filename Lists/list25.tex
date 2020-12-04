@@ -145,8 +145,6 @@
         & = \int\limits_{0}^{2} \frac{r^2}{\sqrt{4 - r^2}} dr 
         \left. \sin \varphi \right|_{-\arccos \left( r/2 \right)}^{\arccos \left( r/2 \right)} = 
         \int\limits_{0}^{2} \frac{r^2}{\sqrt{4 - r^2}} \sqrt{4 - r^2} dr = \int_0^2 r^2 dr = \frac{8}{3}
-        % \int\limits_{-\pi/2}^{\pi/2} d\varphi \int\limits_{0}^{2\cos\varphi} \frac{r^2 \cos \varphi}{\sqrt{4 - r^2}} dr = \\
-        % = 
     \end{flalign*}
     
     \section*{Перейдите к переменным, в которых область интегрирования имеет вид прямоугольника, 
@@ -201,6 +199,13 @@
     
     \section*{Перейдя к цилиндрическим координатам, вычислите интеграл.}
     \subsection*{Задача 15}
+    \begin{flalign*}
+        & \iiint\limits_D z dxdydz \;\;\;\;\;\; D = \left\{ (x, y, z) | x^2 + y^2 \leq z^2, \; 0 \leq z \leq 1 \right\} 
+        \Rightarrow D = \left\{ (r, \varphi, z) | r^2 \leq z^2, \; 0 \leq z \leq 1 \right\} \\
+        & \int_{0}^{2\pi} d\varphi \int_0^1 z  dz \int_0^z r dr = 
+        \int_{0}^{2\pi} d\varphi \int_0^1 z \frac{z^2}{2} dz = 
+        2 \pi \frac{1}{8} = \frac{\pi}{4} 
+    \end{flalign*}
     
     % \subsection*{Задача 16}
     
