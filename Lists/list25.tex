@@ -25,7 +25,18 @@
     
     \section*{Задайте в полярных координатах множество $D$, заданное неравенствами в декартовых координатах.
     Предполагая функцию $f$ непрерывной на $D$, преобразуйте интеграл в полярных координатах к повторному.}
-    % \subsection*{Задача 1}
+    \subsection*{Задача 1}
+    \begin{flalign*}
+        & x^2+y^2 \le 2x \\[5 pt]
+        & x = r \cos \varphi, \; y = r \sin \varphi \Rightarrow \\
+        & \Rightarrow  D := r^2 \le 2\, r \cos \varphi \Leftrightarrow r (r - 2 \cos \varphi) \le 0 
+        \Leftrightarrow r \in \left[0; 2 \cos \varphi\right], \cos \varphi \ge 0 \\
+        & \iint\limits_D f(r \cos \varphi, r \sin \varphi)\, d\varphi\,dr
+        = \int\limits_{-\pi/2}^{\pi/2} d\varphi \int\limits_{0}^{2 \cos \varphi} f(r \cos \varphi, r \sin \varphi)\, r \,dr = \\
+        & \left\{\, r^2 \le 2\, r \cos \varphi \Leftrightarrow \cos \varphi \ge \frac{r}2 
+        \Leftrightarrow \varphi \in \left[ -\arccos \frac{r}2; \arccos \frac{r}2 \right] \,\right\} \\
+        & = \int\limits_{0}^{2} r\, dr \int\limits_{-\arccos \frac{r}2}^{\arccos \frac{r}2} f(r \cos \varphi, r \sin \varphi)\, d\varphi 
+    \end{flalign*}
     
     % \subsection*{Задача 2}
     
