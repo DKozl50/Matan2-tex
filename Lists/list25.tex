@@ -4,26 +4,6 @@
 \usepgfplotslibrary{fillbetween}
 \usetikzlibrary{patterns}
 
-
-\usepackage{expl3}
-
-\makeatletter
-%\ams@newcommand{\iiiiint}{\DOTSI\protect\MultiIntegral{5}}
-\ams@newcommand{\multiint}[1]{\DOTSI\protect\MultiIntegral{#1}}
-\renewcommand{\MultiIntegral}[1]{%
-  \edef\ints@c{\noexpand\intop
-    \ifnum#1=\z@\noexpand\intdots@\else\noexpand\intkern@\fi
-    \replicate{#1-2}{\noexpand\intop\noexpand\intkern@}%
-    \noexpand\intop
-    \noexpand\ilimits@
-  }%
-  \futurelet\@let@token\ints@a
-}
-\makeatother
-\ExplSyntaxOn
-\cs_new:Npn \replicate #1 #2 { \prg_replicate:nn { #1 } { #2 } }
-\ExplSyntaxOff
-
 \title{Семинарский лист 2.5}
 \author{
     % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
