@@ -61,7 +61,53 @@
     
     % \subsection*{Задача 3}
     
-    % \subsection*{Задача 4}
+    \subsection*{Задача 4}
+    \begin{wrapfigure}{r}{0.4\textwidth}
+    \begin{tikzpicture}[>=stealth]
+       % \draw[very thick, blue, fill=pink]
+        %(-3,0) -- (-1,0) -- (0,1) -- (1,0) -- (3,0) -- (0,3) -- cycle;
+        %\draw[very thick, blue, fill=magenta]
+        %(-3,0) -- (-1,0) -- (-0.5,0.5) -- (-0.5,2.5) -- cycle;
+        \draw[->] (-0.75,0) -- (3.1,0); % Ох
+        \draw[->] (0,-2) -- (0,2); % Оу
+        \node at (-0.2,-0.25) {\color{black} $0$};
+        \node at (3,-0.25) {\color{black} $x$};
+        \node at (-0.2,2) {\color{black} $y$};
+        \node at (1,-0.25) {\color{black} $1$};
+        \node at (2,-0.25) {\color{black} $2$};
+        \node at (-0.2,1) {\color{black} $1$};
+        \node at (-0.3,-1) {\color{black} $-1$};
+        \node at (2.25,0.9) {\color{black} $x+y=2 \Leftrightarrow$};
+        \node at (3.3,0.5) {\color{black} $\Leftrightarrow r (\cos \varphi+\sin \varphi)=2$};
+        \node at (2.6,-0.67) {\color{black} $x-y=2 \Leftrightarrow$};
+        \node at (2.9,-1) {\color{black} $\Leftrightarrow r (\cos \varphi-\sin \varphi)=2$};
+        \draw[thick, blue, domain=0:2] plot (\x, {abs(\x-1)-1});
+        \draw[thick, blue, domain=0:2] plot (\x, {1-abs(\x-1)});
+    \end{tikzpicture}
+    \end{wrapfigure}
+    \begin{flalign*}
+        & |x-1| + |y| \le 1 \\[5 pt]
+        & \text{Область представляет собой ромб с центром в точке $(1, 0)$} \\
+        & \text{Из рисунка видно, что угол $\varphi$ лежит в пределах $\left[-\pi/4; \pi/4\right]$} \\
+        & \text{Можно определить и отрезки для $r$}: \\
+        & r \in \left\{\begin{array}{ll} 
+            \left[ 0; \dfrac2{\cos \varphi + \sin \varphi} \right], & \varphi \ge 0 \\[10 pt]
+            \left[ 0; \dfrac2{\cos \varphi - \sin \varphi} \right], & \varphi < 0  \\ 
+        \end{array}\right. \\
+        & \iint\limits_D f(r \cos \varphi, r \sin \varphi\, d\varphi\,dr
+        = \int\limits_{-\pi/4}^{0} d\varphi \int\limits_{0}^{\frac2{\cos \varphi - \sin \varphi}} f(r \cos \varphi, r \sin \varphi)\, r \,dr + \int\limits_{0}^{\pi/4} d\varphi \int\limits_{0}^{\frac2{\cos \varphi + \sin \varphi}} f(r \cos \varphi, r \sin \varphi)\, r \,dr = \\[-10 pt]
+        & = \int\limits_{-\pi/4}^{\pi/4} d\varphi \int\limits_{0}^{\frac2{\cos \varphi + |\sin \varphi|}} f(r \cos \varphi, r \sin \varphi)\, r \,dr \\
+        & \text{При $r \in [0; \sqrt2]$ все углы от $-\pi/4$ до $\pi/4$ лежит в нужной области} \\[-5 pt]
+        & \text{При $r \in (\sqrt2; 2 \sqrt2]$ необходимо } 2 \ge r (\cos \varphi + |\sin \varphi|) \\
+        & \text{Так как относительно $Oy$ все симметрично, найдем границу при $\varphi > 0$:} \\
+        & \text{из геометрии рисунка (треугольников и всего такого)} \\[-10 pt]
+        & r \cos \left( \dfrac{\pi}4 - \varphi \right) = \sqrt2 
+        \Leftrightarrow \cos \left( \dfrac{\pi}4 - \varphi \right) = \dfrac{\sqrt2}r
+        \Leftrightarrow \varphi = \frac{\pi}4 - \arccos \dfrac{\sqrt2}{r} \\[-5 pt]
+        & \text{Повторный интеграл с найденными границами:} \\[-10 pt]
+        & \int\limits_{0}^{\sqrt2} r\, dr \int\limits_{-\pi/4}^{\pi/4} f(r \cos \varphi, r \sin \varphi)\, d\varphi 
+        + \int\limits_{\sqrt2}^{2\sqrt2} r\, dr \int\limits_{\arccos \frac{\sqrt2}{r} - \frac{\pi}4}^{\frac{\pi}4 - \arccos \frac{r}{\sqrt2}} f(r \cos \varphi, r \sin \varphi)\, d\varphi 
+    \end{flalign*}
     
     % \subsection*{Задача 5}
     
