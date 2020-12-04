@@ -38,7 +38,26 @@
         & = \int\limits_{0}^{2} r\, dr \int\limits_{-\arccos \frac{r}2}^{\arccos \frac{r}2} f(r \cos \varphi, r \sin \varphi)\, d\varphi 
     \end{flalign*}
     
-    % \subsection*{Задача 2}
+    \subsection*{Задача 2}
+    \begin{flalign*}
+        & (x-1)^2+y^2 \le 1, \; x^2 + y^2 \ge 1 \\[5 pt]
+        & x = r \cos \varphi, \; y = r \sin \varphi \Rightarrow \\
+        & \Rightarrow  D := \left\{\begin{array}{lll} r^2 &\le& 2\,r \cos \varphi, \\ r^2 &\ge& 1 \end{array}\right. 
+        \Leftrightarrow \left\{\begin{array}{rcl} 
+            r &\in& \left[ 0; 2 \cos \varphi \right], \\  
+            \cos \varphi &\ge& 0, \\ 
+            r &\ge& 1 
+        \end{array}\right. \Leftrightarrow \left\{\begin{array}{rcl} 
+            r &\in& \left[ 1; 2 \cos \varphi \right], \\  
+            \cos \varphi &\ge& 1/2, \\ 
+        \end{array}\right. \\
+        & \cos \varphi \ge 1/2 \Leftrightarrow \varphi \in \left[ -\dfrac{\pi}3; \dfrac{\pi}3 \right] \\
+        & \iint\limits_D f(r \cos \varphi, r \sin \varphi)\, d\varphi\,dr
+        = \int\limits_{-\pi/3}^{\pi/3} d\varphi \int\limits_{1}^{2 \cos \varphi} f(r \cos \varphi, r \sin \varphi)\, r \,dr = \\
+        & \left\{\, r^2 \le 2\,r \cos \varphi \Leftrightarrow \cos \varphi \ge \frac{r}2 
+        \Leftrightarrow \varphi \in \left[ -\arccos \frac{r}2; \arccos \frac{r}2 \right] \,\right\} \\
+        & = \int\limits_{1}^{2} r\, dr \int\limits_{-\arccos \frac{r}2}^{\arccos \frac{r}2} f(r \cos \varphi, r \sin \varphi)\, d\varphi 
+    \end{flalign*}
     
     % \subsection*{Задача 3}
     
