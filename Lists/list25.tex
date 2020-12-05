@@ -323,7 +323,44 @@
     
     
     
-    % \subsection*{Задача 12}
+    \subsection*{Задача 12}
+    \begin{wrapfigure}{r}{0.4\textwidth}
+    \begin{tikzpicture}[>=stealth]
+        \draw[->] (-0.75,0) -- (5.1,0); % Ох
+        \draw[->] (0,-0.75) -- (0,5.1); % Оу
+        \node at (-0.2,-0.25) {\color{black} $0$};
+        \node at (5,-0.25) {\color{black} $x$};
+        \node at (-0.2,5) {\color{black} $y$};
+        \node at (1,-0.25) {\color{black} $1$};
+        % \node at (2,-0.25) {\color{black} $2$};
+        \node at (-0.2,1) {\color{black} $1$};
+        % \node at (2.25,0.9) {\color{black} $x+y=2 \Leftrightarrow$};
+        % \node at (3.3,0.5) {\color{black} $\Leftrightarrow r (\cos \varphi+\sin \varphi)=2$};
+        % \node at (2.6,-0.67) {\color{black} $x-y=2 \Leftrightarrow$};
+        % \node at (2.9,-1) {\color{black} $\Leftrightarrow r (\cos \varphi-\sin \varphi)=2$};
+        \draw[thick, blue, domain=0:2.2] plot (\x, {\x*\x});
+        \draw[thick, blue, domain=0:3.1] plot (\x, {0.5*\x*\x});
+        \draw[thick, blue, domain=0:5] plot (\x, {sqrt(2*\x)});
+        \draw[thick, blue, domain=0:5] plot (\x, {sqrt(3*\x)});
+    \end{tikzpicture}
+    \end{wrapfigure}
+    \begin{flalign*}
+        & \iint\limits_D \dfrac{x^2 \sin (xy)}{y}\, dx\,dy, \;\;\; D = \{(x, y) \,|\, y \le x^2 \le 2y,\; 2x \le y^2 \le 3x\} \\
+        & \text{Хотим, чтобы область, заданная пересечением парабол, была} \\
+        & \text{прямоугольником в какой-то системе координат} \\
+        & \text{Перейдем к координатам $u$ и $v$ таким, что } u = \dfrac{x^2}y, \; v = \dfrac{y^2}x. \\
+        & \text{Тогда } D = \{ (u, v) \,|\, 1 \le u \le 2, \; 2 \le v \le 3 \} \\[5 pt]
+        & \text{Выражение старых координат через новые:} \\[-5 pt]
+        & u = \dfrac{x^2}y \Rightarrow y = \dfrac{x^2}u \Rightarrow v = \dfrac{x^4}{u^2 x} = \dfrac{x^3}{u^2}
+        \Rightarrow x = \sqrt[3]{u^2 v}, \; y = \sqrt[3]{\dfrac{u^4 v^2}{u^3}} = \sqrt[3]{u v^2} \\
+        & J = \left|\begin{matrix} x_u & y_u \\ x_v & y_v \end{matrix}\right| = 
+        \left|\begin{matrix} \sqrt[3]{\dfrac{2v}{3u}} & \sqrt[3]{\dfrac{v^2}{3u^2}} \\[10 pt] \sqrt[3]{\dfrac{u^2}{3v^2}} & \sqrt[3]{\dfrac{2u}{3v}} \end{matrix}\right| = \sqrt[3]{\dfrac{4uv}{9uv}} - \sqrt[3]{\dfrac{u^2v^2}{9u^2v^2}} = \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \\
+        & I = \int\limits_1^2 du \int\limits_2^3 \dfrac{\sqrt[3]{u^4 v^2} \sin (uv)}{\sqrt[3]{uv^2}} \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) dv = 
+        \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 u\, du \int\limits_2^3 \sin (uv)\, dv = \\ 
+        & = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 u\, du \left( -\dfrac1u\, \cos(uv) \right) \Bigm|_2^3 
+        = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 \left( \cos 2u - \cos 3u \right)\, du -\dfrac1u\, \cos(uv) \Bigm|_2^3 = \\
+        & = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) \left( \dfrac12\, \sin 2u - \dfrac13\, \sin 3u \right) \Bigm|_1^2 = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) \left( \dfrac12 \left( \sin4 - \sin2 \right) - \dfrac13 \left( \sin6 -\sin3 \right) \right)
+    \end{flalign*}
     
     \section*{Задайте в цилиндрических координатах множество $D$, заданное неравенствами в декартовых
     координатах. Пердполагаю функцию $f$ непрерывной на $D$, преобразуйте интеграл в цилиндрических
