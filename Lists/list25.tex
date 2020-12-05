@@ -446,7 +446,31 @@
     
     
     
-    % \subsection*{Задача 18}
+    \subsection*{Задача 18}
+    
+    $x^2 + y^2 + z^2 \leq 2y, \; x^2 + y^2 \geq z^2.$
+    
+    
+    $\bullet$  Первое нер-во.
+    
+    \onehalfspacing $x^2 + y^2 + z^2 \leq 2y \iff r^2 \leq 2 \, r \sin \varphi \sin \Theta \iff r \leq 2 \sin \varphi \sin \Theta \implies r \in [0, 2 \sin \varphi \sin \Theta].$
+    
+    \singlespacing Также мы должны учесть, что $\sin{\varphi}$ обязан быть неотрицательным, ведь $r \geq 0 \land \sin \Theta \geq 0.$
+    
+    То есть $\varphi \in [0, \pi].$
+    
+    $\bullet$  Второе нер-во.
+    
+    $x^2 + y^2 \geq z^2 \iff r^2 \sin^2 \Theta \geq r^2 \cos^2 \Theta \implies \tg^2 \Theta \geq 1 \implies |\tg \Theta| \geq 1.$
+    
+    Значит, $\Theta \in \left[ \frac{\pi}{4}, \; \frac{3\pi}{4} \right].$
+    
+    Модуль Якобиана в сферических координатах с данной заменой -- $r^2 \sin \Theta.$
+    
+    Всё готово, выписываем интеграл.
+    
+    $\boxed{\displaystyle
+    \int \limits_{\pi/4}^{3 \pi /4} d \Theta \int \limits_{0}^{\pi} d \varphi \int \limits_{0}^{2 \sin \varphi \sin \Theta} f \cdot r^2 \sin \Theta \; dr} \; .$
     
     \section*{Перейдя к сферическим координатам, вычислите интеграл.}
     
