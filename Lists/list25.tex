@@ -345,11 +345,30 @@
     
     $I = \boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{1} dr \int\limits_{-\sqrt{4 - r^2}}^{\sqrt{4 - r^2}} f(r \cos \varphi, \; r \sin \varphi, z) \; dz} \; .$
     
+     
+    \subsection*{Задача 14}
     
+    $x^2 + y^2 + z^2 \leq  2z, \; x^2 + y^2 \leq z^2.$
     
+    $\bullet$ Первое нер-во.
     
+    $x^2 + y^2 \leq 2z - z^2 \iff r^2 \leq 2z-z^2.$ 
     
-    % \subsection*{Задача 14}
+    Значит, значение $2z - z^2$ обязано быть положительным. Парабола с нулями в 0 и 2 $\implies z \in [0, \, 2].$
+    
+    В таком случае $r \in \left[0, \; \sqrt{2z - z^2} \right].$
+    
+    $\bullet$ Второе нер-во.
+    
+    $r^2 \leq z^2 \implies r \in \left[0, \, |z|\right].$ Так как $z \geq 0$, то $|z| = z.$ 
+    
+    Заметим, что при $z \in [0, \, 2]$ всегда выполнено $2 \geq z \iff 2z \geq 2z^2 \iff \sqrt{2z - z^2} \geq z .$
+    
+    Так что границы $r$ переписываем полностью как $r \in [0,z].$
+    
+    На $\varphi$ ограничений нет, якобиан равен $r$.
+    
+    $\boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{2} dz \int\limits_{0}^{z} f \cdot r \; dr} \; .$
     
     \section*{Перейдя к цилиндрическим координатам, вычислите интеграл.}
     \subsection*{Задача 15}
