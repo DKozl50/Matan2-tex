@@ -519,6 +519,56 @@
     
     
     
-    % \subsection*{Задача 20}
+    \subsection*{Задача 20}
+    
+    $\iint_{D} z \; dxdydz, \; \; D = \left\{(x,y,z) \, \Big| \;  \frac{x^2}{4} + \frac{y^2 }{9} + z^2 \leq 1, \; z \geq 0 \right\} $
+    
+    Сначала сделаю финт ушами, и заменю:
+    
+    $
+    \begin{cases}
+    x = 2 u;\\
+    y = 3 v;\\
+    z = w\\
+    \end{cases}
+    $
+    
+    Ищем якобиан,
+    
+    $J =  \left| \begin{matrix} x_u & y_u & z_u \\ x_v & y_v & z_v \\  x_w & y_w & z_w  \end{matrix} \right| = 
+      \left| \begin{matrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\  0 & 0 & 1  \end{matrix} \right| = 6.$
+    
+    Т.е. множитель $6$ мы добавим под интеграл в дальнейшем.
+    
+    Теперь производим привычную замену на сферические координаты:
+    
+    
+    $\begin{cases}
+    u = r \cos \varphi \sin \Theta;\\
+    v = r \sin \varphi \sin \Theta;\\
+    w = r  \cos \Theta\\
+    \end{cases}$
+    
+    $|J| = r^2 \sin \Theta$, это наряду с 6 появится под интегралом.
+    
+    Теперь перепишем неравенства.
+    
+    $\bullet \; \; \frac{x^2}{4} + \frac{y^2}{9} + z^2 \leq 1 \iff \frac{4 u^2}{4} + \frac{9 v^2}{9} + w^2 \leq 1 \iff r^2 \leq 1 \implies  \\ r \in [0, \, 1].$ 
+    
+    $\bullet \; z \geq 0 \iff w \geq 0 \iff r \; \cos \Theta \geq 0 \implies \cos \Theta \geq 0 \implies \Theta \in \left[0, \frac{\pi}{2}\right].$
+    
+    $f = z = w = r \cos \Theta.$
+    
+    Всё, теперь пишем интеграл. На $\varphi$ ограничений нет. Сразу выносим константы.
+    
+    $\displaystyle \int\limits_{0}^{\pi / 2}  \cos \Theta \; d \Theta \int \limits_{0}^{1} r\;  dr \int\limits_{0}^{2 \pi} 1\;  d \varphi  =  \left( \sin \Theta \; \Bigg|_{0}^{\pi/2}\right) \cdot \left(\frac{r^2}{2} \;  \; \Bigg|_{0}^{1} \right) \cdot 2 \pi= \frac{2 \pi}{2} = \boxed{\pi} \; .$
+    
+    
+    
+    
+    
+    
+    
+    
     
 \end{document}
