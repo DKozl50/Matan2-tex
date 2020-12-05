@@ -343,7 +343,7 @@
     
     Ограничений на  $\varphi$ никаких нет. Можем приступать к записи интеграла. Помним, что в циллиндрических координатах $|J| = r.$
     
-    $I = \boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{1} dr \int\limits_{-\sqrt{4 - r^2}}^{\sqrt{4 - r^2}} f(r \cos \varphi, \; r \sin \varphi, z) \; dz} \; .$
+    $I = \boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{1} dr \int\limits_{-\sqrt{4 - r^2}}^{\sqrt{4 - r^2}} f(r \cos \varphi, \; r \sin \varphi, z) \cdot r \; dz} \; .$
     
      
     \subsection*{Задача 14}
@@ -366,7 +366,7 @@
     
     Так что границы $r$ переписываем полностью как $r \in [0,z].$
     
-    На $\varphi$ ограничений нет, якобиан равен $r$.
+    На $\varphi$ ограничений нет, модуль якобиана равен $r$.
     
     $\boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{2} dz \int\limits_{0}^{z} f \cdot r \; dr} \; .$
     
@@ -380,7 +380,24 @@
         2 \pi \frac{1}{8} = \frac{\pi}{4} 
     \end{flalign*}
     
-    % \subsection*{Задача 16}
+     \subsection*{Задача 16}
+     
+     $\displaystyle \iiint_{D} z^2 \; dxdydz, \; \; D = \{(x,y,z) \mid x^2 + y^2 + z^2 \geq 1, \; x^2 + y^2 + z^2 \leq 2z\}.$
+     
+     $\bullet$ Первое нер-во.
+     
+     $x^2 + y^2 + z^2 \geq 1 \iff r^2 \geq 1 \implies r \geq 1.$
+     
+     $\bullet$ Второе нер-во.
+     
+     $x^2 + y^2 + z^2 \leq 2z \implies$ как в номере $14$, $z \in [0,2];\; \, r \leq z.$
+     
+     По $\varphi$ область не ограничена. Модуль якобиана равен $r$. Сразу вынесу все константы за интегралы:
+     
+     
+     $\displaystyle \int\limits_{0}^{2} z^2 \; dz  \int\limits_{0}^{z} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi = 2 \pi \cdot
+     \int\limits_{0}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{z}  \right) = \pi \cdot \int\limits_{0}^{2} z^4 \; dz = \\ 
+     \pi \cdot \left( \frac{z^5}{5} \;  \Bigg|_{0}^{2}\right) = \boxed{\frac{32 \pi}{5}} \; . $
     
     \section*{Задайте в сферических координатах множество $D$, заданное неравенствами в декартовых координатах.
     Предполагая функцию $f$ непрерывной на $D$, преобразуйте интеграл в сферических координатах к повторному.}
