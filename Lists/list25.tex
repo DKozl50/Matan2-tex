@@ -400,13 +400,16 @@
     
     $r^2 \leq z^2 \implies r \in \left[0, \, |z|\right].$ Так как $z \geq 0$, то $|z| = z.$ 
     
-    Заметим, что при $z \in [0, \, 2]$ всегда выполнено $2 \geq z \iff 2z \geq 2z^2 \iff \sqrt{2z - z^2} \geq z .$
+    Заметим, что при $z \in [0, \, 1]$ всегда выполнено $z \geq z^2 \iff 2z \geq 2z^2 \iff \sqrt{2z - z^2} \geq z .$
     
-    Так что границы $r$ переписываем полностью как $r \in [0,z].$
+    При $z \in [1, 2]$ всегда выполнено $z \leq z^2 \iff \sqrt{2z - z^2} \leq z.$
+    
+    Поэтому на промежутке $[0,1]$ радиус ограничен $z$, а на промежутке $[1,2]$ выражением $\sqrt{2z - z^2}$.
     
     На $\varphi$ ограничений нет, модуль якобиана равен $r$.
     
-    $\boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{2} dz \int\limits_{0}^{z} f \cdot r \; dr} \; .$
+    $\boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \left[ \int\limits_{0}^{1} dz \int\limits_{0}^{z} f \cdot r \; dr
+    + \int\limits_{1}^{2} dz \int\limits_{0}^{\sqrt{2z - z^2}} f \cdot r \; dr\right]} \; .$
     
     \section*{Перейдя к цилиндрическим координатам, вычислите интеграл.}
     \subsection*{Задача 15}
@@ -428,15 +431,17 @@
      
      $\bullet$ Второе нер-во.
      
-     $x^2 + y^2 + z^2 \leq 2z \implies$ как в номере $14$, $z \in [0,2];\; \, r \leq z.$
+     $x^2 + y^2 + z^2 \leq 2z \implies$ как в номере $14$, $z \in [0,2];\; \, r \leq \min(z, \sqrt{2z-z^2}).$
      
      По $\varphi$ область не ограничена. Модуль якобиана равен $r$. Сразу вынесу все константы за интегралы:
      
      
-     $\displaystyle \int\limits_{0}^{2} z^2 \; dz  \int\limits_{0}^{z} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi = 2 \pi \cdot
-     \int\limits_{0}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{z}  \right) = \pi \cdot \int\limits_{0}^{2} z^4 \; dz = \\ 
-     \pi \cdot \left( \frac{z^5}{5} \;  \Bigg|_{0}^{2}\right) = \boxed{\frac{32 \pi}{5}} \; . $
-    
+     $\displaystyle \int\limits_{0}^{1} z^2 \; dz  \int\limits_{0}^{z} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi
+     \; +
+     \displaystyle \int\limits_{1}^{2} z^2 \; dz  \int\limits_{0}^{\sqrt{2z - z^2}} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi= 2 \pi \cdot \left[
+     \int\limits_{0}^{1} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{z}  \right) + 
+     \int\limits_{1}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{\sqrt{2z- z^2}}  \right)  \right] =  \pi \left[ \int\limits_{0}^{1} z^4 dz + \int\limits_{1}^{2} 2z^3 - z^4 dz \right]  = \pi \left[\left( \frac{z^5}{5} \; \, \Bigg|_{0}^{1} \right) +  \left( \frac{2 z^4}{4} - \frac{z^5}{5} \; \, \Bigg|_{1}^{2} \right)\right] = \\ \pi \cdot \left( \frac{1}{5} + 8 - \frac{32}{5} - \frac{1}{2} + \frac{1}{5} \right) = \boxed{\frac{3 \pi}{2}} \; . $
+     
     \section*{Задайте в сферических координатах множество $D$, заданное неравенствами в декартовых координатах.
     Предполагая функцию $f$ непрерывной на $D$, преобразуйте интеграл в сферических координатах к повторному.}
     
