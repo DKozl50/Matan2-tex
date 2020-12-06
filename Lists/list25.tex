@@ -322,6 +322,7 @@
      \; \, \Bigg|_{1}^{2} \right)\; du = \\ \boxed{\frac{5}{46} \cdot (3^{8/5} - 2^{8/5}) \cdot (1 - 2^{-6/5})} \; .$
     
     
+    
     \subsection*{Задача 12}
     \begin{wrapfigure}{r}{0.4\textwidth}
     \begin{tikzpicture}[>=stealth]
@@ -353,12 +354,13 @@
         & u = \dfrac{x^2}y \Rightarrow y = \dfrac{x^2}u \Rightarrow v = \dfrac{x^4}{u^2 x} = \dfrac{x^3}{u^2}
         \Rightarrow x = \sqrt[3]{u^2 v}, \; y = \sqrt[3]{\dfrac{u^4 v^2}{u^3}} = \sqrt[3]{u v^2} \\
         & J = \left|\begin{matrix} x_u & y_u \\ x_v & y_v \end{matrix}\right| = 
-        \left|\begin{matrix} \sqrt[3]{\dfrac{2v}{3u}} & \sqrt[3]{\dfrac{v^2}{3u^2}} \\[10 pt] \sqrt[3]{\dfrac{u^2}{3v^2}} & \sqrt[3]{\dfrac{2u}{3v}} \end{matrix}\right| = \sqrt[3]{\dfrac{4uv}{9uv}} - \sqrt[3]{\dfrac{u^2v^2}{9u^2v^2}} = \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \\
-        & I = \int\limits_1^2 du \int\limits_2^3 \dfrac{\sqrt[3]{u^4 v^2} \sin (uv)}{\sqrt[3]{uv^2}} \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) dv = 
-        \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 u\, du \int\limits_2^3 \sin (uv)\, dv = \\ 
-        & = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 u\, du \left( -\dfrac1u\, \cos(uv) \right) \Bigm|_2^3 
-        = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 \left( \cos 2u - \cos 3u \right)\, du -\dfrac1u\, \cos(uv) \Bigm|_2^3 = \\
-        & = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) \left( \dfrac12\, \sin 2u - \dfrac13\, \sin 3u \right) \Bigm|_1^2 = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) \left( \dfrac12 \left( \sin4 - \sin2 \right) - \dfrac13 \left( \sin6 -\sin3 \right) \right)
+        \left|\begin{matrix} \dfrac23 \sqrt[3]{\dfrac{v}{u}} & \dfrac13\sqrt[3]{\dfrac{v^2}{u^2}} \\[10 pt] \dfrac13\sqrt[3]{\dfrac{u^2}{v^2}} & \dfrac23\sqrt[3]{\dfrac{u}{v}} \end{matrix}\right| = \dfrac49\sqrt[3]{\dfrac{uv}{uv}} - \dfrac19\sqrt[3]{\dfrac{u^2v^2}{u^2v^2}} = \dfrac{4}{9} - \dfrac{1}{9} = \dfrac13 \\
+        & I = \int\limits_1^2 du \int\limits_2^3 \dfrac{\sqrt[3]{u^4 v^2} \sin (uv)}{\sqrt[3]{uv^2}} \cdot \dfrac13\, dv = 
+        \dfrac13 \int\limits_1^2 u\, du \int\limits_2^3 \sin (uv)\, dv = \\ 
+        & = \dfrac13 \int\limits_1^2 u\, du \left( -\dfrac1u\, \cos(uv) \right) \Bigm|_2^3 
+        = \dfrac13 \int\limits_1^2 \left( \cos 2u - \cos 3u \right)\, du -\dfrac1u\, \cos(uv) \Bigm|_2^3 = \\
+        & = \dfrac13  \left( \dfrac12\, \sin 2u - \dfrac13\, \sin 3u \right) \Bigm|_1^2 
+        = \dfrac13 \left( \dfrac12 \left( \sin4 - \sin2 \right) - \dfrac13 \left( \sin6 -\sin3 \right) \right)
     \end{flalign*}
     
     \section*{Задайте в цилиндрических координатах множество $D$, заданное неравенствами в декартовых
@@ -398,16 +400,13 @@
     
     $r^2 \leq z^2 \implies r \in \left[0, \, |z|\right].$ Так как $z \geq 0$, то $|z| = z.$ 
     
-    Заметим, что при $z \in [0, \, 1]$ всегда выполнено $z \geq z^2 \iff 2z \geq 2z^2 \iff \sqrt{2z - z^2} \geq z .$
+    Заметим, что при $z \in [0, \, 2]$ всегда выполнено $2 \geq z \iff 2z \geq 2z^2 \iff \sqrt{2z - z^2} \geq z .$
     
-    При $z \in [1, 2]$ всегда выполнено $z \leq z^2 \iff \sqrt{2z - z^2} \leq z.$
-    
-    Поэтому на промежутке $[0,1]$ радиус ограничен $z$, а на промежутке $[1,2]$ выражением $\sqrt{2z - z^2}$.
+    Так что границы $r$ переписываем полностью как $r \in [0,z].$
     
     На $\varphi$ ограничений нет, модуль якобиана равен $r$.
     
-    $\boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \left[ \int\limits_{0}^{1} dz \int\limits_{0}^{z} f \cdot r \; dr
-    + \int\limits_{1}^{2} dz \int\limits_{0}^{\sqrt{2z - z^2}} f \cdot r \; dr\right]} \; .$
+    $\boxed{\displaystyle \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{2} dz \int\limits_{0}^{z} f \cdot r \; dr} \; .$
     
     \section*{Перейдя к цилиндрическим координатам, вычислите интеграл.}
     \subsection*{Задача 15}
@@ -429,16 +428,14 @@
      
      $\bullet$ Второе нер-во.
      
-     $x^2 + y^2 + z^2 \leq 2z \implies$ как в номере $14$, $z \in [0,2];\; \, r \leq \min(z, \sqrt{2z-z^2}).$
+     $x^2 + y^2 + z^2 \leq 2z \implies$ как в номере $14$, $z \in [0,2];\; \, r \leq z.$
      
      По $\varphi$ область не ограничена. Модуль якобиана равен $r$. Сразу вынесу все константы за интегралы:
      
      
-     $\displaystyle \int\limits_{0}^{1} z^2 \; dz  \int\limits_{0}^{z} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi
-     \; +
-     \displaystyle \int\limits_{1}^{2} z^2 \; dz  \int\limits_{0}^{\sqrt{2z - z^2}} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi= 2 \pi \cdot \left[
-     \int\limits_{0}^{1} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{z}  \right) + 
-     \int\limits_{1}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{\sqrt{2z- z^2}}  \right)  \right] =  \pi \left[ \int\limits_{0}^{1} z^4 dz + \int\limits_{1}^{2} 2z^3 - z^4 dz \right]  = \pi \left[\left( \frac{z^5}{5} \; \, \Bigg|_{0}^{1} \right) +  \left( \frac{2 z^4}{4} - \frac{z^5}{5} \; \, \Bigg|_{1}^{2} \right)\right] = \\ \pi \cdot \left( \frac{1}{5} + 8 - \frac{32}{5} - \frac{1}{2} + \frac{1}{5} \right) = \boxed{\frac{3 \pi}{2}} \; . $
+     $\displaystyle \int\limits_{0}^{2} z^2 \; dz  \int\limits_{0}^{z} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi = 2 \pi \cdot
+     \int\limits_{0}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{z}  \right) = \pi \cdot \int\limits_{0}^{2} z^4 \; dz = \\ 
+     \pi \cdot \left( \frac{z^5}{5} \;  \Bigg|_{0}^{2}\right) = \boxed{\frac{32 \pi}{5}} \; . $
     
     \section*{Задайте в сферических координатах множество $D$, заданное неравенствами в декартовых координатах.
     Предполагая функцию $f$ непрерывной на $D$, преобразуйте интеграл в сферических координатах к повторному.}
