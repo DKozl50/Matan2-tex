@@ -322,7 +322,7 @@
      \; \, \Bigg|_{1}^{2} \right)\; du = \\ \boxed{\frac{5}{46} \cdot (3^{8/5} - 2^{8/5}) \cdot (1 - 2^{-6/5})} \; .$
     
     
-    \subsection*{Задача 12}
+        \subsection*{Задача 12}
     \begin{wrapfigure}{r}{0.4\textwidth}
     \begin{tikzpicture}[>=stealth]
         \draw[->] (-0.75,0) -- (5.1,0); % Ох
@@ -353,12 +353,13 @@
         & u = \dfrac{x^2}y \Rightarrow y = \dfrac{x^2}u \Rightarrow v = \dfrac{x^4}{u^2 x} = \dfrac{x^3}{u^2}
         \Rightarrow x = \sqrt[3]{u^2 v}, \; y = \sqrt[3]{\dfrac{u^4 v^2}{u^3}} = \sqrt[3]{u v^2} \\
         & J = \left|\begin{matrix} x_u & y_u \\ x_v & y_v \end{matrix}\right| = 
-        \left|\begin{matrix} \sqrt[3]{\dfrac{2v}{3u}} & \sqrt[3]{\dfrac{v^2}{3u^2}} \\[10 pt] \sqrt[3]{\dfrac{u^2}{3v^2}} & \sqrt[3]{\dfrac{2u}{3v}} \end{matrix}\right| = \sqrt[3]{\dfrac{4uv}{9uv}} - \sqrt[3]{\dfrac{u^2v^2}{9u^2v^2}} = \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \\
-        & I = \int\limits_1^2 du \int\limits_2^3 \dfrac{\sqrt[3]{u^4 v^2} \sin (uv)}{\sqrt[3]{uv^2}} \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) dv = 
-        \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 u\, du \int\limits_2^3 \sin (uv)\, dv = \\ 
-        & = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 u\, du \left( -\dfrac1u\, \cos(uv) \right) \Bigm|_2^3 
-        = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right)\int\limits_1^2 \left( \cos 2u - \cos 3u \right)\, du -\dfrac1u\, \cos(uv) \Bigm|_2^3 = \\
-        & = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) \left( \dfrac12\, \sin 2u - \dfrac13\, \sin 3u \right) \Bigm|_1^2 = \left( \sqrt[3]{\dfrac{4}{9}} - \sqrt[3]{\dfrac{1}{9}} \right) \left( \dfrac12 \left( \sin4 - \sin2 \right) - \dfrac13 \left( \sin6 -\sin3 \right) \right)
+        \left|\begin{matrix} \dfrac23 \sqrt[3]{\dfrac{v}{u}} & \dfrac13\sqrt[3]{\dfrac{v^2}{u^2}} \\[10 pt] \dfrac13\sqrt[3]{\dfrac{u^2}{v^2}} & \dfrac23\sqrt[3]{\dfrac{u}{v}} \end{matrix}\right| = \dfrac49\sqrt[3]{\dfrac{uv}{uv}} - \dfrac19\sqrt[3]{\dfrac{u^2v^2}{u^2v^2}} = \dfrac{4}{9} - \dfrac{1}{9} = \dfrac13 \\
+        & I = \int\limits_1^2 du \int\limits_2^3 \dfrac{\sqrt[3]{u^4 v^2} \sin (uv)}{\sqrt[3]{uv^2}} \cdot \dfrac13\, dv = 
+        \dfrac13 \int\limits_1^2 u\, du \int\limits_2^3 \sin (uv)\, dv = \\ 
+        & = \dfrac13 \int\limits_1^2 u\, du \left( -\dfrac1u\, \cos(uv) \right) \Bigm|_2^3 
+        = \dfrac13 \int\limits_1^2 \left( \cos 2u - \cos 3u \right)\, du -\dfrac1u\, \cos(uv) \Bigm|_2^3 = \\
+        & = \dfrac13  \left( \dfrac12\, \sin 2u - \dfrac13\, \sin 3u \right) \Bigm|_1^2 
+        = \dfrac13 \left( \dfrac12 \left( \sin4 - \sin2 \right) - \dfrac13 \left( \sin6 -\sin3 \right) \right)
     \end{flalign*}
     
     \section*{Задайте в цилиндрических координатах множество $D$, заданное неравенствами в декартовых
