@@ -115,35 +115,28 @@
     \[ \int\limits_{-4}^{4} dx \int\limits_{-\sqrt{16-x^2}}^{\sqrt{16-x^2}} dy \int\limits_{y^2}^{4} f(x, y, z)\, dz  \]
     
         
-    \subsection*{Задача 5}
+  \subsection*{Задача 5}
     
-    $D$ -- множество, лежащее в круге $x^2 + y^2 \leq 1$ вне кривой $r = \cos 3 \varphi.$
+    $x^2 + y^2 \geq 3 z^2, \; x^2 + y^2 - z^2 \leq 2. $
     
+    Проинтегрируем внешне по $z$. 
     
-    Для начала простое. $x^2 + y^2 \leq \iff r \leq 1 \implies r \in [0,1].$
+    $z = const \implies x^2 + y^2 \geq 3z^2, \; x^2 + y^2 \leq z^2 + 2.$
     
-    Теперь разберёмся с кривой $r  = \cos 3 \varphi$.
-    
-    Если $r \in [0,1], \; $ то $\cos 3 \varphi \in [0,1] \implies 3 \varphi \in \left[ -\frac{\pi}{2} + 2\pi n, \frac{\pi}{2} + 2\pi n \right].$
-    
-    \doublespacing $\begin{cases}
-    n = 0 \; \to \; \varphi \in \left[ -\frac{\pi}{6},  \frac{\pi}{6} \right];\\
-    n = 1\; \to \; \left[\frac{\pi}{2},  \frac{5\pi}{6} \right]; \\
-    n = 2\; \to \;  \left[ \frac{7\pi}{6},  \frac{3\pi}{2} \right]. \\
-    \end{cases}$
-    
-    Т.е. для точек кривой $\varphi \in  \left[ -\frac{\pi}{6},  \frac{\pi}{6} \right] \cup \left[\frac{\pi}{2},  \frac{5\pi}{6} \right]\cup \left[ \frac{7\pi}{6},  \frac{3\pi}{2} \right].$
+    Нам интересно примерно такое колечко:
     
     
-    \includegraphics[width=10cm, height=9cm]{./list25imgs/task 2.5.5.png}
+   \includegraphics[width=8.5cm, height=8cm]{list24imgs/task 2.4.3.png}
     
-    При  $\varphi \in  \left[ -\frac{\pi}{6},  \frac{\pi}{6} \right] \cup \left[\frac{\pi}{2},  \frac{5\pi}{6} \right]\cup \left[ \frac{7\pi}{6},  \frac{3\pi}{2} \right]$ радиус будет ограничен $\cos 3 \varphi;$ при остальных $\varphi$ радиус произвольный (в пределах круга).
+    Можно начать разбивать область интегрирования по $x$. Но мы ленивые. Поэтому просто вычтем из площади большей окружности площадь меньшей.
+    
+    Тогда внутри интеграла по $z$ появится $\displaystyle \int \limits_{-\sqrt{z^2 + 2}}^{\sqrt{z^2 + 2}} dx \int \limits_{-\sqrt{z^2 + 2 - x^2}}^{\sqrt{z^2 + 2 - x^2}} f dy - \int \limits_{-\sqrt{3z^2}}^{\sqrt{3z^2}} dx \int \limits_{-\sqrt{3z^2- x^2}}^{\sqrt{3z^2 - x^2}} f dy  .$
     
     
-    \singlespacing Мы готовы записать интеграл, не забываем указывать якобиан!
+    Для не-вырожденности множества, получаем условие $\sqrt{3z^2} \leq \sqrt{z^2 + 2} \iff 2z^2 \leq 2 \iff |z| \leq 1 \iff z \in [-1, 1].$
     
-    $\boxed{ \displaystyle \int\limits_{-\pi/6}^{\pi/6} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr + \int\limits_{\pi/6}^{\pi/2} d \varphi \int\limits_{0}^{1} r \cdot f \; dr + \int\limits_{\pi/2}^{5\pi/6} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr + \int\limits_{5\pi/6}^{7\pi/6} d \varphi \int\limits_{0}^{1} r \cdot f \; dr +
-    \int\limits_{7\pi/6}^{3\pi/2} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr +  \int\limits_{3\pi/2}^{11\pi/6} d \varphi \int\limits_{0}^{1} r \cdot f \; dr} $
+    
+    Итого $\displaystyle \int \limits_{-1}^{1} dz \left( \; \int \limits_{-\sqrt{z^2 + 2}}^{\sqrt{z^2 + 2}} dx \int \limits_{-\sqrt{z^2 + 2 - x^2}}^{\sqrt{z^2 + 2 - x^2}} f dy - \int \limits_{-\sqrt{3z^2}}^{\sqrt{3z^2}} dx \int \limits_{-\sqrt{3z^2- x^2}}^{\sqrt{3z^2 - x^2}} f dy  \right).$
     
     
     \subsection*{Задача 6}
