@@ -148,7 +148,37 @@
     \singlespacing Мы готовы записать интеграл, не забываем указывать якобиан!
     
     $\boxed{ \displaystyle \int\limits_{-\pi/6}^{\pi/6} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr + \int\limits_{\pi/2}^{5\pi/6} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr + 
-    \int\limits_{7\pi/6}^{3\pi/2} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr} \; $
+    \int\limits_{7\pi/6}^{3\pi/2} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr} \; $    
+    \subsection*{Задача 5}
+    
+    $D$ -- множество, лежащее в круге $x^2 + y^2 \leq 1$ вне кривой $r = \cos 3 \varphi.$
+    
+    
+    Для начала простое. $x^2 + y^2 \leq \iff r \leq 1 \implies r \in [0,1].$
+    
+    Теперь разберёмся с кривой $r  = \cos 3 \varphi$.
+    
+    Если $r \in [0,1], \; $ то $\cos 3 \varphi \in [0,1] \implies 3 \varphi \in \left[ -\frac{\pi}{2} + 2\pi n, \frac{\pi}{2} + 2\pi n \right].$
+    
+    \doublespacing $\begin{cases}
+    n = 0 \; \to \; \varphi \in \left[ -\frac{\pi}{6},  \frac{\pi}{6} \right];\\
+    n = 1\; \to \; \left[\frac{\pi}{2},  \frac{5\pi}{6} \right]; \\
+    n = 2\; \to \;  \left[ \frac{7\pi}{6},  \frac{3\pi}{2} \right]. \\
+    \end{cases}$
+    
+    Т.е. для точек кривой $\varphi \in  \left[ -\frac{\pi}{6},  \frac{\pi}{6} \right] \cup \left[\frac{\pi}{2},  \frac{5\pi}{6} \right]\cup \left[ \frac{7\pi}{6},  \frac{3\pi}{2} \right].$
+    
+    
+    \includegraphics[width=10cm, height=9cm]{./list25imgs/task 2.5.5.png}
+    
+    При  $\varphi \in  \left[ -\frac{\pi}{6},  \frac{\pi}{6} \right] \cup \left[\frac{\pi}{2},  \frac{5\pi}{6} \right]\cup \left[ \frac{7\pi}{6},  \frac{3\pi}{2} \right]$ радиус будет ограничен $\cos 3 \varphi;$ при остальных $\varphi$ радиус произвольный (в пределах круга).
+    
+    
+    \singlespacing Мы готовы записать интеграл, не забываем указывать якобиан!
+    
+    $\boxed{ \displaystyle \int\limits_{-\pi/6}^{\pi/6} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr + \int\limits_{\pi/6}^{\pi/2} d \varphi \int\limits_{0}^{1} r \cdot f \; dr + \int\limits_{\pi/2}^{5\pi/6} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr + \int\limits_{5\pi/6}^{7\pi/6} d \varphi \int\limits_{0}^{1} r \cdot f \; dr +
+    \int\limits_{7\pi/6}^{3\pi/2} d \varphi \int\limits_{\cos 3 \varphi}^{1} r \cdot f \; dr +  \int\limits_{3\pi/2}^{11\pi/6} d \varphi \int\limits_{0}^{1} r \cdot f \; dr} $
+    
     
     
     \subsection*{Задача 6}
