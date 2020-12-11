@@ -42,7 +42,19 @@
     
     % \subsection*{Задача 2}
     
-    % \subsection*{Задача 3}
+    \subsection*{Задача 3}
+    \begin{align*}
+        & (x^2 + y^2)^2 = xy \\
+        & \text{В полярных координатах: } x = r \cos \varphi, \, y = r \sin \varphi \\
+        & (x^2 + y^2)^2 = xy \; \Leftrightarrow \; r^4 = r^2 \sin\varphi \cos\varphi \; 
+        \Leftrightarrow \; r^2 = \dfrac12 \sin 2\varphi \; \Leftrightarrow \; \sin 2\varphi = 2r^2 \\
+        & r^2 \ge 0 \; \Rightarrow \; \sin 2\varphi \ge 0 \; \Rightarrow \; \varphi \in \left[ 0; \frac{\pi}2 \right] \cup \left[ \pi; \frac{3\pi}2 \right]\\
+        & \text{Площадь фигуры: } \\
+        & S = \dfrac12 \left( \int\limits_{0}^{\frac{\pi}2} r^2(\varphi)\, d\varphi + \int\limits_{\pi}^{\frac{3\pi}2} r^2(\varphi)\, d\varphi \right) = 
+         \dfrac12 \left( \int\limits_{0}^{\frac{\pi}2} \sin 2\varphi\, d\varphi + \int\limits_{\pi}^{\frac{3\pi}2} \sin 2\varphi\, d\varphi \right) = \\
+        & = -\dfrac14 \left( \cos 2\varphi \Bigm|_{0}^{\frac{\pi}2} + \cos 2\varphi \Bigm|_{\pi}^{\frac{3\pi}2} \right) = 
+        -\dfrac14 \left( -1 - 1 - 1 - 1 \right) = 1
+    \end{align*}
     
     % \subsection*{Задача 4}
     
