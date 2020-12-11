@@ -734,7 +734,10 @@
     % вопрос 21
     \subsection{21. Существование неглавной у. в. ф. [R, 49]}
 
-        \proposition{Существует \textbf{не}главная УВФ.}
+        \begin{proposition}
+            Существует \textbf{не}главная УВФ.
+        \end{proposition}
+
         \begin{proof}
         Пусть $U$ --- ГУВФ, а множество $Z = \{n \in \NN \mid U_n = \xi\}$. Тогда его дополнение
         
@@ -837,7 +840,34 @@
     
     % вопрос 4
     \subsection{Значение терма и формулы на наборе элементов структуры. Выразимые в структуре множества (отношения, функции, элементы). Примеры выразимых множеств. [MD] [F, с. 4]}
-    
+    \begin{proposition}[значение формулы на наборе элементов структуры]
+        Зафиксируем $(x_1, x_2, ..., x_n) \in Var^n$, $x_1, ..., x_n$ попарно различны. Если $FV(\varphi) \subseteq \{x_1, ..., x_n\}$, то в качестве упрощённой записи будем писать $\varphi(x_1, ..., x_n)$. Пусть $\overrightarrow{a} = (a_1, ..., a_n) \in M^n$, тогда
+        $$\forall \varphi(x_1, ..., x_n) \; \forall \overrightarrow{a} \; \forall \mathcal{\pi} \; \mathcal{M} \vDash \varphi(\overrightarrow{a}) \Leftrightarrow [\varphi]_{\mathcal{M}} (\pi_{x_1 \; x_2 \; ... \; x_n}^{a_1 \; a_2 \; ... \; a_n}) = 1$$
+    \end{proposition}
+
+    \begin{definition}
+        Формула $\varphi(x_1, ..., x_n) \in Fm_{\sigma}$ выражает отношение $X \subseteq M^n$ в интерпретации $\mathcal{M}$ сигнатуры $\sigma \Leftrightarrow \forall \overrightarrow{a} \in M^n \; (\mathcal{M} \vDash \varphi(\overrightarrow{a}) \Leftrightarrow \overrightarrow{a} \in X)$. (Тогда пишут ещё $\varphi^{\mathcal{M}} = X$).
+    \end{definition}
+
+    Примеры выразимых множеств: \\
+    \begin{enumerate}
+        \item[1)] Пусть есть $\mathcal{M} = (\mathbb{N}; =^{(2)}; +^{(2)})$. В $\mathcal{M}$ выразимы ($\Leftrightarrow \exists \varphi$, которая выражает) $\{0\} \subseteq \mathbb{N}'; \text{ЧЁТНОЕ} \subseteq \mathbb{N}; \leq, < \; \subseteq \mathbb{N}^2$ \\
+        \begin{itemize}
+            \item $\varphi_0(x) \eqcirc \forall y \; (x + y = y)$ \\
+            $\mathcal{M} \vDash \varphi_0(a) \Leftrightarrow a = 0 \Leftrightarrow a \in \{0\}$ \\
+            \item $\varphi_{\text{чётн.}}(x) \eqcirc \forall y \; (x = y + y)$ \\
+            $\mathcal{M} \vDash \varphi_{\text{чётн.}}(a) \Leftrightarrow a\text{ чётно} \Leftrightarrow a \in \text{ЧЁТНОЕ}$ \\
+            \item $\varphi_{\leq}(x, y) \eqcirc \forall z \; (x + z = y)$ \\
+            $\forall (a, b) \in \mathbb{N}^2 \; \mathcal{M} \vDash \varphi_{\leq}(a, b) \Leftrightarrow a \leq b$ \\
+            \item $\varphi_{<}(x, y) \eqcirc \varphi_{\leq}(x, y) \wedge \neg (x = y)$
+        \end{itemize}
+        \item[2)] В поле $\mathcal{R}$ выразимо отношение $\mathbb{R}_{\geq 0}$ \\
+        \begin{itemize}
+            \item $\varphi_{\geq 0}(x) = \exists y \; (y \cdot y = x)$ \\
+            $\forall a \in \mathbb{R} \; \mathcal{R} \vDash \varphi_{\geq 0}(a) \Leftrightarrow a \geq 0 \Leftrightarrow a \in \mathbb{R}_{\geq 0}$
+        \end{itemize}
+    \end{enumerate}
+
     % вопрос 5
     \subsection{Значение формулы при изоморфизме структур. Элементарная эквивалентность структур. Изоморфные структуры элементарно эквивалентны. [MD, 10.5]}
     
