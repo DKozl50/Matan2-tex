@@ -115,7 +115,31 @@
     $\dots \displaystyle 8 \int\limits_{-\pi /2}^{\pi/2} dt - \underbrace{2 \int\limits_{-\pi /2}^{\pi/2} \sin t \; dt}_{0} = \boxed{8 \pi} \; . $
     
     
-    % \subsection*{Задача 8}
+    
+    \subsection*{Задача 8}
+    
+    $\underline{x^2 + y^2 \leq 1, \; z \geq 0, \; x + y + z \leq 1}$
+    
+    $\bullet \; \; x^2 + y^2 \leq 1 \implies x \in \left[-\sqrt{1 - y^2}, \; \sqrt{1 - y^2}\right]; \; \; y \in [-1, \; 1].$\\
+    
+    $\bullet \; \; x + y + z \leq 1 \implies z \leq 1 - x - y. \; $ 
+    
+    $\bullet \; $ Также необходимо условие $x + y \leq 1$.
+    
+    При $y \in [-1, \, 0]$ оно соблюдается, в ином случае $x$ сверху придётся ограничить значением $1 - y$.
+    
+    \textit{Советую сделать сначала предыдущий номер, там подробно описана замена, которую я использую.}
+    
+    $\bullet \; \, S = \displaystyle \int\limits_{-1}^{0} dy \int\limits_{-\sqrt{1- y^2}}^{\sqrt{1- y^2}} dx \int\limits_{0}^{1 - x - y} dz + \displaystyle \int\limits_{0}^{1} dy \int\limits_{-\sqrt{1- y^2}}^{1 - y} dx \int\limits_{0}^{1 - x - y} dz =
+    2 \int\limits_{-1}^{0} (1- y) \sqrt{1- y^2} \; dy -
+    \underbrace{\int\limits_{-1}^{0} dy \int\limits_{-\sqrt{1- y^2}}^{\sqrt{1- y^2}} x\;  dx}_{0} + \\ 
+    \displaystyle \int\limits_{0}^{1} (1 - y) \left((1 - y) + \sqrt{1 - y^2} \right) \; dy  - \int\limits_{0}^{1} dy \int\limits_{-\sqrt{1- y^2}}^{1 - y} x\;  dx =
+    2 \int\limits_{-1}^{0}  \sqrt{1- y^2} \; dy  - 2 \int\limits_{-1}^{0} y \sqrt{1- y^2} \; dy + \\
+    +
+    \displaystyle \int\limits_{0}^{1}  \left(1 - 2y + y^2 \right) \; dy  + \int\limits_{0}^{1} (1 - y) \sqrt{1 - y^2}  \; dy  - \frac{1}{2} \int\limits_{0}^{1} 1 -2y + y^2 - 1 + y^2 \; \, dy  =
+    2 \int\limits_{-\pi/2}^{0}  dt  - 2 \int\limits_{-\pi/2}^{0} \sin t  \; dt + \\
+    +
+    \displaystyle \left(t - t^2 + \frac{t^3}{3} \; \; \Bigg|_{0}^{1}   \right) \;  + \int\limits_{0}^{1} \sqrt{1 - y^2}  \; dy   - \int\limits_{0}^{1} y \, \sqrt{1 - y^2}  \; dy - \frac{1}{2} \int\limits_{0}^{1}  -2y + 2y^2 \; \, dy = \pi + -2\left(  - \cos t \;\; \Big|_{-\pi/2}^{0 } \right) + \frac{1}{3} + \\ \int\limits_{0}^{\pi/2} dt - \int\limits_{0}^{\pi/2} \sin t \; dt + \int\limits_{0}^{1} y - y^2 \; \, dy = \pi + 2 + \frac{1}{3} + \frac{\pi}{2} + \left(\cos t \; \; \Bigg|_{0}^{\pi/2} \right) + \left(\frac{y^2}{2} - \frac{y^3}{3} \; \; \Bigg|_{0}^{1} \right) = \frac{3 \pi}{2} + 2 + \frac{1}{3} - 1 + \frac{1}{2} - \frac{1}{3} = \boxed{\frac{3 \pi}{2} +\frac{3}{2}} \, .$
     
     % \subsection*{Задача 9}
     
