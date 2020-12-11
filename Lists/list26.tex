@@ -94,7 +94,26 @@
     
     % \subsection*{Задача 6}
     
-    % \subsection*{Задача 7}
+      \subsection*{Задача 7}
+    
+    $\underline{x^2 + y^2 \leq 1, \; z \geq 0, \; x + y + z \leq 4}$
+    
+    $\bullet \; \; x^2 + y^2 \leq 1 \implies x \in \left[-\sqrt{1 - y^2}, \; \sqrt{1 - y^2}\right]; \; \; y \in [-1, \; 1].$\\
+    
+    $\bullet \; \; x + y + z \leq 4 \implies z \leq 4 - x - y. \; $ Условие $x + y \leq 4$ при данных ограничениях выполнено всегда.
+    
+    $S = \int\limits_{-1}^{1}  dy \int\limits_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}} dx \int\limits_{0}^{4 -x - y} dz =  \int\limits_{-1}^{1}  dy \int\limits_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}} 4 -x - y \; \;  dx =  \int\limits_{-1}^{1}  dy \int\limits_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}} 4 - y \; \; dx -  \underbrace{\int\limits_{-1}^{1}  dy \int\limits_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}} x \, \; dx}_{0} = \\
+    2 \int\limits_{-1}^{1}  \sqrt{1 - y^2} \cdot (4 - y) \;  dy = 
+    8 \int\limits_{-1}^{1}  \sqrt{1 - y^2}  \;  dy - 2 \int\limits_{-1}^{1}  \sqrt{1 - y^2} \cdot  y \;  dy .$
+    
+    Замена $\begin{cases}
+    t = \arcsin y;\\
+    t \in \left[-\pi/2 , \; \pi/2\right];\\
+    dt = \frac{dy}{\sqrt{1 - t^2}}
+    \end{cases}$
+    
+    $\dots \displaystyle 8 \int\limits_{-\pi /2}^{\pi/2} dt - \underbrace{2 \int\limits_{-\pi /2}^{\pi/2} \sin t \; dt}_{0} = \boxed{8 \pi} \; . $
+    
     
     % \subsection*{Задача 8}
     
