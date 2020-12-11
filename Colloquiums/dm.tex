@@ -1097,8 +1097,102 @@
     % Вопрос логика 8
     \subsection{Основные эквивалентности логики первого порядка [F, 24]. Замена подформулы на эквивалентную. [F, 26, 30]}
 
+    \subsubsection{Основные эквивалентности логики первого порядка}
+    Эквивалентности алгебры логики:
+    \begin{align}
+        \varphi \implies \psi &\equiv \neg \varphi \lor \psi, \\
+        \neg \varphi \implies \neg \psi &\equiv \psi \implies \varphi, \\
+        \neg (\varphi \implies \psi) &\equiv \varphi \land \neg \psi, \\
+        \neg \neg \varphi &\equiv \varphi, \\
+        \neg (\varphi \land \psi) &\equiv \neg \varphi \lor \neg \psi, \\
+        \neg (\varphi \lor \psi) &\equiv \neg \varphi \land \neg \psi, \\
+        \varphi \land (\psi \lor \theta) &\equiv  (\varphi \land \psi) \lor (\varphi \land \theta), \\
+        \varphi \lor (\psi \land \theta) &\equiv (\varphi \lor \psi) \land (\varphi \land \theta), \\
+        \varphi \land (\varphi \lor \psi) &\equiv \varphi, \\
+        \varphi \lor (\varphi \land \psi) &\equiv \varphi, \\
+        \varphi \land \psi &\equiv \psi \land \varphi, \\
+        \varphi \land \varphi &\equiv \varphi, \\
+        (\varphi \land \psi) \land \theta &\equiv \varphi \land (\psi \land \theta).
+    \end{align}
+    Последние три эквивалентности также верны, если $\land$ заменить на $\lor$.
+    Все эквивалентности доказываются по таблице истинности.
+
+    \begin{theorem}[Основные эквивалентности с кванторами]~
+        \begin{enumerate}
+            \item \begin{align}
+                \forall x (\varphi \land \psi) &\equiv \forall x \varphi \land \forall x \psi, \\
+                \exists x (\varphi \lor \psi) &\equiv \exists x \varphi \lor \exists x \psi.
+            \end{align}
+            \item Пусть $x \notin \text{FV}(\psi)$, тогда \begin{align}
+                \forall x (\varphi \land \psi) &\equiv \forall x \varphi \land \psi, \\
+                \exists x (\varphi \land \psi) &\equiv \exists x \varphi \land \psi, \\
+                \forall x (\varphi \lor \psi) &\equiv \forall x \varphi \lor \psi, \\
+                \exists x (\varphi \lor \psi) &\equiv \exists x \varphi \lor \psi.
+            \end{align}
+            \item \begin{align}
+                \neg \forall x \varphi &\equiv \exists x \neg \varphi, \\
+                \neg \exists x \varphi &\equiv \forall x \neg \varphi.
+            \end{align}
+        \end{enumerate}
+    \end{theorem}
+
+    Доказательство проводится за счет определения: постепенно превращаем 
+    это утверждение в утверждение про неформальные кванторы.
+    Проверим одно из них.
+
+    \begin{proof} {(2.2)}
+        Зафиксируем $\mathcal{M}$ и $\pi$.
+    
+
+        \begin{multline}
+            [\exists x (\varphi \land \psi)](\pi) = 1 \iff 
+            \exists m \in M~ [\varphi \land \psi]\left(\pi_{x}^{m}\right) = 1 \iff \\
+            \iff \exists m \in M~ \text{И}\left([\varphi]\left(\pi_{x}^{m}\right) = 1, [\psi]\left(\pi_{x}^{m}\right) = 1\right) \iff 
+            \exists m \in M~ \text{И}\left([\varphi]\left(\pi_{x}^{m}\right) = 1, [\psi]\left(\pi\right) = 1\right) \iff \\
+            \left( \exists m \in M~  [\varphi]\left(\pi_{x}^{m}\right) = 1\right) \text{ И } [\psi]\left(\pi\right) = 1 \iff
+            [\exists x \varphi](\pi) = 1 \text{ И } [\psi](\pi) = 1 \iff 
+            [\exists x \varphi \land \psi](\pi) = 1
+        \end{multline}
+
+        Сначала делаем переход по определению. Потом заменяем $\land$ на функцию И(). 
+        Затем заменяем для $\psi$ оценку с $\pi_{x}^{m}$ на $\pi$, так как их значения не 
+        отличаются на свободных переменных (была теорема, что в этом случае замена равносильна). 
+        Далее выносим $[\psi]\left(\pi\right)$, не зависящую от $m$. Оставшиеся переходы 
+        по определениям. 
+    \end{proof}
+
+    \begin{corollary}[Выразимость одного квантора через другой] \
+        \begin{enumerate}[topsep=0pt]
+            \item $\forall x \varphi \equiv \forall x \neg \neg \varphi \equiv \neg \exists x \neg \varphi.$
+            \item $\exists x \varphi \equiv \neg \forall x \neg \varphi.$
+        \end{enumerate}
+    \end{corollary}
+
+    \begin{corollary}
+        Пусть $x \notin \text{FV}(\psi)$, тогда
+        \begin{align}
+            \forall x (\varphi \implies \psi) &\equiv \exists x\varphi \implies \psi, \\
+            \exists x (\varphi \implies \psi) &\equiv \forall x\varphi \implies \psi, \\
+            \forall x (\psi \implies \varphi) &\equiv \psi \implies \forall \varphi, \\
+            \exists x (\psi \implies \varphi) &\equiv \psi \implies \exists \varphi.
+        \end{align}
+    \end{corollary}
+    
+    При вынесении квантора из посылки, он меняется на противоположный.
+    При вынесении квантора из заключения, он остается тем же.
+    
+    \begin{proof}
+        $\forall x (\varphi \implies \psi) \equiv \forall x (\neg \varphi \lor \psi)$.
+        Так как $x \notin \text{FV}(\psi)$, то
+        $$
+            \forall x (\neg \varphi \lor \psi) \equiv \forall x \neg \varphi \lor 
+            \psi \equiv \neg \exists \varphi \lor \psi \equiv \exists x \varphi 
+            \implies \psi.
+        $$
+    \end{proof}
+
     % Вопрос логика 9
-    \subsection{ Булевы комбинации формул. Булева функция, соответствующая булевой комбинации. Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
+    \subsection{Булевы комбинации формул. Булева функция, соответствующая булевой комбинации. Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
 
     % Вопрос логика 10
     \subsection{Лемма о корректной подстановке. [F, 73]}
