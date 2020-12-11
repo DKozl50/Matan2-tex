@@ -33,7 +33,8 @@
     % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
     Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
     % Даниэль Хайбулин      \\ \href{https://t.me/kiDaniel}{Telegram} \and
-    % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
+    % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram} \and
+    Оля Козлова \\ \href{https://t.me/grenlayk}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
@@ -47,6 +48,11 @@
 
 \begin{document}
     \maketitle
+
+    Спасибо команде \href{https://github.com/hse-tex/hse-tex}{hse-tex} 
+    и в частности Сергею Пилипенко за конспекты лекций. 
+
+    Спасибо Демиду Васильеву за предоставленные материалы по вычислимости.
 
     \tableofcontents
 
@@ -884,10 +890,306 @@
     \subsection{Значение формулы при изоморфизме структур. Сохранение выразимых множеств автоморфизмами структуры. Примеры невыразимых множеств. [MD, 10.5]}
 
     % Вопрос логика 7
-    \subsection{Эквивалентность формул первого порядка. [F, с. 4] Лемма о фиктивном кванторе. [F, 10] Общезначимые и выполнимые формулы. Квантор всеобщности и общезначимость. [F, 12]}
+    \subsection{Общезначимые и выполнимые формулы. [F, 12] Эквивалентность формул первого порядка. [F, с. 4] Лемма о фиктивном кванторе. [F, 10] Квантор всеобщности и общезначимость. [F, 12]}
+    
+    \subsubsection{Общезначимые и выполнимые формулы.}
+
+    Пусть фиксирована сигнатура $\sigma$. 
+    \begin{definition}
+        Формула $\varphi$ {\it общезначима}, если для любой интерпретации $\mathcal{M}$, для 
+        любой оценки переменных $\pi$ в этой самой интерпретации: $\text{Var} \to M$ 
+        $$
+            [\varphi]_{\mathcal{M}}(\pi) = 1.
+        $$
+        (Как ее ни интерпретируй, что с ней ни делай, будет принимать значение 1, 
+        которое всегда истинно.)
+    \end{definition}
+
+    \begin{example}
+        $$
+            \psi = Px \implies (\neg Px \implies Qyz)
+        $$
+        Если $Px$ ложь, то $\psi$ истинна, иначе получаем $\psi \colon 1 \implies 
+        (0 \implies *)$ --- тоже истина (запись варварская, ну и что?) $\implies 
+        \psi $ общезначима. 
+    \end{example}
+    % \begin{example}
+    %     $$
+    %         \phi = \forall x Px \implies \exists x Px.
+    %     $$
+    %     Ничего не зависит от $P$, то есть $\phi$ всегда верно, если $M \neq 
+    %     \varnothing$ (по определению $M$, это правда) $\implies \phi $ общезначима.
+    % \end{example}
+    \begin{example}
+        Рассмотрим формулу
+        $$
+            \varphi \eqcirc Px \lor \neg Qy.
+        $$
+        Положим $M = \NN$, $P^{\mathcal{M}} = Q^{\mathcal{M}} =$ 
+        ``равно 0'', $\pi(x) = 2020$, $\pi(y) = 0$.
+        Тогда значение $\varphi$ ложно $ \implies \varphi $ не общезначима.
+    \end{example}
+
+    \begin{definition}
+        Формула $\varphi$ {\it выполнима}, если существует интерпретация $\mathcal{M}$ 
+        и оценка $\pi$ такая, что
+        $$
+            [\varphi]_{\mathcal{M}}(\pi) = 1.
+        $$
+        Общезначимая формула истинна всегда, выполнимая истинна в каком-то случае.
+    \end{definition}
+
+    \begin{lemma}
+        Формула $\varphi$ общезначима $\iff$ $\neg \varphi$ не выполнима.
+    \end{lemma}
+
+    \begin{lemma}
+        Формула $\varphi$ выполнима $\iff$ $\neg \varphi$ не общезначима.
+    \end{lemma}
+
+    \subsubsection{Эквивалентность формул первого порядка.}
+
+    Формулы первого порядка --- формулы, в которых кванторы берутся только по элементам 
+    носителя.
+    \begin{example}
+        первый порядок: $\forall x \in M$, 
+        не первый порядок: $\forall y \subseteq M$
+    \end{example}
+
+    \begin{definition}
+        Формулы $\phi$ и $\psi$ (логически) эквивалентны, если для любой интерпретации
+        $\mathcal{M}$, для любой оценки $\pi$
+        $$
+            [\varphi]_{\mathcal{M}}(\pi) = [\psi]_{\mathcal{M}}(\pi).
+        $$
+    \end{definition}
+
+    \begin{lemma}
+        Определенная выше эквивалентность является отношением эквивалентности:
+        \begin{enumerate}[topsep=0pt]
+            \item $\varphi \equiv \varphi$;
+            \item $\varphi \equiv \psi \implies \psi \equiv \varphi$;
+            \item $\varphi \equiv \psi \land \psi \equiv \theta \implies \psi \equiv \theta$.
+        \end{enumerate}
+    \end{lemma}
+
+    \begin{lemma}[О конгруэнции отношения эквивалентности]
+        Если $\varphi \equiv \varphi^{\prime}$, то
+        \begin{itemize}[topsep=0pt]
+            \item $\neg \varphi \equiv \varphi^{\prime}$;
+            \item $\varphi \land \psi \equiv \varphi^{\prime} \land \psi$.
+            \item $\varphi \lor \psi \equiv \varphi^{\prime} \lor \psi$.
+            \item $\varphi \implies \psi \equiv \varphi^{\prime} \implies \psi$.
+            \item $\psi \implies \varphi \equiv \psi \implies \varphi^{\prime}$.
+            \item $\forall x \varphi \equiv \forall x \varphi^{\prime}$.
+            \item $\exists x \varphi \equiv \exists x \varphi^{\prime}$.
+        \end{itemize}
+        Так как значение сложной формулы определяется через значения ее подформул и 
+        для любой интерпретации $\mathcal{M}$, для любой оценки $\pi$ значение 
+        $\varphi$ можно заменить на значение $\varphi^{\prime}$.
+    \end{lemma}
+
+    \begin{proof}
+        Докажем одно из утверждений. 
+
+        $[\forall x \varphi]_{\mathcal{M}}(\pi) = 1 
+        \iff \forall m \in M~[\varphi]\left( \pi_{x}^{m} \right) = 1$, 
+        но $[\varphi]\left( \pi_{x}^{m} \right) = 
+        [\varphi^{\prime}]\left( \pi_{x}^{m} \right)$, тогда 
+        $[\varphi^{\prime}]\left( \pi_{x}^{m} \right) = 1$.
+    \end{proof}
+
+    \begin{lemma}
+        $\varphi \equiv \psi \iff $ общезначима формула
+        $$
+            (\varphi \implies \psi) \land (\psi \implies \varphi).
+        $$
+        Импликация истинна $\iff$ значение посылки не больше значения заключения, 
+        а в лемме сказано, что они одинаковы.
+    \end{lemma}
+    \begin{lemma}
+        Формула $\varphi$ общезначима тогда и только тогда, когда
+        $$
+            \varphi \equiv \top \ (\text{``заведомая истина''}).
+        $$
+    \end{lemma}
+
+    \begin{corollary}
+        Все общезначимые формулы эквивалентны друг другу.
+    \end{corollary}
+
+    \subsubsection{Лемма о фиктивном кванторе.}
+
+    \begin{lemma}[О фиктивном кванторе.]
+        Если $x \notin \text{FV}(\varphi)$, то $\forall x \varphi \equiv \varphi$.
+        Аналогично, $\exists \varphi \equiv \varphi$.
+    \end{lemma}
+
+    \begin{proof}
+        Рассмотрим произвольную интерпретацию $\mathcal{M}$ и оценку $\pi$. По определению: 
+        $$
+            [\forall x \varphi]_{\mathcal{M}}(\pi) = 1 \iff \forall m \in M~ [\varphi](\pi_{x}^{m}) = 1.
+        $$
+        где 
+        $$
+            \pi_{x}^{m}(z) = 
+            \begin{cases}
+                m, & y \eqcirc x,  \\
+                \pi(y), & y \not \eqcirc x.
+            \end{cases}
+        $$
+        Вспомним лемму о том, что $\forall z \in \text{FV}(\psi) \colon \pi_{1}(z) = 
+        \pi_{2}(z)$, то $[\psi]_{\mathcal{M}}(\pi_{1}) = [\psi]_{\mathcal{M}}(\pi_{2})$.
+        
+        Оценки $\pi_{x}^{m}$ и $\pi$ подходят под эту лемму, так как отличаются только в $x$, 
+        а $x \notin \text{FV}(\varphi)$. 
+
+        Тогда
+        $$
+            [\forall x \varphi]_{\mathcal{M}}(\pi) = 1 \iff \forall m \in M~ [\varphi](\pi_{x}^{m}) = 1 \iff
+            \forall m \in M~ [\varphi](\pi) = 1 \iff [\varphi](\pi) = 1
+        $$
+        Последний переход верен, так как значение $[\varphi](\pi)$ не зависит от $m$.
+    \end{proof}
+
+    \begin{corollary}
+        $\forall x \exists x \varphi \equiv \exists x \varphi$. 
+        (Так как $x \notin \text{FV}(\exists x \varphi)$.)
+    \end{corollary}
+
+
+    \subsubsection{Квантор всеобщности и общезначимость.}
+
+    \begin{lemma}
+        Формула $\varphi$ общезначима $\iff$ $\forall x \varphi$ общезначима.
+    \end{lemma}
+    
+    \begin{proof}~
+        \begin{description}
+            \item[$\implies$] Дано: $\forall \mathcal{M},~\forall \pi \colon [\varphi]_{\mathcal{M}}(\pi) = 1$.
+            Хотим доказать: $\forall \mathcal{M},~\forall \rho \colon [\forall x \varphi]_{\mathcal{M}}(\rho) = 1$.
+            Зафиксируем какие-то $\mathcal{M}$ и $\rho$, тогда
+            $$
+                [\forall x \varphi](\rho) = 1 \iff \forall m \in M~ [\varphi]\left(\rho_{x}^{m}\right) = 1.
+            $$
+            Последнее --- то, что мы хотим получить. Однако 
+            $$
+                ~\forall \pi \colon [\varphi]_{\mathcal{M}}(\pi) = 1 \implies
+                ~\forall \pi \colon \forall m \in M [\varphi]_{\mathcal{M}}(\pi) = 1 \implies
+                \forall m \in M [\varphi]_{\mathcal{M}}(\rho_{x}^{m}) = 1
+            $$
+            (Добавили квантор, который ничего не меняет и подставили $\pi = \rho_{x}^{m}$, получили
+            то, что хотели для выбранной $\rho$.)
+            
+            \item[$\impliedby$] Дано: $\forall \mathcal{M},~\forall \pi \colon [\forall\varphi]_{\mathcal{M}}(\pi) = 1$.
+            Хотим доказать: $\forall \mathcal{M},~\forall \rho \colon [\varphi]_{\mathcal{M}}(\rho) = 1$.
+
+            Зафиксируем какие-то $\mathcal{M}$ и $\rho$, тогда
+            $$
+                \forall \pi \colon [\forall\varphi]_{\mathcal{M}}(\pi) = 1 \iff
+                \forall \pi \colon \forall m \in M \colon [\varphi]_{\mathcal{M}}\left(\pi_{x}^{m}\right) = 1
+            $$
+            Возьмем $\pi = \rho$, $m = \rho(x)$, тогда $\pi_{x}^{m} = \rho_{x}^{\rho(x)} = \rho$. 
+            Получаем $[\varphi]_{\mathcal{M}}(\rho) = 1$.
+        \end{description}
+    \end{proof}
 
     % Вопрос логика 8
     \subsection{Основные эквивалентности логики первого порядка [F, 24]. Замена подформулы на эквивалентную. [F, 26, 30]}
+
+    \subsubsection{Основные эквивалентности логики первого порядка}
+    Эквивалентности алгебры логики:
+    \begin{align}
+        \varphi \implies \psi &\equiv \neg \varphi \lor \psi, \\
+        \neg \varphi \implies \neg \psi &\equiv \psi \implies \varphi, \\
+        \neg (\varphi \implies \psi) &\equiv \varphi \land \neg \psi, \\
+        \neg \neg \varphi &\equiv \varphi, \\
+        \neg (\varphi \land \psi) &\equiv \neg \varphi \lor \neg \psi, \\
+        \neg (\varphi \lor \psi) &\equiv \neg \varphi \land \neg \psi, \\
+        \varphi \land (\psi \lor \theta) &\equiv  (\varphi \land \psi) \lor (\varphi \land \theta), \\
+        \varphi \lor (\psi \land \theta) &\equiv (\varphi \lor \psi) \land (\varphi \land \theta), \\
+        \varphi \land (\varphi \lor \psi) &\equiv \varphi, \\
+        \varphi \lor (\varphi \land \psi) &\equiv \varphi, \\
+        \varphi \land \psi &\equiv \psi \land \varphi, \\
+        \varphi \land \varphi &\equiv \varphi, \\
+        (\varphi \land \psi) \land \theta &\equiv \varphi \land (\psi \land \theta).
+    \end{align}
+    Последние три эквивалентности также верны, если $\land$ заменить на $\lor$.
+    Все эквивалентности доказываются по таблице истинности.
+
+    \begin{theorem}[Основные эквивалентности с кванторами]~
+        \begin{enumerate}
+            \item \begin{align}
+                \forall x (\varphi \land \psi) &\equiv \forall x \varphi \land \forall x \psi, \\
+                \exists x (\varphi \lor \psi) &\equiv \exists x \varphi \lor \exists x \psi.
+            \end{align}
+            \item Пусть $x \notin \text{FV}(\psi)$, тогда \begin{align}
+                \forall x (\varphi \land \psi) &\equiv \forall x \varphi \land \psi, \\
+                \exists x (\varphi \land \psi) &\equiv \exists x \varphi \land \psi, \\
+                \forall x (\varphi \lor \psi) &\equiv \forall x \varphi \lor \psi, \\
+                \exists x (\varphi \lor \psi) &\equiv \exists x \varphi \lor \psi.
+            \end{align}
+            \item \begin{align}
+                \neg \forall x \varphi &\equiv \exists x \neg \varphi, \\
+                \neg \exists x \varphi &\equiv \forall x \neg \varphi.
+            \end{align}
+        \end{enumerate}
+    \end{theorem}
+
+    Доказательство проводится за счет определения: постепенно превращаем 
+    это утверждение в утверждение про неформальные кванторы.
+    Проверим одно из них.
+
+    \begin{proof} {(2.2)}
+        Зафиксируем $\mathcal{M}$ и $\pi$.
+    
+
+        \begin{multline}
+            [\exists x (\varphi \land \psi)](\pi) = 1 \iff 
+            \exists m \in M~ [\varphi \land \psi]\left(\pi_{x}^{m}\right) = 1 \iff \\
+            \iff \exists m \in M~ \text{И}\left([\varphi]\left(\pi_{x}^{m}\right) = 1, [\psi]\left(\pi_{x}^{m}\right) = 1\right) \iff 
+            \exists m \in M~ \text{И}\left([\varphi]\left(\pi_{x}^{m}\right) = 1, [\psi]\left(\pi\right) = 1\right) \iff \\
+            \left( \exists m \in M~  [\varphi]\left(\pi_{x}^{m}\right) = 1\right) \text{ И } [\psi]\left(\pi\right) = 1 \iff
+            [\exists x \varphi](\pi) = 1 \text{ И } [\psi](\pi) = 1 \iff 
+            [\exists x \varphi \land \psi](\pi) = 1
+        \end{multline}
+
+        Сначала делаем переход по определению. Потом заменяем $\land$ на функцию И(). 
+        Затем заменяем для $\psi$ оценку с $\pi_{x}^{m}$ на $\pi$, так как их значения не 
+        отличаются на свободных переменных (была теорема, что в этом случае замена равносильна). 
+        Далее выносим $[\psi]\left(\pi\right)$, не зависящую от $m$. Оставшиеся переходы 
+        по определениям. 
+    \end{proof}
+
+    \begin{corollary}[Выразимость одного квантора через другой] \
+        \begin{enumerate}[topsep=0pt]
+            \item $\forall x \varphi \equiv \forall x \neg \neg \varphi \equiv \neg \exists x \neg \varphi.$
+            \item $\exists x \varphi \equiv \neg \forall x \neg \varphi.$
+        \end{enumerate}
+    \end{corollary}
+
+    \begin{corollary}
+        Пусть $x \notin \text{FV}(\psi)$, тогда
+        \begin{align}
+            \forall x (\varphi \implies \psi) &\equiv \exists x\varphi \implies \psi, \\
+            \exists x (\varphi \implies \psi) &\equiv \forall x\varphi \implies \psi, \\
+            \forall x (\psi \implies \varphi) &\equiv \psi \implies \forall \varphi, \\
+            \exists x (\psi \implies \varphi) &\equiv \psi \implies \exists \varphi.
+        \end{align}
+    \end{corollary}
+    
+    При вынесении квантора из посылки, он меняется на противоположный.
+    При вынесении квантора из заключения, он остается тем же.
+    
+    \begin{proof}
+        $\forall x (\varphi \implies \psi) \equiv \forall x (\neg \varphi \lor \psi)$.
+        Так как $x \notin \text{FV}(\psi)$, то
+        $$
+            \forall x (\neg \varphi \lor \psi) \equiv \forall x \neg \varphi \lor 
+            \psi \equiv \neg \exists \varphi \lor \psi \equiv \exists x \varphi 
+            \implies \psi.
+        $$
+    \end{proof}
 
     % Вопрос логика 9
     \subsection{Булевы комбинации формул. Булева функция, соответствующая булевой комбинации. Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
