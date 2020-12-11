@@ -869,6 +869,48 @@
 
     % Вопрос логика 12
     \subsection*{Переименование связанной переменной (без доказательства). [F, 16] Теорема о предваренной нормальной форме. [F, 36]}
+    \begin{proposition}[Переименование связанных переменных]
+    	
+    	Если $y \notin V(\varphi)$, то $\begin{cases}
+    	\forall x \; \varphi \equiv \forall y \; \varphi(y/x) \\
+    	\exists x \; \varphi \equiv \exists y \; \varphi(y/x)
+    	\end{cases}$
+    \end{proposition}
+
+	\begin{theorem}
+		$\forall \varphi \in Fm \;\; \exists \text{(не единственная) предварённая } \varphi' \text{такая, что } \varphi \equiv \varphi'$. Такая $\varphi'$ называется предварённой нормальной формой формулы $\varphi$.
+	\end{theorem}
+
+	\textbf{Неформально:} в абсолютно любой формуле можно вынести кванторы наружу.
+	
+	\begin{proof}
+		Воспользуемся индукцией по построению $\varphi$.
+		
+		\textbf{База: } Если $\varphi = R(t_1..t_n)$ (то есть $\varphi$ атомарная), то $\varphi' = \varphi$ (сама уже предварённая). 
+		
+		\textbf{Шаг:}
+		\begin{itemize}
+		\item Если $\varphi = \forall x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \forall x \psi \equiv \forall x \psi' = \varphi'$. 
+		\item Если $\varphi = \exists x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \exists x \psi \equiv \exists x \psi' = \varphi'$. 
+		\item Если $\varphi = \neg \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$. Заметим, что $\psi'$ имеет вид $Q_1x_1..Q_nx_n \; \psi_0$, где $Q_1,..,Q_n$ --- кванторы, а $\psi_0$ атомарная.
+		
+		$\varphi = \neg \psi \equiv \neg \psi' = \neg Q_1x_1..Q_nx_n \; \psi_0 = \overline{Q_1}x_1..\overline{Q_n}x_n \; \neg \psi_0 = \varphi'$ (здесь $\overline{\forall} = \exists, \overline{\exists} = \forall)$.
+		\item $\varphi = \psi \wedge \theta$. По предположению индукции $\psi \equiv Q_1x_1..Q_nx_n \; \psi_0$, $\theta \equiv Q_1'y_1..Q_m'y_m \; \theta_0$
+		
+		$\varphi = Q_1x_1..Q_nx_n \; \psi_0 \wedge Q_1'y_1..Q_m'y_m \; \theta_0$. Пусть $z_1, .., z_n, w_1, .., w_m$ --- ''свежие''{} ($\notin V(\varphi)$) и различные между собой переменные. 
+		
+		Тогда по теореме о переименовании связанных переменных $\varphi \equiv  Q_1z_1..Q_nz_n \; \psi_0(z/x) \wedge Q_1'w_1..Q_m'w_m \; \theta_0(w/y) \equiv \\ \equiv Q_1z_1..Q_nz_n Q_1'w_1..Q_m'w_m \; \psi_0(z/x) \wedge \theta_0(w/y) = \varphi'$.
+		
+		Аналогично для остальных логических связок.
+		\end{itemize}
+	\end{proof}
+
+	\begin{example}
+		Приведем формулу $\neg \forall x Pxy \vee \exists y Qzxy$ к предварённой нормальной форме.
+		\begin{gather*}
+			\neg \forall x Pxy \vee \exists y Qzxy \implies \exists x \neg Pxy \vee \exists y Qzxy \implies \exists x' \neg Px'y \vee \exists y Qzxy \implies \\ \implies \exists x' (\neg Px'y \vee \exists y Qzxy) \implies \exists x' (\neg Px'y \vee \exists y' Qzxy') \implies \exists x' \exists y' (\neg Px'y \vee Qzxy')
+		\end{gather*}
+	\end{example}
 
     % Вопрос логика 13
     \subsection*{Понятие теории первого порядка. Примеры содержательных теорий. Модель теории. Семантическое (логическое) следование (для замкнутых формул) [ВШ-2, с. 187]}
