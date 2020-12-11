@@ -143,7 +143,36 @@
     
     % \subsection*{Задача 9}
     
-    % \subsection*{Задача 10}
+    \subsection*{Задача 10}
+    
+    $\underline{x \leq x^2 + y^2 \leq 2x, \; 0 \leq z \leq x^2 y^2}$
+    
+    $\bullet \; $ Циллиндрические координаты: $\begin{cases}
+    x = r \cos \varphi;\\
+    y = r \sin \varphi; \\
+    z = z
+    \end{cases}$
+    
+    $\bullet \; \, x \leq x^2 + y^2 \leq 2x \implies r \cos \varphi \leq r^2 \leq 2 r \cos \varphi \implies \cos \varphi \leq r \leq 2 \cos \varphi \implies \cos \varphi \geq 0 \implies \varphi \in \left[-\pi/2 ,\, \pi/2\right].$
+    
+    $\bullet \; \,$  $0 \leq z \leq x^2 y^2 = r^4 \cos^2 \varphi \, \sin^2 \varphi = \frac{r^4}{4} \sin^2 2 \varphi.$
+    
+    $\bullet \; \int\limits_{-\pi/2}^{\pi/2} d \varphi \int\limits_{\cos \varphi}^{2 \cos \varphi} dr \int\limits_{0}^{\frac{r^4}{4} \sin^2 2 \varphi} r \; dz = 
+    \int\limits_{-\pi/2}^{\pi/2} d \varphi \int\limits_{\cos \varphi}^{2 \cos \varphi} \frac{r^5}{4} \sin^2 2 \varphi \; dr  =
+    \int\limits_{-\pi/2}^{\pi/2}  \sin^2 2 \varphi \; d \varphi \int\limits_{\cos \varphi}^{2 \cos \varphi} \frac{r^5}{4} \; dr  = \frac{1}{4} \int\limits_{-\pi/2}^{\pi/2}  \sin^2 2 \varphi \; d \varphi \left(\frac{r^6}{6} \; \; \; \Bigg|_{\cos \varphi}^{2 \cos \varphi} \right) = \\
+    =  \frac{63}{24} \int\limits_{-\pi/2}^{\pi/2}  \sin^2 2 \varphi \, \cos^6 \varphi \; \ \; d \varphi = 
+      \frac{63}{24} \int\limits_{-\pi/2}^{\pi/2}  \left(\frac{1}{2} - \frac{1}{2} \cos 4 \varphi \right) \cdot \left(\frac{1}{2} + \frac{1}{2} \cos 2 \varphi \right)^3 \; \ \; d \varphi =
+      \frac{63}{24} \cdot \frac{1}{16} \int\limits_{-\pi/2}^{\pi/2} (1 - \cos 4 \varphi) \cdot (1 + \cos 2 \varphi)^3 \; d \varphi = \\
+      \frac{63}{24} \cdot \frac{1}{16} \int\limits_{-\pi/2}^{\pi/2} (1 - \cos 4 \varphi) \left(1 + 3 \cos 2 \varphi + 3 \left( \frac{1}{2} + \frac{1}{2} \cos 4 \varphi
+      \right) + \cos 2 \varphi \cdot \left( \frac{1}{2} + \frac{1}{2} \cos 4 \varphi
+      \right)  \right) \; d\varphi = \\
+      \frac{63}{24 \cdot 16} \left( \frac{5}{2} \cdot  \pi  -\frac{3}{2} \cdot  \frac{1}{2} \cdot \pi \right) =
+      \boxed{\frac{63}{24 \cdot 16} \cdot \frac{7}{4} \,  \pi} \; .$
+      
+      
+      \textbf{Как мы это получили:} воспользуемся периодичностью и поймём, что после подстановки все слагаемые обратятся в 0, за исключением $1 + \frac{3}{2}$,  что даёт вклад $\frac{5 }{2}; \; $ и $ \frac{-3}{2} \cdot \cos^2 4 \varphi = \frac{-3}{2} \left( \frac{1}{2} + \frac{1}{2} \cos 8 \varphi \right),$ что даёт вклад $\frac{-3}{2} \cdot \frac{1}{2}. $ \\ 
+      ($\cos 8 \varphi$ аналогично уходит по периодичности).
+      
     
     % \subsection*{Задача 11}
     
