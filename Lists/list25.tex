@@ -451,28 +451,32 @@
         2 \pi \frac{1}{8} = \frac{\pi}{4} 
     \end{flalign*}
     
-     \subsection*{Задача 16}
-     
-     $\displaystyle \iiint_{D} z^2 \; dxdydz, \; \; D = \{(x,y,z) \mid x^2 + y^2 + z^2 \geq 1, \; x^2 + y^2 + z^2 \leq 2z\}.$
-     
-     $\bullet$ Первое нер-во.
-     
-     $x^2 + y^2 + z^2 \geq 1 \iff r^2 \geq 1 \implies r \geq 1.$
-     
-     $\bullet$ Второе нер-во.
-     
-     $x^2 + y^2 + z^2 \leq 2z \implies$ как в номере $14$, $z \in [0,2];\; \, r \leq \min(z, \sqrt{2z-z^2}).$
-     
-     По $\varphi$ область не ограничена. Модуль якобиана равен $r$. Сразу вынесу все константы за интегралы:
-     
-     
-     $\displaystyle \int\limits_{0}^{1} z^2 \; dz  \int\limits_{0}^{z} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi
-     \; +
-     \displaystyle \int\limits_{1}^{2} z^2 \; dz  \int\limits_{0}^{\sqrt{2z - z^2}} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi= 2 \pi \cdot \left[
-     \int\limits_{0}^{1} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{z}  \right) + 
-     \int\limits_{1}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{\sqrt{2z- z^2}}  \right)  \right] =  \pi \left[ \int\limits_{0}^{1} z^4 dz + \int\limits_{1}^{2} 2z^3 - z^4 dz \right]  = \pi \left[\left( \frac{z^5}{5} \; \, \Bigg|_{0}^{1} \right) +  \left( \frac{2 z^4}{4} - \frac{z^5}{5} \; \, \Bigg|_{1}^{2} \right)\right] = \\ \pi \cdot \left( \frac{1}{5} + 8 - \frac{32}{5} - \frac{1}{2} + \frac{1}{5} \right) = \boxed{\frac{3 \pi}{2}} \; . $
-    
-    
+    \subsection*{Задача 16}
+
+    $\displaystyle \iiint_{D} z^2 \; dxdydz, \; \; D = \{(x,y,z) \mid x^2 + y^2 + z^2 \geq 1, \; x^2 + y^2 + z^2 \leq 2z\}.$
+
+    $\bullet$ Первое нер-во.
+
+    $x^2 + y^2 + z^2 \geq 1 \iff r^2 \geq 1 - z^2.$
+
+    Тогда при $|z| < 1$ верно $r \geq {\sqrt{1 - z^2}},$ иначе $r$ ограничен снизу  $0$.
+
+    $\bullet$ Второе нер-во.
+
+    $x^2 + y^2 + z^2 \leq 2z \implies  r \leq \sqrt{2z-z^2}.$
+
+    Каковы границы $z$? Из второго нер-ва $\implies z \in [0, \,2];$ также в силу $\sqrt{1 - z^2} \leq \sqrt{2z - z^2} $ при $z \leq 1 \implies 1 - z^2 \leq 2z - z^2 \implies z \geq \frac{1}{2}.$
+
+    По $\varphi$ область не ограничена. Модуль якобиана равен $r$. Сразу вынесу все константы за интегралы:
+
+
+    $\displaystyle \int\limits_{1/2}^{1} z^2 \; dz  \int\limits_{\sqrt{1 - z^2}}^{\sqrt{2z-z^2}} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi \; + 
+    \displaystyle \int\limits_{1}^{2} z^2 \; dz  \int\limits_{0}^{\sqrt{2z - z^2}} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi= 2 \pi \cdot \left[
+    \int\limits_{1/2}^{1} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{\sqrt{1 - z^2}}^{\sqrt{2z-z^2}}  \right) + 
+    \int\limits_{1}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{\sqrt{2z- z^2}}  \right)  \right] =  \pi \left[ \int\limits_{1/2}^{1} 2z^3 -z^2 \; dz + \int\limits_{1}^{2} 2z^3 - z^4 \; dz \right]  = \pi \left[\left( \frac{2z^4}{4} - \frac{z^3}{3} \; \, \Bigg|_{1/2}^{1} \right) +  \left( \frac{2 z^4}{4} - \frac{z^5}{5} \; \, \Bigg|_{1}^{2} \right)\right] = \\ \pi \cdot \left( \frac{1}{2} - \frac{1}{3} - \frac{1}{32} + \frac{1}{24} + 8 - \frac{32}{5} - \frac{1}{2} + \frac{1}{5} \right) = \boxed{\frac{709 \pi}{480}} \; . $
+
+
+
     \section*{Задайте в сферических координатах множество $D$, заданное неравенствами в декартовых координатах.
     Предполагая функцию $f$ непрерывной на $D$, преобразуйте интеграл в сферических координатах к повторному.}
     
@@ -593,51 +597,57 @@
     
     
     
-    \subsection*{Задача 20}
-    
+        \subsection*{Задача 20}
+
     $\iint_{D} z \; dxdydz, \; \; D = \left\{(x,y,z) \, \Big| \;  \frac{x^2}{4} + \frac{y^2 }{9} + z^2 \leq 1, \; z \geq 0 \right\} $
-    
+
     Сначала сделаю финт ушами, и заменю:
-    
+
     $
     \begin{cases}
-    x = 2 u;\\
-    y = 3 v;\\
-    z = w\\
+        x = 2 u;\\
+        y = 3 v;\\
+        z = w\\
     \end{cases}
     $
-    
+
     Ищем якобиан,
-    
-    $J =  \left| \begin{matrix} x_u & y_u & z_u \\ x_v & y_v & z_v \\  x_w & y_w & z_w  \end{matrix} \right| = 
-      \left| \begin{matrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\  0 & 0 & 1  \end{matrix} \right| = 6.$
-    
+
+    $J =  \left| \begin{matrix} x_u & y_u & z_u \\ x_v & y_v & z_v \\  x_w & y_w & z_w  \end{matrix} \right| = \left| \begin{matrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\  0 & 0 & 1  \end{matrix} \right| = 6.$
+
     Т.е. множитель $6$ мы добавим под интеграл в дальнейшем.
-    
+
     Теперь производим привычную замену на сферические координаты:
-    
-    
+
+
     $\begin{cases}
-    u = r \cos \varphi \sin \Theta;\\
-    v = r \sin \varphi \sin \Theta;\\
-    w = r  \cos \Theta\\
+        u = r \cos \varphi \sin \Theta;\\
+        v = r \sin \varphi \sin \Theta;\\
+        w = r  \cos \Theta\\
     \end{cases}$
-    
+
     $|J| = r^2 \sin \Theta$, это наряду с 6 появится под интегралом.
-    
+
     Теперь перепишем неравенства.
-    
+
     $\bullet \; \; \frac{x^2}{4} + \frac{y^2}{9} + z^2 \leq 1 \iff \frac{4 u^2}{4} + \frac{9 v^2}{9} + w^2 \leq 1 \iff r^2 \leq 1 \implies  \\ r \in [0, \, 1].$ 
-    
+
     $\bullet \; z \geq 0 \iff w \geq 0 \iff r \; \cos \Theta \geq 0 \implies \cos \Theta \geq 0 \implies \Theta \in \left[0, \frac{\pi}{2}\right].$
-    
+
     $f = z = w = r \cos \Theta.$
-    
+
     Всё, теперь пишем интеграл. На $\varphi$ ограничений нет. Сразу выносим константы.
-    
-    $\displaystyle \int\limits_{0}^{\pi / 2}  \cos \Theta \; d \Theta \int \limits_{0}^{1} r\;  dr \int\limits_{0}^{2 \pi} 1\;  d \varphi  =  \left( \sin \Theta \; \Bigg|_{0}^{\pi/2}\right) \cdot \left(\frac{r^2}{2} \;  \; \Bigg|_{0}^{1} \right) \cdot 2 \pi= \frac{2 \pi}{2} = \boxed{\pi} \; .$
-    
-    
+
+    $6  \displaystyle \int\limits_{0}^{\pi / 2}  \cos \Theta \sin \Theta \; d \Theta \int \limits_{0}^{1} r^3\;  dr \int\limits_{0}^{2 \pi} 1\;  d \varphi  = 
+     3 \int\limits_{0}^{\pi / 2}  \sin (2 \Theta) \; d \Theta \int \limits_{0}^{1} r^3\;  dr \int\limits_{0}^{2 \pi} 1\;  d \varphi.$
+ 
+    Замена $\begin{cases}
+        \gamma = 2 \Theta;\\
+        \gamma \in [0, \, \pi]; \; \; d \gamma = 2 d \Theta
+     \end{cases}$
+ 
+    $  = \left( -\cos \gamma \; \Bigg|_{0}^{\pi}\right) \cdot \left(\frac{r^4}{4} \;  \; \Bigg|_{0}^{1} \right) \cdot  \frac{3 \pi }{2} = \frac{3 \pi}{4}.$
+
     
     
     
