@@ -58,7 +58,25 @@
     
     % \subsection*{Задача 4}
     
-    % \subsection*{Задача 5}
+    \subsection*{Задача 5}
+    \begin{align*}
+        & (x^2 + y^2)^3 = x^4y \\
+        & \text{В полярных координатах: } x = r \cos \varphi, \, y = r \sin \varphi \\
+        & (x^2 + y^2)^3 = x^4y \; \Leftrightarrow \; r^6 = r^5 \sin\varphi \cos^4\varphi \; 
+        \Leftrightarrow \; r = \sin\varphi \cos^4\varphi \\
+        & r \ge 0, \cos^4\varphi \ge 0 \; \Rightarrow \; \sin\varphi = \dfrac{r}{\cos^4\varphi} \ge 0 \; \Rightarrow \; \varphi \in \left[ 0; \pi \right] \\
+        & \text{Площадь фигуры: } \\
+        & S = \dfrac12 \int\limits_{0}^{\pi} r^2(\varphi)\, d\varphi = 
+        \dfrac12 \int\limits_{0}^{\pi} \sin^2\varphi \cos^8\varphi\, d\varphi = 
+        \dfrac12 \int\limits_{0}^{\pi} (1 - \cos^2\varphi) \cos^8\varphi\, d\varphi = \\
+        & \dfrac12 \left( \int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi - \int\limits_{0}^{\pi} \cos^{10}\varphi\, d\varphi \right) =
+        \dfrac12 \left( \int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi - \dfrac{\cos^9\varphi \sin\varphi}{10} \Bigm|_{0}^{\pi} - \dfrac9{10}\int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi \right) = \\
+        & \dfrac1{20} \int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi = 
+        \dfrac1{20} \left( \dfrac{\cos^7\varphi \sin\varphi}8 \Bigm|_{0}^{\pi} + \dfrac78 \int\limits_{0}^{\pi} \cos^6\varphi\, d\varphi \right) = 
+        \dfrac7{160} \left( \dfrac{\cos^5\varphi \sin\varphi}6 \Bigm|_{0}^{\pi} + \dfrac56 \int\limits_{0}^{\pi} \cos^4\varphi\, d\varphi \right) = \\
+        & \dfrac7{192} \left( \dfrac{\cos^3\varphi \sin\varphi}4 \Bigm|_{0}^{\pi} + \dfrac34 \int\limits_{0}^{\pi} \cos^2\varphi\, d\varphi \right) = 
+        \dfrac7{256} \left( \dfrac{\cos\varphi \sin\varphi}2 \Bigm|_{0}^{\pi} + \dfrac12 \int\limits_{0}^{\pi} \varphi\, d\varphi \right) = \dfrac{7\pi}{512} \\
+    \end{align*}
     
     % \subsection*{Задача 6}
     
