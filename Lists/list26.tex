@@ -8,7 +8,7 @@
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
     % Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
     % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
-    % Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
+    Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
     Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
     % Ира Голобородько     \\ \href{https://t.me/Ira4kgl}{Telegram} \and
     % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
@@ -23,8 +23,7 @@
 \begin{document}
     \maketitle
     
-
-    Перейдя к полярным или обобщенным полярным координатам, вычислить площадь фигуры, ограниченной кривой.
+    \section*{Переходя к полярным или обощенным полярным координатам, вычислите площадь фигуры, ограниченной кривой.}
     \subsection*{Задача 1}
     \begin{align*}
         & (x^2 + y^2)^2 = 2x^3 \\
@@ -93,8 +92,10 @@
     \end{align*}
     
     % \subsection*{Задача 6}
+
+    \section*{Найдите объем тела, заданного неравенствами.}
     
-      \subsection*{Задача 7}
+    \subsection*{Задача 7}
     
     $\underline{x^2 + y^2 \leq 1, \; z \geq 0, \; x + y + z \leq 4}$
     
@@ -174,7 +175,34 @@
       ($\cos 8 \varphi$ аналогично уходит по периодичности).
       
     
-    % \subsection*{Задача 11}
+    \subsection*{Задача 11}
+    \begin{flalign*}
+        & x^2 + y^2 + z^2 \leq 3, \;\; x^2 + y^2 \leq 2z
+        \;\; \Rightarrow \;\;
+        r^2 \leq 3, \;\; r^2 \cos^2 \theta \leq 2 r \cos^2 \theta 
+        \;\; \Rightarrow \;\;
+        r \leq 2 \frac{\cos \theta}{\sin^2 \theta}, r \leq \sqrt{3}\\
+        & \text{Хотим найти пересечение параболоида и сферы для интегрирования} \\
+        & x^2 + y^2 + z^2 - 3 = x^2 + y^2 - 2z \;\; \Rightarrow \;\; z^2 + 2z - 3 = 0 \Rightarrow z = 1 
+        \textit{ отрицательные не подойдут } \Rightarrow \cos \theta = \frac{1}{\sqrt{3}} \\
+        & V = \int\limits_0^{2\pi} d \varphi \int\limits_0^{\arccos \frac{1}{\sqrt{3}}} \sin \theta d\theta 
+        \int\limits_0^{2 \frac{\cos \theta}{\sin^2 \theta}} r^2 dr + 
+        \int\limits_0^{2 \pi} d \varphi \int\limits_{\arccos \frac{1}{\sqrt{3}}}^{\frac{\pi}{2}} \sin \theta d \theta
+        \int\limits_0^{\sqrt{3}} r^2 dr = \\
+        & = 2 \pi \left(
+        \int\limits_0^{\arccos{\frac{1}{\sqrt{3}}}} \frac{8}{3} \frac{\cos^3 \theta}{\sin^6 \theta} \sin \theta d \theta +
+        \int\limits_{\arccos \frac{1}{\sqrt{3}}}^{\frac{\pi}{2}} \sqrt{3} \sin \theta d \theta
+        \right) = \left\{ \begin{array} {rl}
+            t & = \sin \theta \\
+            \cos^2 \theta & = 1 - t^2 \\
+            dt & = \cos \theta d\theta \\
+        \end{array}  \right\} = \\
+        & = 2 \pi \left( \frac{8}{3} \int\limits_0^{\arccos \frac{1}{\sqrt{3}}} \frac{1 - t^2}{t^5} dt + 
+        \sqrt{3} \left( 0 + \frac{1}{\sqrt{3}}  \right) 
+        \right) = \\
+        & = 2 \pi \left( 1 + 
+        \frac{8}{3} \left( - \frac{1}{6\arccos^6 \frac{1}{\sqrt{3}}} + \frac{1}{4 \arccos^4 \frac{1}{\sqrt{3}} }  \right)  \right) 
+    \end{flalign*}
     
     \subsection*{Задача 12}
     
