@@ -53,8 +53,7 @@
     $\bullet \; $ Кривая становится $r^6 = r^4 \cos ^4 \varphi  + r^4 \sin ^4 \varphi \iff r^2 = \cos^4 \varphi + \sin^4 \varphi = (\cos^2 \varphi + \sin^2 \varphi)^2 - 2 \cos^2 \varphi \, \sin^2 \varphi = \\ 1 - \frac{\sin^2 2 \varphi}{2} \implies r = \sqrt{1 - \frac{\sin^2 2 \varphi}{2}}.$
 
     $\bullet \; $ $\displaystyle S = \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{\sqrt{1 - \sin^2 2 \varphi/2}} \underbrace{r}_{\text{Якобиан}} \; dr = \int\limits_{0}^{2 \pi} \frac{1}{2} \cdot \left( 1 - \frac{\sin^2 2 \varphi}{2} \right) \; d \varphi = \frac{1}{2} \int \limits_{0}^{2 \pi} 1 -  \frac{(1/2 - 1/2 \cos 4 \varphi)}{2} = \frac{1}{4} \int \limits_{0}^{2 \pi} \frac{3}{2} + \frac{\cos 4 \varphi}{2} \; d \varphi  = \frac{3 \pi}{4} + \frac{1}{16} \int\limits_{0}^{8 \pi} \cos \Theta \; d \Theta =\boxed{ \frac{3 \pi}{4}} \; .$
-
-
+     
     \subsection*{Задача 3}
     \begin{align*}
         & (x^2 + y^2)^2 = xy \\
@@ -68,8 +67,43 @@
         & = -\dfrac14 \left( \cos 2\varphi \Bigm|_{0}^{\frac{\pi}2} + \cos 2\varphi \Bigm|_{\pi}^{\frac{3\pi}2} \right) =
         -\dfrac14 \left( -1 - 1 - 1 - 1 \right) = 1
     \end{align*}
+    
+    
+    \subsection*{Задача 4}
+    
+    $\underline{x^4 + y^4 = x^2 y}$
+    
+    $\bullet \; $ Видим, что $x^4 + y^4 \geq 0$ и $x^2 \geq 0 \implies y \geq 0.$
+    
+    $\bullet$ $x$ может быть любым. Однако кривая симметрична относительно $x$, поэтому можно посчитать интеграл из предположения $x \geq 0,$ а после удвоить его.
+    
+    $\bullet \; $ Получили ограничение на угол $\varphi \in [0, \pi/2].$
+    
+    \textbf{Обобщённые полярные координаты.}
+    
+    $\begin{cases}
+    x = r \cos^{\alpha} \varphi;\\
+    y = r \sin^{\alpha} \varphi;\\
+    J = r \cdot \alpha \cdot  \sin^{\alpha - 1} \varphi \cdot \cos^{\alpha - 1} \varphi
+    \end{cases}$
+    
+    Нам подходит $\alpha = \frac{1}{2}.$
+    
+    $\bullet \; $ В этом случае $x^4 + y^4 = r^4 = r^3 \cos \varphi \sqrt{\sin \varphi} \implies r = \cos \varphi \sqrt{\sin \varphi}.$ Нам интересны точки, т.ч. $r \in [0, \; \cos \varphi \sqrt{\sin \varphi}].$
+    
+    $\bullet \; S = 2 \cdot \int\limits_{0}^{\pi/2} d \varphi \int\limits_{0}^{\cos \varphi \sqrt{\sin \varphi}} \underbrace{\frac{r}{2 \sqrt{\sin \varphi \cos \varphi}}}_{\text{Якобиан}} = \frac{1}{2} \int\limits_{0}^{\pi/2} \frac{\cos^2 \varphi \cdot \sin \varphi}{\sqrt{\sin \varphi \cos \varphi}} \; d \varphi.$
+    
+    Замена $\begin{cases}
+    t = \sqrt{\tg \varphi}; \\
+    dt = \frac{d \varphi}{2 \cos^2 \varphi \; \sqrt{\tg \varphi}};\\
+    t \in [0, \; +\infty]
+    \end{cases}$
+    
+    $\dots = \int\limits_{0}^{+\infty} \frac{\cos^4 \varphi \sin \varphi \sqrt{\sin \varphi}}{\sqrt{\sin \varphi \cos \varphi} \cdot \sqrt{\cos \varphi}} \; dt = \int\limits_{0}^{+\infty} \cos^3  \varphi  \sin \varphi  \;  dt = 
+    \int\limits_{0}^{+\infty} \cos^4  \varphi  \tg \varphi   \;  dt = 
+    \int\limits_{0}^{+\infty} \cos^4  \varphi  \tg \varphi   \;  dt = \int\limits_{0}^{+\infty} \left( \frac{1}{1 + t^4}  \right)^2  t^2 \; dt = \\
+    \int\limits_{0}^{+\infty}  \frac{t^2}{1 + 2t^4 +  t^8}    \; dt. $
 
-    % \subsection*{Задача 4}
 
     \subsection*{Задача 5}
     \begin{align*}
