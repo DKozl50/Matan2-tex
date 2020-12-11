@@ -953,6 +953,63 @@
     \subsection{Исчисление резолюций для произвольных множеств формул. Теорема о коррект- ности.
         Теорема о полноте (без доказательства).}
 
+    В исчислении резолюций есть 2 правила.
+
+
+    \underline{Правило вывода (резолюции)}. $\boxed{\frac{\neg A \lor B \; \; \; A \lor C}{B \lor C} } $
+
+    Частный случай ПР -- вывод пустой дизъюнкции (лжи): $\frac{A \; \; \; \neg A}{\perp}.$
+
+
+
+    \underline{Правило подстановки.} $\boxed{\frac{\forall y A}{A(t/y)}} \; $, где $t$ -- произвольный терм, $A$ -- универсальна.
+
+
+    Говорят, что формула $\varphi$ \underline{выводится} из множества  формул $\Gamma$ в исчислении резолюций, если $\varphi$ возможно получить из формул в $\Gamma$, применяя к ним правило резолюции и правило подстановки какое-то конечное число раз.
+
+    Обозначение: $\Gamma \vdash \varphi.$
+
+    \underline{Корректность ПР}. $\forall M \; \forall \pi$ если $[\neg A \lor B]_M (\pi) = 1$  и $[ A \lor C]_M (\pi) = 1,$ то $[B \lor C]_M (\pi) = 1.$
+
+    Другими словами, импликация $( (\neg A \lor B) \land (A \lor C) \to (B \lor C) )$ общезначима.
+
+    \begin{proof} По контрапозиции.
+
+    $[B \lor C]_M (\pi) = 0 \implies \left([B]_M (\pi) = 0\right) \land \left([C]_M (\pi) = 0\right) \implies [\neg A \lor B]_M (\pi) = 0 \lor   [ A \lor C]_M (\pi) = 0 \implies$
+
+    $ \neg([\neg A \lor B]_M (\pi) = 1 \land   [ A \lor C]_M (\pi) = 1).$
+    \end{proof}
+
+
+    \underline{Корректность ПП.} Пусть $A$ -- универсальна.
+
+    $\forall M \; \forall \pi$ если $[ \, \forall y \,  A \, ]_M (\pi) = 1,$  то $[ \, A(t/y) \, ]_M (\pi) = 1.$
+
+    \begin{proof}
+    Допустим, $A \eqcirc \forall \, \overrightarrow{x} A_0$, где $A_0$ -- бескванторная формула.
+
+    $[\forall \, y \, \forall \, \overrightarrow{x} \, A_0 ]_M (\pi) = 1 \iff \forall \, a \in M \, \forall  \overrightarrow{b} \in M^n \;  \; [A_0] \left(\pi^{a \; \; \overrightarrow{b}}_{y \; \; \overrightarrow{x}} \right) = 1 \iff \forall  \overrightarrow{b} \in M^n \;   \forall \, a \in M  \;  \; [A_0] \left(\pi^{\overrightarrow{b} \; \; a}_{\overrightarrow{x} \; \; y} \right) = 1.$
+
+    Теперь положим $a := [ \, t \,]  \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right) \implies \forall \overrightarrow{b} \in M^n \; [A_0] \left( \pi_{\overrightarrow{x} \; \; \, y}^{\overrightarrow{b} \; \; \; [ \, t \,]  \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right)} \right) = 1. \; \; \circledast$
+
+    С другой стороны $[A(t/y)]_M(\pi) = 1 \iff [ \, \forall \overrightarrow{x} \; A_0 (t/y) \,  ]_M (\pi) = 1 \iff \forall \overrightarrow{b} \in M^n \; [ \, A_0(t/y) \, ]_M \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right) = 1.$
+
+    Так как в $A_0$  нет кванторов, $t-y-A_0.$ Тогда по лемме о корректной подстановке
+
+    $\forall \overrightarrow{b} \in M^n \; [ \, A_0(t/y) \, ]_M \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right) = 1 \iff \forall \overrightarrow{b} \in M^n \; [A_0] \left( \pi_{\overrightarrow{x} \; \; \, y}^{\overrightarrow{b} \; \; \; [ \, t \,]  \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right)} \right) = 1,$ что совпадает с  $\circledast.$ Равносильность доказана.
+
+    \end{proof}
+
+    \underline{Теорема о корректности.} Если $\Gamma \vdash \varphi,$ то $\Gamma \vDash \varphi.$
+
+    \begin{proof} Индукция по построению вывода в ИР.
+
+    Применяем утверждения о корректности ПП и ПР, доказанные выше.
+    \end{proof}
+
+    \underline{Теорема о полноте}. $\Delta$ -- набор формул в сигнатуре $\sigma$. Если $\Delta \nvdash \perp$, то $\exists M \, \exists \pi \; [\Delta]_M (\pi) = 1,$ причём $|M| \leq max(|\mathbb{N}|, \, | \sigma|). $
+
+
     % Вопрос логика 16
     \subsection{Исчисление резолюций для произвольных множеств формул. Теоремы о корректности и о полноте (обе без доказательства). Доказывание общезначимости и логического следования в теории с помощью исчисления резолюций. Пример применения исчисления резолюций (должны присутствовать формулы, не являющиеся универсальными дизъюнктами).}
 
