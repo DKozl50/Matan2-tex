@@ -104,6 +104,29 @@
     % Вопрос логика 9
 
     % Вопрос логика 10
+    \setcounter{section}{2}
+    \subsection*{10. Лемма о корректной постановке}
+    \begin{lemma}[73]
+        В любой интерпретации при любой оценке $\pi$ для всех $\varphi \in \text{Fm}_{\sigma}, \, t, s \in \text{Tm}_{\sigma}, \, x \in \text{Var}$, если $t-x-\varphi$, то \\[-10 pt]
+        \[ [s(t/x)](\pi) = [s](\pi + (x \to [t](\pi))) \text{ и } [\varphi(t/x)](\pi) = [\varphi](\pi + (x \to [t](\pi))). \]
+    \end{lemma}
+    
+    \begin{proof}
+        Так же, как при доказательстве леммы 18 (являющейся частным случаем данной) проведем индукцию по построению: пусть $s = z \ne x$, тогда $[s(t/x)](\pi) = \pi(z) = [s](\pi + (x \to [t](\pi)))$, если $е = x$, то $[s(t/x)](\pi) = [t](\pi) = [s](\pi + (x \to [t](\pi)))$. Случай $s = \F_i$ тривиален (значение $s$ --- константа, не зависящая от $x$).
+        
+        Если $s = \F_j(s_1, s_2, \ldots, s_{a_j})$, то по предположению индукции:
+        \begin{multline*}
+            [s(t/x)](\pi) = \F_j([s_1(t/x)](\pi), \ldots, [s_{a_j}(t/x)](\pi)) = \\
+            = \F_j([s_1](\pi + (x \to [t](\pi))), \ldots, [s_{a_j}](\pi + (x \to [t](\pi)))) = [s](\pi + (x \to [t](\pi)))
+        \end{multline*}
+        Случай $\varphi = \mathbbold{P}_i$ тривиален.
+        
+        Если $\varphi = \mathbbold{P}_j(s_1, t_2, \ldots, s_{a_j})$, то по предположению индукции:
+        \begin{multline*}
+            [\varphi(t/x)](\pi) = \mathbbold{P}_j([s_1(t/x)](\pi), \ldots, [s_{a_j}(t/x)](\pi)) = \\
+            = \mathbbold{P}_j([s_1](\pi + (x \to [t](\pi))), \ldots, [s_{a_j}](\pi + (x \to [t](\pi)))) = [\varphi](\pi + (x \to [t](\pi)))
+        \end{multline*}
+    \end{proof}
 
     % Вопрос логика 11
 
