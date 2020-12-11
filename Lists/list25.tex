@@ -451,28 +451,32 @@
         2 \pi \frac{1}{8} = \frac{\pi}{4} 
     \end{flalign*}
     
-     \subsection*{Задача 16}
-     
-     $\displaystyle \iiint_{D} z^2 \; dxdydz, \; \; D = \{(x,y,z) \mid x^2 + y^2 + z^2 \geq 1, \; x^2 + y^2 + z^2 \leq 2z\}.$
-     
-     $\bullet$ Первое нер-во.
-     
-     $x^2 + y^2 + z^2 \geq 1 \iff r^2 \geq 1 \implies r \geq 1.$
-     
-     $\bullet$ Второе нер-во.
-     
-     $x^2 + y^2 + z^2 \leq 2z \implies$ как в номере $14$, $z \in [0,2];\; \, r \leq \min(z, \sqrt{2z-z^2}).$
-     
-     По $\varphi$ область не ограничена. Модуль якобиана равен $r$. Сразу вынесу все константы за интегралы:
-     
-     
-     $\displaystyle \int\limits_{0}^{1} z^2 \; dz  \int\limits_{0}^{z} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi
-     \; +
-     \displaystyle \int\limits_{1}^{2} z^2 \; dz  \int\limits_{0}^{\sqrt{2z - z^2}} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi= 2 \pi \cdot \left[
-     \int\limits_{0}^{1} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{z}  \right) + 
-     \int\limits_{1}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{\sqrt{2z- z^2}}  \right)  \right] =  \pi \left[ \int\limits_{0}^{1} z^4 dz + \int\limits_{1}^{2} 2z^3 - z^4 dz \right]  = \pi \left[\left( \frac{z^5}{5} \; \, \Bigg|_{0}^{1} \right) +  \left( \frac{2 z^4}{4} - \frac{z^5}{5} \; \, \Bigg|_{1}^{2} \right)\right] = \\ \pi \cdot \left( \frac{1}{5} + 8 - \frac{32}{5} - \frac{1}{2} + \frac{1}{5} \right) = \boxed{\frac{3 \pi}{2}} \; . $
-    
-    
+    \subsection*{Задача 16}
+
+    $\displaystyle \iiint_{D} z^2 \; dxdydz, \; \; D = \{(x,y,z) \mid x^2 + y^2 + z^2 \geq 1, \; x^2 + y^2 + z^2 \leq 2z\}.$
+
+    $\bullet$ Первое нер-во.
+
+    $x^2 + y^2 + z^2 \geq 1 \iff r^2 \geq 1 - z^2.$
+
+    Тогда при $|z| < 1$ верно $r \geq {\sqrt{1 - z^2}},$ иначе $r$ ограничен снизу  $0$.
+
+    $\bullet$ Второе нер-во.
+
+    $x^2 + y^2 + z^2 \leq 2z \implies  r \leq \sqrt{2z-z^2}.$
+
+    Каковы границы $z$? Из второго нер-ва $\implies z \in [0, \,2];$ также в силу $\sqrt{1 - z^2} \leq \sqrt{2z - z^2} $ при $z \leq 1 \implies 1 - z^2 \leq 2z - z^2 \implies z \geq \frac{1}{2}.$
+
+    По $\varphi$ область не ограничена. Модуль якобиана равен $r$. Сразу вынесу все константы за интегралы:
+
+
+    $\displaystyle \int\limits_{1/2}^{1} z^2 \; dz  \int\limits_{\sqrt{1 - z^2}}^{\sqrt{2z-z^2}} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi \; + 
+    \displaystyle \int\limits_{1}^{2} z^2 \; dz  \int\limits_{0}^{\sqrt{2z - z^2}} r \; dr  \int\limits_{0}^{2 \pi} 1\;  d \varphi= 2 \pi \cdot \left[
+    \int\limits_{1/2}^{1} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{\sqrt{1 - z^2}}^{\sqrt{2z-z^2}}  \right) + 
+    \int\limits_{1}^{2} z^2 \; dz  \; \left( \frac{r^2}{2} \; \Bigg|_{0}^{\sqrt{2z- z^2}}  \right)  \right] =  \pi \left[ \int\limits_{1/2}^{1} 2z^3 -z^2 \; dz + \int\limits_{1}^{2} 2z^3 - z^4 \; dz \right]  = \pi \left[\left( \frac{2z^4}{4} - \frac{z^3}{3} \; \, \Bigg|_{1/2}^{1} \right) +  \left( \frac{2 z^4}{4} - \frac{z^5}{5} \; \, \Bigg|_{1}^{2} \right)\right] = \\ \pi \cdot \left( \frac{1}{2} - \frac{1}{3} - \frac{1}{32} + \frac{1}{24} + 8 - \frac{32}{5} - \frac{1}{2} + \frac{1}{5} \right) = \boxed{\frac{709 \pi}{480}} \; . $
+
+
+
     \section*{Задайте в сферических координатах множество $D$, заданное неравенствами в декартовых координатах.
     Предполагая функцию $f$ непрерывной на $D$, преобразуйте интеграл в сферических координатах к повторному.}
     
