@@ -25,7 +25,19 @@
     
     % \subsection*{Задача 1}
     
-    % \subsection*{Задача 2}
+    \subsection*{Задача 2}
+
+    $\underline{(x^2 + y^2)^3 = x^4 + y^4}$
+
+    $\bullet \; $ Используем пол. координаты: $\begin{cases}
+    x = r \cos \varphi;\\
+    y = r \sin \varphi \\
+    \end{cases}$
+
+
+    $\bullet \; $ Кривая становится $r^6 = r^4 \cos ^4 \varphi  + r^4 \sin ^4 \varphi \iff r^2 = \cos^4 \varphi + \sin^4 \varphi = (\cos^2 \varphi + \sin^2 \varphi)^2 - 2 \cos^2 \varphi \, \sin^2 \varphi = \\ 1 - \frac{\sin^2 2 \varphi}{2} \implies r = \sqrt{1 - \frac{\sin^2 2 \varphi}{2}}.$
+
+    $\bullet \; $ $\displaystyle S = \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{\sqrt{1 - \sin^2 2 \varphi/2}} \underbrace{r}_{\text{Якобиан}} \; dr = \int\limits_{0}^{2 \pi} \frac{1}{2} \cdot \left( 1 - \frac{\sin^2 2 \varphi}{2} \right) \; d \varphi = \frac{1}{2} \int \limits_{0}^{2 \pi} 1 -  \frac{(1/2 - 1/2 \cos 4 \varphi)}{2} = \frac{1}{4} \int \limits_{0}^{2 \pi} \frac{3}{2} + \frac{\cos 4 \varphi}{2} \; d \varphi  = \frac{3 \pi}{4} + \frac{1}{16} \int\limits_{0}^{8 \pi} \cos \Theta \; d \Theta =\boxed{ \frac{3 \pi}{4}} \; .$
     
     % \subsection*{Задача 3}
     
