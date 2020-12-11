@@ -231,7 +231,7 @@
         \end{proof}
 
         \begin{proposition}
-        Функция $f$ вычислима и тотальна $\iff \plot_f$ разрешим.
+        Функция $f$ вычислима и тотальна $\implies \plot_f$ разрешим.
         \end{proposition}
 
         \begin{proof}
@@ -255,15 +255,15 @@
         \end{gathered}
         \end{equation*}
 
-        \item[$\Longleftarrow$]
-        \begin{algorithmic}
-        \ENSURE $f(x)$
-            \FORALL{$y \in \NN$}
-                \IF{$\chi_{\plot_f}((x, y))$}
-                    \RETURN $y$
-                \ENDIF
-            \ENDFOR
-        \end{algorithmic}
+        % \item[$\Longleftarrow$]
+        % \begin{algorithmic}
+        % \ENSURE $f(x)$
+        %     \FORALL{$y \in \NN$}
+        %         \IF{$\chi_{\plot_f}((x, y))$}
+        %             \RETURN $y$
+        %         \ENDIF
+        %     \ENDFOR
+        % \end{algorithmic}
         \end{enumerate}
         \end{proof}
 
