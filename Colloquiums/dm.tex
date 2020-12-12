@@ -1474,31 +1474,35 @@
         \end{cases}$
     \end{proposition}
 
+    \begin{definition}
+        Формула $\varphi$ называется \textit{предварённой} или \textit{пренексной}, если $\varphi = Q_1y_1...Q_ny_n \: \psi$, где $Q_1,..Q_n$ --- некоторые кванторы, а $\psi$ --- бескванторная формула.
+    \end{definition}
+
     \begin{theorem}
-        $\forall \varphi \in Fm \;\; \exists \text{(не единственная) предварённая } \varphi' \text{такая, что } \varphi \equiv \varphi'$. Такая $\varphi'$ называется предварённой нормальной формой формулы $\varphi$.
+        $\forall \varphi \in Fm \;\; \exists \text{(не обязательно единственная) предварённая } \varphi' \text{такая, что } \varphi \equiv \varphi'$. Такая $\varphi'$ называется предварённой нормальной формой формулы $\varphi$.
     \end{theorem}
-
+\vspace{-\baselineskip}
     \textbf{Неформально:} в абсолютно любой формуле можно вынести кванторы наружу.
-
+\vspace{-\baselineskip}
     \begin{proof}
         Воспользуемся индукцией по построению $\varphi$.
-
-        \textbf{База: } Если $\varphi = R(t_1..t_n)$ (то есть $\varphi$ атомарная), то $\varphi' = \varphi$ (сама уже предварённая).
-
+        
+        \textbf{База: } Если $\varphi = R(t_1..t_n)$ (то есть $\varphi$ атомарная), то $\varphi' = \varphi$ (сама уже предварённая). 
+        
         \textbf{Шаг:}
         \begin{itemize}
-        \item Если $\varphi = \forall x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \forall x \psi \equiv \forall x \psi' = \varphi'$.
-        \item Если $\varphi = \exists x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \exists x \psi \equiv \exists x \psi' = \varphi'$.
-        \item Если $\varphi = \neg \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$. Заметим, что $\psi'$ имеет вид $Q_1x_1..Q_nx_n \; \psi_0$, где $Q_1,..,Q_n$ --- кванторы, а $\psi_0$ атомарная.
-
+        \item Если $\varphi = \forall x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \forall x \psi \equiv \forall x \psi' = \varphi'$. 
+        \item Если $\varphi = \exists x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \exists x \psi \equiv \exists x \psi' = \varphi'$. 
+        \item Если $\varphi = \neg \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$. Заметим, что $\psi'$ имеет вид $Q_1x_1..Q_nx_n \; \psi_0$, где $Q_1,..,Q_n$ --- кванторы, а $\psi_0$ бескванторная.
+        
         $\varphi = \neg \psi \equiv \neg \psi' = \neg Q_1x_1..Q_nx_n \; \psi_0 = \overline{Q_1}x_1..\overline{Q_n}x_n \; \neg \psi_0 = \varphi'$ (здесь $\overline{\forall} = \exists, \overline{\exists} = \forall)$.
         \item $\varphi = \psi \wedge \theta$. По предположению индукции $\psi \equiv Q_1x_1..Q_nx_n \; \psi_0$, $\theta \equiv Q_1'y_1..Q_m'y_m \; \theta_0$
-
-        $\varphi = Q_1x_1..Q_nx_n \; \psi_0 \wedge Q_1'y_1..Q_m'y_m \; \theta_0$. Пусть $z_1, .., z_n, w_1, .., w_m$ --- ''свежие''{} ($\notin V(\varphi)$) и различные между собой переменные.
-
+        
+        $\varphi = Q_1x_1..Q_nx_n \; \psi_0 \wedge Q_1'y_1..Q_m'y_m \; \theta_0$. Пусть $z_1, .., z_n, w_1, .., w_m$ --- ''свежие''{} ($\notin V(\varphi)$) и различные между собой переменные. 
+        
         Тогда по теореме о переименовании связанных переменных $\varphi \equiv  Q_1z_1..Q_nz_n \; \psi_0(z/x) \wedge Q_1'w_1..Q_m'w_m \; \theta_0(w/y) \equiv \\ \equiv Q_1z_1..Q_nz_n Q_1'w_1..Q_m'w_m \; \psi_0(z/x) \wedge \theta_0(w/y) = \varphi'$.
-
-        Аналогично для остальных логических связок.
+        
+        Аналогичные рассуждения можно применить для остальных логических связок.
         \end{itemize}
     \end{proof}
 
@@ -1565,8 +1569,32 @@
         \end{example}
         
     % Вопрос логика 14
-    \subsection{Сколемизация предваренной формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
+    \subsection{Сколемизация предварённой формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
 
+    \begin{definition}
+        \textit{Сколемизацией} предварённой формулы называется преобразование следующего вида:
+        \[
+        \forall \overrightarrow{x} \: \exists y \: \varphi \rightarrow_S \forall \overrightarrow{x} \: \varphi\left(f(\overrightarrow{x})/y\right)
+        \]
+    \end{definition}
+    \vspace{-\baselineskip}
+    \textbf{Неформально:} мы заменяем одну переменную под квантором существования на функцию от переменных под кванторами всеобщности. \\
+
+    \begin{definition}
+        Предварённая формула $\varphi'$ --- \textit{сколемовская нормальная форма} предварённой формулы $\varphi$, если:
+        \vspace{-\baselineskip}
+        \begin{enumerate}
+            \item в $\varphi'$ нет кванторов существования;
+            \item $\varphi \rightarrow_S \varphi_1 \rightarrow_S ... \rightarrow_S \varphi_n \rightarrow_S \varphi'$ (обозначается $\varphi \twoheadrightarrow_S \varphi'$), то есть $\varphi'$ получается из $\varphi$ цепочкой сколемизаций. \\
+        \end{enumerate} 
+    \end{definition}
+
+    \begin{fact}
+        Если $\varphi \twoheadrightarrow_S \varphi'$, то $\varphi$ выполнима $\iff$ $\varphi'$ выполнима.
+    \end{fact}
+
+    \textit{Здесь должна быть теорема о равновыполнимости.}
+    
     % Вопрос логика 15
     \subsection{Исчисление резолюций для произвольных множеств формул. Теорема о коррект- ности.
         Теорема о полноте (без доказательства).}
