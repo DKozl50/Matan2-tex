@@ -1242,9 +1242,9 @@
 	\begin{theorem}
 		$\forall \varphi \in Fm \;\; \exists \text{(не обязательно единственная) предварённая } \varphi' \text{такая, что } \varphi \equiv \varphi'$. Такая $\varphi'$ называется предварённой нормальной формой формулы $\varphi$.
 	\end{theorem}
-
+\vspace{-\baselineskip}
 	\textbf{Неформально:} в абсолютно любой формуле можно вынести кванторы наружу.
-	
+\vspace{-\baselineskip}
 	\begin{proof}
 		Воспользуемся индукцией по построению $\varphi$.
 		
@@ -1263,7 +1263,7 @@
 		
 		Тогда по теореме о переименовании связанных переменных $\varphi \equiv  Q_1z_1..Q_nz_n \; \psi_0(z/x) \wedge Q_1'w_1..Q_m'w_m \; \theta_0(w/y) \equiv \\ \equiv Q_1z_1..Q_nz_n Q_1'w_1..Q_m'w_m \; \psi_0(z/x) \wedge \theta_0(w/y) = \varphi'$.
 		
-		Аналогично для остальных логических связок.
+		Аналогичные рассуждения можно применить для остальных логических связок.
 		\end{itemize}
 	\end{proof}
 
@@ -1278,8 +1278,30 @@
     \subsection{Понятие теории первого порядка. Примеры содержательных теорий. Модель теории. Семантическое (логическое) следование (для замкнутых формул) [ВШ-2, с. 187]}
 
     % Вопрос логика 14
-    \subsection{Сколемизация предваренной формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
+    \subsection{Сколемизация предварённой формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
 
+	\begin{definition}
+		\textit{Сколемизацией} предварённой формулы называется преобразование следующего вида:
+		\[
+		\forall \overrightarrow{x} \: \exists y \: \varphi \rightarrow_S \forall \overrightarrow{x} \: \varphi\left(f(\overrightarrow{x})/y\right)
+		\]
+	\end{definition}
+	\vspace{-\baselineskip}
+	\textbf{Неформально:} мы заменяем одну переменную под квантором существования на функцию от переменных под кванторами всеобщности. \\
+
+	\begin{definition}
+		Предварённая формула $\varphi'$ --- \textit{сколемовская нормальная форма} предварённой формулы $\varphi$, если:
+		\vspace{-\baselineskip}
+		\begin{enumerate}
+			\item в $\varphi'$ нет кванторов существования;
+			\item $\varphi \rightarrow_S \varphi_1 \rightarrow_S ... \rightarrow_S \varphi_n \rightarrow_S \varphi'$ (обозначается $\varphi \twoheadrightarrow_S \varphi'$), то есть $\varphi'$ получается из $\varphi$ цепочкой сколемизаций. \\
+		\end{enumerate} 
+	\end{definition}
+
+	\begin{fact}
+		Если $\varphi \twoheadrightarrow_S \varphi'$, то $\varphi$ выполнима $\iff$ $\varphi'$ выполнима.
+	\end{fact}
+	
     % Вопрос логика 15
     \subsection{Исчисление резолюций для произвольных множеств формул. Теорема о коррект- ности.
         Теорема о полноте (без доказательства).}
