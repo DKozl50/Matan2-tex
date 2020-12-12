@@ -8,9 +8,9 @@
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
     % Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
     % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
-    % Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
+    Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
     Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
-    % Ира Голобородько     \\ \href{https://t.me/Ira4kgl}{Telegram} \and
+    Ира Голобородько     \\ \href{https://t.me/Ira4kgl}{Telegram} \and
     % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
     % Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
     % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
@@ -22,25 +22,24 @@
 
 \begin{document}
     \maketitle
-    
 
-    Перейдя к полярным или обобщенным полярным координатам, вычислить площадь фигуры, ограниченной кривой.
+    \section*{Переходя к полярным или обощенным полярным координатам, вычислите площадь фигуры, ограниченной кривой.}
     \subsection*{Задача 1}
     \begin{align*}
         & (x^2 + y^2)^2 = 2x^3 \\
         & \text{В полярных координатах: } x = r \cos \varphi, \, y = r \sin \varphi, |J| = r \\
-        & (x^2 + y^2)^2 = 2x^3 \; \Leftrightarrow \; r^4 = 2r^3 \cos^3 \varphi \; 
+        & (x^2 + y^2)^2 = 2x^3 \; \Leftrightarrow \; r^4 = 2r^3 \cos^3 \varphi \;
         \Leftrightarrow \; r = 2\cos^3\varphi \; \Leftrightarrow \; \cos \varphi = \sqrt[3]{\dfrac{r}2} \\
         & r \ge 0 \; \Rightarrow \; \cos \varphi \ge 0 \; \Rightarrow \; \varphi \in \left[ -\frac{\pi}2; \frac{\pi}2 \right] \\
         & \text{Площадь фигуры: } \\
-        & S = \dfrac12 \int\limits_{-\frac{\pi}2}^{\frac{\pi}2} r^2(\varphi)\, d\varphi = 
-        \dfrac12 \int\limits_{-\frac{\pi}2}^{\frac{\pi}2} 4\cos^6\varphi\, d\varphi = 
+        & S = \dfrac12 \int\limits_{-\frac{\pi}2}^{\frac{\pi}2} r^2(\varphi)\, d\varphi =
+        \dfrac12 \int\limits_{-\frac{\pi}2}^{\frac{\pi}2} 4\cos^6\varphi\, d\varphi =
         2 \int\limits_{-\frac{\pi}2}^{\frac{\pi}2} \cos^6\varphi\, d\varphi =
         \dfrac{\cos^5\varphi \sin\varphi}3 \Bigm|_{-\frac{\pi}2}^{\frac{\pi}2} + \dfrac53 \int\limits_{-\frac{\pi}2}^{\frac{\pi}2} \cos^4\varphi\, d\varphi = \\
         & = \dfrac{5\cos^3\varphi \sin\varphi}{12} \Bigm|_{-\frac{\pi}2}^{\frac{\pi}2} + \dfrac54 \int\limits_{-\frac{\pi}2}^{\frac{\pi}2} \cos^2\varphi\, d\varphi =
         \dfrac{5\cos\varphi \sin\varphi}{8} \Bigm|_{-\frac{\pi}2}^{\frac{\pi}2} + \dfrac58 \int\limits_{-\frac{\pi}2}^{\frac{\pi}2} d\varphi = \dfrac{5\pi}8
     \end{align*}
-    
+
     \subsection*{Задача 2}
 
     $\underline{(x^2 + y^2)^3 = x^4 + y^4}$
@@ -54,51 +53,185 @@
     $\bullet \; $ Кривая становится $r^6 = r^4 \cos ^4 \varphi  + r^4 \sin ^4 \varphi \iff r^2 = \cos^4 \varphi + \sin^4 \varphi = (\cos^2 \varphi + \sin^2 \varphi)^2 - 2 \cos^2 \varphi \, \sin^2 \varphi = \\ 1 - \frac{\sin^2 2 \varphi}{2} \implies r = \sqrt{1 - \frac{\sin^2 2 \varphi}{2}}.$
 
     $\bullet \; $ $\displaystyle S = \int\limits_{0}^{2 \pi} d \varphi \int\limits_{0}^{\sqrt{1 - \sin^2 2 \varphi/2}} \underbrace{r}_{\text{Якобиан}} \; dr = \int\limits_{0}^{2 \pi} \frac{1}{2} \cdot \left( 1 - \frac{\sin^2 2 \varphi}{2} \right) \; d \varphi = \frac{1}{2} \int \limits_{0}^{2 \pi} 1 -  \frac{(1/2 - 1/2 \cos 4 \varphi)}{2} = \frac{1}{4} \int \limits_{0}^{2 \pi} \frac{3}{2} + \frac{\cos 4 \varphi}{2} \; d \varphi  = \frac{3 \pi}{4} + \frac{1}{16} \int\limits_{0}^{8 \pi} \cos \Theta \; d \Theta =\boxed{ \frac{3 \pi}{4}} \; .$
-
-    
+     
     \subsection*{Задача 3}
     \begin{align*}
         & (x^2 + y^2)^2 = xy \\
         & \text{В полярных координатах: } x = r \cos \varphi, \, y = r \sin \varphi \\
-        & (x^2 + y^2)^2 = xy \; \Leftrightarrow \; r^4 = r^2 \sin\varphi \cos\varphi \; 
+        & (x^2 + y^2)^2 = xy \; \Leftrightarrow \; r^4 = r^2 \sin\varphi \cos\varphi \;
         \Leftrightarrow \; r^2 = \dfrac12 \sin 2\varphi \; \Leftrightarrow \; \sin 2\varphi = 2r^2 \\
         & r^2 \ge 0 \; \Rightarrow \; \sin 2\varphi \ge 0 \; \Rightarrow \; \varphi \in \left[ 0; \frac{\pi}2 \right] \cup \left[ \pi; \frac{3\pi}2 \right]\\
         & \text{Площадь фигуры: } \\
-        & S = \dfrac12 \left( \int\limits_{0}^{\frac{\pi}2} r^2(\varphi)\, d\varphi + \int\limits_{\pi}^{\frac{3\pi}2} r^2(\varphi)\, d\varphi \right) = 
+        & S = \dfrac12 \left( \int\limits_{0}^{\frac{\pi}2} r^2(\varphi)\, d\varphi + \int\limits_{\pi}^{\frac{3\pi}2} r^2(\varphi)\, d\varphi \right) =
          \dfrac12 \left( \int\limits_{0}^{\frac{\pi}2} \sin 2\varphi\, d\varphi + \int\limits_{\pi}^{\frac{3\pi}2} \sin 2\varphi\, d\varphi \right) = \\
-        & = -\dfrac14 \left( \cos 2\varphi \Bigm|_{0}^{\frac{\pi}2} + \cos 2\varphi \Bigm|_{\pi}^{\frac{3\pi}2} \right) = 
+        & = -\dfrac14 \left( \cos 2\varphi \Bigm|_{0}^{\frac{\pi}2} + \cos 2\varphi \Bigm|_{\pi}^{\frac{3\pi}2} \right) =
         -\dfrac14 \left( -1 - 1 - 1 - 1 \right) = 1
     \end{align*}
     
-    % \subsection*{Задача 4}
     
+    \subsection*{Задача 4}
+    
+    $\underline{x^4 + y^4 = x^2 y}$
+    
+    $\bullet \; $ Видим, что $x^4 + y^4 \geq 0$ и $x^2 \geq 0 \implies y \geq 0.$
+    
+    $\bullet$ $x$ может быть любым. Однако кривая симметрична относительно $x$, поэтому можно посчитать интеграл из предположения $x \geq 0,$ а после удвоить его.
+    
+    $\bullet \; $ Получили ограничение на угол $\varphi \in [0, \pi/2].$
+    
+    \textbf{Обобщённые полярные координаты.}
+    
+    $\begin{cases}
+    x = r \cos^{\alpha} \varphi;\\
+    y = r \sin^{\alpha} \varphi;\\
+    J = r \cdot \alpha \cdot  \sin^{\alpha - 1} \varphi \cdot \cos^{\alpha - 1} \varphi
+    \end{cases}$
+    
+    Нам подходит $\alpha = \frac{1}{2}.$
+    
+    $\bullet \; $ В этом случае $x^4 + y^4 = r^4 = r^3 \cos \varphi \sqrt{\sin \varphi} \implies r = \cos \varphi \sqrt{\sin \varphi}.$ Нам интересны точки, т.ч. $r \in [0, \; \cos \varphi \sqrt{\sin \varphi}].$
+    
+    $\bullet \; S = 2 \cdot \int\limits_{0}^{\pi/2} d \varphi \int\limits_{0}^{\cos \varphi \sqrt{\sin \varphi}} \underbrace{\frac{r dr}{2 \sqrt{\sin \varphi \cos \varphi}}}_{\text{Якобиан}} = \frac{1}{2} \int\limits_{0}^{\pi/2} \frac{\cos^2 \varphi \cdot \sin \varphi}{\sqrt{\sin \varphi \cos \varphi}} \; d \varphi.$
+    
+    Замена $\begin{cases}
+    t = \sqrt{\tg \varphi}; \\
+    dt = \frac{d \varphi}{2 \cos^2 \varphi \; \sqrt{\tg \varphi}};\\
+    t \in [0, \; +\infty]
+    \end{cases}$
+    
+    \begin{flalign*}
+        & \dots = \int\limits_{0}^{+\infty} \frac{\cos^4 \varphi \sin \varphi \sqrt{\sin \varphi}}{\sqrt{\sin \varphi \cos \varphi} \cdot \sqrt{\cos \varphi}} \; dt = \int\limits_{0}^{+\infty} \cos^3  \varphi  \sin \varphi  \;  dt = 
+    \int\limits_{0}^{+\infty} \cos^4  \varphi  \tg \varphi   \;  dt = \int\limits_{0}^{+\infty} \left( \frac{1}{1 + t^4}  \right)^2  t^2 \; dt = \\
+    & \int\limits_{0}^{+\infty}  \frac{t^2}{1 + 2t^4 +  t^8}    \; dt. = \text{тут применяем Остроградского, 
+    но хочется применить пулю в рот} = \\
+    & \int\limits_0^{\infty} \frac{t^2}{ (1 + t^4)^2 } dt = 
+    \left. \frac{at^3 + bt^2 + ct + d}{1 + t^4} \right|_{0}^{\infty} + 
+    \int\limits_0^{\infty} \frac{et^3 + ft^2 + gt + h}{t^4 + 1} dt \\
+    & \frac{t^2}{(1 + t^4)^2} = 
+    \frac{3at^2 + 2bt + c + 3at^6 + 2bt^5 + c^4 - 4at^6 - 4bt^5 - 4ct^4 - 4dt^3}{(1 + t^4)^2} +
+    \frac{et^3 + ft^2 + gt + h}{t^4 + 1} \\
+    & t^2 = -at^6 - 2bt^5 - 3ct^4 - 4dt^3 + 3at^2 + 2bt + c + 
+    et^7 + ft^6 + gt^5 + ht^4 + et^3 + ft^2 + gt + h \\
+    & \begin{cases} 
+        e = 0 \\
+        f - a = 0 \\
+        g - 2b = 0 \\
+        h - 3c = 0 \\
+        e - 4d = 0 \\
+        f + 3a = 1 \\
+        g + 2b = 0 \\
+        h + c = 0
+    \end{cases} \Rightarrow 
+    \begin{cases} 
+        e = 0 \\
+        d = 0 \\
+        g = 0 \\
+        b = 0 \\
+        h = 0 \\
+        c = 0 \\
+        a = \frac{1}{4} \\
+        f = \frac{1}{4} 
+    \end{cases} \Rightarrow \\
+    & \int\limits_0^{\infty} \frac{t^2}{ (1 + t^4)^2 } dt = 
+    \left. \frac{1}{4} \frac{t^3}{1 + t^4} \right|_{0}^{\infty} + 
+    \frac{1}{4} \int\limits_0^{\infty} \frac{t^2}{t^4 + 1} dt = 
+    \frac{1}{4} \int\limits_0^{\infty} \frac{t^2}{t^4 + 1} dt \\
+    & \text{Я понизил степень знаменателя и ожидаемую длительность жизни в два раза} \\
+    \end{flalign*}
+
+
     \subsection*{Задача 5}
     \begin{align*}
         & (x^2 + y^2)^3 = x^4y \\
         & \text{В полярных координатах: } x = r \cos \varphi, \, y = r \sin \varphi \\
-        & (x^2 + y^2)^3 = x^4y \; \Leftrightarrow \; r^6 = r^5 \sin\varphi \cos^4\varphi \; 
+        & (x^2 + y^2)^3 = x^4y \; \Leftrightarrow \; r^6 = r^5 \sin\varphi \cos^4\varphi \;
         \Leftrightarrow \; r = \sin\varphi \cos^4\varphi \\
         & r \ge 0, \cos^4\varphi \ge 0 \; \Rightarrow \; \sin\varphi = \dfrac{r}{\cos^4\varphi} \ge 0 \; \Rightarrow \; \varphi \in \left[ 0; \pi \right] \\
         & \text{Площадь фигуры: } \\
-        & S = \dfrac12 \int\limits_{0}^{\pi} r^2(\varphi)\, d\varphi = 
-        \dfrac12 \int\limits_{0}^{\pi} \sin^2\varphi \cos^8\varphi\, d\varphi = 
+        & S = \dfrac12 \int\limits_{0}^{\pi} r^2(\varphi)\, d\varphi =
+        \dfrac12 \int\limits_{0}^{\pi} \sin^2\varphi \cos^8\varphi\, d\varphi =
         \dfrac12 \int\limits_{0}^{\pi} (1 - \cos^2\varphi) \cos^8\varphi\, d\varphi = \\
         & \dfrac12 \left( \int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi - \int\limits_{0}^{\pi} \cos^{10}\varphi\, d\varphi \right) =
         \dfrac12 \left( \int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi - \dfrac{\cos^9\varphi \sin\varphi}{10} \Bigm|_{0}^{\pi} - \dfrac9{10}\int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi \right) = \\
-        & \dfrac1{20} \int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi = 
-        \dfrac1{20} \left( \dfrac{\cos^7\varphi \sin\varphi}8 \Bigm|_{0}^{\pi} + \dfrac78 \int\limits_{0}^{\pi} \cos^6\varphi\, d\varphi \right) = 
+        & \dfrac1{20} \int\limits_{0}^{\pi} \cos^8\varphi\, d\varphi =
+        \dfrac1{20} \left( \dfrac{\cos^7\varphi \sin\varphi}8 \Bigm|_{0}^{\pi} + \dfrac78 \int\limits_{0}^{\pi} \cos^6\varphi\, d\varphi \right) =
         \dfrac7{160} \left( \dfrac{\cos^5\varphi \sin\varphi}6 \Bigm|_{0}^{\pi} + \dfrac56 \int\limits_{0}^{\pi} \cos^4\varphi\, d\varphi \right) = \\
-        & \dfrac7{192} \left( \dfrac{\cos^3\varphi \sin\varphi}4 \Bigm|_{0}^{\pi} + \dfrac34 \int\limits_{0}^{\pi} \cos^2\varphi\, d\varphi \right) = 
+        & \dfrac7{192} \left( \dfrac{\cos^3\varphi \sin\varphi}4 \Bigm|_{0}^{\pi} + \dfrac34 \int\limits_{0}^{\pi} \cos^2\varphi\, d\varphi \right) =
         \dfrac7{256} \left( \dfrac{\cos\varphi \sin\varphi}2 \Bigm|_{0}^{\pi} + \dfrac12 \int\limits_{0}^{\pi} \varphi\, d\varphi \right) = \dfrac{7\pi}{512} \\
     \end{align*}
-    
-    % \subsection*{Задача 6}
-    
-    Найти объем тела, заданного параметрически:
-    % \subsection*{Задача 7}
-    
-    % \subsection*{Задача 8}
-    
+
+    \subsection*{Задача 6}
+    \begin{align*}
+        & x^6 + y^6 = x^4 + y^4 \\
+        & \text{В полярных координатах: } x = r \cos \varphi, \, y = r \sin \varphi \\
+        & r^6(\cos^6\varphi + \sin^6\varphi) = r^4(\cos^4\varphi + \sin^4\varphi) \; \Leftrightarrow \; 
+        r^2 \left( 1 - \dfrac34 \sin^2 2\varphi \right) = 1 - \dfrac12 \sin^2 2\varphi \; \Leftrightarrow \; \\
+        & r^2 = \dfrac{1 - \dfrac12 \sin^2 2\varphi}{1 - \dfrac34 \sin^2 2\varphi} = 
+        2\,\dfrac{2 - \sin^2 2\varphi}{4 - 3 \sin^2 2\varphi} = 2 - 2\,\dfrac{2 - 2\sin^2 2\varphi}{4 - 3 \sin^2 2\varphi}
+        = 2 - 4\,\dfrac{\cos^2 2\varphi}{1 + 3 \cos^2 2\varphi} \\
+        & \text{Площадь фигуры: } \\
+        & S = 4 \cdot \dfrac12 \int\limits_{0}^{\pi/2} r^2(\varphi)\, d\varphi \; (\text{фигура симметрична по $x$ и $y$}) = \\
+        & = 2 \int\limits_{0}^{\pi/2} \left( 2 - 4\,\dfrac{\cos^2 2\varphi}{1 + 3 \cos^2 2\varphi} \right)\, d\varphi =
+        2\pi - 8 \int\limits_{0}^{\pi/2} \dfrac{\cos^2 2\varphi}{1 + 3 \cos^2 2\varphi}\, d\varphi =
+        2\pi - \dfrac83 \int\limits_{0}^{\pi/2} \left( 1 - \dfrac{1}{1 + 3 \cos^2 2\varphi} \right)\, d\varphi = \\
+        & = 2\pi - \dfrac{4\pi}3 + \dfrac83 \int\limits_{0}^{\pi/2} \dfrac{1}{1 + 3 \cos^2 2\varphi}\, d\varphi 
+        = 2\pi - \dfrac{4\pi}3 + \dfrac43 \int\limits_{0}^{\pi/2} \dfrac{1}{1 + 3 \cos^2 \varphi}\, d\varphi \\
+        & \text{Замена: } u = \tg\varphi, \, \frac{du}{d\varphi} = \dfrac1{\cos^2\varphi}, \, d\varphi = \cos^2\varphi\,du: \\
+        & \dfrac{2\pi}3 + \dfrac43 \int\limits_{0}^{+\infty} \dfrac{1}{\left( \dfrac1{\cos^2\varphi} - 1 \right) + 4}\, du =
+        \dfrac{2\pi}3 + \dfrac43 \int\limits_{0}^{+\infty} \dfrac{1}{u^2 + 4}\, du = [v = u/2] \;
+        \dfrac{2\pi}3 + \dfrac23 \int\limits_{0}^{+\infty} \dfrac{1}{v^2 + 1}\, dv = \\
+        & = \dfrac{2\pi}3 + \dfrac23 \arctg v \Bigm|_{0}^{+\infty} = \dfrac{2\pi}3 + \dfrac{2\pi}3 = \dfrac{4\pi}3 \\
+    \end{align*}
+
+    \section*{Найдите объем тела, заданного неравенствами.}
+
+    \subsection*{Задача 7}
+
+    $\underline{x^2 + y^2 \leq 1, \; z \geq 0, \; x + y + z \leq 4}$
+
+    $\bullet \; \; x^2 + y^2 \leq 1 \implies x \in \left[-\sqrt{1 - y^2}, \; \sqrt{1 - y^2}\right]; \; \; y \in [-1, \; 1].$\\
+
+    $\bullet \; \; x + y + z \leq 4 \implies z \leq 4 - x - y. \; $ Условие $x + y \leq 4$ при данных ограничениях выполнено всегда.
+
+    $S = \int\limits_{-1}^{1}  dy \int\limits_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}} dx \int\limits_{0}^{4 -x - y} dz =  \int\limits_{-1}^{1}  dy \int\limits_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}} 4 -x - y \; \;  dx =  \int\limits_{-1}^{1}  dy \int\limits_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}} 4 - y \; \; dx -  \underbrace{\int\limits_{-1}^{1}  dy \int\limits_{-\sqrt{1 - y^2}}^{\sqrt{1 - y^2}} x \, \; dx}_{0} = \\
+    2 \int\limits_{-1}^{1}  \sqrt{1 - y^2} \cdot (4 - y) \;  dy =
+    8 \int\limits_{-1}^{1}  \sqrt{1 - y^2}  \;  dy - 2 \int\limits_{-1}^{1}  \sqrt{1 - y^2} \cdot  y \;  dy .$
+
+    Замена $\begin{cases}
+    t = \arcsin y;\\
+    t \in \left[-\pi/2 , \; \pi/2\right];\\
+    dt = \frac{dy}{\sqrt{1 - t^2}}
+    \end{cases}$
+
+    $\dots \displaystyle 8 \int\limits_{-\pi /2}^{\pi/2} dt - \underbrace{2 \int\limits_{-\pi /2}^{\pi/2} \sin t \; dt}_{0} = \boxed{8 \pi} \; . $
+
+
+
+    \subsection*{Задача 8}
+
+    $\underline{x^2 + y^2 \leq 1, \; z \geq 0, \; x + y + z \leq 1}$
+
+    $\bullet \; \; x^2 + y^2 \leq 1 \implies x \in \left[-\sqrt{1 - y^2}, \; \sqrt{1 - y^2}\right]; \; \; y \in [-1, \; 1].$\\
+
+    $\bullet \; \; x + y + z \leq 1 \implies z \leq 1 - x - y. \; $
+
+    $\bullet \; $ Также необходимо условие $x + y \leq 1$.
+
+    При $y \in [-1, \, 0]$ оно соблюдается, в ином случае $x$ сверху придётся ограничить значением $1 - y$.
+
+    \textit{Советую сделать сначала предыдущий номер, там подробно описана замена, которую я использую.}
+
+    $\bullet \; \, S = \displaystyle \int\limits_{-1}^{0} dy \int\limits_{-\sqrt{1- y^2}}^{\sqrt{1- y^2}} dx \int\limits_{0}^{1 - x - y} dz + \displaystyle \int\limits_{0}^{1} dy \int\limits_{-\sqrt{1- y^2}}^{1 - y} dx \int\limits_{0}^{1 - x - y} dz =
+    2 \int\limits_{-1}^{0} (1- y) \sqrt{1- y^2} \; dy -
+    \underbrace{\int\limits_{-1}^{0} dy \int\limits_{-\sqrt{1- y^2}}^{\sqrt{1- y^2}} x\;  dx}_{0} + \\
+    \displaystyle \int\limits_{0}^{1} (1 - y) \left((1 - y) + \sqrt{1 - y^2} \right) \; dy  - \int\limits_{0}^{1} dy \int\limits_{-\sqrt{1- y^2}}^{1 - y} x\;  dx =
+    2 \int\limits_{-1}^{0}  \sqrt{1- y^2} \; dy  - 2 \int\limits_{-1}^{0} y \sqrt{1- y^2} \; dy + \\
+    +
+    \displaystyle \int\limits_{0}^{1}  \left(1 - 2y + y^2 \right) \; dy  + \int\limits_{0}^{1} (1 - y) \sqrt{1 - y^2}  \; dy  - \frac{1}{2} \int\limits_{0}^{1} 1 -2y + y^2 - 1 + y^2 \; \, dy  =
+    2 \int\limits_{-\pi/2}^{0}  dt  - 2 \int\limits_{-\pi/2}^{0} \sin t  \; dt + \\
+    +
+    \displaystyle \left(t - t^2 + \frac{t^3}{3} \; \; \Bigg|_{0}^{1}   \right) \;  + \int\limits_{0}^{1} \sqrt{1 - y^2}  \; dy   - \int\limits_{0}^{1} y \, \sqrt{1 - y^2}  \; dy - \frac{1}{2} \int\limits_{0}^{1}  -2y + 2y^2 \; \, dy = \pi + -2\left(  - \cos t \;\; \Big|_{-\pi/2}^{0 } \right) + \frac{1}{3} + \\ \int\limits_{0}^{\pi/2} dt - \int\limits_{0}^{\pi/2} \sin t \; dt + \int\limits_{0}^{1} y - y^2 \; \, dy = \pi + 2 + \frac{1}{3} + \frac{\pi}{2} + \left(\cos t \; \; \Bigg|_{0}^{\pi/2} \right) + \left(\frac{y^2}{2} - \frac{y^3}{3} \; \; \Bigg|_{0}^{1} \right) = \frac{3 \pi}{2} + 2 + \frac{1}{3} - 1 + \frac{1}{2} - \frac{1}{3} = \boxed{\frac{3 \pi}{2} +\frac{3}{2}} \, .$
+
     \subsection*{Задача 9}
     \begin{align*}
         & x^2 + y^2 \le 1, \; 0 \le z \le 1 - 2y^2\; \Rightarrow \\
@@ -116,14 +249,81 @@
         & = \dfrac43 (-2\cos t \sin t + t) \Bigm|_{\frac{\pi}4}^{\frac{\pi}2} + \dfrac43 = 
         \dfrac43 (-\sin 2t + t) \Bigm|_{\frac{\pi}4}^{\frac{\pi}2} + \dfrac43 = \dfrac43 (1 + \frac{\pi}4) + \dfrac43 = \frac83 + \frac{\pi}3
     \end{align*}
-    % \subsection*{Задача 10}
-    
-    % \subsection*{Задача 11}
-    
-    % \subsection*{Задача 12}
-    
+
+    \subsection*{Задача 10}
+
+    $\underline{x \leq x^2 + y^2 \leq 2x, \; 0 \leq z \leq x^2 y^2}$
+
+    $\bullet \; $ Циллиндрические координаты: $\begin{cases}
+    x = r \cos \varphi;\\
+    y = r \sin \varphi; \\
+    z = z
+    \end{cases}$
+
+    $\bullet \; \, x \leq x^2 + y^2 \leq 2x \implies r \cos \varphi \leq r^2 \leq 2 r \cos \varphi \implies \cos \varphi \leq r \leq 2 \cos \varphi \implies \cos \varphi \geq 0 \implies \varphi \in \left[-\pi/2 ,\, \pi/2\right].$
+
+    $\bullet \; \,$  $0 \leq z \leq x^2 y^2 = r^4 \cos^2 \varphi \, \sin^2 \varphi = \frac{r^4}{4} \sin^2 2 \varphi.$
+
+    $\bullet \; \int\limits_{-\pi/2}^{\pi/2} d \varphi \int\limits_{\cos \varphi}^{2 \cos \varphi} dr \int\limits_{0}^{\frac{r^4}{4} \sin^2 2 \varphi} r \; dz =
+    \int\limits_{-\pi/2}^{\pi/2} d \varphi \int\limits_{\cos \varphi}^{2 \cos \varphi} \frac{r^5}{4} \sin^2 2 \varphi \; dr  =
+    \int\limits_{-\pi/2}^{\pi/2}  \sin^2 2 \varphi \; d \varphi \int\limits_{\cos \varphi}^{2 \cos \varphi} \frac{r^5}{4} \; dr  = \frac{1}{4} \int\limits_{-\pi/2}^{\pi/2}  \sin^2 2 \varphi \; d \varphi \left(\frac{r^6}{6} \; \; \; \Bigg|_{\cos \varphi}^{2 \cos \varphi} \right) = \\
+    =  \frac{63}{24} \int\limits_{-\pi/2}^{\pi/2}  \sin^2 2 \varphi \, \cos^6 \varphi \; \ \; d \varphi =
+      \frac{63}{24} \int\limits_{-\pi/2}^{\pi/2}  \left(\frac{1}{2} - \frac{1}{2} \cos 4 \varphi \right) \cdot \left(\frac{1}{2} + \frac{1}{2} \cos 2 \varphi \right)^3 \; \ \; d \varphi =
+      \frac{63}{24} \cdot \frac{1}{16} \int\limits_{-\pi/2}^{\pi/2} (1 - \cos 4 \varphi) \cdot (1 + \cos 2 \varphi)^3 \; d \varphi = \\
+      \frac{63}{24} \cdot \frac{1}{16} \int\limits_{-\pi/2}^{\pi/2} (1 - \cos 4 \varphi) \left(1 + 3 \cos 2 \varphi + 3 \left( \frac{1}{2} + \frac{1}{2} \cos 4 \varphi
+      \right) + \cos 2 \varphi \cdot \left( \frac{1}{2} + \frac{1}{2} \cos 4 \varphi
+      \right)  \right) \; d\varphi = \\
+      \frac{63}{24 \cdot 16} \left( \frac{5}{2} \cdot  \pi  -\frac{3}{2} \cdot  \frac{1}{2} \cdot \pi \right) =
+      \boxed{\frac{63}{24 \cdot 16} \cdot \frac{7}{4} \,  \pi} \; .$
+
+
+      \textbf{Как мы это получили:} воспользуемся периодичностью и поймём, что после подстановки все слагаемые обратятся в 0, за исключением $1 + \frac{3}{2}$,  что даёт вклад $\frac{5 }{2}; \; $ и $ \frac{-3}{2} \cdot \cos^2 4 \varphi = \frac{-3}{2} \left( \frac{1}{2} + \frac{1}{2} \cos 8 \varphi \right),$ что даёт вклад $\frac{-3}{2} \cdot \frac{1}{2}. $ \\
+      ($\cos 8 \varphi$ аналогично уходит по периодичности).
+
+
+    \subsection*{Задача 11}
+    \begin{flalign*}
+        & x^2 + y^2 + z^2 \leq 3, \;\; x^2 + y^2 \leq 2z
+        \;\; \Rightarrow \;\;
+        r^2 \leq 3, \;\; r^2 \cos^2 \theta \leq 2 r \cos^2 \theta
+        \;\; \Rightarrow \;\;
+        r \leq 2 \frac{\cos \theta}{\sin^2 \theta}, r \leq \sqrt{3}\\
+        & \text{Хотим найти пересечение параболоида и сферы для интегрирования} \\
+        & x^2 + y^2 + z^2 - 3 = x^2 + y^2 - 2z \;\; \Rightarrow \;\; z^2 + 2z - 3 = 0 \Rightarrow z = 1
+        \textit{ отрицательные не подойдут } \Rightarrow \cos \theta = \frac{1}{\sqrt{3}} \\
+        & V = \int\limits_0^{2\pi} d \varphi \int\limits_0^{\arccos \frac{1}{\sqrt{3}}} \sin \theta d\theta
+        \int\limits_0^{2 \frac{\cos \theta}{\sin^2 \theta}} r^2 dr +
+        \int\limits_0^{2 \pi} d \varphi \int\limits_{\arccos \frac{1}{\sqrt{3}}}^{\frac{\pi}{2}} \sin \theta d \theta
+        \int\limits_0^{\sqrt{3}} r^2 dr = \\
+        & = 2 \pi \left(
+        \int\limits_0^{\arccos{\frac{1}{\sqrt{3}}}} \frac{8}{3} \frac{\cos^3 \theta}{\sin^6 \theta} \sin \theta d \theta +
+        \int\limits_{\arccos \frac{1}{\sqrt{3}}}^{\frac{\pi}{2}} \sqrt{3} \sin \theta d \theta
+        \right) = \left\{ \begin{array} {rl}
+            t & = \sin \theta \\
+            \cos^2 \theta & = 1 - t^2 \\
+            dt & = \cos \theta d\theta \\
+        \end{array}  \right\} = \\
+        & = 2 \pi \left( \frac{8}{3} \int\limits_0^{\sqrt{\frac{2}{3}}} \frac{1 - t^2}{t^5} dt +
+        \sqrt{3} \left( 0 + \frac{1}{\sqrt{3}}  \right)
+        \right) = \\
+        & = 2 \pi \left( 1 +
+        \frac{8}{3} \left( - \frac{9}{16} + \frac{9}{16} \right)  \right) = 2 \pi
+    \end{flalign*}
+
+    \subsection*{Задача 12}
+
+    $\underline{x^2 + y^2 \leq z \leq \sqrt{x^2 + y^2}}$
+
+    Циллиндрическая замена.
+
+    $\bullet \; \; r^2 \leq z \leq r \implies r \in [0, 1].$
+
+    $\bullet \; \, \int\limits_{0}^{1} r \; dr \int\limits_{r^2}^{r} dz \int\limits_{0}^{2 \pi} d \varphi =  2 \pi  \int\limits_{0}^{1} r \; dr \int\limits_{r^2}^{r} dz  =
+      2 \pi  \int\limits_{0}^{1} r^2 - r^3 \; dr = 2 \pi  \int\limits_{0}^{1} r^2 - r^3 \; dr = 2 \pi \left( \frac{r^3}{3} - \frac{r^4}{4} \; \; \;
+      \Bigg|_{0}^{1} \right) = \boxed{\frac{\pi}{6}} \, .$
+
     % \subsection*{Задача 13}
-    
+
     % \subsection*{Задача 14}
-    
+
 \end{document}
