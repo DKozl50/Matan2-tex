@@ -938,7 +938,19 @@
         $$
         Общезначимая формула истинна всегда, выполнимая истинна в каком-то случае.
     \end{definition}
+        
+    \begin{example}
 
+    \end{example}
+        Рассмотрим формулу
+        $$
+            \varphi = (x - 3 > 1)
+        $$
+        При $M = \NN$ и $\pi$ такой, что $\pi(x) = 5$ 
+        $$
+            [\varphi]_{\mathcal{M}}(\pi) = 1
+        $$ 
+        $\implies$ $\phi$ выполнима.
     \begin{lemma}
         Формула $\varphi$ общезначима $\iff$ $\neg \varphi$ не выполнима.
     \end{lemma}
@@ -976,7 +988,7 @@
     \begin{lemma}[О конгруэнции отношения эквивалентности]
         Если $\varphi \equiv \varphi^{\prime}$, то
         \begin{itemize}[topsep=0pt]
-            \item $\neg \varphi \equiv \varphi^{\prime}$;
+            \item $\neg \varphi \equiv \neg \varphi^{\prime}$;
             \item $\varphi \land \psi \equiv \varphi^{\prime} \land \psi$.
             \item $\varphi \lor \psi \equiv \varphi^{\prime} \lor \psi$.
             \item $\varphi \implies \psi \equiv \varphi^{\prime} \implies \psi$.
@@ -1186,7 +1198,7 @@
         Так как $x \notin \text{FV}(\psi)$, то
         $$
             \forall x (\neg \varphi \lor \psi) \equiv \forall x \neg \varphi \lor 
-            \psi \equiv \neg \exists \varphi \lor \psi \equiv \exists x \varphi 
+            \psi \equiv \neg \exists x \varphi \lor \psi \equiv \exists x \varphi 
             \implies \psi.
         $$
     \end{proof}
