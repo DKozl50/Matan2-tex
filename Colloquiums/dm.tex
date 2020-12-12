@@ -991,6 +991,105 @@
     % Вопрос логика 6
     \subsection{Значение формулы при изоморфизме структур. Сохранение выразимых множеств автоморфизмами структуры. Примеры невыразимых множеств. [MD, 10.5]}
 
+    Теорема о значении формулы при изоморфизме структур точно такая же, что и в предыдущем билете (см. формулировки билетов). \\
+    \underline{Теорема} (о значении формулы при изоморфизме). 
+    
+    Пусть $M, N$ -- какие-то интерпретации \textit{одной} сигнатуры $\sigma; \; \; \varphi(x_1, \dots, x_n) \in Fm_\sigma.$
+    
+    Тогда если $M \overset{\alpha}{\cong} N,$ то $\forall \overset{\to}{a} \in M^n $ верно  $M \vDash \varphi (\overset{\to}{a}) \iff N \vDash \varphi (\alpha \overset{\to}{a}).$
+    
+    \underline{Лемма.} Пусть $t(x_1, \dots x_n) \in Tm_\sigma.$ Если $M \overset{\alpha}{\cong} N$, то $\forall \overset{\to}{a} \in M^n \; \; \alpha (t^M (\overset{\to}{a})) = t^N (\alpha \overset{\to}{a}).$
+    
+    \begin{proof} Индукция по построению терма.
+    
+    \onehalfspacing $(I) \;  t = x_i \implies \begin{cases} t^M (a_1, \dots,  a_n) = a_i \\ t^N (b_1, \dots,  b_n) = b_i  \end{cases} \implies
+    \begin{cases}
+    \alpha (t^M (\overset{\to}{a})) = \alpha  \, a_i; \\
+    t^N (\alpha \, \overset{\to}{a}) = t^N(\alpha \, a_1, \dots, \, \alpha \, a_n) = a_i.
+    \end{cases}$
+    
+    Как видим, получили одинаковое значение.
+    
+    $(II) \; t = c \implies
+    \begin{cases}
+    t^M (a_1, \dots a_n) = c^M;\\
+    t^N (b_1, \dots b _n) = c^N.
+    \end{cases} $
+    
+    $ \forall \pi \; [\, c \, ]_M (\pi) = c^M  \implies
+    \alpha (t^M(\overset{\to}{a})) = \alpha \, c^M = c^N = t^N (\alpha \, \overset{\to}{a})\;$ из определения изоморфизма.
+    
+    $(III) \;\doublespacing  t = f \, t_1 \dots  t_m \implies
+    t^M(\overset{\to}{a}) = f^M \left(t_1^M(\overset{\to}{a})   , \dots, t_m^M(\overset{\to}{a}) \right) \implies
+    \alpha \,\left( t^M(\overset{\to}{a})\right) = \alpha \left(\, f^M \left(t_1^M(\overset{\to}{a})   , \dots, t_m^M(\overset{\to}{a}) \right) \right).
+     $ 
+    
+    По определению изоморфизма,  $\dots =  f^N \left( \alpha \left(t_1^M(\overset{\to}{a})\right)   , \dots,  \alpha \left(t_m^M(\overset{\to}{a}) \right) \right).$ 
+    
+    Внутри уже более простые термы, для них воспользуемся предположением индукции:
+    
+    $\dots =   f^N \left(  t_1^N(\alpha \, \overset{\to}{a})   , \dots, t_m^N( \alpha \, \overset{\to}{a})  \right) = t^N(\alpha \, \overset{\to}{a}).$
+    
+    \end{proof}
+        
+    \begin{proof} (Теоремы о значении формулы)
+    
+    Индукция по построению $\varphi.$
+    
+    $(I) \; \varphi = R \, t_1 \dots t_m.$
+    
+    По лемме, $t_i^N \, (\alpha \, \overset{\to}{a}) = \alpha \, (t_i^M \, (\overset{\to}{a}))$
+    
+    $\begin{cases}
+    M \vDash \varphi (\overset{\to}{a}) \iff \left( t_1^M(\overset{\to}{a} ), \dots ,  \, t_m^M(\overset{\to}{a} )  \right) \in R^M; \; \circledast \\
+    N \vDash \varphi (\alpha \, \overset{\to}{a}) \iff \left( t_1^N(\alpha \, \overset{\to}{a} ), \dots ,  \, t_m^N(\alpha \,  \overset{\to}{a} )  \right) \in R^N \iff \left( \alpha \, (t_1^M \, (\overset{\to}{a})), \dots ,  \, \alpha \, (t_m^M \, (\overset{\to}{a}))  \right) \in R^N \iff \circledast \text{ по определению}. \\
+    \end{cases}$ 
+    
+    $(II)$ Булевы связки. Приведём док-во для конъюнкции и отрицания.
+    
+    $\varphi \eqcirc (\Theta \land \psi ) (\overset{\to}{a}) \iff M \vDash \Theta(\overset{\to}{a})$  и $ M \vDash \psi(\overset{\to}{a}) \iff$ (по пред. инд.) $N \vDash \Theta(\alpha \, \overset{\to}{ a})$  и $ N \vDash \psi(\alpha \, \overset{\to}{ a}) \iff N \vDash (\Theta \land \psi ) (\alpha \, \overset{\to}{a})$.
+    
+    $M \vDash (\neg \psi) (\overset{\to}{a}) \iff M \nvDash \psi (\overset{\to}{a}) \iff N \nvDash \psi (\alpha \, \overset{\to}{a}) \iff  N \vDash (\neg \psi ) (\alpha \, \overset{\to}{a}).$
+    
+    $(III)$ Кванторы. 
+    
+    Пусть $\varphi \eqcirc \exists \, x \; \psi.$
+    
+    $M \vDash (\exists \, x \; \psi ) (\overset{\to}{a}) \iff $ сущ. $b \in M$, т.ч. $ M \vDash \psi (\overset{\to}{a}, b) \iff$ (по предположению индукции) $N \vDash \psi (\alpha \, \overset{\to}{a}, \, \alpha \, b).$
+    
+    $N \vDash (\exists \, x \; \psi ) (\alpha \, \overset{\to}{a}) \iff $ сущ. $c \in N$, т.ч. $ N \vDash \psi (\alpha \, \overset{\to}{a}, c).$
+    
+    В силу биективности $\alpha$, существование таких $b \in M$ и $c \in N$ равнозначны ($\forall \, c \in N \; \exists \,  b \in M  \; \; c = \alpha \, b$). Ч.т.д.
+    
+    Теперь пусть $\varphi \eqcirc \forall \, x \; \psi.$
+    
+    $M \vDash (\forall \, x \; \psi ) (\overset{\to}{a}) \iff $ для всех $b \in M$ верно $ M \vDash \psi (\overset{\to}{a}, b) \iff$ (по предположению индукции) $N \vDash \psi (\alpha \, \overset{\to}{a}, \, \alpha \, b).$
+    
+    $N \vDash (\forall \, x \; \psi ) (\alpha \, \overset{\to}{a}) \iff $ для всех $c \in N$ верно $ N \vDash \psi (\alpha \, \overset{\to}{a}, c).$
+    
+    В силу биективности $\alpha$ утверждения выше равнозначны ($\forall \, c \in N $ имеет вид $ \alpha \, b$ для всех $b \in M$). Ч.т.д.
+    
+    \end{proof}
+
+    \begin{theorem}[Выразимые отношения сохраняются всеми автоморфизмами структуры]
+        Если $X$ выразимо в $\mathcal{M}$, то $\forall \overrightarrow{a} \in M^n \; \; \overrightarrow{a} \in X \Leftrightarrow \alpha \overrightarrow{a} \in X$.
+    \end{theorem}
+
+    \begin{proof}
+        $X$ выразимо $\implies$ по определению $\exists \varphi(x_1, ..., x_n) \; \forall \overrightarrow{a} \in M^n \; \; \overrightarrow{a} \in X \Leftrightarrow \mathcal{M} \vDash \varphi(\overrightarrow{a})$ \\
+        $\mathcal{M} \stackrel{\alpha}{\cong} \mathcal{M} \implies \overrightarrow{a} \in X \Leftrightarrow \mathcal{M} \vDash \varphi(\overrightarrow{a}) \Leftrightarrow \text{[по теореме о значении формулы при изоморфизме]} \Leftrightarrow \mathcal{M} \vDash \varphi(\alpha \overrightarrow{a}) \Leftrightarrow \alpha \overrightarrow{a} \in X$. $\blacksquare$
+    \end{proof}
+
+    \begin{proposition}
+        Пусть $\mathcal{M} = (\mathbb{Z}; <); \mathcal{M} \stackrel{\alpha}{\cong} \mathcal{M}; \alpha(x) = x + 1$. Тогда множество $\mathbb{Z}_+ = \{ n \in \mathbb{Z} \mid n > 0 \}$ не выразимо в $\mathcal{M}$.
+    \end{proposition}
+
+    \begin{proof}
+        $\alpha \in Aut(\mathcal{M})$ \\
+        $0 \notin \mathbb{Z}_+$, но $\alpha(0) = 1 \in \mathbb{Z}_+$, таким образом $\exists a \in \mathbb{Z}: \; a \in \mathbb{Z}_+ \nLeftrightarrow \alpha a \in \mathbb{Z}_+$. \\
+        Значит $\mathbb{Z}_+$ не выразимо в $\mathcal{M}$.
+    \end{proof}
+
     % Вопрос логика 7
     \subsection{Общезначимые и выполнимые формулы. [F, 12] Эквивалентность формул первого порядка. [F, с. 4] Лемма о фиктивном кванторе. [F, 10] Квантор всеобщности и общезначимость. [F, 12]}
     
