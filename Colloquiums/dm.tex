@@ -1196,6 +1196,26 @@
 
     % Вопрос логика 10
     \subsection{Лемма о корректной подстановке. [F, 73]}
+    \begin{lemma} В любой интерпретации при любой оценке $\pi$ дл всех $\varphi \in \text{Fm}_{\sigma}, \, t, s \in \text{Tm}_{\sigma}$ и $x \in \text{Var}$, если $t-x-\varphi$, то
+    \[ [s(t/x)](\pi) = [s](\pi + (x \mapsto [t](\pi))) \text{ и } [\varphi(t/x)](\pi) = [\varphi](\pi + (x \mapsto [t](\pi)). \]
+    \end{lemma}
+    
+    \begin{proof} Подобно лемме F18 (являющейся частным случаем данной) доказывается индукцией по построению:\\[-10 pt]
+    
+    Пусть $s = z \ne x$. Имеем $[s(t/x)](\pi) = \pi(z) = [s](\pi + (x \mapsto [t](\pi)))$. Если же $s = x$, то $[s(t/x)](\pi) = [t](\pi) = [s](\pi + (x \mapsto [t](\pi)))$. Случай $s = \F_i$ тривиален (значение константы не меняется).\\[-10 pt]
+    
+    Если $s = \F_j(t_1, t_2, \ldots, t_{a_j})$, то по предположению индукции:
+    \begin{multline*}
+    [s(t/x)](\pi) = \F_j([t_1(t/x)](\pi), \ldots, [t_{a_j}(t/x)](\pi)) = \\
+    = \F([t_1](\pi + (x \mapsto [t](\pi))), \ldots, [t_{a_j}](\pi + (x \mapsto [t](\pi)))) = [s](\pi + (x \mapsto [t](\pi))).
+    \end{multline*}
+    
+    Случай $\varphi = \mathbbold{P}_i$ тривиален (константа). Если $\varphi = \mathbbold{P}_j(t_1, t_2, \ldots, t_{a_j})$, то по предположению индукции:
+    \begin{multline*}
+    [\varphi(t/x)](\pi) = \mathbbold{P}_j([t_1(t/x)](\pi), \ldots, [t_{a_j}(t/x)](\pi)) = \\
+    = \mathbbold{P}([t_1](\pi + (x \mapsto [t](\pi))), \ldots, [t_{a_j}](\pi + (x \mapsto [t](\pi)))) = [\varphi](\pi + (x \mapsto [t](\pi))).
+    \end{multline*}
+    \end{proof}
 
     % Вопрос логика 11
     \subsection{Понятие корректной подстановки («терм свободен для переменной в формуле»). Пример некорректной подстановки. Лемма о корректной подстановке (без доказательства). [F, 73] Переименование связанной переменной. [F, 16, 18]. Общезначимость формул вида $\forall x \; \phi \to \phi(t/x)$ и $\phi(t/x) \to \exists x \; \phi$ в случае корректной подстановки. [F, 74]}
