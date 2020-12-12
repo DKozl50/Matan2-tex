@@ -10,7 +10,7 @@
     % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
     Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
     Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
-    % Ира Голобородько     \\ \href{https://t.me/Ira4kgl}{Telegram} \and
+    Ира Голобородько     \\ \href{https://t.me/Ira4kgl}{Telegram} \and
     % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
     % Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
     % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
@@ -91,7 +91,7 @@
     
     $\bullet \; $ В этом случае $x^4 + y^4 = r^4 = r^3 \cos \varphi \sqrt{\sin \varphi} \implies r = \cos \varphi \sqrt{\sin \varphi}.$ Нам интересны точки, т.ч. $r \in [0, \; \cos \varphi \sqrt{\sin \varphi}].$
     
-    $\bullet \; S = 2 \cdot \int\limits_{0}^{\pi/2} d \varphi \int\limits_{0}^{\cos \varphi \sqrt{\sin \varphi}} \underbrace{\frac{r}{2 \sqrt{\sin \varphi \cos \varphi}}}_{\text{Якобиан}} = \frac{1}{2} \int\limits_{0}^{\pi/2} \frac{\cos^2 \varphi \cdot \sin \varphi}{\sqrt{\sin \varphi \cos \varphi}} \; d \varphi.$
+    $\bullet \; S = 2 \cdot \int\limits_{0}^{\pi/2} d \varphi \int\limits_{0}^{\cos \varphi \sqrt{\sin \varphi}} \underbrace{\frac{r dr}{2 \sqrt{\sin \varphi \cos \varphi}}}_{\text{Якобиан}} = \frac{1}{2} \int\limits_{0}^{\pi/2} \frac{\cos^2 \varphi \cdot \sin \varphi}{\sqrt{\sin \varphi \cos \varphi}} \; d \varphi.$
     
     Замена $\begin{cases}
     t = \sqrt{\tg \varphi}; \\
@@ -99,10 +99,46 @@
     t \in [0, \; +\infty]
     \end{cases}$
     
-    $\dots = \int\limits_{0}^{+\infty} \frac{\cos^4 \varphi \sin \varphi \sqrt{\sin \varphi}}{\sqrt{\sin \varphi \cos \varphi} \cdot \sqrt{\cos \varphi}} \; dt = \int\limits_{0}^{+\infty} \cos^3  \varphi  \sin \varphi  \;  dt = 
-    \int\limits_{0}^{+\infty} \cos^4  \varphi  \tg \varphi   \;  dt = 
+    \begin{flalign*}
+        & \dots = \int\limits_{0}^{+\infty} \frac{\cos^4 \varphi \sin \varphi \sqrt{\sin \varphi}}{\sqrt{\sin \varphi \cos \varphi} \cdot \sqrt{\cos \varphi}} \; dt = \int\limits_{0}^{+\infty} \cos^3  \varphi  \sin \varphi  \;  dt = 
     \int\limits_{0}^{+\infty} \cos^4  \varphi  \tg \varphi   \;  dt = \int\limits_{0}^{+\infty} \left( \frac{1}{1 + t^4}  \right)^2  t^2 \; dt = \\
-    \int\limits_{0}^{+\infty}  \frac{t^2}{1 + 2t^4 +  t^8}    \; dt. $
+    & \int\limits_{0}^{+\infty}  \frac{t^2}{1 + 2t^4 +  t^8}    \; dt. = \text{тут применяем Остроградского, 
+    но хочется применить пулю в рот} = \\
+    & \int\limits_0^{\infty} \frac{t^2}{ (1 + t^4)^2 } dt = 
+    \left. \frac{at^3 + bt^2 + ct + d}{1 + t^4} \right|_{0}^{\infty} + 
+    \int\limits_0^{\infty} \frac{et^3 + ft^2 + gt + h}{t^4 + 1} dt \\
+    & \frac{t^2}{(1 + t^4)^2} = 
+    \frac{3at^2 + 2bt + c + 3at^6 + 2bt^5 + c^4 - 4at^6 - 4bt^5 - 4ct^4 - 4dt^3}{(1 + t^4)^2} +
+    \frac{et^3 + ft^2 + gt + h}{t^4 + 1} \\
+    & t^2 = -at^6 - 2bt^5 - 3ct^4 - 4dt^3 + 3at^2 + 2bt + c + 
+    et^7 + ft^6 + gt^5 + ht^4 + et^3 + ft^2 + gt + h \\
+    & \begin{cases} 
+        e = 0 \\
+        f - a = 0 \\
+        g - 2b = 0 \\
+        h - 3c = 0 \\
+        e - 4d = 0 \\
+        f + 3a = 1 \\
+        g + 2b = 0 \\
+        h + c = 0
+    \end{cases} \Rightarrow 
+    \begin{cases} 
+        e = 0 \\
+        d = 0 \\
+        g = 0 \\
+        b = 0 \\
+        h = 0 \\
+        c = 0 \\
+        a = \frac{1}{4} \\
+        f = \frac{1}{4} 
+    \end{cases} \Rightarrow \\
+    & \int\limits_0^{\infty} \frac{t^2}{ (1 + t^4)^2 } dt = 
+    \left. \frac{1}{4} \frac{t^3}{1 + t^4} \right|_{0}^{\infty} + 
+    \frac{1}{4} \int\limits_0^{\infty} \frac{t^2}{t^4 + 1} dt = 
+    \frac{1}{4} \int\limits_0^{\infty} \frac{t^2}{t^4 + 1} dt \\
+    & \text{Я понизил степень знаменателя и ожидаемую длительность жизни в два раза} \\
+
+    \end{flalign*}
 
 
     \subsection*{Задача 5}
