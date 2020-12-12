@@ -16,3 +16,64 @@ jobs:
         with:
             name: Documents
             path: "**/*.pdf"
+
+
+name: Build and deploy latex sources to GitHub Pages
+
+on: [push]
+
+jobs:
+
+build:
+
+  # Базовая ОС, на которой будут исполняться команды. Оставим ubuntu
+
+  runs-on: ubuntu-latest
+
+  steps:
+
+  # Необходимо использовать этот action, чтобы получить содержимое репо
+
+  - uses: actions/checkout@v2
+
+  # Компилируем документ
+
+  - name: Build document
+
+    uses: xu-cheng/latex-action@v2
+
+    with:
+
+      # Переименуйте, если у вас другой файл
+
+      root_file: dm.tex
+
+      # Больше параметров в офф. документации
+
+      working_directory: Colloquiums/
+
+      # Аргументы, к которыми запускать компилятор (latexmk)
+
+      # -jobname=<name> дает возможность поменять имя выходного файла
+
+      args: -jobname=dm -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      compiler: latexmk
+
+  # Загружаем собранные pdf-файлы
+
+  - name: Upload pdf document
+
+    uses: actions/upload-artifact@v2
+
+    with:
+
+      # Это значение используется как ключ в хранилище
+
+      name: dm
+
+      # Путь до собранного pdf. Может содержать «*», «**»
+
+      # Здесь это <working_directory>/<jobname>.pdf
+
+      path: Colloquiums/dm.pdf
