@@ -1301,8 +1301,74 @@
     \begin{fact}
         Если $\varphi \twoheadrightarrow_S \varphi'$, то $\varphi$ выполнима $\iff$ $\varphi'$ выполнима.
     \end{fact}
+    
+    \begin{definition}
+        $\Gamma$ выполнимо $\iff$ $\exists \mathcal{M} \exists \pi~ [\Gamma]_{\mathcal{M}}(\pi) = 1$.
+    \end{definition}
+    
+    \begin{definition}
+        Множества формул $\Gamma$ и $\Delta$ {\it равновыполнимы} $\iff$ ($\Gamma$ выполнимо $\iff$ $\Delta$ выполнимо).
+    \end{definition}
+    
+    \begin{proposal}
+        Для любой предварённой формулы $\varphi$ такой, что она не содержит фиктивных кванторов, существует сколемовская нормальная форма $\psi$ такая, что $\varphi \twoheadrightarrow_{S} \psi$.
+    \end{proposal} \vspace{-\baselineskip}
+    \begin{proof}
+        Применим алгоритм сколемизации и заметим, что кванторов у нас конечное число, поэтому алгоритм точно остановится. \\
+    \end{proof}
 
-    \textit{Здесь должна быть теорема о равновыполнимости.}
+    \begin{theorem}[о сколемизации]
+        Пусть $\Gamma \subseteq \text{Fm}$ и $\varphi \to_{S} \psi$.
+        Тогда $\Gamma \cup \{\varphi\}$ и $\Gamma \cup \{\psi\}$ равновыполнимы.
+    \end{theorem}
+    
+    Что это означает?
+    Это означает, что у нас было какое-то множество формул (хочется сказать теорий, но в нашем множестве могут быть свободные переменные), мы взяли оттуда одну формулу и подвергли ее сколемизации.
+    Тогда то, что получилось, равновыполнимо с исходным множеством.
+    
+    \begin{proof}
+        Раз у нас была сколемизация, то $\varphi \eqcirc \forall \vec{x} \exists y \theta$, а $\psi \eqcirc \forall \vec{x}~ \theta(f\vec{x}/y)$, где $f$ <<свежая>>, то есть, в частности, $f$ \underline{не встречается} в $\Gamma$.
+        Сделаем несколько наблюдений:
+        \begin{enumerate}
+            \item В формуле $\exists y \theta$ нет кванторов по $\vec{x}$ (иначе в $\varphi$ есть фиктивный квантор) $\implies f\vec{x}$-$y$-$\theta$, ну а раз подстановка корректная, то формула $\theta(f\vec{x}/y) \implies \exists y \theta$ общезначима.
+            Поскольку формула общезначима, то, по факту с семинара, формула $\forall \vec{x} \theta(f\vec{x}/y) \implies \forall \vec{x} \exists y \theta$ также общезначима.
+            Вспомним про определение $\varphi$ и $\psi$, и заметим, что $\psi \implies \varphi$, то есть, в любой структуре, где верно $\psi$, верно и $\varphi$.
+            Тогда если $\exists \mathcal{M}~ \exists \pi$ такие, что $[\Gamma \cup \{\psi\}]_{\mathcal{M}}(\pi) = 1$, то $[\Gamma \cup \{\varphi\}]_{\mathcal{M}}(\pi) = 1$.
+            Значит, если $\Gamma \cup \{\psi\}$ выполнима, то $\Gamma \cup \{\varphi\}$ выполнима.
+            \item Допустим, что $\Gamma \cup \{ \forall \vec{x} \exists y \theta \}$ выполнима.
+            Тогда $\exists \mathcal{M}$ $\exists \pi$ ($[\Gamma]_{\mathcal{M}}(\pi) = 1$ и $[\forall \vec{x} \exists y \theta]_{\mathcal{M}}(\pi) = 1$).
+            Заметим, что
+            $$
+            [\forall \vec{x} \exists y \theta]_{\mathcal{M}}(\pi) = 1 \iff \forall \vec{a} \in M~ \exists b \in M~ [\theta]_{\mathcal{M}}(\pi_{x~y}^{\vec{a}~b}) = 1.
+            $$
+            Теперь рассмотрим $\mathcal{M}^{\prime} = (\mathcal{M}, f^{\mathcal{M}})$ (мы расширили структуру, добавив\footnote{Такая операция называется {\it обогащением} структуры $\mathcal{M}$.} в нее интерпертацию символа $f$).
+            Как мы можем ее расширить?
+            Для этого нам нужно определить значение $f^{\mathcal{M}}(\vec{a})$.
+            Положим его равным $b \in M$ такому, что $\forall \vec{a} [\theta]_{\mathcal{M}}(\pi_{x~y}^{\vec{a}~b}) = 1$, то есть, $\forall \vec{a} \in M^{n}~ [\theta]_{\mathcal{M}}(\pi_{x~y}^{\vec{a}~f^{\mathcal{M}}(\vec{a})}) = 1$.
+            Такая $f^{\mathcal{M}}$ существует в силу аксиомы выбора.
+            Ну вот мы взяли такую интерпретацию, дальше мы хотим посмотреть, что же будет с $\psi$ и ее значением
+            $$
+            [\forall \vec{x} \theta (f\vec{x}/y)]_{\mathcal{M}^{\prime}}(\pi).
+            $$
+            В старой структуре у нее вообще не было значения, потому что там у нас не интерпретировался символ $f$.
+            В новой же структуре
+            $$
+            [\forall \vec{x} \theta (f\vec{x}/y)]_{\mathcal{M}^{\prime}}(\pi) = 1 \iff \forall \vec{a} \in M~ [\theta(f\vec{x}/y)]_{\mathcal{M}^{\prime}}(\pi_{\vec{x}}^{\vec{a}}) = 1.
+            $$
+            Докажем последнее равенство.
+            Мы можем воспользоваться леммой о корректной подстановке и получится, что
+            $$
+            [\theta(f\vec{x}/y)]_{\mathcal{M}^{\prime}}(\pi_{\vec{x}}^{\vec{a}}) = [\theta]_{\mathcal{M}^{\prime}}\left(\pi_{\vec{x}~y}^{\vec{a}~[f\vec{x}]_{\mathcal{M}^{\prime}}(\pi_{x}^{\vec{a}})}\right) = [\theta]_{\mathcal{M}^{\prime}}\left(\pi_{\vec{x}~y}^{\vec{a}~f^{\mathcal{M}}(\vec{a})}\right) \overset{f\text{ --- свежая}}{=} [\theta]_{\mathcal{M}}\left(\pi_{x~y}^{\vec{a}~f^{\mathcal{M}}(\vec{a})}\right) = 1
+            $$
+            Итак, $[\varphi]_{\mathcal{M}^{\prime}}(\pi) = 1$.
+            А что с $\Gamma$?
+            В $\Gamma$ ничего не изменится, поскольку $f$ не встречается в $\Gamma$, поэтому
+            $$
+            [\Gamma]_{\mathcal{M}^{\prime}}(\pi) = [\Gamma]_{\mathcal{M}}(\pi) = 1.
+            $$
+            Таким образом, $[\Gamma \cup \{ \varphi\}]_{\mathcal{M}^{\prime}}(\pi) = 1$, то есть $\Gamma \cup \{\psi\}$ выполнима. \qedhere
+        \end{enumerate}
+    \end{proof}
     
     % Вопрос логика 15
     \subsection{Исчисление резолюций для произвольных множеств формул. Теорема о коррект- ности.
