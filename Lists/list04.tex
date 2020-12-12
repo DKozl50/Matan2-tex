@@ -1,0 +1,441 @@
+\documentclass[a4paper, fleqn]{article}
+\usepackage{header}
+
+\title{Семинарский лист 4}
+\author{
+    Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
+    Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
+    Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
+    Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
+    Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
+    Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
+    Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
+    Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
+    Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
+    Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
+    Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
+    Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
+}
+
+\date{Версия от {\ddmmyyyydate\today} \currenttime}
+
+\begin{document}
+    \maketitle
+    
+    \section*{Вычислите бесконечное произведение как предел частичного}
+    \subsection*{Задача 1}
+    \begin{flalign*}
+        &\prod\limits_{n = 2}^{\infty}\left( 1 - \frac{1}{n^2} \right)& \\
+        &\prod\limits_{n = 2}^{N}\left( 1 - \frac{1}{n^2} \right) =
+        \prod\limits_{n = 2}^{N}\frac{n^2 - 1}{n^2} =
+        \prod\limits_{n = 2}^{N}\frac{(n - 1)(n + 1)}{n \cdot n} =
+        \frac{1 \cdot 3}{2 \cdot 2} \cdot \frac{2 \cdot 4}{3 \cdot 3} \cdot
+        \frac{3 \cdot 5}{4 \cdot 4} \cdot \ldots \cdot \frac{(N - 1) \cdot (N + 1)}{N \cdot N}
+        =\frac{N + 1}{2N} \to \frac{1}{2}
+    \end{flalign*}
+    
+    \subsection*{Задача 2}
+    \begin{flalign*}
+        &\prod\limits_{n = 1}^{\infty} e^{\frac{(-1)^n}{n}}& \\
+        &\prod\limits_{n = 1}^{N} e^{\frac{(-1)^n}{n}} =
+        e^{\sum\limits_{n = 1}^{N} \frac{(-1)^n}{n}} = \Diamond& \\
+        &\ln n + \gamma + o(1) = 1 + \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{n}
+        \implies \frac{1}{2} \left( \ln n + \gamma + o(1) \right) =
+        \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2n}
+        \text{ --- чётные члены суммы } \sum\limits_{n = 1}^{N} \frac{(-1)^n}{n}& \\
+        &\ln (2n + 1) + \gamma + o(1) = 1 + \frac{1}{2} + \ldots + \frac{1}{2n + 1}
+        \implies \left( \ln (2n + 1) + \gamma + o(1) \right) -
+        \frac{1}{2} \left( \ln n + \gamma + o(1) \right) = &\\
+        &= 1 + \frac{1}{3} + \ldots + \frac{1}{2n + 1}
+        \text{ --- нечётные члены суммы } \sum\limits_{n = 1}^{N} \frac{1}{n}& \\
+        &\Diamond = e^{\frac{1}{2}\left( \ln n + \gamma + o(1) \right) -
+        \left( \ln (2n + 1) + \gamma + o(1) \right) -
+        \frac{1}{2} \left( \ln n + \gamma + o(1) \right)} =
+        e^{\frac{1}{2}\ln n + \frac{1}{2}\gamma + o(1) -
+        \ln (2n + 1) - \gamma + o(1) +
+        \frac{1}{2}\ln n + \frac{1}{2}\gamma + o(1)} =
+        e^{\ln n - \ln (2n +1) + o(1)} = &\\
+        &= e^{\ln\frac{n}{2n + 1} + o(1)} \to e^{\ln\frac{1}{2}} = \frac{1}{2}&
+    \end{flalign*}
+    
+    \subsection*{Задача 3}
+    \begin{flalign*}
+        & \prod_{n=1}^{\infty} \cos \frac{x}{2^n} \\
+        & \text{Найдем частичное произведение:} \\
+        & \prod_{n=1}^{N} \cos \frac{x}{2^n} = 
+        \cos \frac{x}{2} \cdot \cos \frac{x}{4} \cdot \ldots \cdot \frac{x}{2^N} \\
+        & \sin x = 2 \sin \frac{x}2 \cos \frac{x}2 = 4 \sin \frac{x}{4} \cos \frac{x}{4} \cos \frac{x}2 = \ldots
+        = 2^k \sin \frac{x}{2^k} \prod_{m=1}^{k} \cos \frac{x}{2^m} \; \Leftrightarrow \\
+        & \Leftrightarrow \; \prod_{m=1}^{k} \cos \frac{x}{2^m} = 
+        \frac{\sin x}{2^k \sin \frac{x}{2^k}} \; \Rightarrow 
+        \prod_{n=1}^{N} \cos \frac{x}{2^n} = \frac{\sin x}{2^N \sin \frac{x}{2^N}} \\
+        & \text{Бесконечное произведение как предел частичного:} \\
+        & \prod_{n=1}^{\infty} \cos \frac{x}{2^n} = 
+        \lim_{N \to \infty} \frac{\sin x}{2^N \sin \frac{x}{2^N}} =
+        \sin x \lim_{N \to \infty} \frac{1}{2^N \dfrac{x}{2^N}} = \frac{\sin x}{x} \\[5 pt]
+        & \text{ \fbox{ Ответ: $\displaystyle \prod_{n=1}^{\infty} \cos \frac{x}{2^n} = \frac{\sin x}{x}$.} }
+    \end{flalign*}
+    
+    \section*{Исследуйте бесконечное произведение на сходимость}
+    \subsection*{Задача 4}
+    \emph{Формулы Тейлора:}
+    \begin{flalign*}
+        &(1 + x)^a \sim 1 + x& \\
+        &\ln(1 + x) \sim x&
+    \end{flalign*}
+    \begin{flalign*}
+        &\prod\limits_{n = 1}^{\infty} \frac{n}{\sqrt{n^2 + 3}}& \\
+        &\prod\limits_{n = 1}^{N} \frac{n}{\sqrt{n^2 + 3}} =
+        e^{\ln\prod\limits_{n = 1}^{N} \frac{n}{\sqrt{n^2 + 3}}} =
+        e^{\sum\limits_{n = 1}^{N} \ln\frac{n}{\sqrt{n^2 + 3}}};\;\;\;\;\;\;
+        a_n = \ln\frac{n}{\sqrt{n^2 + 3}} =
+        \ln\left[ \left( 1 + \frac{3}{n^2} \right)^{-\frac{1}{2}} \right]
+        \sim \ln\left( 1 - \frac{3}{2n^2} \right) \sim -\frac{3}{2n^2}
+        \implies&\\
+        &\implies \text{ ряд сходится.}&
+    \end{flalign*}
+    
+    \subsection*{Задача 5}
+    \begin{flalign*}
+        & \prod\limits_{n = 1}^{\infty} \left( 2 - \sqrt[n]n \right) \\
+        & \prod\limits_{n = 1}^{N} \left( 2 - \sqrt[n]{n} \right) =
+        e^{\ln \prod\limits_{n = 1}^{N} \left( 2 - \sqrt[n]{n} \right)} =
+        e^{\, \sum\limits_{n = 1}^{N} \ln \left( 2 - \sqrt[n]{n} \right)} \\
+        & a_n = \ln \left( 2 - \sqrt[n]{n} \right) = \ln \left( 1 + \left( 1 - \sqrt[n]{n} \right) \right)
+        \sim \left( 1 - \sqrt[n]{n} \right) = -\left( e^{\frac{\ln n}n} - 1 \right) = \\
+        & = \text{ [Формула Тейлора для $e^x$] } 
+        -\left( 1 + \frac{\ln n}n + \frac{\ln^2 n}{2n^2} + o\left( \frac{\ln^2 n}{n^2} \right) - 1 \right) = \\
+        & = -\left( \frac{\ln n}n + \frac{\ln^2 n}{2n^2} + o\left( \frac{\ln^2 n}{n^2} \right) \right) \le
+        -\frac{\ln n}n \implies \\
+        & \implies \sum\limits_{n = 1}^{N} \ln \left( 2 - \sqrt[n]{n} \right) < 
+        -\sum\limits_{n = 1}^{N} \frac{\ln n}n, \;\;\; 
+         \left| \sum\limits_{n = 1}^{N} \ln \left( 2 - \sqrt[n]{n} \right) \right| > 
+         \sum\limits_{n = 1}^{N} \frac{\ln n}n \implies \\
+         & \implies \sum\limits_{n = 1}^{N} \ln \left( 2 - \sqrt[n]{n} \right) 
+         \text{ расходится в $-\infty$ по признаку сравнения} \implies \\
+         & \implies \prod\limits_{n = 1}^{\infty} \left( 2 - \sqrt[n]n \right) \text{ расходится к 0}
+    \end{flalign*}
+    
+    \subsection*{Задача 6}
+    \begin{flalign*}
+        & \prod\limits_{n = 1}^{\infty} \cos \left( \text{arcctg}\, n \right) \\
+        & \cos \left( \text{arcctg}\, n \right) = 
+        \ctg \left( \text{arcctg}\, n \right) \, \sin \left( \text{arcctg}\, n \right) =
+        n \sqrt{\, 1 - \cos^2 \left( \text{arcctg}\, n \right)} \; \Leftrightarrow \; \\
+        & \Leftrightarrow \; \cos \left( \text{arcctg}\, n \right) = \frac{n}{\sqrt{1 + n^2}} \\
+        & \prod\limits_{n = 1}^{N} \cos \left( \text{arcctg}\, n \right) =
+        \prod\limits_{n = 1}^{N} \frac{n}{\sqrt{1 + n^2}} =
+        e^{\ln \prod\limits_{n = 1}^{N} \frac{n}{\sqrt{1 + n^2}}} =
+        e^{\, \sum\limits_{n = 1}^{N} \ln \frac{n}{\sqrt{1 + n^2}}} \\
+        & a_n = \ln \frac{n}{\sqrt{1 + n^2}} = \frac12 \ln \left( 1 - \frac{1}{1 + n^2} \right) \sim
+        -\frac{1}{2(1 + n^2)} \; \Rightarrow \; \\
+        & \Rightarrow \;  \sum\limits_{n = 1}^{N} a_n \text{ сходится по признаку сравнения } \Rightarrow \\
+        & \implies \; \prod\limits_{n = 1}^{\infty} \cos \left( \text{arcctg}\, n \right) \text{ сходится}
+   \end{flalign*}
+    
+    \section*{Исследуйте бесконечное произведение на сходимость и абсолютную сходимость}
+    \subsection*{Задача 7}
+    \begin{flalign*}
+        &\prod\limits_{n = 1}^{\infty} n^{\frac{(-1)^n}{n}} =
+        e^{\sum\limits_{n = 1}^{\infty} \ln n^{\frac{(-1)^n}{n}}};\;\;\;\;\;\;
+        \sum\limits_{n = 1}^{\infty} \frac{(-1)^n\ln n}{n}
+        \implies a_n = \frac{\ln n}{n} \to 0;&\\
+        &f(x) = \frac{\ln x}{x}
+        \implies f'(x) = -\frac{\ln x - 1}{x^2} < 0 \implies \text{ монотонно убывает }
+        \implies \text{ ряд сходится по Лейбницу}&\\
+        &|a_n| = \left| \frac{(-1)^n\ln n}{n} \right| \geq \frac{\ln 2}{n} \implies
+        \text{ряд расходится абсолютно.}&
+    \end{flalign*}
+    
+    \subsection*{Задача 8}
+    \begin{flalign*}
+        & \prod\limits_{n = 1}^{\infty} \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right) =
+        e^{\, \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right)} \\
+        & \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right) \sim
+        \sum\limits_{n = 1}^{\infty} \frac{(-1)^{n+1}}{\sqrt[3]{n^2 + 2}} 
+        \text{ --- знакочередующийся ряд}, \;\;\;
+        a_n = \frac{1}{\sqrt[3]{n^2 + 2}} \\
+        & \text{Проверим монотонность $|a_n|$: } f(n) = \frac{1}{\sqrt[3]{n^2 + 2}}, \;\;
+        f'(n) = -\frac{2n}{3(n^2 + 2)^{4/3}} < 0 \text{ и $f(n)$ монотонно убывает при } n > 0, \\
+        & \lim_{n \to \infty} |a_n| = \frac{1}{\sqrt[3]{n^2 + 2}} = 0 \implies
+        \text{ряд сходится по Лейбницу} \\
+        & \sum\limits_{n = 1}^{\infty} \left| \frac{(-1)^{n+1}}{\sqrt[3]{n^2 + 2}} \right| =
+        \sum\limits_{n = 1}^{\infty} \frac{1}{\sqrt[3]{n^2 + 2}} 
+        \text{ расходится по признаку сравнения с $\sum\limits_{n=1}^{\infty} \frac1n$} \implies \\
+        & \implies \sum\limits_{n = 1}^{\infty} \ln \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right) 
+        \text{расходится абсолютно} \implies \\
+        & \implies \prod\limits_{n = 1}^{\infty} \left( 1 - \frac{(-1)^n}{\sqrt[3]{n^2 + 2}} \right)
+        \text{ сходится условно}
+    \end{flalign*}
+    
+    \subsection*{Задача 9}
+    \begin{flalign*}
+        & \prod\limits_{n = 1}^{\infty} \frac{\sqrt{n}}{\sqrt{n} + \sin n} =
+        e^{\, \sum\limits_{n = 1}^{\infty} \ln \frac{\sqrt{n}}{\sqrt{n} + \sin n}} \\
+        & \sum\limits_{n = 1}^{\infty} \ln \frac{\sqrt{n}}{\sqrt{n} + \sin n} =
+        \sum\limits_{n = 1}^{\infty} -\ln \left( 1 + \frac{\sin n}{\sqrt{n}} \right) =
+        -\sum\limits_{n = 1}^{\infty} 
+        \left( \frac{\sin n}{\sqrt{n}} - \frac{\sin^2 n}{2n} + o\left( \frac{\sin^3 n}{n^{3/2}} \right) \right) = \\
+        & = -\sum\limits_{n = 1}^{\infty} 
+        \left( \underbrace{\frac{\sin n}{\sqrt{n}}}_{\text{сходится}} - \underbrace{\frac{1}{4n}}_{\text{расходится}}
+        + \underbrace{\frac{\cos 2n}{4n}}_{\text{сходится}}
+        + \underbrace{o\left( \frac{\sin^3 n}{n^{3/2}} \right)}_{\text{сходится}} \right) 
+        \text{ расходится } \implies \\
+        & \implies \prod\limits_{n = 1}^{\infty} \frac{\sqrt{n}}{\sqrt{n} + \sin n} \; \text{ расходится}
+    \end{flalign*}
+ 
+    \section*{Исследуйте функциональную последовательность $f_n$ на равномерную сходимость к поточечному 
+    пределу $f$ на множестве $D$, оценивая $\left\lVert f_n - f \right\rVert$.}
+    \subsection*{Задача 10}
+    \begin{flalign*}
+        &f_n(x) = \sin\frac{x}{n},\;\;\; D = [-1, 1]& \\
+        &f_n(x) = \sin\frac{x}{n} \to \sin0 = 0 \implies f \equiv 0& \\
+        &\sup_D\norm{\sin\frac{x}{n}} = \sin\frac{1}{n} \to 0 \implies
+        \text{ равномерная сходимость.}
+    \end{flalign*}
+    
+    \subsection*{Задача 11}
+    \begin{flalign*}
+        &f_n(x) = x^n - x^{2n},\;\;\; D = [0, 1]& \\
+        &f_n(x) = x^n - x^{2n} \to 0 \implies f \equiv 0& \\
+        &\sup_D\norm{x^n - x^{2n}} = \Diamond& \\
+        &f_n'(x) = (x^n - x^{2n})' = nx^{n - 1} - 2nx^{2n - 1} = nx^{n - 1}(1 - 2x^n) = 0& \\
+        &\text{Критические точки: } x = 0, f_n(x) = 0;\;\;
+        x = \sqrt[n]{\frac{1}{2}}, f_n(x) = \frac{1}{4};\;\;
+        x = 1, f_n(x) = 0;&\\
+        &\Diamond = \frac{1}{4} \neq 0 \implies \text{ отсутствие равномерной сходимости.}
+    \end{flalign*}
+    
+    \subsection*{Задача 12}
+    \begin{flalign*}
+        & f_n(x) = n \ln \left( 1 + \frac{x}n \right), \;\;\; D = [0, 3] \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} n \ln \left( 1 + \frac{x}n \right) =
+        \lim_{n \to \infty} n \, \frac{x}n = x \implies f \equiv x \implies \\
+        & \implies \text{ функциональная последовательность $f_n(x)$ сходится поточечно к $f(x) = x$} \\
+        & \sup_D \norm{f_n(x) - f(x)} =
+        \sup_D \norm{n \ln \left( 1 + \frac{x}n \right) - x} = \Diamond \\
+        & (f_n(x) - f(x))' = \left(n \ln \left( 1 + \frac{x}n \right) - x \right)' = 
+        n \, \frac{x/n}{1 + x/n} - 1 = \frac{x}{1 + x/n} - 1 \\
+        & \text{Критические точки: } \\
+        & x = 1 + \frac{x}n \; \Leftrightarrow \; x = \frac{n}{n-1} \to 1, \; 1 \in D, \;
+        f_n(1) - f(1) = n \ln \left( 1 + \frac{1}n \right) - 1 \sim n \, \frac1n - 1 = 0 \\
+        & \Diamond = 0 \implies \text{ сходимостm равномерная }
+    \end{flalign*}
+    
+    \subsection*{Задача 13}
+    \begin{flalign*}
+        & f_n(x) = \frac{2nx}{1  +n^2 x^2}, \;\;\; D = [0, 1] \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{2nx}{1  +n^2 x^2} =
+        [\text{ Правило Лопиталя }] \lim_{n \to \infty} \frac{2x}{2nx^2} = 0 \implies f \equiv 0 \implies \\
+        & \implies \text{ функциональная последовательность $f_n(x)$ сходится поточечно к $f(x) = 0$} \\
+        & \sup_D \norm{f_n(x) - f(x)} = \sup_D \norm{\frac{2nx}{1  +n^2 x^2}} = \Diamond \\
+        & (f_n(x) - f(x))' = \left( \frac{2nx}{1  +n^2 x^2} \right)' = 
+        \frac{2n \left( 1 +n^2 x^2 \right) - 4n^3x^2}{(1 +n^2 x^2)^2} = 
+        \frac{2n(1 - n^2 x^2)}{(1 +n^2 x^2)^2} \\
+        & \text{Критические точки: } \\
+        & n^2 x^2 = 1 \; \Leftrightarrow \; x = \pm \frac{1}{n} \to 0, \; 0 \in D, \;
+        f_n(0) = 0 \\
+        & \Diamond = 0 \implies \text{ сходимость равномерная}
+    \end{flalign*}
+    
+    \subsection*{Задача 14}
+    \begin{flalign*}
+        & f_n(x) = \frac{nx^2}{n + x}, \;\;\; D = [0, 2] \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{nx^2}{n + x} =
+        [\text{ Правило Лопиталя }] \lim_{n \to \infty} \frac{x^2}{1} \implies f \equiv x^2 \implies \\
+        & \implies \text{ функциональная последовательность $f_n(x)$ сходится поточечно к $f(x) = x^2$} \\
+        & \sup_D \norm{f_n(x) - f(x)} = \sup_D \norm{\frac{nx^2}{n + x} - x^2} = \Diamond \\
+        & (f_n(x) - f(x))' = \left( \frac{nx^2}{n + x} - x^2 \right)' = 
+        \frac{2nx(n + x) - nx^2}{(n + x)^2} - 2x = 
+        -\frac{x^2 (2x + 3n)}{(n + x)^2} \\
+        & \text{Критические точки: } \\
+        & x^2 \, (2x + 3n) = 0 \; \Leftrightarrow \; \left\{\begin{array}{cclll}
+        x &=& 0, & 0 \in D, & f_n(0) = 0,\\[5 pt]
+        x &=& -\frac{3n}2 & \to \infty & \not\in D
+        \end{array}\right. \\
+        & \Diamond = 0 \implies \text{ сходимость равномерная}
+    \end{flalign*}
+    
+    \subsection*{Задача 15}
+    \begin{flalign*}
+        &f_n(x) = n\sim\frac{1}{nx},\;\;\; D = (0, 3]& \\
+        &\frac{1}{nx} \to 0 \implies \sin\frac{1}{nx} \sim \frac{1}{nx}
+        \implies f_n(x) \sim \frac{1}{x} \implies f(x) = \frac{1}{x}& \\
+        &\text{Расширим } D \text{ до компакта: } D = [0, 3]& \\
+        &\sup_D\norm{n\sin\frac{1}{nx} - \frac{1}{x}}& \\
+        &\text{Возьмём последовательность аргументов } x_n = \frac{1}{n}
+        \in D\text{. Тогда }
+        \sup_D\norm{n\sin\frac{1}{nx} - \frac{1}{x}} \geq
+        \sup_D\norm{n\sin1 - n} \to +\infty \implies&\\
+        &\implies \text{ Отсутствует равномерная сходимость.}&
+    \end{flalign*}
+    
+    \section*{Докажите равномерную сходимость функциональной последовательности на заданном множестве, применяя
+    теорему Дини (о монотонной сходимости)}
+    
+    \paragraph{Теорема Дини:} Если $f_n \to f$ на множестве одновременно выполнены следующие условия:
+    \begin{enumerate}
+        \item $D$ --- компакт
+        \item $f_n$ --- монотонна
+        \item $f_n$ --- непрерывна
+        \item $f$ --- непрерывна
+    \end{enumerate}
+    тогда $f_n$ равномерно сходится к $f$.
+    
+    \subsection*{Задача 16}
+    \begin{flalign*}
+        &f_n = \left( 1 + \frac{x}{n} \right)^n,\;\;\; D = [1, 2]& \\
+        &
+        \begin{cases}
+            f_n \text{ --- непрерывна, монотонна}\\
+            D = [1, 2] \text{ --- компакт}\\
+            f_n \to f(x) = e^x \text{ --- непрерывна}
+        \end{cases}
+        \implies f_n\text{ равномерно сходится к } f \text{ по Т. Дини.}
+        &
+    \end{flalign*}
+    
+    \subsection*{Задача 17}
+    \begin{flalign*}
+        &f_n = nx^2e^{-nx},\;\;\; D = [1, +\infty)& \\
+        &\text{Расширим } D \text{ до компакта}\colon D' = [1, +\infty]&\\
+        &f_n' = 2nx \cdot e^{-nx} + nx^2(-n) \cdot e^{-nx} = nxe^{-nx}(2 - nx) = 0 \implies
+        \text{при } n \geq 2,\;\; x \geq \frac{2}{n},\;\;\;\; f_n' \leq 0 \implies
+        f_n \text{ --- монотонна.}
+        & \\
+        &\begin{cases}
+             f_n \text{ --- монотонна}\\
+             f_n \text{ --- непрерывна}\\
+             f_n \to 0 \text{ --- непрерывна}\\
+             D' = [1, +\infty] \text{ --- компакт}
+        \end{cases}
+        \implies f_n\text{ равномерно сходится к } f \text{ по Т. Дини.}
+        &
+    \end{flalign*}
+    
+    \subsection*{Задача 18}
+    \begin{flalign*}
+        & f_n(x) = \cos \, \frac{x^2}{n}, \;\;\; D = (0, 1] \\
+        &\text{Расширим } D \text{ до компакта}\colon D' = [0, 1] \\
+        &f_n'(x) = -\frac{2x}n\, \sin \frac{x^2}{n} \le 0 \text{ при } x \in D', \, n \in \NN \implies
+        f_n \text{ --- монотонна} \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \cos \, \frac{x^2}{n} = 1 \implies f_n(x) \to f(x) = 1 \\[10 pt]
+        &\begin{cases}
+             f_n \text{ --- монотонна}\\
+             f_n \text{ --- непрерывна}\\
+             f \text{ --- непрерывна}\\
+             D' = [0, 1] \text{ --- компакт}
+        \end{cases}
+        \implies f_n \text{ равномерно сходится к } f \text{ по Т. Дини.}
+    \end{flalign*}
+    
+    \subsection*{Задача 19}
+    \begin{flalign*}
+        & f_n(x) = \sqrt[2n]{1 + x^n}, \;\;\; D = [0, 1] \\
+        &f_n(x) = \sqrt[2n]{1 + x^n} = \sqrt[2n]{g(x)}, \; g(x) = 1 + x^n \text{ --- монотонная} \implies
+        f_n(x) \text{ --- монотонна} \\
+        & \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \sqrt[2n]{1 + x^n} = 
+        \lim_{n \to \infty} e^{\frac{\ln(1 + x^n)}{2n}} = e^{\lim\limits_{n \to \infty} \frac{\ln(1 + x^n)}{2n}} = \\
+        & = [\text{ Правило Лопиталя }] \; e^{\lim\limits_{n \to \infty} \frac{\frac{x^n \, \ln x}{1 + x^n}}{2}} = 
+        e^{\lim\limits_{n \to \infty} \frac{\ln x}{2}} = \sqrt{x} \implies f_n(x) \to f(x) = \sqrt{x} \\[10 pt]
+        &\begin{cases}
+             f_n \text{ --- монотонна}\\
+             f_n \text{ --- непрерывна}\\
+             f \text{ --- непрерывна}\\
+             D = \text{ --- компакт}
+        \end{cases}
+        \implies f_n \text{ равномерно сходится к } f \text{ по Т. Дини.}
+    \end{flalign*}
+    
+    \section*{Докажите неравномерную сходимость функциональной последовательности на заданном множестве,
+    используя локализацию особенности.}
+    
+    \paragraph{Теорема:}
+    Если $f_n$ непрерывна, и на множестве $D$ равномерно сходится к $f$, то $f$ --- непрерывна.
+    
+    \subsection*{Задача 20}
+    \begin{flalign*}
+        &f_n(x) = \frac{1}{1 + nx},\;\;\; D = [0, 1]& \\
+        &f_n(x) = \frac{1}{1 + nx} \to f(x) =
+        \begin{cases}
+            1, &x = 0\\
+            0, &x \neq 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, то равномерная сходимость отсутствует.}
+        &
+    \end{flalign*}
+    
+    \subsection*{Задача 21}
+    \begin{flalign*}
+        & f_n(x) = \sqrt[n]{x \sin x},\;\;\; D = \left[ 0, \frac{\pi}2 \right] \\
+        & \lim_{n\to\infty} f_n(x) = \lim_{n\to\infty} \sqrt[n]{x \sin x} = 
+        \lim_{n\to\infty} e^{\frac{\ln (x \sin x)}n} = e^{\lim\limits_{n\to\infty} \frac{\ln (x \sin x)}n} = 1 \implies \\
+        & \implies f_n(x) \to f(x) =
+        \begin{cases}
+            0, & x = 0\\
+            1, & x \neq 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, равномерная сходимость отсутствует}
+    \end{flalign*}
+    
+    \subsection*{Задача 22}
+    \begin{flalign*}
+        & f_n(x) = \arcsin \frac{nx}{1 + nx},\;\;\; D = \left[ 0, 1 \right] \\
+        & \lim_{n\to\infty} f_n(x) = \lim_{n\to\infty} \arcsin \frac{nx}{1 + nx} = 
+        \lim_{n\to\infty} \arcsin \left( 1 - \frac{1}{1 + nx} \right) = \arcsin 1 = \frac{\pi}2 \implies \\
+        & \implies f_n(x) \to f(x) =
+        \begin{cases}
+            0, & x = 0\\[5 pt]
+            \frac{\pi}2, & x \neq 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, равномерная сходимость отсутствует}
+    \end{flalign*}
+    
+    \subsection*{Задача 23}
+    \begin{flalign*}
+        & f_n(x) = \arctg (nx), \;\;\; D = \left[ 0, 1 \right] \\
+        & \lim_{n\to\infty} f_n(x) = \lim_{n\to\infty} \arctg (nx) = \frac{\pi}2 \implies \\
+        & \implies f_n(x) \to f(x) =
+        \begin{cases}
+            0, & x = 0\\[5 pt]
+            \frac{\pi}2, & x \neq 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, равномерная сходимость отсутствует}
+    \end{flalign*}
+    
+    \subsection*{Задача 24}
+    \begin{flalign*}
+        &f_n(x) = \frac{n^2}{4 + n^2x^2},\;\;\; D = (0, +\infty)& \\
+        &\text{Добавим точку 0 в } D\colon D= [0, +\infty)& \\
+        &f_n(x) = \frac{n^2}{4 + n^2x^2} \to f(x) =
+        \begin{cases}
+            \frac{1}{x^2}, &x \neq 0\\
+            +\infty, &x = 0
+        \end{cases}
+        \implies
+        \text{ т.к. } f \text{ разрывна в 0, то равномерная сходимость отсутствует.}
+        &
+    \end{flalign*}
+    
+%    \subsection*{Задача 25}
+%    \begin{flalign*}
+%        & f_n(x) = \frac{(-1)^n(1 + x)}{1 + nx}, \;\;\; D = \left( 0, 1 \right) \\
+%        & \lim_{n\to\infty} f_n(x) = \lim_{n\to\infty} \frac{(-1)^n(1 + x)}{1 + nx} = 0 \implies \\
+%        & \implies f_n(x) \to f(x) = 0 \\
+%        & \sup_D \norm{f_n(x) - f(x)} = \sup_D \norm{\frac{(-1)^n(1 + x)}{1 + nx}} = 
+%        \sup_D \norm{\frac{1 + x}{1 + nx}} = \Diamond \\
+%        & (|f_n(x) - f(x)|)' = \left( \frac{1 + x}{1 + nx} \right)' = 
+%        \frac{1 + nx - n(1 + x)}{(1 + nx)^2} = \frac{1 - n}{(1 + nx)^2}
+%        \frac{2n(1 - n^2 x^2)}{(1 +n^2 x^2)^2} \\
+%        & \text{Критические точки: } \\
+%        & n^2 x^2 = 1 \; \Leftrightarrow \; x = \pm \frac{1}{n} \to 0, \; 0 \in D, \;
+%        f_n(0) = 0 \\
+%        & \Diamond = 0 \implies \text{ сходимость равномерная}
+%    \end{flalign*}
+    
+
+\end{document}
