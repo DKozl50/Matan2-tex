@@ -24,11 +24,6 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
-
-    # Деплой пока только на ветке add-compilation
-
-    if: github.ref == 'refs/heads/add-compilation'
-
     needs: [build]
 
     steps:
@@ -38,7 +33,7 @@ jobs:
           persist-credentials: false
       
       - name: Download Artifacts  # The built project is downloaded into the 'site' folder.
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: dm
 
