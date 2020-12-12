@@ -877,8 +877,12 @@
     	\end{cases}$
     \end{proposition}
 
+	\begin{definition}
+		Формула $\varphi$ называется \textit{предварённой} или \textit{пренексной}, если $\varphi = Q_1y_1...Q_ny_n \: \psi$, где $Q_1,..Q_n$ --- некоторые кванторы, а $\psi$ --- бескванторная формула.
+	\end{definition}
+
 	\begin{theorem}
-		$\forall \varphi \in Fm \;\; \exists \text{(не единственная) предварённая } \varphi' \text{такая, что } \varphi \equiv \varphi'$. Такая $\varphi'$ называется предварённой нормальной формой формулы $\varphi$.
+		$\forall \varphi \in Fm \;\; \exists \text{(не обязательно единственная) предварённая } \varphi' \text{такая, что } \varphi \equiv \varphi'$. Такая $\varphi'$ называется предварённой нормальной формой формулы $\varphi$.
 	\end{theorem}
 
 	\textbf{Неформально:} в абсолютно любой формуле можно вынести кванторы наружу.
@@ -892,7 +896,7 @@
 		\begin{itemize}
 		\item Если $\varphi = \forall x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \forall x \psi \equiv \forall x \psi' = \varphi'$. 
 		\item Если $\varphi = \exists x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \exists x \psi \equiv \exists x \psi' = \varphi'$. 
-		\item Если $\varphi = \neg \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$. Заметим, что $\psi'$ имеет вид $Q_1x_1..Q_nx_n \; \psi_0$, где $Q_1,..,Q_n$ --- кванторы, а $\psi_0$ атомарная.
+		\item Если $\varphi = \neg \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$. Заметим, что $\psi'$ имеет вид $Q_1x_1..Q_nx_n \; \psi_0$, где $Q_1,..,Q_n$ --- кванторы, а $\psi_0$ бескванторная.
 		
 		$\varphi = \neg \psi \equiv \neg \psi' = \neg Q_1x_1..Q_nx_n \; \psi_0 = \overline{Q_1}x_1..\overline{Q_n}x_n \; \neg \psi_0 = \varphi'$ (здесь $\overline{\forall} = \exists, \overline{\exists} = \forall)$.
 		\item $\varphi = \psi \wedge \theta$. По предположению индукции $\psi \equiv Q_1x_1..Q_nx_n \; \psi_0$, $\theta \equiv Q_1'y_1..Q_m'y_m \; \theta_0$
