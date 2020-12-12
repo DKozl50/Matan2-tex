@@ -1215,7 +1215,24 @@
     [\varphi(t/x)](\pi) = \mathbbold{P}_j([t_1(t/x)](\pi), \ldots, [t_{a_j}(t/x)](\pi)) = \\
     = \mathbbold{P}([t_1](\pi + (x \mapsto [t](\pi))), \ldots, [t_{a_j}](\pi + (x \mapsto [t](\pi)))) = [\varphi](\pi + (x \mapsto [t](\pi))).
     \end{multline*}
+    
+    <<Принципиальный>> случай, когда $\varphi = \forall z\, \psi$ и $z \ne x$. Из условия $t-x-\varphi$ вытекает $z \not\in V(t)$ ($z$ --- связанная в $\varphi$) и $t - x - \psi$ или $x \not\in FV(\varphi)$. В первом случае, в силу предположения индукции и леммы 5,
+    \begin{multline*}
+    [\varphi(t/x)](\pi) = [\forall z \psi(t/x)](\pi) = \\
+    = \min\limits_{m \in M}[\psi(t/x)](\pi + (z \mapsto m)) = 
+    \min\limits_{m \in M}[\psi](\pi + (z \mapsto m) + (x \mapsto [t](\pi + (z \mapsto m)))) = \\
+    = \min\limits_{m \in M}[\psi](\pi + (z \mapsto m) + (x \mapsto [t](\pi))) =
+    \min\limits_{m \in M}[\psi](\pi + (x \mapsto [t](\pi)) + (z \mapsto m)) = \\
+     = [\forall z \psi](\pi + (x \mapsto [t](\pi)) = [\varphi](\pi + (x \mapsto [t](\pi)).
+    \end{multline*}
+    В случае $x \not\in FV(\varphi)$ верно также, что $x \not\in FV(\psi)$ (откуда и $t-x-\psi$), записанные равенства выполняются: применяем предположение индукции, а для всех оценок $\pi'$ и элементов $k, l \!\in\! M$ по лемме F5 $[\psi](\pi' + (x \mapsto k)) = [\psi](\pi' + (x \mapsto l))$.
     \end{proof}
+    
+    Сказанное позволяет объявить аксиомами ИП все формулы из $\text{Fm}_{\sigma}$ вида\\[-25 pt]
+    \begin{enumerate}
+    \item[(A12)] $\forall x\, \varphi \to \varphi(t/x)$, если $t-x-\varphi$;
+    \item[(A13)] $\varphi(t/x) \to \exists x\, \varphi$, если $t-x-\varphi$.
+    \end{enumerate}
 
     % Вопрос логика 11
     \subsection{Понятие корректной подстановки («терм свободен для переменной в формуле»). Пример некорректной подстановки. Лемма о корректной подстановке (без доказательства). [F, 73] Переименование связанной переменной. [F, 16, 18]. Общезначимость формул вида $\forall x \; \phi \to \phi(t/x)$ и $\phi(t/x) \to \exists x \; \phi$ в случае корректной подстановки. [F, 74]}
