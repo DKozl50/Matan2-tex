@@ -332,6 +332,29 @@
     \int\limits_{2\pi/3}^{4\pi/3}  \frac{1}{2 \cos^2 \varphi}  - \frac{1}{4\cos^2 \varphi}\; \; d \varphi = \int\limits_{-\pi/3}^{\pi/3} \frac{1}{2 \cos^2 \varphi} \; \; d \varphi  +
     \int\limits_{2\pi/3}^{4\pi/3}  \frac{1}{2 \cos^2 \varphi} \; \; d \varphi =  \tg (\pi/3) + \tg (4 \pi /3) =  \boxed{2 \sqrt{3}} \, . \\ $
 
-    % \subsection*{Задача 14}
+      \subsection*{Задача 14}
+    
+    $\underline{1 \leq x^2 + y^2  \leq 4, \; x^2 - y^2 -z^2 \geq 0, \; x \geq 0}$
+    
+    $\bullet \; 1 \leq x^2 + y^2  \leq 4, \; x \geq 0 \implies x \in \left[\sqrt{1 - y^2}, \; \sqrt{4 - y^2}\right].$
+    
+    $\bullet \; x^2 - y^2 -z^2 \geq 0 \implies z \in \left[ -\sqrt{x^2 - y^2} , \; \sqrt{x^2 - y^2} \right]; \; \; x \geq |y|.$
+    
+    $\bullet \; \, $ Насчёт границ $x$. Нижней границей будет $\sqrt{1 - y^2}$, если выполнено нер-во
+    
+    $|y| \leq \sqrt{1 - y^2} \iff |y| \leq 1/\sqrt{2} \iff y \in \left[-1/\sqrt{2}, \; 1/\sqrt{2}\right].$
+    
+    Иначе -- нижняя граница $|y|$.
+    
+    $\bullet \;$ Насчёт границ $y$. Должно быть верно $|y| \leq \sqrt{4 - y^2} \iff |y| \leq \sqrt{2} \iff y \in \left[-\sqrt{2}, \; \sqrt{2} \right].$
+    
+   $\bullet \; \, S  = \int\limits_{-\sqrt{2}}^{-1/\sqrt{2}} dy \int\limits_{-y}^{\sqrt{4 - y^2}} dx \int\limits_{-\sqrt{x^2 - y^2}}^{\sqrt{x^2 - y^2}} dz + 
+   \int\limits_{-1/\sqrt{2}}^{1/\sqrt{2}} dy \int\limits_{\sqrt{1 - y^2}}^{\sqrt{4 - y^2}} dx \int\limits_{-\sqrt{x^2 - y^2}}^{\sqrt{x^2 - y^2}} dz + 
+   \int\limits_{1/\sqrt{2}}^{\sqrt{2}} dy \int\limits_{y}^{\sqrt{4 - y^2}} dx \int\limits_{-\sqrt{x^2 - y^2}}^{\sqrt{x^2 - y^2}} dz = \\
+   2\int\limits_{-\sqrt{2}}^{-1/\sqrt{2}} dy \int\limits_{-y}^{\sqrt{4 - y^2}} \sqrt{x^2 - y^2} \; \; dx +
+   2\int\limits_{-1/\sqrt{2}}^{1/\sqrt{2}} dy \int\limits_{\sqrt{1 - y^2}}^{\sqrt{4 - y^2}} \sqrt{x^2 - y^2} \; \; dx  + 
+   2\int\limits_{1/\sqrt{2}}^{\sqrt{2}} dy \int\limits_{y}^{\sqrt{4 - y^2}} \sqrt{x^2 - y^2} \; \; dx.\\
+   \\$
+   
 
 \end{document}
