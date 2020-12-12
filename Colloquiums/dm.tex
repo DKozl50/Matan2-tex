@@ -20,7 +20,7 @@
     % Откомментируй себя или добавь в список!
 
     % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
-    % Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
+    Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
     Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
     % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
@@ -853,7 +853,142 @@
 
     % Вопрос логика 3
     \subsection{Оценка переменных. Значение терма и формулы в данной структуре при данной оценке. [F, с. 2–3] Независимость значения формулы от значений переменных, не являющихся ее параметрами. [F, 5]}
+    \underline{Напоминание:} Переменные -- это какие-то символы (различимые) 
+    $Var = \{v_0, v_1, \ldots, v_n, \ldots\} ∼ ℕ$ (то есть, их счётно много).
+    \begin{definition}[Оценка переменных]
+        Оценка переменных в интерпретации $\mathcal{M}$ -- это любая функция
+        $\pi: Var → M$.
+    \end{definition}
+    \begin{example}
+        Всем переменным с чётными номерами поставим в соответствие 5, а
+        всем переменным с нечётными -- их номер. 
+        Получится оценка переменных в любой интерпретации, где носителем 
+        выступают натуральные числа.  
+    \end{example}
+    \underline{Обозначения:} Значение терма $t ∈ Tm_{\sigma}$ в интерпретации
+    $\mathcal{M}$ при оценке $\pi$ $: [t]_{\mathcal{M}}(\pi) ∈ M$ 
+    (иногда $\mathcal{M}$ можно опускать, если и так понятно, какая 
+    интерпретация).
+    \begin{definition}[Значение терма $t ∈ Tm_{\sigma}$ в интерпретации
+        $\mathcal{M}$ при оценке $\pi$] \ \\
+        Индукция по построению:  
+        \begin{itemize}
+            \item[(1)] $ t = x ∈ Var ⇒ [x]_{\mathcal{M}}(\pi) = \pi(x)$
+            \item[(2)] $c ∈ Const ⇒ [c]_{\mathcal{M}}(\pi) = c^{\mathcal{M}}$
+            (константе в интерпретации уже приписано некое значение)
+            \item[(3)] $[ft_1\ldots t_m]_{\mathcal{M}}(\pi) = 
+            f^{\mathcal{M}}([t_1]_{\mathcal{M}}(\pi), \ldots, 
+            [t_m]_{\mathcal{M}}(\pi))$  
+        \end{itemize}
+    \end{definition}
+    \begin{example}
+        Вернёмся к нашей интерпретации $\mathcal{N}$ из предыдущих билетов. \\[9.5pt]
+        $[f(\#  x)x]_{\mathcal{N}}(\pi) =
+        f^{\mathcal{N}}([\# x]_{\mathcal{N}}(\pi), 
+        [x]_{\mathcal{N}}(\pi)) =
+        f^{\mathcal{N}}(\#^{\mathcal{N}}([x]_{\mathcal{N}}(\pi)), 
+        [x]_{\mathcal{N}}(\pi)) =
+        f^{\mathcal{N}}(\#^{\mathcal{N}}(\pi(x)), \pi(x))$ \\[9.5pt]
+        Допустим наша оценка оценила $x$ числом 9 ($\pi(x) = 9$). Тогда 
+        $[f(\#  x)x]_{\mathcal{N}}(\pi) = ((9 + 7) \cdot 9)^2 = (16 \cdot 9)^2 ∈ \mathbb{N}$
+    \end{example}
+    \begin{lemma}
+        Если $∀ x ∈ V(t) \pi_1(x) = \pi_2(x)$, то 
+        $[t]_{\mathcal{M}}(\pi_1) = [t]_{\mathcal{M}}(\pi_2)$. \\
+        Доказательство в билете не просят,
+         но доказывается индукцией по построению.
+    \end{lemma}
+    \underline{Обозначения:} Значение формулы $\varphi ∈ Fm_{\sigma}$ в интерпретации
+    $\mathcal{M}$ при оценке $\pi$ $: [\varphi]_{\mathcal{M}}(\pi) ∈ \{0, 1\}$ (ложь/истина) \\
+    \begin{definition}[Модифицированная оценка] \ \\
+        Пусть $\pi: Var → M$ \\
+        Пусть $y ∈ Var$ и $m ∈ M$ \\
+        $(\pi+(y ↦ m)): Var → M$ (альтернативное обозначение: 
+        $\pi_y^m$) называется модифицированной оценкой\\
+        $\pi_y^m(x) = \begin{cases}
+            m , x \eqcirc y \text{(x то же самое, что и у, алфавитно)} \\
+            \pi(x), x \not \eqcirc y
+        \end{cases}$ 
+    \end{definition}
+    \begin{definition}[Значение формулы $\varphi ∈ Fm_{\sigma}$ в интерпретации
+        $\mathcal{M}$ при оценке $\pi$] \ \\
+        Индукция по построению:
+        \begin{itemize}
+            \item[(1)] (атомарная формула) 
+            $[Rt_1, \ldots, [t_n]_{\mathcal{M}}(\pi) = $
+            $\begin{cases}
+                1, ([t_1]_{\mathcal{M}}(\pi), \ldots, 
+                [t_n]_{\mathcal{M}}(\pi) ∈ R^{\mathcal{M}} \\
+                0, \text{ иначе}
+            \end{cases}$
+            \item[(2)] (логические связки) 
+            $[\varphi ∧ \psi]_{\mathcal{M}}(\pi)$ = 
+            И$([\varphi]_{\mathcal{M}}(\pi), [\psi]_{\mathcal{M}}(\pi))$.
+            Аналогично для ИЛИ, СЛЕДОВАНИЯ, ЭКВИВАЛЕНТНОСТИ и НЕ
+            \item[(3)]
+            $[∀ x \varphi](\pi) =
+            \begin{cases}
+                1, \text{для всех } m ∈ M [\varphi](\pi_x^m) = 1\\
+                0, \text{иначе}
+            \end{cases}$ \\ 
+            $[∃ x \varphi](\pi) =
+            \begin{cases}
+                1, \text{существует } m ∈ M [\varphi](\pi_x^m) = 1\\
+                0, \text{иначе}
+            \end{cases}$
+        \end{itemize}
+    \end{definition}
+    \begin{example}
+        Вернёмся к нашей интерпретации $\mathcal{N}$ из предыдущих билетов. \\[9.5pt]
+        $\varphi = ∃ x ∀ y Qxyy$ (это замкнутая формула -- в ней нет свободных
+        переменных) \\[9.5pt]
+        $[∃ x ∀ y Qxyy](\pi) = 1 ⇔ ∃ a ∈ \mathbb{N} [∀ y Qxyy](\pi_x^a) = 1
+        ⇔  ∃ a ∈ \mathbb{N}, ∀ b ∈ \mathbb{N} [Qxyy](\pi^{ab}_{xy})
+        ⇔ [x](\pi^{ab}_{xy}) + [y](\pi^{ab}_{xy}) = [y](\pi^{ab}_{xy})
+        ⇔ \pi_x^a(x) + \pi_y^b(y) = \pi_y^b(y)$ (этот шаг по лемме) 
+        $⇔ a + b = b$ \\[9.5pt]
+        В нашей интерпретации значение формулы действительно истина (
+            $a$ возьмём нулём
+        )   
+    \end{example}
+    \begin{lemma}
+        Если $∀ y ∈ FV(\varphi) \pi_1(y) = \pi_2(y)$, то 
+        $[\varphi]_{\mathcal{M}}(\pi_1) = [\varphi]_{\mathcal{M}}(\pi_2)$
+    \end{lemma}
+    \begin{proof}
+        Индукция по построению: 
+        \begin{itemize}
+            \item[(1)] $\varphi \eqcirc Rt_1, \ldots, t_n$\\
+            $FV(Rt_1, \ldots, t_n) = V(t_1) ∪ \ldots  ∪ V(t_n) ⇒
+            V(t_i) ⊆ FV(Rt_1, \ldots, t_n)$  \\
+            $[\varphi](\pi_1) = 1 ⇔ R^m([t_1](\pi_1), \ldots, [t_n](\pi_1))$
+             \\
+            $⇔$ (по лемме выше) $R^m([t_1](\pi_2), \ldots, [t_n](\pi_2))$
+            $⇔ [\varphi](\pi_2) = 1$
+            \item[(2)] 
+            $FV(\varphi  ∧ \psi) = FV(\varphi) ∪ FV(\psi)$ \\
+            $[\varphi  ∧ \psi](\pi_1)$ = И$([\varphi](\pi_1), [\psi](\pi_1)) 
+            $ (по предположению индукции) = И$([\varphi](\pi_2), [\psi](\pi_2))
+            = [\varphi  ∧ \psi](\pi_2)$
+            \item[(3)]
+            $FV(∀ z \psi) = FV(∀z) \backslash \{z\}$ \\  
+            $\varphi=∀ z \psi ⇒ FV(\psi) = FV(\varphi) ∪ \{z\}$  \\
 
+            \underline{Утверждение:} $∀ y ∈ FV(\psi) ⇒ \pi_{1 z}^m(y) = \pi_{2 z}^m(y)$
+            \begin{proof} \ \\
+                \begin{itemize} 
+                    \item[1.] $y ∈ FV(\phi)$, тогда $y$ точно отличен от $z$. Значит,
+                     $\pi_{1 z}^m(y) = \pi_1(y) = \pi_2(y) = \pi_{2 z}^m(y)$
+                     \item[2.] $y$ совпадает с $z$, тогда
+                     $\pi_{1 z}^m(y) = m = \pi_{2 z}^m(y)$  
+                \end{itemize}   
+            \end{proof}
+            $⇒$ (по предположению индукции) 
+            $[\psi](\pi_{1 z}^m(y)) = [\psi](\pi_{2 z}^m(y))$ \\[9.5pt]
+            $[∀ z \psi](\pi_1) = 1 ⇔ ∀ m ∈ M [\psi](\pi_{1 z}^m) = 1
+            ⇔ ∀ m ∈ M [\psi](\pi_{2 z}^m) = 1 ⇔ [∀ z \psi](\pi_1) = 1$
+        \end{itemize}
+    \end{proof}
     % Вопрос логика 4
     \subsection{Значение терма и формулы на наборе элементов структуры. Выразимые в структуре множества (отношения, функции, элементы). Примеры выразимых множеств. [MD] [F, с. 4]}
     \begin{proposition}[значение формулы на наборе элементов структуры]
