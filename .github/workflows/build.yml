@@ -6,17 +6,11 @@ jobs:
 
   build:
 
-    # Базовая ОС, на которой будут исполняться команды. Оставим ubuntu
-
     runs-on: ubuntu-latest
 
     steps:
 
-    # Необходимо использовать этот action, чтобы получить содержимое репо
-
     - uses: actions/checkout@v2
-
-    # Компилируем документ
 
     - name: Build document
 
@@ -24,23 +18,14 @@ jobs:
 
       with:
 
-        # Переименуйте, если у вас другой файл
-
         root_file: dm.tex
 
-        # Больше параметров в офф. документации
-
         working_directory: Colloquiums/
-
-        # Аргументы, к которыми запускать компилятор (latexmk)
-
-        # -jobname=<name> дает возможность поменять имя выходного файла
 
         args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode 
 
         compiler: latexmk
 
-    # Загружаем собранные pdf-файлы
 
     - name: Upload pdf document
 
@@ -48,12 +33,102 @@ jobs:
 
       with:
 
-        # Это значение используется как ключ в хранилище
-
         name: dm
 
-        # Путь до собранного pdf. Может содержать «*», «**»
-
-        # Здесь это <working_directory>/<jobname>.pdf
-
         path: Colloquiums/dm.pdf
+  
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    # Деплой пока только на ветке add-compilation
+
+    if: github.ref == 'refs/heads/add-compilation'
+
+    needs: [build]
+
+    steps:
+
+      # Это хак, чтобы дергать bash-команды и запоминанать их результат
+
+      - name: Variables
+
+        # id используется внутренне: по нему можно ссылаться на результаты из другого step
+
+        id: vars
+
+        # echo в таком форматировании позволит впоследствии ссылаться на результаты через ${{ steps.<step_id>.outputs.<variable_name> }}
+
+        # Вертикальная черта | — это специальный символ yaml. Означает, что дальше идет массив команд и их все надо выполнить
+
+        run: |
+
+          echo «::set-output name=date::$(date +'%Y-%m-%d')»
+
+          echo «::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)»
+
+      - name: Download artifacts
+
+        uses: actions/download-artifact@v2
+
+        with:
+
+          # Тот самый ключ, который мы указывали в upload-artifact
+
+          name: dm
+
+      - name: Create Release
+
+        uses: actions/create-release@v1
+
+        id: create_release
+
+        env:
+
+          # По офф.документации, надо указать GITHUB_TOKEN
+
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
+
+        with:
+
+          # Берем результат из step с id=vars (см. выше). 
+
+          # Получим теги вида “my_doc-<дата билда>-<первые 8 символов из sha коммита>
+
+          tag_name: dm-${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha8 }}
+
+          # Имя, которое будет высвечиваться в релизе
+
+          release_name: My Actions document (version ${{ steps.vars.outputs.date }})
+
+          draft: false
+
+          prerelease: false
+
+      # Прикладываемые файлы надо заливать отдельным step
+
+      - name: Upload pdf asset
+
+        uses: actions/upload-release-asset@v1
+
+        env:
+
+          # Тоже требуется токен
+
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        with:
+
+          # Из предыдущего step с id=create_release генерится upload_url — по нему и надо заливать
+
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+
+          # Не переходим в папку latex_sources, поскольку download-artifacts грузит в текущую директорию
+
+          asset_path: ./dm.pdf
+
+          # Имя, которое будет высвечиваться в релизе
+
+          asset_name: dm_release.pdf
+
+          asset_content_type: application/pdf
