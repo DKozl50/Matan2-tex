@@ -858,7 +858,7 @@
     \subsection{Значение терма и формулы на наборе элементов структуры. Выразимые в структуре множества (отношения, функции, элементы). Примеры выразимых множеств. [MD] [F, с. 4]}
     \begin{proposition}[значение формулы на наборе элементов структуры]
         Зафиксируем $(x_1, x_2, ..., x_n) \in Var^n$, $x_1, ..., x_n$ попарно различны. Если $FV(\varphi) \subseteq \{x_1, ..., x_n\}$, то в качестве упрощённой записи будем писать $\varphi(x_1, ..., x_n)$. Пусть $\overrightarrow{a} = (a_1, ..., a_n) \in M^n$, тогда
-        $$\forall \varphi(x_1, ..., x_n) \; \forall \overrightarrow{a} \; \forall \mathcal{\pi} \; \mathcal{M} \vDash \varphi(\overrightarrow{a}) \Leftrightarrow [\varphi]_{\mathcal{M}} (\pi_{x_1 \; x_2 \; ... \; x_n}^{a_1 \; a_2 \; ... \; a_n}) = 1$$
+        \[\forall \varphi(x_1, ..., x_n) \; \forall \overrightarrow{a} \; \forall \mathcal{\pi} \; \mathcal{M} \vDash \varphi(\overrightarrow{a}) \Leftrightarrow [\varphi]_{\mathcal{M}} (\pi_{x_1 \; x_2 \; ... \; x_n}^{a_1 \; a_2 \; ... \; a_n}) = 1\]
     \end{proposition}
 
     \begin{definition}
@@ -898,33 +898,33 @@
     \begin{definition}
         Формула $\varphi$ {\it общезначима}, если для любой интерпретации $\mathcal{M}$, для 
         любой оценки переменных $\pi$ в этой самой интерпретации: $\text{Var} \to M$ 
-        $$
+        \[
             [\varphi]_{\mathcal{M}}(\pi) = 1.
-        $$
+        \]
         (Как ее ни интерпретируй, что с ней ни делай, будет принимать значение 1, 
         которое всегда истинно.)
     \end{definition}
 
     \begin{example}
-        $$
+        \[
             \psi = Px \implies (\neg Px \implies Qyz)
-        $$
+        \]
         Если $Px$ ложь, то $\psi$ истинна, иначе получаем $\psi \colon 1 \implies 
         (0 \implies *)$ --- тоже истина (запись варварская, ну и что?) $\implies 
         \psi $ общезначима. 
     \end{example}
     % \begin{example}
-    %     $$
+    %     \[
     %         \phi = \forall x Px \implies \exists x Px.
-    %     $$
+    %     \]
     %     Ничего не зависит от $P$, то есть $\phi$ всегда верно, если $M \neq 
     %     \varnothing$ (по определению $M$, это правда) $\implies \phi $ общезначима.
     % \end{example}
     \begin{example}
         Рассмотрим формулу
-        $$
+        \[
             \varphi \eqcirc Px \lor \neg Qy.
-        $$
+        \]
         Положим $M = \NN$, $P^{\mathcal{M}} = Q^{\mathcal{M}} =$ 
         ``равно 0'', $\pi(x) = 2020$, $\pi(y) = 0$.
         Тогда значение $\varphi$ ложно $ \implies \varphi $ не общезначима.
@@ -933,21 +933,21 @@
     \begin{definition}
         Формула $\varphi$ {\it выполнима}, если существует интерпретация $\mathcal{M}$ 
         и оценка $\pi$ такая, что
-        $$
+        \[
             [\varphi]_{\mathcal{M}}(\pi) = 1.
-        $$
+        \]
         Общезначимая формула истинна всегда, выполнимая истинна в каком-то случае.
     \end{definition}
         
     \begin{example}
         Рассмотрим формулу
-        $$
+        \[
             \varphi = (x - 3 > 1)
-        $$
+        \]
         При $M = \NN$ и $\pi$ такой, что $\pi(x) = 5$ 
-        $$
+        \[
             [\varphi]_{\mathcal{M}}(\pi) = 1
-        $$ 
+        \] 
         $\implies$ $\phi$ выполнима.
     \end{example}
         
@@ -971,9 +971,9 @@
     \begin{definition}
         Формулы $\phi$ и $\psi$ (логически) эквивалентны, если для любой интерпретации
         $\mathcal{M}$, для любой оценки $\pi$
-        $$
+        \[
             [\varphi]_{\mathcal{M}}(\pi) = [\psi]_{\mathcal{M}}(\pi).
-        $$
+        \]
     \end{definition}
 
     \begin{lemma}
@@ -1013,17 +1013,17 @@
 
     \begin{lemma}
         $\varphi \equiv \psi \iff $ общезначима формула
-        $$
+        \[
             (\varphi \implies \psi) \land (\psi \implies \varphi).
-        $$
+        \]
         Импликация истинна $\iff$ значение посылки не больше значения заключения, 
         а в лемме сказано, что они одинаковы.
     \end{lemma}
     \begin{lemma}
         Формула $\varphi$ общезначима тогда и только тогда, когда
-        $$
+        \[
             \varphi \equiv \top \ (\text{``заведомая истина''}).
-        $$
+        \]
     \end{lemma}
 
     \begin{corollary}
@@ -1039,17 +1039,17 @@
 
     \begin{proof}
         Рассмотрим произвольную интерпретацию $\mathcal{M}$ и оценку $\pi$. По определению: 
-        $$
+        \[
             [\forall x \varphi]_{\mathcal{M}}(\pi) = 1 \iff \forall m \in M~ [\varphi](\pi_{x}^{m}) = 1.
-        $$
+        \]
         где 
-        $$
+        \[
             \pi_{x}^{m}(z) = 
             \begin{cases}
                 m, & y \eqcirc x,  \\
                 \pi(y), & y \not \eqcirc x.
             \end{cases}
-        $$
+        \]
         Вспомним лемму о том, что $\forall z \in \text{FV}(\psi) \colon \pi_{1}(z) = 
         \pi_{2}(z)$, то $[\psi]_{\mathcal{M}}(\pi_{1}) = [\psi]_{\mathcal{M}}(\pi_{2})$.
         
@@ -1057,10 +1057,10 @@
         а $x \notin \text{FV}(\varphi)$. 
 
         Тогда
-        $$
+        \[
             [\forall x \varphi]_{\mathcal{M}}(\pi) = 1 \iff \forall m \in M~ [\varphi](\pi_{x}^{m}) = 1 \iff
             \forall m \in M~ [\varphi](\pi) = 1 \iff [\varphi](\pi) = 1
-        $$
+        \]
         Последний переход верен, так как значение $[\varphi](\pi)$ не зависит от $m$.
     \end{proof}
 
@@ -1081,15 +1081,15 @@
             \item[$\implies$] Дано: $\forall \mathcal{M},~\forall \pi \colon [\varphi]_{\mathcal{M}}(\pi) = 1$.
             Хотим доказать: $\forall \mathcal{M},~\forall \rho \colon [\forall x \varphi]_{\mathcal{M}}(\rho) = 1$.
             Зафиксируем какие-то $\mathcal{M}$ и $\rho$, тогда
-            $$
+            \[
                 [\forall x \varphi](\rho) = 1 \iff \forall m \in M~ [\varphi]\left(\rho_{x}^{m}\right) = 1.
-            $$
+            \]
             Последнее --- то, что мы хотим получить. Однако 
-            $$
+            \[
                 ~\forall \pi \colon [\varphi]_{\mathcal{M}}(\pi) = 1 \implies
                 ~\forall \pi \colon \forall m \in M [\varphi]_{\mathcal{M}}(\pi) = 1 \implies
                 \forall m \in M [\varphi]_{\mathcal{M}}(\rho_{x}^{m}) = 1
-            $$
+            \]
             (Добавили квантор, который ничего не меняет и подставили $\pi = \rho_{x}^{m}$, получили
             то, что хотели для выбранной $\rho$.)
             
@@ -1097,10 +1097,10 @@
             Хотим доказать: $\forall \mathcal{M},~\forall \rho \colon [\varphi]_{\mathcal{M}}(\rho) = 1$.
 
             Зафиксируем какие-то $\mathcal{M}$ и $\rho$, тогда
-            $$
+            \[
                 \forall \pi \colon [\forall\varphi]_{\mathcal{M}}(\pi) = 1 \iff
                 \forall \pi \colon \forall m \in M \colon [\varphi]_{\mathcal{M}}\left(\pi_{x}^{m}\right) = 1
-            $$
+            \]
             Возьмем $\pi = \rho$, $m = \rho(x)$, тогда $\pi_{x}^{m} = \rho_{x}^{\rho(x)} = \rho$. 
             Получаем $[\varphi]_{\mathcal{M}}(\rho) = 1$.
         \end{description}
@@ -1196,11 +1196,11 @@
     \begin{proof}
         $\forall x (\varphi \implies \psi) \equiv \forall x (\neg \varphi \lor \psi)$.
         Так как $x \notin \text{FV}(\psi)$, то
-        $$
+        \[
             \forall x (\neg \varphi \lor \psi) \equiv \forall x \neg \varphi \lor 
             \psi \equiv \neg \exists x \varphi \lor \psi \equiv \exists x \varphi 
             \implies \psi.
-        $$
+        \]
     \end{proof}
 
     \subsubsection{Замена подформулы на эквивалентную.}
