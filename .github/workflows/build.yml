@@ -1,79 +1,59 @@
-name: Build LaTeX document
-on: [push]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v2
-      - name: Compile basic LaTeX document
-        uses: xu-cheng/latex-action@v2
-        with:
-            root_file: test.tex
-            working_directory: Lists/
-      - name: Upload
-        uses: actions/upload-artifact@master
-        with:
-            name: Documents
-            path: "**/*.pdf"
-
-
 name: Build and deploy latex sources to GitHub Pages
 
 on: [push]
 
 jobs:
 
-build:
+  build:
 
-  # Базовая ОС, на которой будут исполняться команды. Оставим ubuntu
+    # Базовая ОС, на которой будут исполняться команды. Оставим ubuntu
 
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  steps:
+    steps:
 
-  # Необходимо использовать этот action, чтобы получить содержимое репо
+    # Необходимо использовать этот action, чтобы получить содержимое репо
 
-  - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-  # Компилируем документ
+    # Компилируем документ
 
-  - name: Build document
+    - name: Build document
 
-    uses: xu-cheng/latex-action@v2
+      uses: xu-cheng/latex-action@v2
 
-    with:
+      with:
 
-      # Переименуйте, если у вас другой файл
+        # Переименуйте, если у вас другой файл
 
-      root_file: dm.tex
+        root_file: dm.tex
 
-      # Больше параметров в офф. документации
+        # Больше параметров в офф. документации
 
-      working_directory: Colloquiums/
+        working_directory: Colloquiums/
 
-      # Аргументы, к которыми запускать компилятор (latexmk)
+        # Аргументы, к которыми запускать компилятор (latexmk)
 
-      # -jobname=<name> дает возможность поменять имя выходного файла
+        # -jobname=<name> дает возможность поменять имя выходного файла
 
-      args: -jobname=dm -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+        args: -jobname=dm -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
-      compiler: latexmk
+        compiler: latexmk
 
-  # Загружаем собранные pdf-файлы
+    # Загружаем собранные pdf-файлы
 
-  - name: Upload pdf document
+    - name: Upload pdf document
 
-    uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v2
 
-    with:
+      with:
 
-      # Это значение используется как ключ в хранилище
+        # Это значение используется как ключ в хранилище
 
-      name: dm
+        name: dm
 
-      # Путь до собранного pdf. Может содержать «*», «**»
+        # Путь до собранного pdf. Может содержать «*», «**»
 
-      # Здесь это <working_directory>/<jobname>.pdf
+        # Здесь это <working_directory>/<jobname>.pdf
 
-      path: Colloquiums/dm.pdf
+        path: Colloquiums/dm.pdf
