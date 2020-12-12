@@ -22,8 +22,10 @@
     % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
     % Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
+    Валерий Березовский  \\ \href{https://t.me/jeembogod}{Telegram} \and
     Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
     % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
+    % Даниэль Хайбулин     \\ \href{https://t.me/kiDaniel}{Telegram} \and
     Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
     % Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
     % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
@@ -32,9 +34,8 @@
     Марк Рофин           \\ \href{https://t.me/Broccoliman}{Telegram} \and
     % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
     Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
-    % Даниэль Хайбулин      \\ \href{https://t.me/kiDaniel}{Telegram} \and
+    Оля Козлова          \\ \href{https://t.me/grenlayk}{Telegram}
     % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram} \and
-    Оля Козлова \\ \href{https://t.me/grenlayk}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
@@ -1411,7 +1412,59 @@
 
     % Вопрос логика 13
     \subsection{Понятие теории первого порядка. Примеры содержательных теорий. Модель теории. Семантическое (логическое) следование (для замкнутых формул) [ВШ-2, с. 187]}
+        \begin{definition}
+            Теория(в сигнатуре $\sigma$) - любое множество предложений этой 
+            сигнатуры. 
+        \end{definition}
+        \begin{definition}
+            $M \vDash T \iff \forall \phi \in T : M \vDash \phi$, то есть 
+            если каждое предложение в нашей интерпретации истинно, то 
+            и вся теория. Множество $M$ будет моделью нашей теории.
+        \end{definition}
+        \begin{definition}
+            Теория $T$ выполнима(или совместна) $\iff \exists
+            M :  M \vDash T$
+        \end{definition}
+        \begin{definition}
+            Предложение $\phi$ следует из теории $T$, если $\forall 
+            M : M \vDash T \Rightarrow M \vDash \phi$
+        \end{definition}
+        В примерах мы работаем в нормальных моделях(то есть равно - это привычное нам равно)
+        \begin{example}
+            $T_{ord}$ - частичный порядок,
+            $T = 
+            \begin{cases}
+                \forall x : \neg (x < x), \text{антирефлексивность} \\
+                \forall x : \forall y : \forall x : (x < y) \wedge\ (y < z) \Rightarrow (x < z), \text{транзитивность} \\
+            \end{cases}$
 
+            Работаем в структуре $M = (A, =, <)$       
+        \end{example}
+        \begin{proposition}
+            $\forall M : M \vDash T \Rightarrow M \vDash  \forall x : \forall y : (x < y \wedge y < x \Rightarrow (x = y))$, то есть 
+            антисимметричность следует из транзитивности и антирефлексивности
+     
+        \end{proposition}
+        \begin{proof}
+            Предположим, что наша посылка($x < y \wedge y < x$) истинна. Воспользуемся 
+            транзитивностью: $(x < y \wedge y < x) \Rightarrow (x < x)$. Получили 
+            противоречие, так как в нашей теории есть антирефлексифность, которая говорит, что 
+            $x < x$ никогда не верно. Значит, посылка всегда ложная, а интерпетация 
+            всегда истинна.
+        \end{proof}
+        \begin{example}
+            $G = (A, =, +, -, 0)$ - структура, это группа, когда в ней 
+            выполняется теория $T$ = теория групп,
+            $T = 
+            \begin{cases}
+                \forall x : \forall y : \forall z : (x + y) + z = x + (y + z), \text{ассоциативность} \\
+                \forall x : (x + (-x) = 0) \wedge ((-x) + x = 0), \text{обратный элемент} \\
+                \forall x : (x + 0 = x) \wedge (0 + x = x), \text{нейтральный элемент} \\
+            
+            \end{cases}.$    
+               
+        \end{example}
+        
     % Вопрос логика 14
     \subsection{Сколемизация предваренной формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
 
