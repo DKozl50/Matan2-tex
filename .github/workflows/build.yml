@@ -46,7 +46,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: add-compilation
+          BRANCH: gh-pages
           FOLDER: "dm"  # The deployment folder should match the name of the artifact. 
                           # Even though our project builds into the 'build' folder the  
                           # artifact name of 'site' must be placed here.
