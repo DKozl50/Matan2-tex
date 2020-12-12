@@ -1219,6 +1219,208 @@
     % Вопрос логика 9
     \subsection{Булевы комбинации формул. Булева функция, соответствующая булевой комбинации. Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
 
+    \subsubsection{Булевы комбинации формул.}
+
+    Пусть фиксирован набор попарно различных формул (атомарных или вида 
+    $\forall x \varphi$, $\exists x \varphi$) $(F_{1}, \ldots, F_{n})$ в 
+    сигнатуре $\sigma$.
+    \begin{definition}
+        Определим множество $\mathcal{B}(F_{1}, \ldots, F_{n})$ {\it булевых комбинаций}
+         формул из $(F_{1}, \ldots, F_{n})$ следующим образом:
+        \begin{enumerate}
+            \item $\forall i~F_{i} \in \mathcal{B}(F_{1}, \ldots, F_{n})$;
+            \item $\varphi, \psi \in \mathcal{B}(F_{1}, \ldots, F_{n}) \implies \neg 
+            \varphi, (\varphi \land \psi), (\varphi \lor \psi), (\varphi \implies \psi), 
+            (\varphi \iff \psi) \in \mathcal{B}(F_{1}, \ldots, F_{n})$.
+        \end{enumerate}
+    \end{definition}
+    
+    Хотим понять, как определяется истинность булевой комбинации.
+    Каждой $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$ поставим в соответствие булеву
+    функцию $f_{\varphi} \colon \{0, 1\}^{n} \to \{0, 1\}$ таким образом, что (дальше 
+    рекурсией по построению)
+    \begin{enumerate}
+        \item $\varphi \eqcirc F_{i} \implies f_{\varphi}(x_{1}, \ldots, x_{n}) = x_{i}$;
+        \item \begin{enumerate}
+            \item $\varphi \eqcirc \neg \psi \implies f_{\varphi}(\vec{x}) = 
+            \text{НЕ}(f_{\psi}(\vec{x}))$;
+            \item $\varphi \eqcirc \psi \lor \theta \implies f_{\varphi}(\vec{x}) = 
+            \text{ИЛИ}(f_{\psi}(\vec{x}), f_{\theta}(\vec{x}))$;
+            \item Аналогично для других связок.
+        \end{enumerate}
+    \end{enumerate}
+    
+    \begin{lemma} \label{lemma::09::01}
+        Для любой формулы $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$, $\forall M$,
+         $\forall \pi$
+        \[
+            [\varphi]_{\mathcal{M}}(\pi) = f_{\varphi}\left([F_{1}]_{\mathcal{M}}(\pi),
+             \ldots, [F_{n}]_{\mathcal{M}}(\pi)\right).
+        \]
+    \end{lemma}
+    
+    \begin{proof}
+        Индукцией по построению $\varphi$.
+    \end{proof}
+    
+    \begin{definition}
+        Формула $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$ называется {\it тавтологией}, если $\forall \vec{x}$ $f_{\varphi}(\vec{x}) = 1$.
+    \end{definition}
+    
+    \begin{proposal}
+        Если $\varphi$ тавтология, то $\varphi$ общезначима. 
+        (Следует из леммы \ref{lemma::09::01}.)
+    \end{proposal}
+    
+    Не всякая общезначимая формула является тавтологией.
+    Например, формула $\varphi = \forall x Px \implies \exists x Px$ не является 
+    тавтологией, потому что, если представить ее в виде булевой комбинации, она будет 
+    иметь вид $F_{1} \implies F_{2}$, и ей будет соответствовать функция 
+    $\text{ИМП}(x_{1}, x_{2})$, которая не всегда истинна.
+    
+    \subsubsection{Булева функция, соответствующая булевой комбинации.}
+
+    \begin{definition}[ДНФ над набором формул]
+        Пусть фиксирован набор формул $(F_{1}, \ldots, F_{n})$ (как прежде).
+        Определим дизъюнктивную нормальную форму следующим образом:
+        \begin{enumerate}
+            \item $F_{i}$ или $\neg F_{i}$ --- {\it литералы};
+            \item Если $l_{1}, \ldots, l_{k}$ --- литералы, то $l_{1} \land \ldots \land  l_{k}$ --- {\it элементарная конъюнкция};
+            \item Если $c_{1}, \ldots, c_{m}$ --- элементарные конъюнкции, то $c_{1} \lor \ldots \lor c_{m}$ --- ДНФ над набором $(F_{1}, \ldots, F_{n})$.
+        \end{enumerate}
+    \end{definition}
+    
+    \begin{definition}[КНФ над набором формул]
+        Пусть фиксирован набор формул $(F_{1}, \ldots, F_{n})$ (как прежде).
+        Определим конъюнктивную нормальную форму следующим образом:
+        \begin{enumerate}
+            \item $F_{i}$ или $\neg F_{i}$ --- {\it литералы};
+            \item Если $l_{1}, \ldots, l_{k}$ --- литералы, то $l_{1} \lor \ldots \lor  l_{k}$ --- {\it элементарная дизъюнкция};
+            \item Если $d_{1}, \ldots, d_{m}$ --- элементарные дизъюнкции, то $d_{1} \land \ldots \land d_{m}$ --- КНФ над набором $(F_{1}, \ldots, F_{n})$.
+        \end{enumerate}
+    \end{definition}
+    
+    ДНФ и КНФ, вообще говоря, являются разными объектами.
+    Например,
+    \[
+        (F_{1} \land \neg F_{2} \land F_{1}) \lor (\neg F_{3}) \lor (F_{1} \land F_{4})
+    \]
+    является ДНФ, но не является КНФ, потому что в дереве разбора формулы ниже дизъюнкции стоит конъюнкции.
+    
+    Однако, существуют формулы, которые являются одновременно КНФ и ДНФ, например
+    \[
+        F_{1} \land \neg F_{2}; \quad F_{3} \land \neg F_{4} \land F_{5}.
+    \]
+    На самом деле, одновременно КНФ и ДНФ являются литералы и элементарные конъюнкции (дизъюнкции).
+    
+    \begin{corollary}
+        $\text{CNF}\left(\vec{F}\right) \cup \text{DNF}\left(\vec{F}\right) 
+        \subseteq \mathcal{B}\left(\vec{F}\right)$.
+    \end{corollary}
+
+    \subsubsection{Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
+
+    \begin{theorem}
+        Любую булеву комбинацию $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$ существуют 
+        $\varphi_{1} \in \text{DNF}(F_{1}, \ldots, F_{n})$ и $\varphi_{2} \in 
+        \text{CNF}(F_{1}, \ldots, F_{n})$ такие, что
+        \[
+            \varphi \equiv \varphi_{1} \land \varphi \equiv \varphi_{2}.
+        \]
+    \end{theorem}
+  
+    \begin{proof}
+        Все доказательство будет строиться вокруг рассмотрения функции $f_{\varphi} \colon 
+        \{0, 1\}^{n} \to \{0, 1\}$, которая истиностные значения формул $F_{1}, 
+        \ldots, F_{n}$ превращает в истиностное значение формулы $\varphi$.
+        В любой интерпретации и при любой оценке переменных
+        \[
+            [\varphi](\pi) = f_{\varphi}([F_{1}](\pi), \ldots, [F_{n}](\pi)) = 
+            f_{\varphi}([\vec{F}](\pi)).
+        \]
+        Теперь давайте исследуем функцию $f_{\varphi}$.
+        Рассмотрим $U = \{\sigma \in \{0, 1\}^{n} \mid f_{\varphi}(\vec{\sigma}) = 1\}$.
+        Надо рассмотреть несколько случаев:
+        \begin{enumerate}
+            \item $U = \varnothing$.
+            Тогда для любого $\pi$ $[\varphi](\pi) = f_{\varphi}([\vec{F}](\pi)) = 0$.
+            Положим $\varphi_{1} = F_{1} \land \neg F_{1}$, тогда $\varphi_{1} \equiv \varphi$.
+            \item $U \neq \varnothing$.
+            Пусть $A \in \text{Fm}$, а $\sigma \in \{0, 1\}$, тогда положим
+            \[
+                A^{\sigma} = 
+                \begin{cases}
+                    A, & \sigma = 1, \\
+                    \neg A, & \sigma = 0.
+                \end{cases}
+            \]
+            \begin{proposal}
+                $[A^{\sigma}](\pi) = 1 \iff \sigma = [A](\pi)$.
+            \end{proposal}
+            \begin{proof}
+                Действительно, если $\sigma = 1$, то $[A^{1}](\pi) = [A](\pi)$, то есть
+                 $[A^{1}](\pi) = 1 \iff [A](\pi) = 1$.
+                Если же $\sigma = 0$, то $[A^{0}](\pi) = 1 \iff [\neg A](\pi) = 1 \iff 
+                [A](\pi) = 0 = \sigma$.
+            \end{proof}
+            \begin{corollary} \label{corollary::10::01}
+                $\Phi_{\vec{\sigma}} = [F_{1}^{\sigma_{1}} \land \ldots \land 
+                F_{n}^{\sigma_{n}}](\pi) = 1 \iff \forall i [F_{i}^{\sigma_{i}}](\pi) = 1 \iff 
+                \forall i~\sigma_{i} = [F_{i}](\pi) \iff \vec{\sigma} = [\vec{F}]$.
+            \end{corollary}
+            $[\varphi](\pi) = 1$ тогда и только тогда, когда $f_{\varphi}([\vec{F}](\pi)) = 1 \iff [\vec{F}](\pi) 
+            \in U \iff \exists \vec{\sigma} \in U~ [\vec{F}](\pi) = \vec{\sigma}$.
+            Получилось тоже самое, что и в следствии \ref{corollary::10::01}, 
+            поэтому это все равносильно тому, что $\exists \vec{\sigma} \in 
+            U~[\Phi_{\vec{\sigma}}](\pi) = 1 \iff [\bigvee\limits_{\vec{\sigma} 
+            \in U}\Phi_{\vec{\sigma}}](\pi) = 1$.
+            Но если $\varphi$ и $\bigvee\limits_{\vec{\sigma} \in U}\Phi_{\vec{\sigma}}$ 
+            принимают значение 1 одновременно, то и значение 0 они принимают одновременно 
+            (поскольку возможных значений всего два), тогда $\varphi \equiv 
+            \bigvee\limits_{\vec{\sigma} \in U}\Phi_{\vec{\sigma}} \equiv 
+            \bigvee\limits_{\vec{\sigma} \in U} F_{1}^{\sigma_{1}} \land \ldots
+             \land F_{n}^{\sigma_{n}} \in \text{DNF}(F_{1}, \ldots, F_{n})$.
+        \end{enumerate}
+        Построим теперь КНФ.
+        На этот раз проанализируем множество $Z = \{\vec{\sigma} \mid 
+        f_{\varphi}(\vec{\sigma}) = 0\}$.
+        Рассмотрим несколько случаев:
+        \begin{enumerate}
+            \item $Z = \varnothing$.
+            Тогда для любого $\pi$ $[\varphi](\pi) = 1$.
+            Положим $\varphi_{2} = F_{1} \lor \neg F_{1} \equiv \varphi$.
+            \item Делаем все тоже самое, что и для ДНФ, только наоборот.
+            Рассмотрим формулу $\psi_{\vec{\sigma}} = F_{1}^{\overline{\sigma_{1}}} 
+            \lor \ldots \lor F_{n}^{\overline{\sigma_{n}}}$, где $\overline{\sigma_{i}}$ 
+            значит отрицание $\sigma_{i}$, тогда
+            \[
+                \left[F_{1}^{\overline{\sigma_{1}}} \lor \ldots \lor 
+                F_{n}^{\overline{\sigma_{n}}}\right](\pi) = 0 \iff \forall i~ 
+                [F_{i}^{\overline{\sigma_{i}}}](\pi) = 0 \iff \forall i~ \overline{\sigma_{i}} 
+                \neq [F_{i}](\pi) \iff \forall i~ \sigma_{i} = [F_{i}](\pi) \iff \vec{\sigma} = 
+                [\vec{F}](\pi).
+            \]
+            Что же мы делаем дальше?
+            Дальше мы смотрим, когда $[\varphi](\pi) = 0 \iff f_{\varphi}([\vec{F}](\pi)) = 0 
+            \iff [\vec{F}](\pi) \in Z \iff \exists\vec{\sigma} \in Z~ [\vec{F}](\pi) = \sigma$.
+            Это равносильно тому, что $\exists \vec{\sigma} \in Z~[\psi_{\vec{\sigma}}](\pi) = 0 
+            \iff [\bigwedge\limits_{\vec{\sigma} \in Z}\psi_{\vec{\sigma}}](\pi) = 0$, отсюда 
+            $\varphi \equiv \bigwedge\limits_{\vec{\sigma} \in Z}\psi_{\vec{\sigma}} \in \text{CNF}(F_{1}, 
+            \ldots, F_{n})$.
+        \end{enumerate}
+    \end{proof}
+    
+    Если мы хотим использовать это на практике, то надо, прежде всего, найти функцию 
+    $f_{\varphi}$ (то есть, построить таблицу истинности).
+    Такая таблица будет являться таблицей зависимости значений формулы $\varphi$ от значений 
+    образующих ее формул.
+    Дальше, если строим ДНФ, то мы берем наборы, где наша функция принимает значение 1.
+    Каждый такой набор мы кодируем элементарной конъюнкцией $F_{1}^{\sigma_{1}} \land \ldots 
+    \land F_{n}^{\sigma_{n}}$ и берем их дизъюнкцию.
+    
+    Также, можно не пускать каждый раз в ход этот алгоритм, а просто пользоваться 
+    элементарными эквивалентностями, и, раскрывая скобки, получить ДНФ (КНФ).
+
     % Вопрос логика 10
     \subsection{Лемма о корректной подстановке. [F, 73]}
 
