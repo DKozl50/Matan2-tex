@@ -1314,6 +1314,59 @@
 
     % Вопрос логика 16
     \subsection{Исчисление резолюций для произвольных множеств формул. Теоремы о корректности и о полноте (обе без доказательства). Доказывание общезначимости и логического следования в теории с помощью исчисления резолюций. Пример применения исчисления резолюций (должны присутствовать формулы, не являющиеся универсальными дизъюнктами).}
+    
+    В исчислении резолюций есть 2 правила.
+    
+    \underline{Правило вывода (резолюции)}. $\boxed{\frac{\neg A \lor B \; \; \; A \lor C}{B \lor C} } $
+    
+    Частный случай ПР -- вывод пустой дизъюнкции (лжи): $\frac{A \; \; \; \neg A}{\perp}.$
+    
+    \underline{Правило подстановки.} $\boxed{\frac{\forall y A}{A(t/y)}} \; $, где $t$ -- произвольный терм, $A$ -- универсальна.
+    
+    Говорят, что формула $\varphi$ \underline{выводится} из множества  формул $\Gamma$ в исчислении резолюций, если $\varphi$ возможно получить из формул в $\Gamma$, применяя к ним правило резолюции и правило подстановки какое-то конечное число раз.
+    
+    Обозначение: $\Gamma \vdash \varphi.$
+    
+    \underline{Теорема о корректности.} Если $\Gamma \vdash \varphi,$ то $\Gamma \vDash \varphi.$
+    
+    \underline{Теорема о полноте}. $\Delta$ -- набор формул в сигнатуре $\sigma$. Если $\Delta \nvdash \perp$, то $\exists M \, \exists \pi \; [\Delta]_M (\pi) = 1,$ причём $|M| \leq max(|\mathbb{N}|, \, | \sigma|). $
+    
+    Как доказать общезначимость формулы $\varphi$? Знаем, что 
+    
+    $\varphi$ общезначима $\iff \neg \, \varphi$ не выполнима $\iff \{ \neg \, \varphi\}$ не выполнима. 
+    
+    Так что \underline{достаточно вывести из теории $\{ \neg \, \varphi\}$ ложь} (с помощью ИР).
+    
+    \textit{Пример:} $\varphi \eqcirc \forall x \, \exists y \, \forall z \, Pxyz \to \exists y \, \forall z \, \exists x  \, Pxyz.$ Доказать, что она общезначима.
+    
+    $\neg \, \varphi \equiv \forall x \, \exists y \, \forall z \, Pxyz \land \neg \, \exists y \, \forall z \, \exists x  \, Pxyz \equiv \forall x \, \exists y \, \forall z \, Pxyz \land  \, \forall y \, \exists z \, \forall x  \, \neg \, Pxyz \equiv \forall x \, \exists y \, \forall z \, Pxyz \land  \, \forall v \, \exists w \, \forall u  \, \neg \, Puvw \equiv \\ \\ \forall x \, \exists y \, \forall z  \, \forall v \, \exists w \, \forall u \, (Pxyz \land  \neg \, Puvw).$ 
+    
+    Сколемизируем, $y \rightsquigarrow f(x) \implies \dots \equiv \forall x  \, \forall z  \, \forall v \, \exists w \, \forall u \, (Px \, (fx)\, z \land  \neg \, Puvw).$
+    
+    Второй шаг сколемизации, $w \rightsquigarrow g(x,z,v) \implies \dots \equiv \forall x \, \forall z  \, \forall v \, \forall u \, (Px \, (fx)\, z \land  \neg \, Puv \, (g \, xzv)). $
+    
+    Делаем из получившейся штуковины теорию. Заметим, что она не является универсальным дизъюнктом. Поэтому мы имеем право разбить её на несколько УД. Наша теория, в итоге, выглядит так:
+    
+    $\{\forall x \, \forall z  \, \forall v \, \forall u \, (Px \, (fx)\, z )  , \; \; \forall x \, \forall z  \, \forall v \, \forall u \, \neg \, Puv \, (g \, xzv)\}$
+    
+    Выведем из неё ложь:
+    
+    $\frac{\forall x \, \forall z  \, \forall v \, \forall u \, (Px \, (fx)\, z )}{P u \, f(u)\, (g \, uz \, (fu)\,)}$ -- правило подстановки, сделали $\begin{cases}
+    x := u; \\
+    z := g \, uz \, (fu) \\
+    \end{cases}$
+    
+    $ \frac{\forall x \, \forall z  \, \forall v \, \forall u \, \neg \, Puv \, (g \, xzv)}{\neg Pu \, f(u) \,(g \, uz \, (fu) \, )} $ -- правило подстановки, сделали $\begin{cases}
+    x := u; \\
+    v := fu; \\
+    z := z; \\
+    u := u
+    \end{cases}$
+    
+    $\frac{P u \, f(u)\, (g \, uz \, (fu)\,)  \; \; \; \neg Pu \, f(u) \,(g \, uz \, (fu) \, ) }{\perp}$  -- правило резолюций.
+    
+    Всё -- УРА, доказали, что исходная  $\varphi$ общезначима.
+    
 
     % Вопрос логика 17
     
