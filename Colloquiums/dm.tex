@@ -29,29 +29,36 @@
     % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
     % Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
     Ира Голобородько     \\ \href{https://t.me/Ira4kgl}{Telegram} \and
+    Марк Рофин           \\ \href{https://t.me/Broccoliman}{Telegram} \and
     % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
-    % Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
+    Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
     % Даниэль Хайбулин      \\ \href{https://t.me/kiDaniel}{Telegram} \and
-    % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram}
+    % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram} \and
+    Оля Козлова \\ \href{https://t.me/grenlayk}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
 
-% После комментария с номером пишем формулировку вопроса в subsection*{...}
+% После комментария с номером пишем формулировку вопроса в subsection{...}
 % К примеру:
 
 % Вопрос 1
-% \subsection*{Перечислимые множества суть, в точности, проекции разрешимых.}
+% \subsection{Перечислимые множества суть, в точности, проекции разрешимых.}
 % и тут уже решение формулировочки все дела
 
 \begin{document}
     \maketitle
 
+    Спасибо команде \href{https://github.com/hse-tex/hse-tex}{hse-tex} 
+    и в частности Сергею Пилипенко за конспекты лекций. 
+
+    Спасибо Демиду Васильеву за предоставленные материалы по вычислимости.
+
     \tableofcontents
 
     \newpage
 
-\section*{Обозначения в разделе вычислимости}
+\section{Обозначения в разделе вычислимости}
 
     \begin{itemize}
         \item Алгоритмы и машины Тьюринга обозначаются рукописными буквами, например, $\mathcal{M}$ (читается как <<M-красивое>> по Дашкову).
@@ -65,10 +72,10 @@
         \item Функции $\xi$ и $\text{id}_{\NN}$ --- нигде не определенная и тождественная соответственно.
     \end{itemize}
 
-\section*{Вопросы по вычислимости}
+\section{Вопросы по вычислимости}
 
     % Вопрос вычислимость 1
-    \subsection*{1. Вычислимые функции (при интуитивном понимании алгоритма). Разрешимые и перечислимые множества. Связь конечности, разрешимости и перечислимости. Разрешимые множества под действием операций алгебры множеств и декартова произведения. [R, с. 3–4]}
+    \subsection{Вычислимые функции (при интуитивном понимании алгоритма). Разрешимые и перечислимые множества. Связь конечности, разрешимости и перечислимости. Разрешимые множества под действием операций алгебры множеств и декартова произведения. [R, с. 3–4]}
 
         Алгоритмом в его интуитивном понимании считается конечная последовательность инструкций, которая исполняется по шагам. Алгоритм может принимать на вход аргументы и выдавать какой-то результат.
 
@@ -160,7 +167,7 @@
         \end{proof}
 
     % Вопрос вычислимость 2
-    \subsection*{2. Перечислимые множества под действием операций алгебры множеств, декартова произведения и проекции. Теорема Поста. [R, 3--4]}
+    \subsection{Перечислимые множества под действием операций алгебры множеств, декартова произведения и проекции. Теорема Поста. [R, 3--4]}
 
         \begin{proposition}
              Из перечислимости $A$ и $B$ следует перечислимость $A \cap B, \; A \cup B, \; A \times B, \; \pr^i A$.
@@ -203,7 +210,7 @@
         \end{proof}
 
     % Вопрос вычислимость 3
-    \subsection*{3. Теорема о графике вычислимой функции. Перечислимость образа и прообраза множества под действием вычислимой функции. [R, 14]}
+    \subsection{Теорема о графике вычислимой функции. Перечислимость образа и прообраза множества под действием вычислимой функции. [R, 14]}
 
         \begin{definition}
         Графиком функции $f : \NN \to \NN$ называется множество его точек $\plot_f = \{ (x, y) \in \NN^2 \mid f(x) = y \}$.
@@ -224,7 +231,7 @@
         \end{proof}
 
         \begin{proposition}
-        Функция $f$ вычислима и тотальна $\iff \plot_f$ разрешим.
+        Функция $f$ вычислима и тотальна $\implies \plot_f$ разрешим.
         \end{proposition}
 
         \begin{proof}
@@ -248,15 +255,15 @@
         \end{gathered}
         \end{equation*}
 
-        \item[$\Longleftarrow$]
-        \begin{algorithmic}
-        \ENSURE $f(x)$
-            \FORALL{$y \in \NN$}
-                \IF{$\chi_{\plot_f}((x, y))$}
-                    \RETURN $y$
-                \ENDIF
-            \ENDFOR
-        \end{algorithmic}
+        % \item[$\Longleftarrow$]
+        % \begin{algorithmic}
+        % \ENSURE $f(x)$
+        %     \FORALL{$y \in \NN$}
+        %         \IF{$\chi_{\plot_f}((x, y))$}
+        %             \RETURN $y$
+        %         \ENDIF
+        %     \ENDFOR
+        % \end{algorithmic}
         \end{enumerate}
         \end{proof}
 
@@ -273,7 +280,7 @@
         \end{corollary}
 
     % Вопрос вычислимость 4
-    \subsection*{4. Перечислимые множества суть, в точности, области определения вычислимых функций. [R, 10]}
+    \subsection{Перечислимые множества суть, в точности, области определения вычислимых функций. [R, 10]}
 
         См. утверждение $(1) \iff (3)$ из теоремы ниже.
 
@@ -311,17 +318,17 @@
         \end{proof}
 
     % Вопрос вычислимость 5
-    \subsection*{5. Непустые перечислимые множества суть, в точности, области значений вычислимых тотальных функций. [R, 10, с. 4]}
+    \subsection{Непустые перечислимые множества суть, в точности, области значений вычислимых тотальных функций. [R, 10, с. 4]}
 
         См. утверждение $(1) \iff (5)$ из билета 4.
 
     % Вопрос вычислимость 6
-    \subsection*{6. Перечислимые множества суть, в точности, проекции разрешимых. [R, 10]}
+    \subsection{Перечислимые множества суть, в точности, проекции разрешимых. [R, 10]}
 
         См. утверждение $(1) \iff (6)$ из билета 4.
 
     % Вопрос вычислимость 7
-    \subsection*{7. Универсальная вычислимая функция (в классе вычислимых функций $\NN \to \NN$). T-Предикат. [R, 7–8]}
+    \subsection{Универсальная вычислимая функция (в классе вычислимых функций $\NN \to \NN$). T-Предикат. [R, 7–8]}
 
         \begin{definition}
         Отображение $U : \NN^2 \to \NN$ --- универсальная вычислимая функция (УВФ), если (а) $U$ вычислима и (б) для любой вычислимой $f : \NN \to \NN$ найдется $n \in \NN$, такое что $\forall x \in \NN \;\; U(n, x) \simeq f(x)$. Иными словами, сечение $U_n$ совпадает с $f$.
@@ -338,7 +345,7 @@
         \end{definition}
 
     % Вопрос вычислимость 8
-    \subsection*{8. Неразрешимость проблем самоприменимости и остановки. Примеры перечислимого неразрешимого и неперечислимого множеств. [R, 23]}
+    \subsection{Неразрешимость проблем самоприменимости и остановки. Примеры перечислимого неразрешимого и неперечислимого множеств. [R, 23]}
 
         \begin{proposition}
         Существует перечислимое неразрешимое множество.
@@ -379,7 +386,7 @@
         Таким образом, не существует программы, которая бы за конечное число шагов определяла, остановится ли произвольная программа на любом входе либо входе, совпадающим с ее текстом.
 
     % Вопрос вычислимость 9
-    \subsection*{9. Пример вычислимой функции, не имеющей вычислимого тотального продолжения. [R, 29]}
+    \subsection{Пример вычислимой функции, не имеющей вычислимого тотального продолжения. [R, 29]}
 
         \begin{proposition}
         Пусть $U$ --- УВФ и $d$ --- ее диагональ. Тогда для любой вычислимой функции $f : \NN \to \NN$ существует $n \in \NN : \;\; f(n) \simeq d(n)$.
@@ -402,7 +409,7 @@
         Таким образом, диагональная функция произвольной УВФ не имеет тотального вычислимого продолжения.
 
     % Вопрос вычислимость 10
-    \subsection*{10. Область определения вычислимой функции, не имеющей вычислимого тотального продолжения, перечислима, но не разрешима. [R, 32]}
+    \subsection{Область определения вычислимой функции, не имеющей вычислимого тотального продолжения, перечислима, но не разрешима. [R, 32]}
 
         \begin{proposition}
         Если функция $f$ вычислима, но не имеет вычислимого тотального продолжения, то $\dom f$ --- неразрешимое перечислимое множество.
@@ -426,7 +433,7 @@
         \end{proof}
 
     % Вопрос вычислимость 11
-    \subsection*{11. Теорема о рекурсии как следствие теоремы Клини. Пример применения теоремы о рекурсии. [R, 37]}
+    \subsection{Теорема о рекурсии как следствие теоремы Клини. Пример применения теоремы о рекурсии. [R, 37]}
 
         Подробнее о теореме Клини --- в 16-м билете.
 
@@ -469,7 +476,7 @@
         \textbf{Неформально} о смысле теоремы: в главных языках программирования программа может иметь доступ к своему коду, что приводит нас к понятию рекурсии, существование алгоритма для которой гарантирует теорема Клини.
 
     % Вопрос вычислимость 12
-    \subsection*{12. $m$-Сводимость и ее свойства. [R, 52–56]}
+    \subsection{$m$-Сводимость и ее свойства. [R, 52–56]}
 
         \begin{definition}
         Пусть $A, B \subseteq \NN$. $A \; m$-сводится к $B$ тогда и только тогда, когда существует вычислимая тотальная $f : \NN \to \NN: \; \forall n \; [n \in A \iff f(n) \in B]$. Обозначается как $A \mred B$ или $A \mred^f B$ (если необходимо уточнить функцию сведения). Это определение обобщается на $A \subseteq \NN^n, \; B \subseteq \NN^m$ и $f : \NN^n \to \NN^m$.
@@ -511,7 +518,7 @@
         \end{itemize}
 
     % Вопрос вычислимость 13
-    \subsection*{13. Машины Тьюринга (допустимо неформальное определение с лентой и головкой). Сложение натуральных чисел (при унарном и бинарном кодировании) вычислимо по Тьюрингу. [ВШ-3, 9.2]}
+    \subsection{Машины Тьюринга (допустимо неформальное определение с лентой и головкой). Сложение натуральных чисел (при унарном и бинарном кодировании) вычислимо по Тьюрингу. [ВШ-3, 9.2]}
 
         Машина Тьюринга --- устройство, представляющее собой бесконечную ленту, разделенную на ячейки с записанными в них символами, головку, которая движется по ленте и перезаписывает символы в ячейки, и инструкции, оперирующие головкой и задающие некоторый алгоритм.
 
@@ -549,7 +556,7 @@
         Таким образом, сложение в унарном и бинарном кодировании вычислимо по Тьюрингу.
 
     % Вопрос вычислимость 14
-    \subsection*{14. Главная универсальная вычислимая функция. Вычислимое биективное кодирование пар натуральных чисел. Построение главной у.в.ф. с помощью произвольной у. в. ф. [R, 22, с. 9--10]}
+    \subsection{Главная универсальная вычислимая функция. Вычислимое биективное кодирование пар натуральных чисел. Построение главной у.в.ф. с помощью произвольной у. в. ф. [R, 22, с. 9--10]}
 
         \begin{definition}
         Отображение $U : \NN^2 \to \NN$ --- главная универсальная вычислимая функция (ГУВФ), если (а) она вычислима и (б) для любой вычислимой $V : \NN^2 \to \NN$ найдется вычислимая тотальная $s : \NN \to \NN$, такая что $\forall n \in \NN \;\; V_n = U_{s(n)}$.
@@ -590,7 +597,7 @@
         При этом УВФ, не являющаяся главной --- <<объект в некотором роде экзотический>>, хотя ее существование доказывается в билете 21.
 
     % Вопрос вычислимость 15
-    \subsection*{15. Невозможность универсальной вычислимой тотальной функции. [?, 9.15], [ВШ-3, 2.2, т. 8]}
+    \subsection{Невозможность универсальной вычислимой тотальной функции. [?, 9.15], [ВШ-3, 2.2, т. 8]}
 
         \begin{proposition}
         Не существует универсальной вычислимой тотальной функции $W$.
@@ -605,7 +612,7 @@
         Заметим, что так же <<доказать>> несуществование УВФ $U$ не получится, так как запись $U(m, m) \simeq U(m, m) + 1$ как раз имеет место, если на этих аргументах функция не определена.
 
     % Вопрос вычислимость 16
-    \subsection*{16. Теорема Клини о неподвижной точке. [R, 36]}
+    \subsection{Теорема Клини о неподвижной точке. [R, 36]}
 
         \begin{theorem}[Клини о неподвижной точке]
             Пусть $U$ --- ГУВФ. Тогда для любой вычислимой тотальной $f : \NN \to \NN \;\; \exists n \in \NN : \;\, U_{f(n)} = U_n$.
@@ -622,7 +629,7 @@
         <<Более интуитивное>> доказательство есть в учебнике Верещагина.
 
     % Вопрос вычислимость 17
-    \subsection*{17. Индексные множества. Теорема Райса-Успенского: вывод из теоремы Клини. [R, 48] Пример применения.}
+    \subsection{Индексные множества. Теорема Райса-Успенского: вывод из теоремы Клини. [R, 48] Пример применения.}
 
         Пусть $\mathcal{F}$ --- семейство вычислимых функций одного аргумента. Назовем его индексным множеством относительно ГУВФ $U$ множество $F = \{ n \in \NN \mid U_n \in \mathcal{F} \}$.
 
@@ -659,7 +666,7 @@
         \end{proof}
 
     % Вопрос вычислимость 18
-    \subsection*{18. Индексные множества. Теорема Райса-Успенского: доказательство с помощью сведения. [R, 47] Пример применения.}
+    \subsection{Индексные множества. Теорема Райса-Успенского: доказательство с помощью сведения. [R, 47] Пример применения.}
 
         Все формулировки в предыдущем билете.
 
@@ -678,7 +685,7 @@
         \end{proof}
 
     % Вопрос вычислимость 19
-    \subsection*{19. Пример неперечислимого множества с неперечислимым дополнением. [R, 61 или 64]}
+    \subsection{Пример неперечислимого множества с неперечислимым дополнением. [R, 61 или 64]}
 
         Пусть $U$ --- ГУВФ. Докажем, что множество $Z = \{n \in \NN \mid \dom U_n = 2\NN \}$ и $\bar Z$ неперечислимы (задача 4c домашнего задания №3).
 
@@ -712,7 +719,7 @@
         \end{equation*}
 
     % Вопрос вычислимость 20
-    \subsection*{20. Пример непересекающихся перечислимых множеств, не отделимых никаким разрешимым множеством. [R, 34], [G, с. 21–22]}
+    \subsection{Пример непересекающихся перечислимых множеств, не отделимых никаким разрешимым множеством. [R, 34], [G, с. 21–22]}
 
         Пусть $A, B \subseteq \NN$. Множество $C \subseteq \NN$ отделяет $A$ от $B$, если $A \subseteq C$ и $B \subseteq \bar C$.
 
@@ -740,9 +747,12 @@
         \end{proof}
 
     % Вопрос вычислимость 21
-    \subsection*{21. Существование неглавной у. в. ф. [R, 49]}
+    \subsection{Существование неглавной у. в. ф. [R, 49]}
 
-        \proposition{Существует \textbf{не}главная УВФ.}
+        \begin{proposition}
+            Существует \textbf{не}главная УВФ.
+        \end{proposition}
+
         \begin{proof}
         Пусть $U$ --- ГУВФ, а множество $Z = \{n \in \NN \mid U_n = \xi\}$. Тогда его дополнение
 
@@ -769,7 +779,7 @@
         \end{proof}
 
     % Вопрос вычислимость 22
-    \subsection*{22. Бесконечность множества неподвижных точек в смысле теоремы Клини. [R, 45]}
+    \subsection{Бесконечность множества неподвижных точек в смысле теоремы Клини. [R, 45]}
 
         \begin{proposition}[семинарская задача 3.7]
             Пусть $U$ --- ГУВФ и $f : \NN \to \NN$ вычислима. Тогда множество неподвижных точек $X = \{n \in \NN \mid U_n = U_{f(n)}\}$ бесконечно.
@@ -800,7 +810,7 @@
         \end{proof}
 
     % Вопрос вычислимость 23
-    \subsection*{23. Вычислимость индекса композиции вычислимых функций. [R, 42] Совместная рекурсия: решение «систем уравнений». [R, 43]}
+    \subsection{Вычислимость индекса композиции вычислимых функций. [R, 42] Совместная рекурсия: решение «систем уравнений». [R, 43]}
 
         \begin{proposition}
             Если $U$ --- ГУВФ, то существует вычислимая тотальная $c$, такая что $\forall p, \, q \in \NN \;\; U_{c(p, q)} = U_p \circ U_q$.
@@ -832,49 +842,397 @@
             \end{equation*}
         \end{theorem}
 
-\section*{Вопросы по логике}
+
+\section{Вопросы по логике}
 
     % Вопрос логика 1
-    \subsection*{Структуры и сигнатуры. Нормальные структуры. Изоморфизм структур. [MD]}
+    \subsection{Структуры и сигнатуры. Нормальные структуры. Изоморфизм структур. [MD]}
 
     % Вопрос логика 2
-    \subsection*{Формулы первого порядка данной сигнатуры. Параметры (свободные переменные) формулы. Предложения. [F, с. 1–2]}
+    \subsection{Формулы первого порядка данной сигнатуры. Параметры (свободные переменные) формулы. Предложения. [F, с. 1–2]}
 
     % Вопрос логика 3
-    \subsection*{Оценка переменных. Значение терма и формулы в данной структуре при данной оценке. [F, с. 2–3] Независимость значения формулы от значений переменных, не являющихся ее параметрами. [F, 5]}
+    \subsection{Оценка переменных. Значение терма и формулы в данной структуре при данной оценке. [F, с. 2–3] Независимость значения формулы от значений переменных, не являющихся ее параметрами. [F, 5]}
 
     % Вопрос логика 4
-    \subsection*{Значение терма и формулы на наборе элементов структуры. Выразимые в структуре множества (отношения, функции, элементы). Примеры выразимых множеств. [MD] [F, с. 4]}
+    \subsection{Значение терма и формулы на наборе элементов структуры. Выразимые в структуре множества (отношения, функции, элементы). Примеры выразимых множеств. [MD] [F, с. 4]}
+    \begin{proposition}[значение формулы на наборе элементов структуры]
+        Зафиксируем $(x_1, x_2, ..., x_n) \in Var^n$, $x_1, ..., x_n$ попарно различны. Если $FV(\varphi) \subseteq \{x_1, ..., x_n\}$, то в качестве упрощённой записи будем писать $\varphi(x_1, ..., x_n)$. Пусть $\overrightarrow{a} = (a_1, ..., a_n) \in M^n$, тогда
+        \[\forall \varphi(x_1, ..., x_n) \; \forall \overrightarrow{a} \; \forall \mathcal{\pi} \; \mathcal{M} \vDash \varphi(\overrightarrow{a}) \Leftrightarrow [\varphi]_{\mathcal{M}} (\pi_{x_1 \; x_2 \; ... \; x_n}^{a_1 \; a_2 \; ... \; a_n}) = 1\]
+    \end{proposition}
 
+    \begin{definition}
+        Формула $\varphi(x_1, ..., x_n) \in Fm_{\sigma}$ выражает отношение $X \subseteq M^n$ в интерпретации $\mathcal{M}$ сигнатуры $\sigma \Leftrightarrow \forall \overrightarrow{a} \in M^n \; (\mathcal{M} \vDash \varphi(\overrightarrow{a}) \Leftrightarrow \overrightarrow{a} \in X)$. (Тогда пишут ещё $\varphi^{\mathcal{M}} = X$).
+    \end{definition}
+
+    Примеры выразимых множеств: \\
+    \begin{enumerate}
+        \item[1)] Пусть есть $\mathcal{M} = (\mathbb{N}; =^{(2)}; +^{(2)})$. В $\mathcal{M}$ выразимы ($\Leftrightarrow \exists \varphi$, которая выражает) $\{0\} \subseteq \mathbb{N}'; \text{ЧЁТНОЕ} \subseteq \mathbb{N}; \leq, < \; \subseteq \mathbb{N}^2$ \\
+        \begin{itemize}
+            \item $\varphi_0(x) \eqcirc \forall y \; (x + y = y)$ \\
+            $\mathcal{M} \vDash \varphi_0(a) \Leftrightarrow a = 0 \Leftrightarrow a \in \{0\}$ \\
+            \item $\varphi_{\text{чётн.}}(x) \eqcirc \forall y \; (x = y + y)$ \\
+            $\mathcal{M} \vDash \varphi_{\text{чётн.}}(a) \Leftrightarrow a\text{ чётно} \Leftrightarrow a \in \text{ЧЁТНОЕ}$ \\
+            \item $\varphi_{\leq}(x, y) \eqcirc \forall z \; (x + z = y)$ \\
+            $\forall (a, b) \in \mathbb{N}^2 \; \mathcal{M} \vDash \varphi_{\leq}(a, b) \Leftrightarrow a \leq b$ \\
+            \item $\varphi_{<}(x, y) \eqcirc \varphi_{\leq}(x, y) \wedge \neg (x = y)$
+        \end{itemize}
+        \item[2)] В поле $\mathcal{R}$ выразимо отношение $\mathbb{R}_{\geq 0}$ \\
+        \begin{itemize}
+            \item $\varphi_{\geq 0}(x) = \exists y \; (y \cdot y = x)$ \\
+            $\forall a \in \mathbb{R} \; \mathcal{R} \vDash \varphi_{\geq 0}(a) \Leftrightarrow a \geq 0 \Leftrightarrow a \in \mathbb{R}_{\geq 0}$
+        \end{itemize}
+    \end{enumerate}
     % Вопрос логика 5
-    \subsection*{Значение формулы при изоморфизме структур. Элементарная эквивалентность структур. Изоморфные структуры элементарно эквивалентны. [MD, 10.5]}
+    \subsection{Значение формулы при изоморфизме структур. Элементарная эквивалентность структур. Изоморфные структуры элементарно эквивалентны. [MD, 10.5]}
 
     % Вопрос логика 6
-    \subsection*{Значение формулы при изоморфизме структур. Сохранение выразимых множеств автоморфизмами структуры. Примеры невыразимых множеств. [MD, 10.5]}
+    \subsection{Значение формулы при изоморфизме структур. Сохранение выразимых множеств автоморфизмами структуры. Примеры невыразимых множеств. [MD, 10.5]}
 
     % Вопрос логика 7
-    \subsection*{Эквивалентность формул первого порядка. [F, с. 4] Лемма о фиктивном кванторе. [F, 10] Общезначимые и выполнимые формулы. Квантор всеобщности и общезначимость. [F, 12]}
+    \subsection{Общезначимые и выполнимые формулы. [F, 12] Эквивалентность формул первого порядка. [F, с. 4] Лемма о фиктивном кванторе. [F, 10] Квантор всеобщности и общезначимость. [F, 12]}
+    
+    \subsubsection{Общезначимые и выполнимые формулы.}
+
+    Пусть фиксирована сигнатура $\sigma$. 
+    \begin{definition}
+        Формула $\varphi$ {\it общезначима}, если для любой интерпретации $\mathcal{M}$, для 
+        любой оценки переменных $\pi$ в этой самой интерпретации: $\text{Var} \to M$ 
+        \[
+            [\varphi]_{\mathcal{M}}(\pi) = 1.
+        \]
+        (Как ее ни интерпретируй, что с ней ни делай, будет принимать значение 1, 
+        которое всегда истинно.)
+    \end{definition}
+
+    \begin{example}
+        \[
+            \psi = Px \implies (\neg Px \implies Qyz)
+        \]
+        Если $Px$ ложь, то $\psi$ истинна, иначе получаем $\psi \colon 1 \implies 
+        (0 \implies *)$ --- тоже истина (запись варварская, ну и что?) $\implies 
+        \psi $ общезначима. 
+    \end{example}
+    % \begin{example}
+    %     \[
+    %         \phi = \forall x Px \implies \exists x Px.
+    %     \]
+    %     Ничего не зависит от $P$, то есть $\phi$ всегда верно, если $M \neq 
+    %     \varnothing$ (по определению $M$, это правда) $\implies \phi $ общезначима.
+    % \end{example}
+    \begin{example}
+        Рассмотрим формулу
+        \[
+            \varphi \eqcirc Px \lor \neg Qy.
+        \]
+        Положим $M = \NN$, $P^{\mathcal{M}} = Q^{\mathcal{M}} =$ 
+        ``равно 0'', $\pi(x) = 2020$, $\pi(y) = 0$.
+        Тогда значение $\varphi$ ложно $ \implies \varphi $ не общезначима.
+    \end{example}
+
+    \begin{definition}
+        Формула $\varphi$ {\it выполнима}, если существует интерпретация $\mathcal{M}$ 
+        и оценка $\pi$ такая, что
+        \[
+            [\varphi]_{\mathcal{M}}(\pi) = 1.
+        \]
+        Общезначимая формула истинна всегда, выполнимая истинна в каком-то случае.
+    \end{definition}
+        
+    \begin{example}
+        Рассмотрим формулу
+        \[
+            \varphi = (x - 3 > 1)
+        \]
+        При $M = \NN$ и $\pi$ такой, что $\pi(x) = 5$ 
+        \[
+            [\varphi]_{\mathcal{M}}(\pi) = 1
+        \] 
+        $\implies$ $\phi$ выполнима.
+    \end{example}
+        
+    \begin{lemma}
+        Формула $\varphi$ общезначима $\iff$ $\neg \varphi$ не выполнима.
+    \end{lemma}
+
+    \begin{lemma}
+        Формула $\varphi$ выполнима $\iff$ $\neg \varphi$ не общезначима.
+    \end{lemma}
+
+    \subsubsection{Эквивалентность формул первого порядка.}
+
+    Формулы первого порядка --- формулы, в которых кванторы берутся только по элементам 
+    носителя.
+    \begin{example}
+        первый порядок: $\forall x \in M$, 
+        не первый порядок: $\forall y \subseteq M$
+    \end{example}
+
+    \begin{definition}
+        Формулы $\phi$ и $\psi$ (логически) эквивалентны, если для любой интерпретации
+        $\mathcal{M}$, для любой оценки $\pi$
+        \[
+            [\varphi]_{\mathcal{M}}(\pi) = [\psi]_{\mathcal{M}}(\pi).
+        \]
+    \end{definition}
+
+    \begin{lemma}
+        Определенная выше эквивалентность является отношением эквивалентности:
+        \begin{enumerate}[topsep=0pt]
+            \item $\varphi \equiv \varphi$;
+            \item $\varphi \equiv \psi \implies \psi \equiv \varphi$;
+            \item $\varphi \equiv \psi \land \psi \equiv \theta \implies \psi \equiv \theta$.
+        \end{enumerate}
+    \end{lemma}
+
+    \begin{lemma}[О конгруэнции отношения эквивалентности]
+        Если $\varphi \equiv \varphi^{\prime}$, то
+        \begin{itemize}[topsep=0pt]
+            \item $\neg \varphi \equiv \neg \varphi^{\prime}$;
+            \item $\varphi \land \psi \equiv \varphi^{\prime} \land \psi$.
+            \item $\varphi \lor \psi \equiv \varphi^{\prime} \lor \psi$.
+            \item $\varphi \implies \psi \equiv \varphi^{\prime} \implies \psi$.
+            \item $\psi \implies \varphi \equiv \psi \implies \varphi^{\prime}$.
+            \item $\forall x \varphi \equiv \forall x \varphi^{\prime}$.
+            \item $\exists x \varphi \equiv \exists x \varphi^{\prime}$.
+        \end{itemize}
+        Так как значение сложной формулы определяется через значения ее подформул и 
+        для любой интерпретации $\mathcal{M}$, для любой оценки $\pi$ значение 
+        $\varphi$ можно заменить на значение $\varphi^{\prime}$.
+    \end{lemma}
+
+    \begin{proof}
+        Докажем одно из утверждений. 
+
+        $[\forall x \varphi]_{\mathcal{M}}(\pi) = 1 
+        \iff \forall m \in M~[\varphi]\left( \pi_{x}^{m} \right) = 1$, 
+        но $[\varphi]\left( \pi_{x}^{m} \right) = 
+        [\varphi^{\prime}]\left( \pi_{x}^{m} \right)$, тогда 
+        $[\varphi^{\prime}]\left( \pi_{x}^{m} \right) = 1$.
+    \end{proof}
+
+    \begin{lemma}
+        $\varphi \equiv \psi \iff $ общезначима формула
+        \[
+            (\varphi \implies \psi) \land (\psi \implies \varphi).
+        \]
+        Импликация истинна $\iff$ значение посылки не больше значения заключения, 
+        а в лемме сказано, что они одинаковы.
+    \end{lemma}
+    \begin{lemma}
+        Формула $\varphi$ общезначима тогда и только тогда, когда
+        \[
+            \varphi \equiv \top \ (\text{``заведомая истина''}).
+        \]
+    \end{lemma}
+
+    \begin{corollary}
+        Все общезначимые формулы эквивалентны друг другу.
+    \end{corollary}
+
+    \subsubsection{Лемма о фиктивном кванторе.}
+
+    \begin{lemma}[О фиктивном кванторе.]
+        Если $x \notin \text{FV}(\varphi)$, то $\forall x \varphi \equiv \varphi$.
+        Аналогично, $\exists \varphi \equiv \varphi$.
+    \end{lemma}
+
+    \begin{proof}
+        Рассмотрим произвольную интерпретацию $\mathcal{M}$ и оценку $\pi$. По определению: 
+        \[
+            [\forall x \varphi]_{\mathcal{M}}(\pi) = 1 \iff \forall m \in M~ [\varphi](\pi_{x}^{m}) = 1.
+        \]
+        где 
+        \[
+            \pi_{x}^{m}(z) = 
+            \begin{cases}
+                m, & y \eqcirc x,  \\
+                \pi(y), & y \not \eqcirc x.
+            \end{cases}
+        \]
+        Вспомним лемму о том, что $\forall z \in \text{FV}(\psi) \colon \pi_{1}(z) = 
+        \pi_{2}(z)$, то $[\psi]_{\mathcal{M}}(\pi_{1}) = [\psi]_{\mathcal{M}}(\pi_{2})$.
+        
+        Оценки $\pi_{x}^{m}$ и $\pi$ подходят под эту лемму, так как отличаются только в $x$, 
+        а $x \notin \text{FV}(\varphi)$. 
+
+        Тогда
+        \[
+            [\forall x \varphi]_{\mathcal{M}}(\pi) = 1 \iff \forall m \in M~ [\varphi](\pi_{x}^{m}) = 1 \iff
+            \forall m \in M~ [\varphi](\pi) = 1 \iff [\varphi](\pi) = 1
+        \]
+        Последний переход верен, так как значение $[\varphi](\pi)$ не зависит от $m$.
+    \end{proof}
+
+    \begin{corollary}
+        $\forall x \exists x \varphi \equiv \exists x \varphi$. 
+        (Так как $x \notin \text{FV}(\exists x \varphi)$.)
+    \end{corollary}
+
+
+    \subsubsection{Квантор всеобщности и общезначимость.}
+
+    \begin{lemma}
+        Формула $\varphi$ общезначима $\iff$ $\forall x \varphi$ общезначима.
+    \end{lemma}
+    
+    \begin{proof}~
+        \begin{description}
+            \item[$\implies$] Дано: $\forall \mathcal{M},~\forall \pi \colon [\varphi]_{\mathcal{M}}(\pi) = 1$.
+            Хотим доказать: $\forall \mathcal{M},~\forall \rho \colon [\forall x \varphi]_{\mathcal{M}}(\rho) = 1$.
+            Зафиксируем какие-то $\mathcal{M}$ и $\rho$, тогда
+            \[
+                [\forall x \varphi](\rho) = 1 \iff \forall m \in M~ [\varphi]\left(\rho_{x}^{m}\right) = 1.
+            \]
+            Последнее --- то, что мы хотим получить. Однако 
+            \[
+                ~\forall \pi \colon [\varphi]_{\mathcal{M}}(\pi) = 1 \implies
+                ~\forall \pi \colon \forall m \in M [\varphi]_{\mathcal{M}}(\pi) = 1 \implies
+                \forall m \in M [\varphi]_{\mathcal{M}}(\rho_{x}^{m}) = 1
+            \]
+            (Добавили квантор, который ничего не меняет и подставили $\pi = \rho_{x}^{m}$, получили
+            то, что хотели для выбранной $\rho$.)
+            
+            \item[$\impliedby$] Дано: $\forall \mathcal{M},~\forall \pi \colon [\forall\varphi]_{\mathcal{M}}(\pi) = 1$.
+            Хотим доказать: $\forall \mathcal{M},~\forall \rho \colon [\varphi]_{\mathcal{M}}(\rho) = 1$.
+
+            Зафиксируем какие-то $\mathcal{M}$ и $\rho$, тогда
+            \[
+                \forall \pi \colon [\forall\varphi]_{\mathcal{M}}(\pi) = 1 \iff
+                \forall \pi \colon \forall m \in M \colon [\varphi]_{\mathcal{M}}\left(\pi_{x}^{m}\right) = 1
+            \]
+            Возьмем $\pi = \rho$, $m = \rho(x)$, тогда $\pi_{x}^{m} = \rho_{x}^{\rho(x)} = \rho$. 
+            Получаем $[\varphi]_{\mathcal{M}}(\rho) = 1$.
+        \end{description}
+    \end{proof}
 
     % Вопрос логика 8
-    \subsection*{Основные эквивалентности логики первого порядка [F, 24]. Замена подформулы на эквивалентную. [F, 26, 30]}
+    \subsection{Основные эквивалентности логики первого порядка [F, 24]. Замена подформулы на эквивалентную. [F, 26, 30]}
+
+    \subsubsection{Основные эквивалентности логики первого порядка}
+    Эквивалентности алгебры логики:
+    \begin{align}
+        \varphi \implies \psi &\equiv \neg \varphi \lor \psi, \\
+        \neg \varphi \implies \neg \psi &\equiv \psi \implies \varphi, \\
+        \neg (\varphi \implies \psi) &\equiv \varphi \land \neg \psi, \\
+        \neg \neg \varphi &\equiv \varphi, \\
+        \neg (\varphi \land \psi) &\equiv \neg \varphi \lor \neg \psi, \\
+        \neg (\varphi \lor \psi) &\equiv \neg \varphi \land \neg \psi, \\
+        \varphi \land (\psi \lor \theta) &\equiv  (\varphi \land \psi) \lor (\varphi \land \theta), \\
+        \varphi \lor (\psi \land \theta) &\equiv (\varphi \lor \psi) \land (\varphi \land \theta), \\
+        \varphi \land (\varphi \lor \psi) &\equiv \varphi, \\
+        \varphi \lor (\varphi \land \psi) &\equiv \varphi, \\
+        \varphi \land \psi &\equiv \psi \land \varphi, \\
+        \varphi \land \varphi &\equiv \varphi, \\
+        (\varphi \land \psi) \land \theta &\equiv \varphi \land (\psi \land \theta).
+    \end{align}
+    Последние три эквивалентности также верны, если $\land$ заменить на $\lor$.
+    Все эквивалентности доказываются по таблице истинности.
+
+    \begin{theorem}[Основные эквивалентности с кванторами]~
+        \begin{enumerate}
+            \item \begin{align}
+                \forall x (\varphi \land \psi) &\equiv \forall x \varphi \land \forall x \psi, \\
+                \exists x (\varphi \lor \psi) &\equiv \exists x \varphi \lor \exists x \psi.
+            \end{align}
+            \item Пусть $x \notin \text{FV}(\psi)$, тогда \begin{align}
+                \forall x (\varphi \land \psi) &\equiv \forall x \varphi \land \psi, \\
+                \exists x (\varphi \land \psi) &\equiv \exists x \varphi \land \psi, \\
+                \forall x (\varphi \lor \psi) &\equiv \forall x \varphi \lor \psi, \\
+                \exists x (\varphi \lor \psi) &\equiv \exists x \varphi \lor \psi.
+            \end{align}
+            \item \begin{align}
+                \neg \forall x \varphi &\equiv \exists x \neg \varphi, \\
+                \neg \exists x \varphi &\equiv \forall x \neg \varphi.
+            \end{align}
+        \end{enumerate}
+    \end{theorem}
+
+    Доказательство проводится за счет определения: постепенно превращаем 
+    это утверждение в утверждение про неформальные кванторы.
+    Проверим одно из них.
+
+    \begin{proof} {(2.2)}
+        Зафиксируем $\mathcal{M}$ и $\pi$.
+    
+
+        \begin{multline}
+            [\exists x (\varphi \land \psi)](\pi) = 1 \iff 
+            \exists m \in M~ [\varphi \land \psi]\left(\pi_{x}^{m}\right) = 1 \iff \\
+            \iff \exists m \in M~ \text{И}\left([\varphi]\left(\pi_{x}^{m}\right) = 1, [\psi]\left(\pi_{x}^{m}\right) = 1\right) \iff 
+            \exists m \in M~ \text{И}\left([\varphi]\left(\pi_{x}^{m}\right) = 1, [\psi]\left(\pi\right) = 1\right) \iff \\
+            \left( \exists m \in M~  [\varphi]\left(\pi_{x}^{m}\right) = 1\right) \text{ И } [\psi]\left(\pi\right) = 1 \iff
+            [\exists x \varphi](\pi) = 1 \text{ И } [\psi](\pi) = 1 \iff 
+            [\exists x \varphi \land \psi](\pi) = 1
+        \end{multline}
+
+        Сначала делаем переход по определению. Потом заменяем $\land$ на функцию И(). 
+        Затем заменяем для $\psi$ оценку с $\pi_{x}^{m}$ на $\pi$, так как их значения не 
+        отличаются на свободных переменных (была теорема, что в этом случае замена равносильна). 
+        Далее выносим $[\psi]\left(\pi\right)$, не зависящую от $m$. Оставшиеся переходы 
+        по определениям. 
+    \end{proof}
+
+    \begin{corollary}[Выразимость одного квантора через другой] \
+        \begin{enumerate}[topsep=0pt]
+            \item $\forall x \varphi \equiv \forall x \neg \neg \varphi \equiv \neg \exists x \neg \varphi.$
+            \item $\exists x \varphi \equiv \neg \forall x \neg \varphi.$
+        \end{enumerate}
+    \end{corollary}
+
+    \begin{corollary}
+        Пусть $x \notin \text{FV}(\psi)$, тогда
+        \begin{align}
+            \forall x (\varphi \implies \psi) &\equiv \exists x\varphi \implies \psi, \\
+            \exists x (\varphi \implies \psi) &\equiv \forall x\varphi \implies \psi, \\
+            \forall x (\psi \implies \varphi) &\equiv \psi \implies \forall \varphi, \\
+            \exists x (\psi \implies \varphi) &\equiv \psi \implies \exists \varphi.
+        \end{align}
+    \end{corollary}
+    
+    При вынесении квантора из посылки, он меняется на противоположный.
+    При вынесении квантора из заключения, он остается тем же.
+    
+    \begin{proof}
+        $\forall x (\varphi \implies \psi) \equiv \forall x (\neg \varphi \lor \psi)$.
+        Так как $x \notin \text{FV}(\psi)$, то
+        \[
+            \forall x (\neg \varphi \lor \psi) \equiv \forall x \neg \varphi \lor 
+            \psi \equiv \neg \exists x \varphi \lor \psi \equiv \exists x \varphi 
+            \implies \psi.
+        \]
+    \end{proof}
+
+    \subsubsection{Замена подформулы на эквивалентную.}
+
+    Если в формуле заменить какое-либо вхождение некоторой подформулы на 
+    эквивалентную этой подформуле формулу, мы получим формулу, эквивалентную исходной.
+    (На лекции было только это.)
+    
+    То же самое другими словами из конспекта first\_order:
+
+    \begin{lemma}
+        Пусть $\psi \equiv \psi^\prime$ и формула $\phi^\prime$ получена из $\phi$ 
+        заменой некоторых вхождений $\psi$ на $\psi^\prime$. Тогда $\phi \equiv \phi^\prime$.
+    \end{lemma}
 
     % Вопрос логика 9
-    \subsection*{Булевы комбинации формул. Булева функция, соответствующая булевой комбинации. Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
+    \subsection{Булевы комбинации формул. Булева функция, соответствующая булевой комбинации. Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
 
     % Вопрос логика 10
-    \subsection*{Лемма о корректной подстановке. [F, 73]}
+    \subsection{Лемма о корректной подстановке. [F, 73]}
 
     % Вопрос логика 11
-    \subsection*{Понятие корректной подстановки («терм свободен для переменной в формуле»). Пример некорректной подстановки. Лемма о корректной подстановке (без доказательства). [F, 73] Переименование связанной переменной. [F, 16, 18]. Общезначимость формул вида $\forall x \; \phi \to \phi(t/x)$ и $\phi(t/x) \to \exists x \; \phi$ в случае корректной подстановки. [F, 74]}
+    \subsection{Понятие корректной подстановки («терм свободен для переменной в формуле»). Пример некорректной подстановки. Лемма о корректной подстановке (без доказательства). [F, 73] Переименование связанной переменной. [F, 16, 18]. Общезначимость формул вида $\forall x \; \phi \to \phi(t/x)$ и $\phi(t/x) \to \exists x \; \phi$ в случае корректной подстановки. [F, 74]}
 
     % Вопрос логика 12
-    \subsection*{Переименование связанной переменной (без доказательства). [F, 16] Теорема о предваренной нормальной форме. [F, 36]}
+    \subsection{Переименование связанной переменной (без доказательства). [F, 16] Теорема о предваренной нормальной форме. [F, 36]}
     \begin{proposition}[Переименование связанных переменных]
-    	
-    	Если $y \notin V(\varphi)$, то $\begin{cases}
-    	\forall x \; \varphi \equiv \forall y \; \varphi(y/x) \\
-    	\exists x \; \varphi \equiv \exists y \; \varphi(y/x)
-    	\end{cases}$
+
+        Если $y \notin V(\varphi)$, то $\begin{cases}
+        \forall x \; \varphi \equiv \forall y \; \varphi(y/x) \\
+        \exists x \; \varphi \equiv \exists y \; \varphi(y/x)
+        \end{cases}$
     \end{proposition}
 
 	\begin{definition}
@@ -917,10 +1275,181 @@
 	\end{example}
 
     % Вопрос логика 13
-    \subsection*{Понятие теории первого порядка. Примеры содержательных теорий. Модель теории. Семантическое (логическое) следование (для замкнутых формул) [ВШ-2, с. 187]}
+    \subsection{Понятие теории первого порядка. Примеры содержательных теорий. Модель теории. Семантическое (логическое) следование (для замкнутых формул) [ВШ-2, с. 187]}
 
     % Вопрос логика 14
-    \subsection*{Сколемизация предваренной формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
+    \subsection{Сколемизация предваренной формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
 
+    % Вопрос логика 15
+    \subsection{Исчисление резолюций для произвольных множеств формул. Теорема о коррект- ности.
+        Теорема о полноте (без доказательства).}
+
+    В исчислении резолюций есть 2 правила.
+
+
+    \underline{Правило вывода (резолюции)}. $\boxed{\frac{\neg A \lor B \; \; \; A \lor C}{B \lor C} } $
+
+    Частный случай ПР -- вывод пустой дизъюнкции (лжи): $\frac{A \; \; \; \neg A}{\perp}.$
+
+
+
+    \underline{Правило подстановки.} $\boxed{\frac{\forall y A}{A(t/y)}} \; $, где $t$ -- произвольный терм, $A$ -- универсальна.
+
+
+    Говорят, что формула $\varphi$ \underline{выводится} из множества  формул $\Gamma$ в исчислении резолюций, если $\varphi$ возможно получить из формул в $\Gamma$, применяя к ним правило резолюции и правило подстановки какое-то конечное число раз.
+
+    Обозначение: $\Gamma \vdash \varphi.$
+
+    \underline{Корректность ПР}. $\forall M \; \forall \pi$ если $[\neg A \lor B]_M (\pi) = 1$  и $[ A \lor C]_M (\pi) = 1,$ то $[B \lor C]_M (\pi) = 1.$
+
+    Другими словами, импликация $( (\neg A \lor B) \land (A \lor C) \to (B \lor C) )$ общезначима.
+
+    \begin{proof} По контрапозиции.
+
+    $[B \lor C]_M (\pi) = 0 \implies \left([B]_M (\pi) = 0\right) \land \left([C]_M (\pi) = 0\right) \implies [\neg A \lor B]_M (\pi) = 0 \lor   [ A \lor C]_M (\pi) = 0 \implies$
+
+    $ \neg([\neg A \lor B]_M (\pi) = 1 \land   [ A \lor C]_M (\pi) = 1).$
+    \end{proof}
+
+
+    \underline{Корректность ПП.} Пусть $A$ -- универсальна.
+
+    $\forall M \; \forall \pi$ если $[ \, \forall y \,  A \, ]_M (\pi) = 1,$  то $[ \, A(t/y) \, ]_M (\pi) = 1.$
+
+    \begin{proof}
+    Допустим, $A \eqcirc \forall \, \overrightarrow{x} A_0$, где $A_0$ -- бескванторная формула.
+
+    $[\forall \, y \, \forall \, \overrightarrow{x} \, A_0 ]_M (\pi) = 1 \iff \forall \, a \in M \, \forall  \overrightarrow{b} \in M^n \;  \; [A_0] \left(\pi^{a \; \; \overrightarrow{b}}_{y \; \; \overrightarrow{x}} \right) = 1 \iff \forall  \overrightarrow{b} \in M^n \;   \forall \, a \in M  \;  \; [A_0] \left(\pi^{\overrightarrow{b} \; \; a}_{\overrightarrow{x} \; \; y} \right) = 1.$
+
+    Теперь положим $a := [ \, t \,]  \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right) \implies \forall \overrightarrow{b} \in M^n \; [A_0] \left( \pi_{\overrightarrow{x} \; \; \, y}^{\overrightarrow{b} \; \; \; [ \, t \,]  \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right)} \right) = 1. \; \; \circledast$
+
+    С другой стороны $[A(t/y)]_M(\pi) = 1 \iff [ \, \forall \overrightarrow{x} \; A_0 (t/y) \,  ]_M (\pi) = 1 \iff \forall \overrightarrow{b} \in M^n \; [ \, A_0(t/y) \, ]_M \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right) = 1.$
+
+    Так как в $A_0$  нет кванторов, $t-y-A_0.$ Тогда по лемме о корректной подстановке
+
+    $\forall \overrightarrow{b} \in M^n \; [ \, A_0(t/y) \, ]_M \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right) = 1 \iff \forall \overrightarrow{b} \in M^n \; [A_0] \left( \pi_{\overrightarrow{x} \; \; \, y}^{\overrightarrow{b} \; \; \; [ \, t \,]  \left(\pi_{\overrightarrow{x}}^{\overrightarrow{b}} \right)} \right) = 1,$ что совпадает с  $\circledast.$ Равносильность доказана.
+
+    \end{proof}
+
+    \underline{Теорема о корректности.} Если $\Gamma \vdash \varphi,$ то $\Gamma \vDash \varphi.$
+
+    \begin{proof} Индукция по построению вывода в ИР.
+
+    Применяем утверждения о корректности ПП и ПР, доказанные выше.
+    \end{proof}
+
+    \underline{Теорема о полноте}. $\Delta$ -- набор формул в сигнатуре $\sigma$. Если $\Delta \nvdash \perp$, то $\exists M \, \exists \pi \; [\Delta]_M (\pi) = 1,$ причём $|M| \leq max(|\mathbb{N}|, \, | \sigma|). $
+
+
+    % Вопрос логика 16
+    \subsection{Исчисление резолюций для произвольных множеств формул. Теоремы о корректности и о полноте (обе без доказательства). Доказывание общезначимости и логического следования в теории с помощью исчисления резолюций. Пример применения исчисления резолюций (должны присутствовать формулы, не являющиеся универсальными дизъюнктами).}
     
+    В исчислении резолюций есть 2 правила.
+    
+    \underline{Правило вывода (резолюции)}. $\boxed{\frac{\neg A \lor B \; \; \; A \lor C}{B \lor C} } $
+    
+    Частный случай ПР -- вывод пустой дизъюнкции (лжи): $\frac{A \; \; \; \neg A}{\perp}.$
+    
+    \underline{Правило подстановки.} $\boxed{\frac{\forall y A}{A(t/y)}} \; $, где $t$ -- произвольный терм, $A$ -- универсальна.
+    
+    Говорят, что формула $\varphi$ \underline{выводится} из множества  формул $\Gamma$ в исчислении резолюций, если $\varphi$ возможно получить из формул в $\Gamma$, применяя к ним правило резолюции и правило подстановки какое-то конечное число раз.
+    
+    Обозначение: $\Gamma \vdash \varphi.$
+    
+    \underline{Теорема о корректности.} Если $\Gamma \vdash \varphi,$ то $\Gamma \vDash \varphi.$
+    
+    \underline{Теорема о полноте}. $\Delta$ -- набор формул в сигнатуре $\sigma$. Если $\Delta \nvdash \perp$, то $\exists M \, \exists \pi \; [\Delta]_M (\pi) = 1,$ причём $|M| \leq max(|\mathbb{N}|, \, | \sigma|). $
+    
+    Как доказать общезначимость формулы $\varphi$? Знаем, что 
+    
+    $\varphi$ общезначима $\iff \neg \, \varphi$ не выполнима $\iff \{ \neg \, \varphi\}$ не выполнима. 
+    
+    Так что \underline{достаточно вывести из теории $\{ \neg \, \varphi\}$ ложь} (с помощью ИР).
+    
+    \textit{Пример:} $\varphi \eqcirc \forall x \, \exists y \, \forall z \, Pxyz \to \exists y \, \forall z \, \exists x  \, Pxyz.$ Доказать, что она общезначима.
+    
+    $\neg \, \varphi \equiv \forall x \, \exists y \, \forall z \, Pxyz \land \neg \, \exists y \, \forall z \, \exists x  \, Pxyz \equiv \forall x \, \exists y \, \forall z \, Pxyz \land  \, \forall y \, \exists z \, \forall x  \, \neg \, Pxyz \equiv \forall x \, \exists y \, \forall z \, Pxyz \land  \, \forall v \, \exists w \, \forall u  \, \neg \, Puvw \equiv \\ \\ \forall x \, \exists y \, \forall z  \, \forall v \, \exists w \, \forall u \, (Pxyz \land  \neg \, Puvw).$ 
+    
+    Сколемизируем, $y \rightsquigarrow f(x) \implies \dots \equiv \forall x  \, \forall z  \, \forall v \, \exists w \, \forall u \, (Px \, (fx)\, z \land  \neg \, Puvw).$
+    
+    Второй шаг сколемизации, $w \rightsquigarrow g(x,z,v) \implies \dots \equiv \forall x \, \forall z  \, \forall v \, \forall u \, (Px \, (fx)\, z \land  \neg \, Puv \, (g \, xzv)). $
+    
+    Делаем из получившейся штуковины теорию. Заметим, что она не является универсальным дизъюнктом. Поэтому мы имеем право разбить её на несколько УД. Наша теория, в итоге, выглядит так:
+    
+    $\{\forall x \, \forall z  \, \forall v \, \forall u \, (Px \, (fx)\, z )  , \; \; \forall x \, \forall z  \, \forall v \, \forall u \, \neg \, Puv \, (g \, xzv)\}$
+    
+    Выведем из неё ложь:
+    
+    $\frac{\forall x \, \forall z  \, \forall v \, \forall u \, (Px \, (fx)\, z )}{P u \, f(u)\, (g \, uz \, (fu)\,)}$ -- правило подстановки, сделали $\begin{cases}
+    x := u; \\
+    z := g \, uz \, (fu) \\
+    \end{cases}$
+    
+    $ \frac{\forall x \, \forall z  \, \forall v \, \forall u \, \neg \, Puv \, (g \, xzv)}{\neg Pu \, f(u) \,(g \, uz \, (fu) \, )} $ -- правило подстановки, сделали $\begin{cases}
+    x := u; \\
+    v := fu; \\
+    z := z; \\
+    u := u
+    \end{cases}$
+    
+    $\frac{P u \, f(u)\, (g \, uz \, (fu)\,)  \; \; \; \neg Pu \, f(u) \,(g \, uz \, (fu) \, ) }{\perp}$  -- правило резолюций.
+    
+    Всё -- УРА, доказали, что исходная  $\varphi$ общезначима.
+    
+
+    % Вопрос логика 17
+    
+    \subsection*{Теорема компактности (в двух формах: про выполнимость и про логическое следование). Вариант для нормальных моделей (без доказательства). Любой пример применения.}
+
+    \underline{Теорема о компактности-1.}
+    
+    Если каждое конечное подмножество $\Gamma$ выполнимо ($\iff \Gamma$ "конечно выполнимо"), то $\Gamma$ выполнимо.
+
+    \begin{proof} Контрапозиция. Пусть $\Gamma$ не выполнимо $\implies \Gamma^* \vdash \perp$  по теореме о полноте.
+    
+    Любой вывод в ИР -- конечное дерево $\implies \exists $ конечное $\Delta \subseteq \Gamma^*$ $\Delta \vdash \perp \implies \exists$ конечное $\Gamma_1 \subseteq \Gamma$, т.ч. $\Delta \subseteq \Gamma^*_1$ и $\Gamma^*_1 \vdash \perp.$
+    
+    По теореме о корректности $\Gamma^*_1$ невыполнимо $\implies \Gamma_1$ невыполнимо.
+    
+    Т.е. нашлось конечное невыполнимое подмножество $\Gamma.$
+    
+    \end{proof}
+    
+    \underline{Теорема о компактности-2.} Если $\Gamma \vDash \varphi,$ то $\exists$ конечное $\Gamma' \subseteq \Gamma \; \; \Gamma' \vDash \varphi.$
+    
+    \begin{proof} 
+
+    $\Gamma \vDash \varphi \iff $ невыполнима  $\Gamma \cup \{ \neg \varphi\} \implies \exists$  конечное $\Gamma' \subseteq \Gamma \; \; \Gamma' \cup \{\neg \varphi \}$  невыполнима $\iff \Gamma' \vDash \varphi.$
+    
+    \end{proof}
+    
+    Определим $Ax_{=}^{\sigma}$ (аксиомы равенства).
+    
+    $Ax_{=}^{\sigma}: \{ \, \forall x \; (x = x) \, , \; \; \forall x \;  \forall y \;  (x = y \to y = x) \, , \; \; \; \forall x \; \forall y \; \forall z \;  (x = y \land y = z \to x = z) \, \} \cup \\ \\ \{ (x_1 = y_1 \land \dots \land x_n = y_n) \to ( R_{x_1 \dots x_n} = R_{y_1 \dots y_n})  \mid R^{(n)} \in Rel_{\sigma} \} \cup \\ \{ (x_1 = y_1 \land \dots \land x_n = y_n) \to (f_{x_1 \dots x_n} = f_{y_1 \dots y_n})  \mid f^{(n)} \in Fnc_{\sigma}\}.$ \\
+    
+    \underline{Утверждение.} Пусть в $\sigma$ есть равенство. У $\Gamma$ есть нормальная модель $(\leq max(|\mathbb{N}|, |\sigma|)) \iff $  выполнима $\Gamma \cup Ax_{=}^{\sigma}.$
+    
+    \begin{proof}
+    $\boxed{\Rightarrow}$ В нормальной модели выполняются аксиомы равенства.
+    
+    $\boxed{\Leftarrow}$ В каком случае модель, в которой выполнена теория $Ax_{=}^{\sigma} \cup \Gamma$, может оказаться не нормальной? 
+    
+    Только если у каких-то элементов есть "двойники". 
+    
+    В этом случае модифицируем модель и склеим все дублирующиеся элементы. $Ax_{=}^{\sigma} \cup \Gamma$ всё ещё выполнима, так как наличие или отсутствие двойников ничего не меняет, но модель уже является нормальной, чего мы и хотели.
+    
+    \end{proof}
+    
+    \doublespacing \underline{Компактность для нормальных моделей.} Если у каждого конечного подмножества $\Gamma$ есть нормальная модель, то у $\Gamma$ есть нормальная модель (мощности $\leq max (|\mathbb{N}| , | \sigma| )$).
+    
+    \begin{proof}
+    
+    По утверждению выше, $\forall$ конечного $\Gamma_1 \subseteq \Gamma$ выполнима $\Gamma_1 \cup Ax_{=}^{\sigma}$  $\implies \\ 
+    \forall$ конечное подмножество $ \Gamma' \subseteq \Gamma \cup Ax_{=}^{\sigma} $ выполнимо $\implies \\ \Gamma \cup Ax_{=}^{\sigma}$ выполнимо (по обычной компактности) $\implies$ у $\Gamma$ есть нормальная модель из утверждения выше.
+    
+    \end{proof}
+
+    % Вопрос логика 18
+    \subsection{Игра Эренфойхта. Формулировка основной теоремы и примеры применения: когда побеждает Новатор, и когда побеждает Консерватор. [ВШ-2, 3.10]}
+
 \end{document}
