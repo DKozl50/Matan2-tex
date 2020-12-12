@@ -32,6 +32,11 @@ jobs:
     needs: [build]
 
     steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      
       - name: Download Artifacts  # The built project is downloaded into the 'site' folder.
         uses: actions/download-artifact@v1
         with:
