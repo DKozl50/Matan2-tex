@@ -19,10 +19,12 @@
 \author{
     % Откомментируй себя или добавь в список!
     % Александр Богданов   \\ \href{https://t.me/SphericalPotatoInVacuum}{Telegram} \and
-    % Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
+    Алиса Вернигор       \\ \href{https://t.me/allisyonok}{Telegram} \and
     % Анастасия Григорьева \\ \href{https://t.me/weifoll}{Telegram} \and
+    Валерий Березовский  \\ \href{https://t.me/jeembogod}{Telegram} \and
     Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
     % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
+    % Даниэль Хайбулин     \\ \href{https://t.me/kiDaniel}{Telegram} \and
     Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
     % Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
     % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
@@ -31,9 +33,8 @@
     Марк Рофин           \\ \href{https://t.me/Broccoliman}{Telegram} \and
     % Настя Городилова     \\ \href{https://t.me/nastygorodi}{Telegram} \and
     Никита Насонков      \\ \href{https://t.me/nnv_nick}{Telegram} \and
-    % Даниэль Хайбулин      \\ \href{https://t.me/kiDaniel}{Telegram} \and
+    Оля Козлова          \\ \href{https://t.me/grenlayk}{Telegram}
     % Сергей Лоптев        \\ \href{https://t.me/beast_sl}{Telegram} \and
-    Оля Козлова \\ \href{https://t.me/grenlayk}{Telegram}
 }
 
 \date{Версия от {\ddmmyyyydate\today} \currenttime}
@@ -901,7 +902,7 @@
     Теперь поговорим об уже знакомом нам понятии изоморфизма.
 
     \begin{definition} \label{def::isomorphism-on-structures}
-        Будем говорить, что $\alpha$ --- {\it изоморфизм} между $\mathcal{M}$ и $\mathcal{N}$, если
+        Будем говорить, что $\alpha$ --- {\it изоморфизм} между $\MM$ и $\NN$, если
         \begin{enumerate}
             \item $\alpha \colon M \to N$ --- биекция;
             \item Сохраняются все отношения, то есть $\forall R^{(n)} \in \text{Rel}_{\sigma}$, $\forall \vec{a} \in M^{n}$ $R^{\mathcal{M}}(\vec{a}) \iff R^{\mathcal{N}}(\alpha \vec{a})$;
@@ -911,19 +912,20 @@
     \end{definition}
     
     \begin{definition}
-        Будем говорить, что структуры $\mathcal{M}$ и $\mathcal{N}$ изоморфны (обозн. $\mathcal{M} \cong \mathcal{N}$), если существует изоморфизм $\alpha \colon \mathcal{M} \to \mathcal{N}$.
+        Будем говорить, что структуры $\MM$ и $\NN$ изоморфны (обозн. $\MM \cong \NN$), если существует изоморфизм $\alpha \colon \MM \to \NN$.
     \end{definition}
     
-    \begin{proposition}
+    \begin{statement}~
         \begin{enumerate}
-            \item $\mathcal{M} \overset{\text{Id}_{\mathcal{M}}}{\cong} \mathcal{M}$.
-            \item $\mathcal{M} \overset{\alpha}{\cong} \mathcal{N} \implies \mathcal{N} \overset{\alpha^{-1}}{\cong} \mathcal{M}$.
-            \item $\mathcal{M} \overset{\alpha}{\cong} \mathcal{N}$ и $\mathcal{N} \overset{\beta}{\cong} \mathcal{L} \implies \mathcal{M} \overset{\beta \circ \alpha}{\cong} \mathcal{L}$.
+            \item $\MM \overset{\Id_{\MM}}{\cong} \MM$.
+            \item $\MM \overset{\alpha}{\cong} \NN \implies \NN \overset{\alpha^{-1}}{\cong} \MM$.
+            \item $\MM \overset{\alpha}{\cong} \NN$ и $\NN \overset{\beta}{\cong} \LL \implies \MM \overset{\beta \circ \alpha}{\cong} \LL$.
         \end{enumerate}
-    \end{proposition}~
+    \end{statement}
+    
     \begin{example}
     Рассмотрим конкретный пример, который является классическим.
-    Положим $\mathcal{M} = \left( \mathbb{R}; =; +^(2); 0 \right)$ и $\mathcal{N} = \left( R_{+}; =; \cdot^{(2)}; 1 \right)$.
+    Положим $\MM = \left( \R; =; +^(2); 0 \right)$ и $\NN = \left( R_{+}; =; \cdot^{(2)}; 1 \right)$.
     Естественно, это интерпретация одной сигнатуры $\sigma = \left( =; \circ^{(2)}; e \right)$.
     \end{example}
     % Вопрос логика 2
@@ -977,7 +979,7 @@
     мы тут пока не занимаемся.
 
     \begin{definition}[свободная переменная]
-        Зафиксируем функцию $\text{FV} \colon \text{Fm}_{\sigma} \to \text{Var}$, которая каждой формуле ставит в 
+        Зафиксируем функцию $\FreeVar \colon \Fm_{\sigma} \to \Var$, которая каждой формуле ставит в 
         соответствие множество {\it свободных} переменных в ней, следующим образом:
         \begin{enumerate}
             \item $\text{FV}(R t_{1} \ldots t_{n}) = V(t_{1}) \cup \ldots \cup V(t_{n})$.
@@ -1003,7 +1005,142 @@
     \end{definition}
     % Вопрос логика 3
     \subsection{Оценка переменных. Значение терма и формулы в данной структуре при данной оценке. [F, с. 2–3] Независимость значения формулы от значений переменных, не являющихся ее параметрами. [F, 5]}
+    \underline{Напоминание:} Переменные -- это какие-то символы (различимые) 
+    $Var = \{v_0, v_1, \ldots, v_n, \ldots\} ∼ ℕ$ (то есть, их счётно много).
+    \begin{definition}[Оценка переменных]
+        Оценка переменных в интерпретации $\mathcal{M}$ -- это любая функция
+        $\pi: Var → M$.
+    \end{definition}
+    \begin{example}
+        Всем переменным с чётными номерами поставим в соответствие 5, а
+        всем переменным с нечётными -- их номер. 
+        Получится оценка переменных в любой интерпретации, где носителем 
+        выступают натуральные числа.  
+    \end{example}
+    \underline{Обозначения:} Значение терма $t ∈ Tm_{\sigma}$ в интерпретации
+    $\mathcal{M}$ при оценке $\pi$ $: [t]_{\mathcal{M}}(\pi) ∈ M$ 
+    (иногда $\mathcal{M}$ можно опускать, если и так понятно, какая 
+    интерпретация).
+    \begin{definition}[Значение терма $t ∈ Tm_{\sigma}$ в интерпретации
+        $\mathcal{M}$ при оценке $\pi$] \ \\
+        Индукция по построению:  
+        \begin{itemize}
+            \item[(1)] $ t = x ∈ Var ⇒ [x]_{\mathcal{M}}(\pi) = \pi(x)$
+            \item[(2)] $c ∈ Const ⇒ [c]_{\mathcal{M}}(\pi) = c^{\mathcal{M}}$
+            (константе в интерпретации уже приписано некое значение)
+            \item[(3)] $[ft_1\ldots t_m]_{\mathcal{M}}(\pi) = 
+            f^{\mathcal{M}}([t_1]_{\mathcal{M}}(\pi), \ldots, 
+            [t_m]_{\mathcal{M}}(\pi))$  
+        \end{itemize}
+    \end{definition}
+    \begin{example}
+        Вернёмся к нашей интерпретации $\mathcal{N}$ из предыдущих билетов. \\[9.5pt]
+        $[f(\#  x)x]_{\mathcal{N}}(\pi) =
+        f^{\mathcal{N}}([\# x]_{\mathcal{N}}(\pi), 
+        [x]_{\mathcal{N}}(\pi)) =
+        f^{\mathcal{N}}(\#^{\mathcal{N}}([x]_{\mathcal{N}}(\pi)), 
+        [x]_{\mathcal{N}}(\pi)) =
+        f^{\mathcal{N}}(\#^{\mathcal{N}}(\pi(x)), \pi(x))$ \\[9.5pt]
+        Допустим наша оценка оценила $x$ числом 9 ($\pi(x) = 9$). Тогда 
+        $[f(\#  x)x]_{\mathcal{N}}(\pi) = ((9 + 7) \cdot 9)^2 = (16 \cdot 9)^2 ∈ \mathbb{N}$
+    \end{example}
+    \begin{lemma}
+        Если $∀ x ∈ V(t) \pi_1(x) = \pi_2(x)$, то 
+        $[t]_{\mathcal{M}}(\pi_1) = [t]_{\mathcal{M}}(\pi_2)$. \\
+        Доказательство в билете не просят,
+         но доказывается индукцией по построению.
+    \end{lemma}
+    \underline{Обозначения:} Значение формулы $\varphi ∈ Fm_{\sigma}$ в интерпретации
+    $\mathcal{M}$ при оценке $\pi$ $: [\varphi]_{\mathcal{M}}(\pi) ∈ \{0, 1\}$ (ложь/истина) \\
+    \begin{definition}[Модифицированная оценка] \ \\
+        Пусть $\pi: Var → M$ \\
+        Пусть $y ∈ Var$ и $m ∈ M$ \\
+        $(\pi+(y ↦ m)): Var → M$ (альтернативное обозначение: 
+        $\pi_y^m$) называется модифицированной оценкой\\
+        $\pi_y^m(x) = \begin{cases}
+            m , x \eqcirc y \text{(x то же самое, что и у, алфавитно)} \\
+            \pi(x), x \not \eqcirc y
+        \end{cases}$ 
+    \end{definition}
+    \begin{definition}[Значение формулы $\varphi ∈ Fm_{\sigma}$ в интерпретации
+        $\mathcal{M}$ при оценке $\pi$] \ \\
+        Индукция по построению:
+        \begin{itemize}
+            \item[(1)] (атомарная формула) 
+            $[Rt_1, \ldots, [t_n]_{\mathcal{M}}(\pi) = $
+            $\begin{cases}
+                1, ([t_1]_{\mathcal{M}}(\pi), \ldots, 
+                [t_n]_{\mathcal{M}}(\pi) ∈ R^{\mathcal{M}} \\
+                0, \text{ иначе}
+            \end{cases}$
+            \item[(2)] (логические связки) 
+            $[\varphi ∧ \psi]_{\mathcal{M}}(\pi)$ = 
+            И$([\varphi]_{\mathcal{M}}(\pi), [\psi]_{\mathcal{M}}(\pi))$.
+            Аналогично для ИЛИ, СЛЕДОВАНИЯ, ЭКВИВАЛЕНТНОСТИ и НЕ
+            \item[(3)]
+            $[∀ x \varphi](\pi) =
+            \begin{cases}
+                1, \text{для всех } m ∈ M [\varphi](\pi_x^m) = 1\\
+                0, \text{иначе}
+            \end{cases}$ \\ 
+            $[∃ x \varphi](\pi) =
+            \begin{cases}
+                1, \text{существует } m ∈ M [\varphi](\pi_x^m) = 1\\
+                0, \text{иначе}
+            \end{cases}$
+        \end{itemize}
+    \end{definition}
+    \begin{example}
+        Вернёмся к нашей интерпретации $\mathcal{N}$ из предыдущих билетов. \\[9.5pt]
+        $\varphi = ∃ x ∀ y Qxyy$ (это замкнутая формула -- в ней нет свободных
+        переменных) \\[9.5pt]
+        $[∃ x ∀ y Qxyy](\pi) = 1 ⇔ ∃ a ∈ \mathbb{N} [∀ y Qxyy](\pi_x^a) = 1
+        ⇔  ∃ a ∈ \mathbb{N}, ∀ b ∈ \mathbb{N} [Qxyy](\pi^{ab}_{xy})
+        ⇔ [x](\pi^{ab}_{xy}) + [y](\pi^{ab}_{xy}) = [y](\pi^{ab}_{xy})
+        ⇔ \pi_x^a(x) + \pi_y^b(y) = \pi_y^b(y)$ (этот шаг по лемме) 
+        $⇔ a + b = b$ \\[9.5pt]
+        В нашей интерпретации значение формулы действительно истина (
+            $a$ возьмём нулём
+        )   
+    \end{example}
+    \begin{lemma}
+        Если $∀ y ∈ FV(\varphi) \pi_1(y) = \pi_2(y)$, то 
+        $[\varphi]_{\mathcal{M}}(\pi_1) = [\varphi]_{\mathcal{M}}(\pi_2)$
+    \end{lemma}
+    \begin{proof}
+        Индукция по построению: 
+        \begin{itemize}
+            \item[(1)] $\varphi \eqcirc Rt_1, \ldots, t_n$\\
+            $FV(Rt_1, \ldots, t_n) = V(t_1) ∪ \ldots  ∪ V(t_n) ⇒
+            V(t_i) ⊆ FV(Rt_1, \ldots, t_n)$  \\
+            $[\varphi](\pi_1) = 1 ⇔ R^m([t_1](\pi_1), \ldots, [t_n](\pi_1))$
+             \\
+            $⇔$ (по лемме выше) $R^m([t_1](\pi_2), \ldots, [t_n](\pi_2))$
+            $⇔ [\varphi](\pi_2) = 1$
+            \item[(2)] 
+            $FV(\varphi  ∧ \psi) = FV(\varphi) ∪ FV(\psi)$ \\
+            $[\varphi  ∧ \psi](\pi_1)$ = И$([\varphi](\pi_1), [\psi](\pi_1)) 
+            $ (по предположению индукции) = И$([\varphi](\pi_2), [\psi](\pi_2))
+            = [\varphi  ∧ \psi](\pi_2)$
+            \item[(3)]
+            $FV(∀ z \psi) = FV(∀z) \backslash \{z\}$ \\  
+            $\varphi=∀ z \psi ⇒ FV(\psi) = FV(\varphi) ∪ \{z\}$  \\
 
+            \underline{Утверждение:} $∀ y ∈ FV(\psi) ⇒ \pi_{1 z}^m(y) = \pi_{2 z}^m(y)$
+            \begin{proof} \ \\
+                \begin{itemize} 
+                    \item[1.] $y ∈ FV(\phi)$, тогда $y$ точно отличен от $z$. Значит,
+                     $\pi_{1 z}^m(y) = \pi_1(y) = \pi_2(y) = \pi_{2 z}^m(y)$
+                     \item[2.] $y$ совпадает с $z$, тогда
+                     $\pi_{1 z}^m(y) = m = \pi_{2 z}^m(y)$  
+                \end{itemize}   
+            \end{proof}
+            $⇒$ (по предположению индукции) 
+            $[\psi](\pi_{1 z}^m(y)) = [\psi](\pi_{2 z}^m(y))$ \\[9.5pt]
+            $[∀ z \psi](\pi_1) = 1 ⇔ ∀ m ∈ M [\psi](\pi_{1 z}^m) = 1
+            ⇔ ∀ m ∈ M [\psi](\pi_{2 z}^m) = 1 ⇔ [∀ z \psi](\pi_1) = 1$
+        \end{itemize}
+    \end{proof}
     % Вопрос логика 4
     \subsection{Значение терма и формулы на наборе элементов структуры. Выразимые в структуре множества (отношения, функции, элементы). Примеры выразимых множеств. [MD] [F, с. 4]}
     \begin{proposition}[значение формулы на наборе элементов структуры]
@@ -1035,9 +1172,210 @@
     \end{enumerate}
     % Вопрос логика 5
     \subsection{Значение формулы при изоморфизме структур. Элементарная эквивалентность структур. Изоморфные структуры элементарно эквивалентны. [MD, 10.5]}
+ 
+    \underline{Теорема} (о значении формулы при изоморфизме). 
+    
+    Пусть $M, N$ -- какие-то интерпретации \textit{одной} сигнатуры $\sigma; \; \; \varphi(x_1, \dots, x_n) \in Fm_\sigma.$
+    
+    Тогда если $M \overset{\alpha}{\cong} N,$ то $\forall \overset{\to}{a} \in M^n $ верно  $M \vDash \varphi (\overset{\to}{a}) \iff N \vDash \varphi (\alpha \overset{\to}{a}).$
+    
+    \underline{Лемма.} Пусть $t(x_1, \dots x_n) \in Tm_\sigma.$ Если $M \overset{\alpha}{\cong} N$, то $\forall \overset{\to}{a} \in M^n \; \; \alpha (t^M (\overset{\to}{a})) = t^N (\alpha \overset{\to}{a}).$
+    
+    \begin{proof} Индукция по построению терма.
+    
+    \onehalfspacing $(I) \;  t = x_i \implies \begin{cases} t^M (a_1, \dots,  a_n) = a_i \\ t^N (b_1, \dots,  b_n) = b_i  \end{cases} \implies
+    \begin{cases}
+    \alpha (t^M (\overset{\to}{a})) = \alpha  \, a_i; \\
+    t^N (\alpha \, \overset{\to}{a}) = t^N(\alpha \, a_1, \dots, \, \alpha \, a_n) = a_i.
+    \end{cases}$
+    
+    Как видим, получили одинаковое значение.
+    
+    $(II) \; t = c \implies
+    \begin{cases}
+    t^M (a_1, \dots a_n) = c^M;\\
+    t^N (b_1, \dots b _n) = c^N.
+    \end{cases} $
+    
+    $ \forall \pi \; [\, c \, ]_M (\pi) = c^M  \implies
+    \alpha (t^M(\overset{\to}{a})) = \alpha \, c^M = c^N = t^N (\alpha \, \overset{\to}{a})\;$ из определения изоморфизма.
+    
+    $(III) \;\doublespacing  t = f \, t_1 \dots  t_m \implies
+    t^M(\overset{\to}{a}) = f^M \left(t_1^M(\overset{\to}{a})   , \dots, t_m^M(\overset{\to}{a}) \right) \implies
+    \alpha \,\left( t^M(\overset{\to}{a})\right) = \alpha \left(\, f^M \left(t_1^M(\overset{\to}{a})   , \dots, t_m^M(\overset{\to}{a}) \right) \right).
+     $ 
+    
+    По определению изоморфизма,  $\dots =  f^N \left( \alpha \left(t_1^M(\overset{\to}{a})\right)   , \dots,  \alpha \left(t_m^M(\overset{\to}{a}) \right) \right).$ 
+    
+    Внутри уже более простые термы, для них воспользуемся предположением индукции:
+    
+    $\dots =   f^N \left(  t_1^N(\alpha \, \overset{\to}{a})   , \dots, t_m^N( \alpha \, \overset{\to}{a})  \right) = t^N(\alpha \, \overset{\to}{a}).$
+    
+    \end{proof}
+        
+    \begin{proof} (Теоремы о значении формулы)
+    
+    Индукция по построению $\varphi.$
+    
+    $(I) \; \varphi = R \, t_1 \dots t_m.$
+    
+    По лемме, $t_i^N \, (\alpha \, \overset{\to}{a}) = \alpha \, (t_i^M \, (\overset{\to}{a}))$
+    
+    $\begin{cases}
+    M \vDash \varphi (\overset{\to}{a}) \iff \left( t_1^M(\overset{\to}{a} ), \dots ,  \, t_m^M(\overset{\to}{a} )  \right) \in R^M; \; \circledast \\
+    N \vDash \varphi (\alpha \, \overset{\to}{a}) \iff \left( t_1^N(\alpha \, \overset{\to}{a} ), \dots ,  \, t_m^N(\alpha \,  \overset{\to}{a} )  \right) \in R^N \iff \left( \alpha \, (t_1^M \, (\overset{\to}{a})), \dots ,  \, \alpha \, (t_m^M \, (\overset{\to}{a}))  \right) \in R^N \iff \circledast \text{ по определению}. \\
+    \end{cases}$ 
+    
+    $(II)$ Булевы связки. Приведём док-во для конъюнкции и отрицания.
+    
+    $\varphi \eqcirc (\Theta \land \psi ) (\overset{\to}{a}) \iff M \vDash \Theta(\overset{\to}{a})$  и $ M \vDash \psi(\overset{\to}{a}) \iff$ (по пред. инд.) $N \vDash \Theta(\alpha \, \overset{\to}{ a})$  и $ N \vDash \psi(\alpha \, \overset{\to}{ a}) \iff N \vDash (\Theta \land \psi ) (\alpha \, \overset{\to}{a})$.
+    
+    $M \vDash (\neg \psi) (\overset{\to}{a}) \iff M \nvDash \psi (\overset{\to}{a}) \iff N \nvDash \psi (\alpha \, \overset{\to}{a}) \iff  N \vDash (\neg \psi ) (\alpha \, \overset{\to}{a}).$
+    
+    $(III)$ Кванторы. 
+    
+    Пусть $\varphi \eqcirc \exists \, x \; \psi.$
+    
+    $M \vDash (\exists \, x \; \psi ) (\overset{\to}{a}) \iff $ сущ. $b \in M$, т.ч. $ M \vDash \psi (\overset{\to}{a}, b) \iff$ (по предположению индукции) $N \vDash \psi (\alpha \, \overset{\to}{a}, \, \alpha \, b).$
+    
+    $N \vDash (\exists \, x \; \psi ) (\alpha \, \overset{\to}{a}) \iff $ сущ. $c \in N$, т.ч. $ N \vDash \psi (\alpha \, \overset{\to}{a}, c).$
+    
+    В силу биективности $\alpha$, существование таких $b \in M$ и $c \in N$ равнозначны ($\forall \, c \in N \; \exists \,  b \in M  \; \; c = \alpha \, b$). Ч.т.д.
+    
+    Теперь пусть $\varphi \eqcirc \forall \, x \; \psi.$
+    
+    $M \vDash (\forall \, x \; \psi ) (\overset{\to}{a}) \iff $ для всех $b \in M$ верно $ M \vDash \psi (\overset{\to}{a}, b) \iff$ (по предположению индукции) $N \vDash \psi (\alpha \, \overset{\to}{a}, \, \alpha \, b).$
+    
+    $N \vDash (\forall \, x \; \psi ) (\alpha \, \overset{\to}{a}) \iff $ для всех $c \in N$ верно $ N \vDash \psi (\alpha \, \overset{\to}{a}, c).$
+    
+    В силу биективности $\alpha$ утверждения выше равнозначны ($\forall \, c \in N $ имеет вид $ \alpha \, b$ для всех $b \in M$). Ч.т.д.
+    
+    \end{proof}
+    
+    $St_\sigma$ -- \textit{множество предложений}.
+    
+    Пусть $M, N$ -- какие-то интерпретации \textit{одной} сигнатуры $\sigma. $
+    
+    $N$ и $M$ называются \underline{элементарно эквивалентными}, если $\forall \varphi \in St_\sigma$  верно $ M \vDash \varphi \iff  N \vDash \varphi.$  Обозначение -- $M \equiv N.$
+    
+    Иначе говоря, две интерпретации неразличимы ни одним предложением в $St_\sigma.$
+
+    \underline{Утверждение.} $N \cong M \implies M \equiv N.$
+    
+    \begin{proof} Пусть $\varphi \in St_\sigma.$
+    
+    Известно, что $M \vDash \varphi (\overset{\to}{a}) \iff N \vDash \varphi (\alpha \overset{\to}{a})  \; \; \forall \overset{\to}{a}$ (теорема о значении формулы при изоморфизме).
+    
+    Пусть $\overset{\to}{a}$ -- пустой набор. Тогда, так как $\varphi$ не имеет свободных переменных,
+    
+    \[ M \vDash \varphi \iff   M \vDash \varphi (\overset{\to}{a}) \iff N \vDash \varphi (\alpha \overset{\to}{a}) \iff M \vDash \varphi\] 
+    
+    ведь $\alpha \overset{\to}{a}$ -- пустой набор, если $\overset{\to}{a}$ -- пустой набор.
+    
+    \end{proof}
+
 
     % Вопрос логика 6
     \subsection{Значение формулы при изоморфизме структур. Сохранение выразимых множеств автоморфизмами структуры. Примеры невыразимых множеств. [MD, 10.5]}
+
+    Теорема о значении формулы при изоморфизме структур точно такая же, что и в предыдущем билете (см. формулировки билетов). \\
+    \underline{Теорема} (о значении формулы при изоморфизме). 
+    
+    Пусть $M, N$ -- какие-то интерпретации \textit{одной} сигнатуры $\sigma; \; \; \varphi(x_1, \dots, x_n) \in Fm_\sigma.$
+    
+    Тогда если $M \overset{\alpha}{\cong} N,$ то $\forall \overset{\to}{a} \in M^n $ верно  $M \vDash \varphi (\overset{\to}{a}) \iff N \vDash \varphi (\alpha \overset{\to}{a}).$
+    
+    \underline{Лемма.} Пусть $t(x_1, \dots x_n) \in Tm_\sigma.$ Если $M \overset{\alpha}{\cong} N$, то $\forall \overset{\to}{a} \in M^n \; \; \alpha (t^M (\overset{\to}{a})) = t^N (\alpha \overset{\to}{a}).$
+    
+    \begin{proof} Индукция по построению терма.
+    
+    \onehalfspacing $(I) \;  t = x_i \implies \begin{cases} t^M (a_1, \dots,  a_n) = a_i \\ t^N (b_1, \dots,  b_n) = b_i  \end{cases} \implies
+    \begin{cases}
+    \alpha (t^M (\overset{\to}{a})) = \alpha  \, a_i; \\
+    t^N (\alpha \, \overset{\to}{a}) = t^N(\alpha \, a_1, \dots, \, \alpha \, a_n) = a_i.
+    \end{cases}$
+    
+    Как видим, получили одинаковое значение.
+    
+    $(II) \; t = c \implies
+    \begin{cases}
+    t^M (a_1, \dots a_n) = c^M;\\
+    t^N (b_1, \dots b _n) = c^N.
+    \end{cases} $
+    
+    $ \forall \pi \; [\, c \, ]_M (\pi) = c^M  \implies
+    \alpha (t^M(\overset{\to}{a})) = \alpha \, c^M = c^N = t^N (\alpha \, \overset{\to}{a})\;$ из определения изоморфизма.
+    
+    $(III) \;\doublespacing  t = f \, t_1 \dots  t_m \implies
+    t^M(\overset{\to}{a}) = f^M \left(t_1^M(\overset{\to}{a})   , \dots, t_m^M(\overset{\to}{a}) \right) \implies
+    \alpha \,\left( t^M(\overset{\to}{a})\right) = \alpha \left(\, f^M \left(t_1^M(\overset{\to}{a})   , \dots, t_m^M(\overset{\to}{a}) \right) \right).
+     $ 
+    
+    По определению изоморфизма,  $\dots =  f^N \left( \alpha \left(t_1^M(\overset{\to}{a})\right)   , \dots,  \alpha \left(t_m^M(\overset{\to}{a}) \right) \right).$ 
+    
+    Внутри уже более простые термы, для них воспользуемся предположением индукции:
+    
+    $\dots =   f^N \left(  t_1^N(\alpha \, \overset{\to}{a})   , \dots, t_m^N( \alpha \, \overset{\to}{a})  \right) = t^N(\alpha \, \overset{\to}{a}).$
+    
+    \end{proof}
+        
+    \begin{proof} (Теоремы о значении формулы)
+    
+    Индукция по построению $\varphi.$
+    
+    $(I) \; \varphi = R \, t_1 \dots t_m.$
+    
+    По лемме, $t_i^N \, (\alpha \, \overset{\to}{a}) = \alpha \, (t_i^M \, (\overset{\to}{a}))$
+    
+    $\begin{cases}
+    M \vDash \varphi (\overset{\to}{a}) \iff \left( t_1^M(\overset{\to}{a} ), \dots ,  \, t_m^M(\overset{\to}{a} )  \right) \in R^M; \; \circledast \\
+    N \vDash \varphi (\alpha \, \overset{\to}{a}) \iff \left( t_1^N(\alpha \, \overset{\to}{a} ), \dots ,  \, t_m^N(\alpha \,  \overset{\to}{a} )  \right) \in R^N \iff \left( \alpha \, (t_1^M \, (\overset{\to}{a})), \dots ,  \, \alpha \, (t_m^M \, (\overset{\to}{a}))  \right) \in R^N \iff \circledast \text{ по определению}. \\
+    \end{cases}$ 
+    
+    $(II)$ Булевы связки. Приведём док-во для конъюнкции и отрицания.
+    
+    $\varphi \eqcirc (\Theta \land \psi ) (\overset{\to}{a}) \iff M \vDash \Theta(\overset{\to}{a})$  и $ M \vDash \psi(\overset{\to}{a}) \iff$ (по пред. инд.) $N \vDash \Theta(\alpha \, \overset{\to}{ a})$  и $ N \vDash \psi(\alpha \, \overset{\to}{ a}) \iff N \vDash (\Theta \land \psi ) (\alpha \, \overset{\to}{a})$.
+    
+    $M \vDash (\neg \psi) (\overset{\to}{a}) \iff M \nvDash \psi (\overset{\to}{a}) \iff N \nvDash \psi (\alpha \, \overset{\to}{a}) \iff  N \vDash (\neg \psi ) (\alpha \, \overset{\to}{a}).$
+    
+    $(III)$ Кванторы. 
+    
+    Пусть $\varphi \eqcirc \exists \, x \; \psi.$
+    
+    $M \vDash (\exists \, x \; \psi ) (\overset{\to}{a}) \iff $ сущ. $b \in M$, т.ч. $ M \vDash \psi (\overset{\to}{a}, b) \iff$ (по предположению индукции) $N \vDash \psi (\alpha \, \overset{\to}{a}, \, \alpha \, b).$
+    
+    $N \vDash (\exists \, x \; \psi ) (\alpha \, \overset{\to}{a}) \iff $ сущ. $c \in N$, т.ч. $ N \vDash \psi (\alpha \, \overset{\to}{a}, c).$
+    
+    В силу биективности $\alpha$, существование таких $b \in M$ и $c \in N$ равнозначны ($\forall \, c \in N \; \exists \,  b \in M  \; \; c = \alpha \, b$). Ч.т.д.
+    
+    Теперь пусть $\varphi \eqcirc \forall \, x \; \psi.$
+    
+    $M \vDash (\forall \, x \; \psi ) (\overset{\to}{a}) \iff $ для всех $b \in M$ верно $ M \vDash \psi (\overset{\to}{a}, b) \iff$ (по предположению индукции) $N \vDash \psi (\alpha \, \overset{\to}{a}, \, \alpha \, b).$
+    
+    $N \vDash (\forall \, x \; \psi ) (\alpha \, \overset{\to}{a}) \iff $ для всех $c \in N$ верно $ N \vDash \psi (\alpha \, \overset{\to}{a}, c).$
+    
+    В силу биективности $\alpha$ утверждения выше равнозначны ($\forall \, c \in N $ имеет вид $ \alpha \, b$ для всех $b \in M$). Ч.т.д.
+    
+    \end{proof}
+
+    \begin{theorem}[Выразимые отношения сохраняются всеми автоморфизмами структуры]
+        Если $X$ выразимо в $\mathcal{M}$, то $\forall \overrightarrow{a} \in M^n \; \; \overrightarrow{a} \in X \Leftrightarrow \alpha \overrightarrow{a} \in X$.
+    \end{theorem}
+
+    \begin{proof}
+        $X$ выразимо $\implies$ по определению $\exists \varphi(x_1, ..., x_n) \; \forall \overrightarrow{a} \in M^n \; \; \overrightarrow{a} \in X \Leftrightarrow \mathcal{M} \vDash \varphi(\overrightarrow{a})$ \\
+        $\mathcal{M} \stackrel{\alpha}{\cong} \mathcal{M} \implies \overrightarrow{a} \in X \Leftrightarrow \mathcal{M} \vDash \varphi(\overrightarrow{a}) \Leftrightarrow \text{[по теореме о значении формулы при изоморфизме]} \Leftrightarrow \mathcal{M} \vDash \varphi(\alpha \overrightarrow{a}) \Leftrightarrow \alpha \overrightarrow{a} \in X$. $\blacksquare$
+    \end{proof}
+
+    \begin{proposition}
+        Пусть $\mathcal{M} = (\mathbb{Z}; <); \mathcal{M} \stackrel{\alpha}{\cong} \mathcal{M}; \alpha(x) = x + 1$. Тогда множество $\mathbb{Z}_+ = \{ n \in \mathbb{Z} \mid n > 0 \}$ не выразимо в $\mathcal{M}$.
+    \end{proposition}
+
+    \begin{proof}
+        $\alpha \in Aut(\mathcal{M})$ \\
+        $0 \notin \mathbb{Z}_+$, но $\alpha(0) = 1 \in \mathbb{Z}_+$, таким образом $\exists a \in \mathbb{Z}: \; a \in \mathbb{Z}_+ \nLeftrightarrow \alpha a \in \mathbb{Z}_+$. \\
+        Значит $\mathbb{Z}_+$ не выразимо в $\mathcal{M}$.
+    \end{proof}
 
     % Вопрос логика 7
     \subsection{Общезначимые и выполнимые формулы. [F, 12] Эквивалентность формул первого порядка. [F, с. 4] Лемма о фиктивном кванторе. [F, 10] Квантор всеобщности и общезначимость. [F, 12]}
@@ -1369,8 +1707,247 @@
     % Вопрос логика 9
     \subsection{Булевы комбинации формул. Булева функция, соответствующая булевой комбинации. Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
 
+    \subsubsection{Булевы комбинации формул.}
+
+    Пусть фиксирован набор попарно различных формул (атомарных или вида 
+    $\forall x \varphi$, $\exists x \varphi$) $(F_{1}, \ldots, F_{n})$ в 
+    сигнатуре $\sigma$.
+    \begin{definition}
+        Определим множество $\mathcal{B}(F_{1}, \ldots, F_{n})$ {\it булевых комбинаций}
+         формул из $(F_{1}, \ldots, F_{n})$ следующим образом:
+        \begin{enumerate}
+            \item $\forall i~F_{i} \in \mathcal{B}(F_{1}, \ldots, F_{n})$;
+            \item $\varphi, \psi \in \mathcal{B}(F_{1}, \ldots, F_{n}) \implies \neg 
+            \varphi, (\varphi \land \psi), (\varphi \lor \psi), (\varphi \implies \psi), 
+            (\varphi \iff \psi) \in \mathcal{B}(F_{1}, \ldots, F_{n})$.
+        \end{enumerate}
+    \end{definition}
+    
+    Хотим понять, как определяется истинность булевой комбинации.
+    Каждой $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$ поставим в соответствие булеву
+    функцию $f_{\varphi} \colon \{0, 1\}^{n} \to \{0, 1\}$ таким образом, что (дальше 
+    рекурсией по построению)
+    \begin{enumerate}
+        \item $\varphi \eqcirc F_{i} \implies f_{\varphi}(x_{1}, \ldots, x_{n}) = x_{i}$;
+        \item \begin{enumerate}
+            \item $\varphi \eqcirc \neg \psi \implies f_{\varphi}(\vec{x}) = 
+            \text{НЕ}(f_{\psi}(\vec{x}))$;
+            \item $\varphi \eqcirc \psi \lor \theta \implies f_{\varphi}(\vec{x}) = 
+            \text{ИЛИ}(f_{\psi}(\vec{x}), f_{\theta}(\vec{x}))$;
+            \item Аналогично для других связок.
+        \end{enumerate}
+    \end{enumerate}
+    
+    \begin{lemma} \label{lemma::09::01}
+        Для любой формулы $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$, $\forall M$,
+         $\forall \pi$
+        \[
+            [\varphi]_{\mathcal{M}}(\pi) = f_{\varphi}\left([F_{1}]_{\mathcal{M}}(\pi),
+             \ldots, [F_{n}]_{\mathcal{M}}(\pi)\right).
+        \]
+    \end{lemma}
+    
+    \begin{proof}
+        Индукцией по построению $\varphi$.
+    \end{proof}
+    
+    \begin{definition}
+        Формула $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$ называется {\it тавтологией}, если $\forall \vec{x}$ $f_{\varphi}(\vec{x}) = 1$.
+    \end{definition}
+    
+    \begin{proposal}
+        Если $\varphi$ тавтология, то $\varphi$ общезначима. 
+        (Следует из леммы \ref{lemma::09::01}.)
+    \end{proposal}
+    
+    Не всякая общезначимая формула является тавтологией.
+    Например, формула $\varphi = \forall x Px \implies \exists x Px$ не является 
+    тавтологией, потому что, если представить ее в виде булевой комбинации, она будет 
+    иметь вид $F_{1} \implies F_{2}$, и ей будет соответствовать функция 
+    $\text{ИМП}(x_{1}, x_{2})$, которая не всегда истинна.
+    
+    \subsubsection{Булева функция, соответствующая булевой комбинации.}
+
+    \begin{definition}[ДНФ над набором формул]
+        Пусть фиксирован набор формул $(F_{1}, \ldots, F_{n})$ (как прежде).
+        Определим дизъюнктивную нормальную форму следующим образом:
+        \begin{enumerate}
+            \item $F_{i}$ или $\neg F_{i}$ --- {\it литералы};
+            \item Если $l_{1}, \ldots, l_{k}$ --- литералы, то $l_{1} \land \ldots \land  l_{k}$ --- {\it элементарная конъюнкция};
+            \item Если $c_{1}, \ldots, c_{m}$ --- элементарные конъюнкции, то $c_{1} \lor \ldots \lor c_{m}$ --- ДНФ над набором $(F_{1}, \ldots, F_{n})$.
+        \end{enumerate}
+    \end{definition}
+    
+    \begin{definition}[КНФ над набором формул]
+        Пусть фиксирован набор формул $(F_{1}, \ldots, F_{n})$ (как прежде).
+        Определим конъюнктивную нормальную форму следующим образом:
+        \begin{enumerate}
+            \item $F_{i}$ или $\neg F_{i}$ --- {\it литералы};
+            \item Если $l_{1}, \ldots, l_{k}$ --- литералы, то $l_{1} \lor \ldots \lor  l_{k}$ --- {\it элементарная дизъюнкция};
+            \item Если $d_{1}, \ldots, d_{m}$ --- элементарные дизъюнкции, то $d_{1} \land \ldots \land d_{m}$ --- КНФ над набором $(F_{1}, \ldots, F_{n})$.
+        \end{enumerate}
+    \end{definition}
+    
+    ДНФ и КНФ, вообще говоря, являются разными объектами.
+    Например,
+    \[
+        (F_{1} \land \neg F_{2} \land F_{1}) \lor (\neg F_{3}) \lor (F_{1} \land F_{4})
+    \]
+    является ДНФ, но не является КНФ, потому что в дереве разбора формулы ниже дизъюнкции стоит конъюнкции.
+    
+    Однако, существуют формулы, которые являются одновременно КНФ и ДНФ, например
+    \[
+        F_{1} \land \neg F_{2}; \quad F_{3} \land \neg F_{4} \land F_{5}.
+    \]
+    На самом деле, одновременно КНФ и ДНФ являются литералы и элементарные конъюнкции (дизъюнкции).
+    
+    \begin{corollary}
+        $\text{CNF}\left(\vec{F}\right) \cup \text{DNF}\left(\vec{F}\right) 
+        \subseteq \mathcal{B}\left(\vec{F}\right)$.
+    \end{corollary}
+
+    \subsubsection{Теорема о приведении булевой комбинации к дизъюнктивной нормальной форме и к конъюнктивной нормальной форме.}
+
+    \begin{theorem}
+        Любую булеву комбинацию $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$ существуют 
+        $\varphi_{1} \in \text{DNF}(F_{1}, \ldots, F_{n})$ и $\varphi_{2} \in 
+        \text{CNF}(F_{1}, \ldots, F_{n})$ такие, что
+        \[
+            \varphi \equiv \varphi_{1} \land \varphi \equiv \varphi_{2}.
+        \]
+    \end{theorem}
+  
+    \begin{proof}
+        Все доказательство будет строиться вокруг рассмотрения функции $f_{\varphi} \colon 
+        \{0, 1\}^{n} \to \{0, 1\}$, которая истиностные значения формул $F_{1}, 
+        \ldots, F_{n}$ превращает в истиностное значение формулы $\varphi$.
+        В любой интерпретации и при любой оценке переменных
+        \[
+            [\varphi](\pi) = f_{\varphi}([F_{1}](\pi), \ldots, [F_{n}](\pi)) = 
+            f_{\varphi}([\vec{F}](\pi)).
+        \]
+        Теперь давайте исследуем функцию $f_{\varphi}$.
+        Рассмотрим $U = \{\sigma \in \{0, 1\}^{n} \mid f_{\varphi}(\vec{\sigma}) = 1\}$.
+        Надо рассмотреть несколько случаев:
+        \begin{enumerate}
+            \item $U = \varnothing$.
+            Тогда для любого $\pi$ $[\varphi](\pi) = f_{\varphi}([\vec{F}](\pi)) = 0$.
+            Положим $\varphi_{1} = F_{1} \land \neg F_{1}$, тогда $\varphi_{1} \equiv \varphi$.
+            \item $U \neq \varnothing$.
+            Пусть $A \in \text{Fm}$, а $\sigma \in \{0, 1\}$, тогда положим
+            \[
+                A^{\sigma} = 
+                \begin{cases}
+                    A, & \sigma = 1, \\
+                    \neg A, & \sigma = 0.
+                \end{cases}
+            \]
+            \begin{proposal}
+                $[A^{\sigma}](\pi) = 1 \iff \sigma = [A](\pi)$.
+            \end{proposal}
+            \begin{proof}
+                Действительно, если $\sigma = 1$, то $[A^{1}](\pi) = [A](\pi)$, то есть
+                 $[A^{1}](\pi) = 1 \iff [A](\pi) = 1$.
+                Если же $\sigma = 0$, то $[A^{0}](\pi) = 1 \iff [\neg A](\pi) = 1 \iff 
+                [A](\pi) = 0 = \sigma$.
+            \end{proof}
+            \begin{corollary} \label{corollary::10::01}
+                $\Phi_{\vec{\sigma}} = [F_{1}^{\sigma_{1}} \land \ldots \land 
+                F_{n}^{\sigma_{n}}](\pi) = 1 \iff \forall i [F_{i}^{\sigma_{i}}](\pi) = 1 \iff 
+                \forall i~\sigma_{i} = [F_{i}](\pi) \iff \vec{\sigma} = [\vec{F}]$.
+            \end{corollary}
+            $[\varphi](\pi) = 1$ тогда и только тогда, когда $f_{\varphi}([\vec{F}](\pi)) = 1 \iff [\vec{F}](\pi) 
+            \in U \iff \exists \vec{\sigma} \in U~ [\vec{F}](\pi) = \vec{\sigma}$.
+            Получилось тоже самое, что и в следствии \ref{corollary::10::01}, 
+            поэтому это все равносильно тому, что $\exists \vec{\sigma} \in 
+            U~[\Phi_{\vec{\sigma}}](\pi) = 1 \iff [\bigvee\limits_{\vec{\sigma} 
+            \in U}\Phi_{\vec{\sigma}}](\pi) = 1$.
+            Но если $\varphi$ и $\bigvee\limits_{\vec{\sigma} \in U}\Phi_{\vec{\sigma}}$ 
+            принимают значение 1 одновременно, то и значение 0 они принимают одновременно 
+            (поскольку возможных значений всего два), тогда $\varphi \equiv 
+            \bigvee\limits_{\vec{\sigma} \in U}\Phi_{\vec{\sigma}} \equiv 
+            \bigvee\limits_{\vec{\sigma} \in U} F_{1}^{\sigma_{1}} \land \ldots
+             \land F_{n}^{\sigma_{n}} \in \text{DNF}(F_{1}, \ldots, F_{n})$.
+        \end{enumerate}
+        Построим теперь КНФ.
+        На этот раз проанализируем множество $Z = \{\vec{\sigma} \mid 
+        f_{\varphi}(\vec{\sigma}) = 0\}$.
+        Рассмотрим несколько случаев:
+        \begin{enumerate}
+            \item $Z = \varnothing$.
+            Тогда для любого $\pi$ $[\varphi](\pi) = 1$.
+            Положим $\varphi_{2} = F_{1} \lor \neg F_{1} \equiv \varphi$.
+            \item Делаем все тоже самое, что и для ДНФ, только наоборот.
+            Рассмотрим формулу $\psi_{\vec{\sigma}} = F_{1}^{\overline{\sigma_{1}}} 
+            \lor \ldots \lor F_{n}^{\overline{\sigma_{n}}}$, где $\overline{\sigma_{i}}$ 
+            значит отрицание $\sigma_{i}$, тогда
+            \[
+                \left[F_{1}^{\overline{\sigma_{1}}} \lor \ldots \lor 
+                F_{n}^{\overline{\sigma_{n}}}\right](\pi) = 0 \iff \forall i~ 
+                [F_{i}^{\overline{\sigma_{i}}}](\pi) = 0 \iff \forall i~ \overline{\sigma_{i}} 
+                \neq [F_{i}](\pi) \iff \forall i~ \sigma_{i} = [F_{i}](\pi) \iff \vec{\sigma} = 
+                [\vec{F}](\pi).
+            \]
+            Что же мы делаем дальше?
+            Дальше мы смотрим, когда $[\varphi](\pi) = 0 \iff f_{\varphi}([\vec{F}](\pi)) = 0 
+            \iff [\vec{F}](\pi) \in Z \iff \exists\vec{\sigma} \in Z~ [\vec{F}](\pi) = \sigma$.
+            Это равносильно тому, что $\exists \vec{\sigma} \in Z~[\psi_{\vec{\sigma}}](\pi) = 0 
+            \iff [\bigwedge\limits_{\vec{\sigma} \in Z}\psi_{\vec{\sigma}}](\pi) = 0$, отсюда 
+            $\varphi \equiv \bigwedge\limits_{\vec{\sigma} \in Z}\psi_{\vec{\sigma}} \in \text{CNF}(F_{1}, 
+            \ldots, F_{n})$.
+        \end{enumerate}
+    \end{proof}
+    
+    Если мы хотим использовать это на практике, то надо, прежде всего, найти функцию 
+    $f_{\varphi}$ (то есть, построить таблицу истинности).
+    Такая таблица будет являться таблицей зависимости значений формулы $\varphi$ от значений 
+    образующих ее формул.
+    Дальше, если строим ДНФ, то мы берем наборы, где наша функция принимает значение 1.
+    Каждый такой набор мы кодируем элементарной конъюнкцией $F_{1}^{\sigma_{1}} \land \ldots 
+    \land F_{n}^{\sigma_{n}}$ и берем их дизъюнкцию.
+    
+    Также, можно не пускать каждый раз в ход этот алгоритм, а просто пользоваться 
+    элементарными эквивалентностями, и, раскрывая скобки, получить ДНФ (КНФ).
+
     % Вопрос логика 10
     \subsection{Лемма о корректной подстановке. [F, 73]}
+    \begin{lemma} В любой интерпретации при любой оценке $\pi$ дл всех $\varphi \in \text{Fm}_{\sigma}, \, t, s \in \text{Tm}_{\sigma}$ и $x \in \text{Var}$, если $t-x-\varphi$, то
+    \[ [s(t/x)](\pi) = [s](\pi + (x \mapsto [t](\pi))) \text{ и } [\varphi(t/x)](\pi) = [\varphi](\pi + (x \mapsto [t](\pi)). \]
+    \end{lemma}
+    
+    \begin{proof} Подобно лемме F18 (являющейся частным случаем данной) доказывается индукцией по построению:\\[-10 pt]
+    
+    Пусть $s = z \ne x$. Имеем $[s(t/x)](\pi) = \pi(z) = [s](\pi + (x \mapsto [t](\pi)))$. Если же $s = x$, то $[s(t/x)](\pi) = [t](\pi) = [s](\pi + (x \mapsto [t](\pi)))$. Случай $s = \F_i$ тривиален (значение константы не меняется).\\[-10 pt]
+    
+    Если $s = \F_j(t_1, t_2, \ldots, t_{a_j})$, то по предположению индукции:
+    \begin{multline*}
+    [s(t/x)](\pi) = \F_j([t_1(t/x)](\pi), \ldots, [t_{a_j}(t/x)](\pi)) = \\
+    = \F([t_1](\pi + (x \mapsto [t](\pi))), \ldots, [t_{a_j}](\pi + (x \mapsto [t](\pi)))) = [s](\pi + (x \mapsto [t](\pi))).
+    \end{multline*}
+    
+    Случай $\varphi = \mathbbold{P}_i$ тривиален (константа). Если $\varphi = \mathbbold{P}_j(t_1, t_2, \ldots, t_{a_j})$, то по предположению индукции:
+    \begin{multline*}
+    [\varphi(t/x)](\pi) = \mathbbold{P}_j([t_1(t/x)](\pi), \ldots, [t_{a_j}(t/x)](\pi)) = \\
+    = \mathbbold{P}([t_1](\pi + (x \mapsto [t](\pi))), \ldots, [t_{a_j}](\pi + (x \mapsto [t](\pi)))) = [\varphi](\pi + (x \mapsto [t](\pi))).
+    \end{multline*}
+    
+    <<Принципиальный>> случай, когда $\varphi = \forall z\, \psi$ и $z \ne x$. Из условия $t-x-\varphi$ вытекает $z \not\in V(t)$ ($z$ --- связанная в $\varphi$) и $t - x - \psi$ или $x \not\in FV(\varphi)$. В первом случае, в силу предположения индукции и леммы 5,
+    \begin{multline*}
+    [\varphi(t/x)](\pi) = [\forall z \psi(t/x)](\pi) = \\
+    = \min\limits_{m \in M}[\psi(t/x)](\pi + (z \mapsto m)) = 
+    \min\limits_{m \in M}[\psi](\pi + (z \mapsto m) + (x \mapsto [t](\pi + (z \mapsto m)))) = \\
+    = \min\limits_{m \in M}[\psi](\pi + (z \mapsto m) + (x \mapsto [t](\pi))) =
+    \min\limits_{m \in M}[\psi](\pi + (x \mapsto [t](\pi)) + (z \mapsto m)) = \\
+     = [\forall z \psi](\pi + (x \mapsto [t](\pi)) = [\varphi](\pi + (x \mapsto [t](\pi)).
+    \end{multline*}
+    В случае $x \not\in FV(\varphi)$ верно также, что $x \not\in FV(\psi)$ (откуда и $t-x-\psi$), записанные равенства выполняются: применяем предположение индукции, а для всех оценок $\pi'$ и элементов $k, l \!\in\! M$ по лемме F5 $[\psi](\pi' + (x \mapsto k)) = [\psi](\pi' + (x \mapsto l))$.
+    \end{proof}
+    
+    Сказанное позволяет объявить аксиомами ИП все формулы из $\text{Fm}_{\sigma}$ вида\\[-25 pt]
+    \begin{enumerate}
+    \item[(A12)] $\forall x\, \varphi \to \varphi(t/x)$, если $t-x-\varphi$;
+    \item[(A13)] $\varphi(t/x) \to \exists x\, \varphi$, если $t-x-\varphi$.
+    \end{enumerate}
 
     % Вопрос логика 11
     \subsection{Понятие корректной подстановки («терм свободен для переменной в формуле»). Пример некорректной подстановки. Лемма о корректной подстановке (без доказательства). [F, 73] Переименование связанной переменной. [F, 16, 18]. Общезначимость формул вида $\forall x \; \phi \to \phi(t/x)$ и $\phi(t/x) \to \exists x \; \phi$ в случае корректной подстановки. [F, 74]}
@@ -1385,31 +1962,35 @@
         \end{cases}$
     \end{proposition}
 
+    \begin{definition}
+        Формула $\varphi$ называется \textit{предварённой} или \textit{пренексной}, если $\varphi = Q_1y_1...Q_ny_n \: \psi$, где $Q_1,..Q_n$ --- некоторые кванторы, а $\psi$ --- бескванторная формула.
+    \end{definition}
+
     \begin{theorem}
-        $\forall \varphi \in Fm \;\; \exists \text{(не единственная) предварённая } \varphi' \text{такая, что } \varphi \equiv \varphi'$. Такая $\varphi'$ называется предварённой нормальной формой формулы $\varphi$.
+        $\forall \varphi \in Fm \;\; \exists \text{(не обязательно единственная) предварённая } \varphi' \text{такая, что } \varphi \equiv \varphi'$. Такая $\varphi'$ называется предварённой нормальной формой формулы $\varphi$.
     \end{theorem}
-
+\vspace{-\baselineskip}
     \textbf{Неформально:} в абсолютно любой формуле можно вынести кванторы наружу.
-
+\vspace{-\baselineskip}
     \begin{proof}
         Воспользуемся индукцией по построению $\varphi$.
-
-        \textbf{База: } Если $\varphi = R(t_1..t_n)$ (то есть $\varphi$ атомарная), то $\varphi' = \varphi$ (сама уже предварённая).
-
+        
+        \textbf{База: } Если $\varphi = R(t_1..t_n)$ (то есть $\varphi$ атомарная), то $\varphi' = \varphi$ (сама уже предварённая). 
+        
         \textbf{Шаг:}
         \begin{itemize}
-        \item Если $\varphi = \forall x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \forall x \psi \equiv \forall x \psi' = \varphi'$.
-        \item Если $\varphi = \exists x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \exists x \psi \equiv \exists x \psi' = \varphi'$.
-        \item Если $\varphi = \neg \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$. Заметим, что $\psi'$ имеет вид $Q_1x_1..Q_nx_n \; \psi_0$, где $Q_1,..,Q_n$ --- кванторы, а $\psi_0$ атомарная.
-
+        \item Если $\varphi = \forall x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \forall x \psi \equiv \forall x \psi' = \varphi'$. 
+        \item Если $\varphi = \exists x \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$, тогда $\varphi = \exists x \psi \equiv \exists x \psi' = \varphi'$. 
+        \item Если $\varphi = \neg \psi$, то по предположению индукции $\exists$ предварённая $\psi'$ такая, что $\psi \equiv \psi'$. Заметим, что $\psi'$ имеет вид $Q_1x_1..Q_nx_n \; \psi_0$, где $Q_1,..,Q_n$ --- кванторы, а $\psi_0$ бескванторная.
+        
         $\varphi = \neg \psi \equiv \neg \psi' = \neg Q_1x_1..Q_nx_n \; \psi_0 = \overline{Q_1}x_1..\overline{Q_n}x_n \; \neg \psi_0 = \varphi'$ (здесь $\overline{\forall} = \exists, \overline{\exists} = \forall)$.
         \item $\varphi = \psi \wedge \theta$. По предположению индукции $\psi \equiv Q_1x_1..Q_nx_n \; \psi_0$, $\theta \equiv Q_1'y_1..Q_m'y_m \; \theta_0$
-
-        $\varphi = Q_1x_1..Q_nx_n \; \psi_0 \wedge Q_1'y_1..Q_m'y_m \; \theta_0$. Пусть $z_1, .., z_n, w_1, .., w_m$ --- ''свежие''{} ($\notin V(\varphi)$) и различные между собой переменные.
-
+        
+        $\varphi = Q_1x_1..Q_nx_n \; \psi_0 \wedge Q_1'y_1..Q_m'y_m \; \theta_0$. Пусть $z_1, .., z_n, w_1, .., w_m$ --- ''свежие''{} ($\notin V(\varphi)$) и различные между собой переменные. 
+        
         Тогда по теореме о переименовании связанных переменных $\varphi \equiv  Q_1z_1..Q_nz_n \; \psi_0(z/x) \wedge Q_1'w_1..Q_m'w_m \; \theta_0(w/y) \equiv \\ \equiv Q_1z_1..Q_nz_n Q_1'w_1..Q_m'w_m \; \psi_0(z/x) \wedge \theta_0(w/y) = \varphi'$.
-
-        Аналогично для остальных логических связок.
+        
+        Аналогичные рассуждения можно применить для остальных логических связок.
         \end{itemize}
     \end{proof}
 
@@ -1422,10 +2003,152 @@
 
     % Вопрос логика 13
     \subsection{Понятие теории первого порядка. Примеры содержательных теорий. Модель теории. Семантическое (логическое) следование (для замкнутых формул) [ВШ-2, с. 187]}
+        \begin{definition}
+            Теория(в сигнатуре $\sigma$) - любое множество предложений этой 
+            сигнатуры. 
+        \end{definition}
+        \begin{definition}
+            $M \vDash T \iff \forall \phi \in T : M \vDash \phi$, то есть 
+            если каждое предложение в нашей интерпретации истинно, то 
+            и вся теория. Множество $M$ будет моделью нашей теории.
+        \end{definition}
+        \begin{definition}
+            Теория $T$ выполнима(или совместна) $\iff \exists
+            M :  M \vDash T$
+        \end{definition}
+        \begin{definition}
+            Предложение $\phi$ следует из теории $T$, если $\forall 
+            M : M \vDash T \Rightarrow M \vDash \phi$
+        \end{definition}
+        В примерах мы работаем в нормальных моделях(то есть равно - это привычное нам равно)
+        \begin{example}
+            $T_{ord}$ - частичный порядок,
+            $T = 
+            \begin{cases}
+                \forall x : \neg (x < x), \text{антирефлексивность} \\
+                \forall x : \forall y : \forall x : (x < y) \wedge\ (y < z) \Rightarrow (x < z), \text{транзитивность} \\
+            \end{cases}$
 
+            Работаем в структуре $M = (A, =, <)$       
+        \end{example}
+        \begin{proposition}
+            $\forall M : M \vDash T \Rightarrow M \vDash  \forall x : \forall y : (x < y \wedge y < x \Rightarrow (x = y))$, то есть 
+            антисимметричность следует из транзитивности и антирефлексивности
+     
+        \end{proposition}
+        \begin{proof}
+            Предположим, что наша посылка($x < y \wedge y < x$) истинна. Воспользуемся 
+            транзитивностью: $(x < y \wedge y < x) \Rightarrow (x < x)$. Получили 
+            противоречие, так как в нашей теории есть антирефлексифность, которая говорит, что 
+            $x < x$ никогда не верно. Значит, посылка всегда ложная, а интерпетация 
+            всегда истинна.
+        \end{proof}
+        \begin{example}
+            $G = (A, =, +, -, 0)$ - структура, это группа, когда в ней 
+            выполняется теория $T$ = теория групп,
+            $T = 
+            \begin{cases}
+                \forall x : \forall y : \forall z : (x + y) + z = x + (y + z), \text{ассоциативность} \\
+                \forall x : (x + (-x) = 0) \wedge ((-x) + x = 0), \text{обратный элемент} \\
+                \forall x : (x + 0 = x) \wedge (0 + x = x), \text{нейтральный элемент} \\
+            
+            \end{cases}.$    
+               
+        \end{example}
+        
     % Вопрос логика 14
-    \subsection{Сколемизация предваренной формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
+    \subsection{Сколемизация предварённой формулы. Сколемовская нормальная форма. Теорема о равновыполнимости.}
 
+    \begin{definition}
+        \textit{Сколемизацией} предварённой формулы называется преобразование следующего вида:
+        \[
+        \forall \overrightarrow{x} \: \exists y \: \varphi \rightarrow_S \forall \overrightarrow{x} \: \varphi\left(f(\overrightarrow{x})/y\right)
+        \]
+    \end{definition}
+    \vspace{-\baselineskip}
+    \textbf{Неформально:} мы заменяем одну переменную под квантором существования на функцию от переменных под кванторами всеобщности. \\
+
+    \begin{definition}
+        Предварённая формула $\varphi'$ --- \textit{сколемовская нормальная форма} предварённой формулы $\varphi$, если:
+        \vspace{-\baselineskip}
+        \begin{enumerate}
+            \item в $\varphi'$ нет кванторов существования;
+            \item $\varphi \rightarrow_S \varphi_1 \rightarrow_S ... \rightarrow_S \varphi_n \rightarrow_S \varphi'$ (обозначается $\varphi \twoheadrightarrow_S \varphi'$), то есть $\varphi'$ получается из $\varphi$ цепочкой сколемизаций. \\
+        \end{enumerate} 
+    \end{definition}
+
+    \begin{fact}
+        Если $\varphi \twoheadrightarrow_S \varphi'$, то $\varphi$ выполнима $\iff$ $\varphi'$ выполнима.
+    \end{fact}
+    
+    \begin{definition}
+        $\Gamma$ выполнимо $\iff$ $\exists \mathcal{M} \exists \pi~ [\Gamma]_{\mathcal{M}}(\pi) = 1$.
+    \end{definition}
+    
+    \begin{definition}
+        Множества формул $\Gamma$ и $\Delta$ {\it равновыполнимы} $\iff$ ($\Gamma$ выполнимо $\iff$ $\Delta$ выполнимо).
+    \end{definition}
+    
+    \begin{proposal}
+        Для любой предварённой формулы $\varphi$ такой, что она не содержит фиктивных кванторов, существует сколемовская нормальная форма $\psi$ такая, что $\varphi \twoheadrightarrow_{S} \psi$.
+    \end{proposal} \vspace{-\baselineskip}
+    \begin{proof}
+        Применим алгоритм сколемизации и заметим, что кванторов у нас конечное число, поэтому алгоритм точно остановится. \\
+    \end{proof}
+
+    \begin{theorem}[о сколемизации]
+        Пусть $\Gamma \subseteq \text{Fm}$ и $\varphi \to_{S} \psi$.
+        Тогда $\Gamma \cup \{\varphi\}$ и $\Gamma \cup \{\psi\}$ равновыполнимы.
+    \end{theorem}
+    
+    Что это означает?
+    Это означает, что у нас было какое-то множество формул (хочется сказать теорий, но в нашем множестве могут быть свободные переменные), мы взяли оттуда одну формулу и подвергли ее сколемизации.
+    Тогда то, что получилось, равновыполнимо с исходным множеством.
+    
+    \begin{proof}
+        Раз у нас была сколемизация, то $\varphi \eqcirc \forall \vec{x} \exists y \theta$, а $\psi \eqcirc \forall \vec{x}~ \theta(f\vec{x}/y)$, где $f$ <<свежая>>, то есть, в частности, $f$ \underline{не встречается} в $\Gamma$.
+        Сделаем несколько наблюдений:
+        \begin{enumerate}
+            \item В формуле $\exists y \theta$ нет кванторов по $\vec{x}$ (иначе в $\varphi$ есть фиктивный квантор) $\implies f\vec{x}$-$y$-$\theta$, ну а раз подстановка корректная, то формула $\theta(f\vec{x}/y) \implies \exists y \theta$ общезначима.
+            Поскольку формула общезначима, то, по факту с семинара, формула $\forall \vec{x} \theta(f\vec{x}/y) \implies \forall \vec{x} \exists y \theta$ также общезначима.
+            Вспомним про определение $\varphi$ и $\psi$, и заметим, что $\psi \implies \varphi$, то есть, в любой структуре, где верно $\psi$, верно и $\varphi$.
+            Тогда если $\exists \mathcal{M}~ \exists \pi$ такие, что $[\Gamma \cup \{\psi\}]_{\mathcal{M}}(\pi) = 1$, то $[\Gamma \cup \{\varphi\}]_{\mathcal{M}}(\pi) = 1$.
+            Значит, если $\Gamma \cup \{\psi\}$ выполнима, то $\Gamma \cup \{\varphi\}$ выполнима.
+            \item Допустим, что $\Gamma \cup \{ \forall \vec{x} \exists y \theta \}$ выполнима.
+            Тогда $\exists \mathcal{M}$ $\exists \pi$ ($[\Gamma]_{\mathcal{M}}(\pi) = 1$ и $[\forall \vec{x} \exists y \theta]_{\mathcal{M}}(\pi) = 1$).
+            Заметим, что
+            $$
+            [\forall \vec{x} \exists y \theta]_{\mathcal{M}}(\pi) = 1 \iff \forall \vec{a} \in M~ \exists b \in M~ [\theta]_{\mathcal{M}}(\pi_{x~y}^{\vec{a}~b}) = 1.
+            $$
+            Теперь рассмотрим $\mathcal{M}^{\prime} = (\mathcal{M}, f^{\mathcal{M}})$ (мы расширили структуру, добавив\footnote{Такая операция называется {\it обогащением} структуры $\mathcal{M}$.} в нее интерпертацию символа $f$).
+            Как мы можем ее расширить?
+            Для этого нам нужно определить значение $f^{\mathcal{M}}(\vec{a})$.
+            Положим его равным $b \in M$ такому, что $\forall \vec{a} [\theta]_{\mathcal{M}}(\pi_{x~y}^{\vec{a}~b}) = 1$, то есть, $\forall \vec{a} \in M^{n}~ [\theta]_{\mathcal{M}}(\pi_{x~y}^{\vec{a}~f^{\mathcal{M}}(\vec{a})}) = 1$.
+            Такая $f^{\mathcal{M}}$ существует в силу аксиомы выбора.
+            Ну вот мы взяли такую интерпретацию, дальше мы хотим посмотреть, что же будет с $\psi$ и ее значением
+            $$
+            [\forall \vec{x} \theta (f\vec{x}/y)]_{\mathcal{M}^{\prime}}(\pi).
+            $$
+            В старой структуре у нее вообще не было значения, потому что там у нас не интерпретировался символ $f$.
+            В новой же структуре
+            $$
+            [\forall \vec{x} \theta (f\vec{x}/y)]_{\mathcal{M}^{\prime}}(\pi) = 1 \iff \forall \vec{a} \in M~ [\theta(f\vec{x}/y)]_{\mathcal{M}^{\prime}}(\pi_{\vec{x}}^{\vec{a}}) = 1.
+            $$
+            Докажем последнее равенство.
+            Мы можем воспользоваться леммой о корректной подстановке и получится, что
+            $$
+            [\theta(f\vec{x}/y)]_{\mathcal{M}^{\prime}}(\pi_{\vec{x}}^{\vec{a}}) = [\theta]_{\mathcal{M}^{\prime}}\left(\pi_{\vec{x}~y}^{\vec{a}~[f\vec{x}]_{\mathcal{M}^{\prime}}(\pi_{x}^{\vec{a}})}\right) = [\theta]_{\mathcal{M}^{\prime}}\left(\pi_{\vec{x}~y}^{\vec{a}~f^{\mathcal{M}}(\vec{a})}\right) \overset{f\text{ --- свежая}}{=} [\theta]_{\mathcal{M}}\left(\pi_{x~y}^{\vec{a}~f^{\mathcal{M}}(\vec{a})}\right) = 1
+            $$
+            Итак, $[\varphi]_{\mathcal{M}^{\prime}}(\pi) = 1$.
+            А что с $\Gamma$?
+            В $\Gamma$ ничего не изменится, поскольку $f$ не встречается в $\Gamma$, поэтому
+            $$
+            [\Gamma]_{\mathcal{M}^{\prime}}(\pi) = [\Gamma]_{\mathcal{M}}(\pi) = 1.
+            $$
+            Таким образом, $[\Gamma \cup \{ \varphi\}]_{\mathcal{M}^{\prime}}(\pi) = 1$, то есть $\Gamma \cup \{\psi\}$ выполнима. \qedhere
+        \end{enumerate}
+    \end{proof}
+    
     % Вопрос логика 15
     \subsection{Исчисление резолюций для произвольных множеств формул. Теорема о коррект- ности.
         Теорема о полноте (без доказательства).}
@@ -1545,7 +2268,7 @@
 
     % Вопрос логика 17
     
-    \subsection*{Теорема компактности (в двух формах: про выполнимость и про логическое следование). Вариант для нормальных моделей (без доказательства). Любой пример применения.}
+    \subsection{Теорема компактности (в двух формах: про выполнимость и про логическое следование). Вариант для нормальных моделей (без доказательства). Любой пример применения.}
 
     \underline{Теорема о компактности-1.}
     
@@ -1596,6 +2319,121 @@
     \end{proof}
 
     % Вопрос логика 18
-    \subsection{Игра Эренфойхта. Формулировка основной теоремы и примеры применения: когда побеждает Новатор, и когда побеждает Консерватор. [ВШ-2, 3.10]}
+    
+    \subsection*{Игра Эренфойхта. Формулировка основной теоремы и примеры применения: когда побеждает Новатор, и когда побеждает Консерватор.}
+    
+    $\bullet \;$ Чтобы доказать, что 2 структуры не являются элементарно эквивалентными, достаточно привести контрпример. Но для доказательства элементарной эквивалентности необходимо пользоваться \underline{игрой Эренфойхта.}
+    
+    Пусть $\sigma $ -- сигнатура, где $(I)$ нет функциональных и константных символов (т.е. сигнатура состоит лишь из предикатных символов); $(II) \; \sigma$ конечна.
+    
+    Пусть $N, \, M$ -- две $\sigma$-структуры.  Два игрока, называемые Новатором (Н) и Консерватором (К), играют в такую игру:
+    
+    Н объявляет продолжительность игры в $n \in \mathbb{N}$ ходов. 
+    
+    Н делает первых ход и выбирает в одной из структур элемент $a_1.$ В ответ на это консерватор выбирает в другой структуре элемент $b_1$,  который является "аналогом" $\;a_1$. Затем Н делает очередной шаг, и всё повторяется $n$ раз.
+    
+    \textit{Пример игры. Н -- квадратик, К -- кружок}
+    
+    \begin{tabular}{cc}
+         $M$ & $N$ \\
+         \tikz\node[draw]{$\overset{ }{a_1}$}; & \tikz\node[draw, circle]{$b_1$}; \\
+         \tikz\node[draw]{$\overset{ }{a_2}$}; & \tikz\node[draw, circle]{$b_2$}; \\
+         \tikz\node[draw, circle]{$\overset{ }{a_3}$}; & \tikz\node[draw]{$b_3$}; \\
+         \dots &\dots\\
+         $a_n$ & $b_n$ \\
+    \end{tabular}
+    
+      В результате получилось какое-то конечное соответствие между элементами $M$ и $N$.
+      
+      \underline{Кто выигрывает?} 
+      
+      $K$ выигрывает $\iff$ \{ни один предикат из $\sigma$  не отличает $a_1 \dots a_n $  от  $b_1 \dots b_n $\} $\iff\\
+      \forall R^k \in Rel_\sigma \; \forall \; 1 \leq i_1,  \dots i_k \leq n \; \; \;  (a_{i_1} \dots a_{i_k}) \in R^M \iff  (b_{i_1} \dots b_{i_k}) \in R^N. $
+      
+      Иначе выигрывает новатор.
+      
+      \underline{Суть}: консерватор пытается доказать, что структуры нельзя различить. Новатор же ищет различия.
+    
+    \textit{Пример 1.} $(\mathbb{N}, \, <)$ и $(\mathbb{Z}, \, <)$. 
+    
+    Новатор выигрывает при любой игре консерватора (т.е. у Н есть выигрышная стратегия). 
+    
+    Новатор: $n = 2.$
+    
+    \begin{tabular}{cc}
+         $(\mathbb{N}, \, <)$ & $(\mathbb{Z}, \, <)$ \\
+         \tikz\node[draw]{$0$}; & \tikz\node[draw, circle]{$n$}; \\
+         \tikz\node[draw, circle]{$\overset{ }{m}$}; & \tikz\node[draw]{$n - 1$}; \\
+    \end{tabular}
+    
+    $n, \; m$ -- произвольные числа, которые выбрал К (мы пытаемся доказать, что выигрыш не зависит от игры К). 
+    
+    Новатор победил, ведь $(m \nless_{\mathbb{N}} \, 0)$,  но $(n - 1 <_{\mathbb{Z}} \, n).$
+    
+    \underline{Теорема.} $M \equiv N \iff $ в игре Эренфойхта для $M$ и $N$ у консерватора есть выигрышная стратегия ($\iff$ различие найти нельзя ни за какое конечное число шагов). 
+    
+    \textit{Пример 2.} 
+    
+    Новатор: $n = 3.$
+       
+    \begin{tabular}{cc}
+         $(\mathbb{Z}, \, <)$ & $(\mathbb{Q}, \, <)$ \\
+         $a_1$ = \tikz\node[draw]{$0$}; & \tikz\node[draw, circle]{$q_1$}; = $b_1$\\
+         $a_2$ =  \tikz\node[draw]{$1$}; & \tikz\node[draw]{$q_2$}; = $b_2$\\
+         $a_3$ = \tikz\node[draw, circle]{$n$}; & \tikz\node[draw]{$\frac{q_1 + q_2}{2}$}; = $b_3$\\
+    \end{tabular}
+    
+    К проиграл, ведь $b_1 <_\mathbb{Q} b_2 <_\mathbb{Q}  b_3$, однако $\forall \, n \; \neg \; (a_1 <_\mathbb{Z} a_2 <_\mathbb{Z}  a_3)$, так как неверно $0 <_\mathbb{Z} n <_\mathbb{Z} 1$.
+    
+    \textit{Пример 3.} Докажем через игру Эренфойхта, что $(\mathbb{Q}, <) \equiv (\mathbb{R}, <) .$ 
+    
+    \begin{proof}
+    Достаточно доказать, что у К есть выигрышная стратегия.
+    
+    К должен уметь для $\forall \; n \in \mathbb{N}$  продержаться  $n$ ходов, чтобы не возникло отличия между структурами.
+    
+    Индукция по $n$.
+    
+    База. $n = 1 \implies $ Н не сможет выиграть, ведь предикат у нас бинарный. 
+    
+    Точнее, если $a_1, \; b_1$ -- соответствующие ходы, то в обеих структурах всегда верно $a_1 \nless a_1; \; b_1 \nless b_1.$
+    
+    Переход. Пусть К не проигрывает за $n$  ходов. Докажем, что он может продержаться ещё один ход.
+    
+    Игра сейчас имеет вид: 
+    
+     \begin{tabular}{ccc}
+         $(\mathbb{Q}, \, <)$ & & $(\mathbb{R}, \, <)$ \\
+         $a_1$ & $\xrightarrow{\alpha}$  & $b_1$\\
+         $a_2$ & $\xrightarrow{\alpha}$  & $b_2$\\
+         $\dots$ & $\xrightarrow{\alpha}$  & $\dots$\\
+         $a_n$ & $\xrightarrow{\alpha}$  & $b_n$
+    \end{tabular}
+    
+    Мы задали по данной партии отображение $\alpha(a_i) = b_i.$
+    
+    К не проиграл $\iff$ $\alpha$ -- изоморфизм, т.е. $\forall \; i, j \; \;  a_i < a_j \iff b_i < b_j.$
+    
+    Упорядочим $a_i$ по возрастанию:  $ \; a_{(1)} < a_{(2)} < \dots < a_{(n)}$. Упорядочим  $b_i$ аналогично.
+    
+    Тогда $\alpha(a_{(i)}) = b_{(i)}$ в силу $\forall \; i, j \; \;  a_i < a_j \iff b_i < b_j.$
+    
+    \textit{Замечание. Если вдруг $a_i = a_j \implies \neg \; (a_i < a_j) \land \neg \; (a_j < a_i) \implies
+     \neg \; (b_i < b_j) \land \neg \; (b_j < b_i) \implies b_i = b_j.$ В силу этого мы имеем право игнорировать повторы (если найдутся равные элементы, то в неравенстве выше просто будут фигурировать $l < n$ элементов,  его суть же от этого не изменится).}
+    
+    Теперь пусть Н сделал какой-то ход, условно, он выбрал $b$ в $\mathbb{R}$  (для $\mathbb{Q}$ аналогично).
+    
+    Случай 1. $b < b_{(1)} \implies$ К отвечает каким-то  $a $, т.ч. $a < a_{(1)}.$ Это возможно, ведь в $(Q, \, <)$ нет минимального.
+    
+    Случай 2. $b_{(l)} < b  \implies$ К отвечает каким-то  $a $, т.ч. $a_{(l)} < a.$ Это возможно, ведь в $(Q, \, <)$ нет максимального.
+    
+    Случай 3. $b_{(i)} < b < b_{(i + 1)} \implies $   К отвечает каким-то  $a $, т.ч. $a_{(i)} < a < a_{(i + 1)}.$ Это возможно, ведь  $(Q, \, <)$ -- плотный.
+    
+    Итого -- в любом кейсе К не проиграл. Ч.т.д.
+    
+    \end{proof}
+    
+    Как следствие получим, что  если $M$ и $N$ -- плотные лин. порядки без наибольшего и наименьшего элемента, то  $M \equiv N.$  (Все рассуждения выше применимы к любому $DLO$ без наименьшего и наибольшего элемента).
+    
 
 \end{document}
