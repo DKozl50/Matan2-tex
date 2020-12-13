@@ -902,7 +902,7 @@
     Теперь поговорим об уже знакомом нам понятии изоморфизма.
 
     \begin{definition} \label{def::isomorphism-on-structures}
-        Будем говорить, что $\alpha$ --- {\it изоморфизм} между $\MM$ и $\NN$, если
+        Будем говорить, что $\alpha$ --- {\it изоморфизм} между $\mathcal{M}$ и $\mathcal{N}$, если
         \begin{enumerate}
             \item $\alpha \colon M \to N$ --- биекция;
             \item Сохраняются все отношения, то есть $\forall R^{(n)} \in \text{Rel}_{\sigma}$, $\forall \vec{a} \in M^{n}$ $R^{\mathcal{M}}(\vec{a}) \iff R^{\mathcal{N}}(\alpha \vec{a})$;
@@ -912,20 +912,19 @@
     \end{definition}
     
     \begin{definition}
-        Будем говорить, что структуры $\MM$ и $\NN$ изоморфны (обозн. $\MM \cong \NN$), если существует изоморфизм $\alpha \colon \MM \to \NN$.
+        Будем говорить, что структуры $\mathcal{M}$ и $\mathcal{N}$ изоморфны (обозн. $\mathcal{M} \cong \mathcal{N}$), если существует изоморфизм $\alpha \colon \mathcal{M} \to \mathcal{N}$.
     \end{definition}
     
-    \begin{statement}~
+    \begin{proposition}
         \begin{enumerate}
-            \item $\MM \overset{\Id_{\MM}}{\cong} \MM$.
-            \item $\MM \overset{\alpha}{\cong} \NN \implies \NN \overset{\alpha^{-1}}{\cong} \MM$.
-            \item $\MM \overset{\alpha}{\cong} \NN$ и $\NN \overset{\beta}{\cong} \LL \implies \MM \overset{\beta \circ \alpha}{\cong} \LL$.
+            \item $\mathcal{M} \overset{\text{Id}_{\mathcal{M}}}{\cong} \mathcal{M}$.
+            \item $\mathcal{M} \overset{\alpha}{\cong} \mathcal{N} \implies \mathcal{N} \overset{\alpha^{-1}}{\cong} \mathcal{M}$.
+            \item $\mathcal{M} \overset{\alpha}{\cong} \mathcal{N}$ и $\mathcal{N} \overset{\beta}{\cong} \mathcal{L} \implies \mathcal{M} \overset{\beta \circ \alpha}{\cong} \mathcal{L}$.
         \end{enumerate}
-    \end{statement}
-    
+    \end{proposition}~
     \begin{example}
     Рассмотрим конкретный пример, который является классическим.
-    Положим $\MM = \left( \R; =; +^(2); 0 \right)$ и $\NN = \left( R_{+}; =; \cdot^{(2)}; 1 \right)$.
+    Положим $\mathcal{M} = \left( \mathbb{R}; =; +^(2); 0 \right)$ и $\mathcal{N} = \left( R_{+}; =; \cdot^{(2)}; 1 \right)$.
     Естественно, это интерпретация одной сигнатуры $\sigma = \left( =; \circ^{(2)}; e \right)$.
     \end{example}
     % Вопрос логика 2
@@ -979,7 +978,7 @@
     мы тут пока не занимаемся.
 
     \begin{definition}[свободная переменная]
-        Зафиксируем функцию $\FreeVar \colon \Fm_{\sigma} \to \Var$, которая каждой формуле ставит в 
+        Зафиксируем функцию $\text{FV} \colon \text{Fm}_{\sigma} \to \text{Var}$, которая каждой формуле ставит в 
         соответствие множество {\it свободных} переменных в ней, следующим образом:
         \begin{enumerate}
             \item $\text{FV}(R t_{1} \ldots t_{n}) = V(t_{1}) \cup \ldots \cup V(t_{n})$.
@@ -1738,7 +1737,7 @@
         \end{enumerate}
     \end{enumerate}
     
-    \begin{lemma} \label{lemma::09::01}
+    \begin{lemma}
         Для любой формулы $\varphi \in \mathcal{B}(F_{1}, \ldots, F_{n})$, $\forall M$,
          $\forall \pi$
         \[
@@ -1757,7 +1756,7 @@
     
     \begin{proposal}
         Если $\varphi$ тавтология, то $\varphi$ общезначима. 
-        (Следует из леммы \ref{lemma::09::01}.)
+        (Следует из леммы что была недавно.)
     \end{proposal}
     
     Не всякая общезначимая формула является тавтологией.
@@ -1851,14 +1850,14 @@
                 Если же $\sigma = 0$, то $[A^{0}](\pi) = 1 \iff [\neg A](\pi) = 1 \iff 
                 [A](\pi) = 0 = \sigma$.
             \end{proof}
-            \begin{corollary} \label{corollary::10::01}
+            \begin{corollary}
                 $\Phi_{\vec{\sigma}} = [F_{1}^{\sigma_{1}} \land \ldots \land 
                 F_{n}^{\sigma_{n}}](\pi) = 1 \iff \forall i [F_{i}^{\sigma_{i}}](\pi) = 1 \iff 
                 \forall i~\sigma_{i} = [F_{i}](\pi) \iff \vec{\sigma} = [\vec{F}]$.
             \end{corollary}
             $[\varphi](\pi) = 1$ тогда и только тогда, когда $f_{\varphi}([\vec{F}](\pi)) = 1 \iff [\vec{F}](\pi) 
             \in U \iff \exists \vec{\sigma} \in U~ [\vec{F}](\pi) = \vec{\sigma}$.
-            Получилось тоже самое, что и в следствии \ref{corollary::10::01}, 
+            Получилось тоже самое, что и в следствии последнем, 
             поэтому это все равносильно тому, что $\exists \vec{\sigma} \in 
             U~[\Phi_{\vec{\sigma}}](\pi) = 1 \iff [\bigvee\limits_{\vec{\sigma} 
             \in U}\Phi_{\vec{\sigma}}](\pi) = 1$.
