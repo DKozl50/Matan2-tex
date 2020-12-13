@@ -882,7 +882,7 @@
     Придачей смысла сигнатуре занимается
     \begin{definition}
         \textbf{Интепретация сигнатуры $\sigma$} --- это пара $\mathcal{M} = (M, I_\mathcal{M})$,
-        где $M \neq \empty$, а $I_\mathcal{M}$ --- это такое отображение, что
+        где $M \neq \varnothing$, а $I_\mathcal{M}$ --- это такое отображение, что
         \begin{enumerate}
             \item $\forall R^{(n)} \in \text{Rel}_\sigma \quad I_{\mathcal{M}}(R) \subseteq M^{n}$, 
             то есть $I_{\mathcal{M}}(R)$ --- это $n$-арное отношение на $M$;
@@ -892,11 +892,30 @@
         Множество $M$ называется {\it носителем интерпретации} $\mathcal{M}$.
     \end{definition}
 
-    К примеру такая структура, как поле вещественных чисел $\mathcal{R}$ является интерпретацией
-    сигнатуры $(=^{(2)};\cdot^{(2)}, +;0,1)$.
+    \paragraph{Пример}
+    Рассмотрим сигнатуру $\sigma = (\text{Rel}_{\sigma} = \{ Q^{(3)} \}; \text{Func}_{\sigma} = \{ f^{(2)}, \#^{(1)} \}; \text{Const}_{\sigma} = \{ \$ \})$ и две ее интерпретации
+    \[
+        \mathcal{M} = ( \{ 0, 1 \}; Q^{\mathcal{M}}; f^{\mathcal{M}}, \#^{\mathcal{M}}; \$^{\mathcal{M}}),
+    \]
+    где 
+    \begin{align}
+        &Q^{\mathcal{M}} \subseteq \{0, 1\}^{3} \colon (x, y, z) \in Q^{\mathcal{M}} \iff x = y = z \implies Q^{\mathcal{M}} = \{ (0, 0, 0), (1, 1, 1)\}; \\
+        &f^{\mathcal{M}}(x, y) = x \oplus y, \quad \#^{\mathcal{M}}(x) = x; \\
+        &\$^{\mathcal{M}} = 1.
+    \end{align}
+    Мы получили какую-то интерпретацию $\sigma$.
+    Какого-то особого смысла в ней нет, но как пример она вполне себе подойдет.
+
+    Можно рассмотреть и другую интерпретацию $\mathcal{N} = (\NN; Q^{\mathcal{N}}; f^{\mathcal{N}}, \#^{\mathcal{N}}; \$^{\mathcal{N}})$:
+    \begin{align}
+        &(x, y, z) \in Q^{\mathcal{N}} \iff x + y = z; \\
+        &f^{\mathcal{N}}(x, y) = (x \cdot y)^{2}, \quad \#^{\mathcal{N}}(x) = x + 7; \\
+        &\$^{\mathcal{N}} = 2020.
+    \end{align}
+    В ней также нет ничего содержательного, просто она отличается от $\mathcal{M}$.
 
     Также существует понятие \textit{нормальной} структуры. Под ним понимается структура, в которой
-    знак ''='' ознаает именно равенство элементов в нашем обыденном понимании, то есть 
+    знак ''='' означает именно равенство элементов в нашем обыденном понимании, то есть 
     $\text{id}_M = \{(a, a) \mid a \in M\}$
 
     Теперь поговорим об уже знакомом нам понятии изоморфизма.
@@ -924,7 +943,7 @@
     \end{proposition}~
     \begin{example}
     Рассмотрим конкретный пример, который является классическим.
-    Положим $\mathcal{M} = \left( \mathbb{R}; =; +^(2); 0 \right)$ и $\mathcal{N} = \left( R_{+}; =; \cdot^{(2)}; 1 \right)$.
+    Положим $\mathcal{M} = \left( \mathbb{R}; =; +^{(2)}; 0 \right)$ и $\mathcal{N} = \left( R_{+}; =; \cdot^{(2)}; 1 \right)$.
     Естественно, это интерпретация одной сигнатуры $\sigma = \left( =; \circ^{(2)}; e \right)$.
     \end{example}
     % Вопрос логика 2
