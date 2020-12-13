@@ -842,6 +842,18 @@
             \end{equation*}
         \end{theorem}
 
+        \begin{proof}
+            Для вычислимой функции $V : \NN^2 \to \NN$ такой, что\\[-10 pt]
+\[ V(k, x) \simeq \langle  V_1(c(p_1, k), c(p_2, k), x), V_2(c(p_1, k), c(p_2, k), x) \rangle \; \forall x \]
+для всех $k, x \in \NN$, согласно лемме 39 (о рекурсии), найдется $n \in \NN$ такое, что $U_n \simeq V_n$. Положим $a = c(p_1, n)$ и $b = c(p_2, n)$. Тогда
+            \begin{align*}
+                & U(a, x) \simeq U(c(p_1, n), x) \simeq U(p_1, U(n, x)) \simeq \\
+                & \simeq \pi^1(V(n, x)) \simeq \pi^1 \langle V_1(c(p_1, n), c(p_2, n), x), V_2(c(p_1, n), c(p_2, n), x) \rangle \simeq \\
+                & \simeq V_1(c(p_1, n), c(p_2, n), x) \simeq V_1(a, b, x)
+            \end{align*}
+            для любого $x \in \NN$. Аналогично доказательство для $b$.
+        \end{proof}
+
 
 \section{Вопросы по логике}
 
