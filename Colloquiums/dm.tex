@@ -1264,11 +1264,68 @@
         \end{itemize}
     \end{proof}
     
-    Сказанное позволяет объявить аксиомами ИП все формулы из $\text{Fm}_{\sigma}$ вида\\[-25 pt]
+    \textbf{Лемма 18. } Для любого терма $t$ и любой формулы $\varphi$, если $y \not\in V(\varphi)$, то для всякой оценки $\pi$ верно
+    \[ [t(y/x)](\pi) = [t](\pi + (x \mapsto \pi(y))) \text{ и} \]
+    \[ [\varphi(y/x)](\pi) = [\varphi](\pi + (x \mapsto \pi(y))). \]
+    
+    \begin{proof}
+        Индукция по построению. Пусть $t = z \ne x$. Имеем $[t(y/x)](\pi) = \pi(z) = [t](\pi + (x \mapsto \pi(y)))$. Если же $t = x$, то $[t(y/x)](\pi) = \pi(y) = [t](\pi + (x \mapsto \pi(y)))$. Случай $t = \F_i$ тривиален.\\[-10 pt]
+    
+    Если $t = \F_j(t_1, t_2, \ldots, t_{a_j})$, то по предположению индукции:
+    \begin{multline*}
+    [t(y/x)](\pi) = \F_j([t_1(y/x)](\pi), \ldots, [t_{a_j}(y/x)](\pi)) = \\
+    = \F([t_1](\pi + (x \mapsto \pi(y))), \ldots, [t_{a_j}](\pi + (x \mapsto \pi(y)))) = [t](\pi + (x \mapsto \pi(y))).
+    \end{multline*}
+    
+    Случай $\varphi = \mathbbold{P}_i$ тривиален (константа). Если $\varphi = \mathbbold{P}_j(t_1, t_2, \ldots, t_{b_j})$, то по предположению индукции:
+    \begin{multline*}
+    [\varphi(y/x)](\pi) = \mathbbold{P}_j([t_1(y/x)](\pi), \ldots, [t_{b_j}(y/x)](\pi)) = \\
+    = \mathbbold{P}([t_1](\pi + (x \mapsto \pi(y))), \ldots, [t_{b_j}](\pi + (x \mapsto \pi(y)))) = [\varphi](\pi + (x \mapsto \pi(y))).
+    \end{multline*}
+    
+    Рассмотрим случай $\varphi = \psi_1 \wedge \psi_2$:
+    \begin{multline*}
+    [\varphi(y/x)](\pi) = \min([\psi_1(y/x)](\pi), [\psi_2(y/x)](\pi)) = \\
+    = \min([\psi_1](\pi + (x \mapsto \pi(y))), [\psi_2](\pi + (x \mapsto \pi(y)))) = [\varphi](\pi + (x \mapsto \pi(y))).
+    \end{multline*}
+    по предположению индукции. Случай квантора всеобщности:
+    
+    Пусть $\varphi = \forall z\, \psi$. Предположим, что $z \ne x$. Тогда, используя предположение индукции для $\pi' = \pi + (z \mapsto m)$ (т.к. утверждение доказывается для любой оценки), и учитывая $z \in V(\varphi), \, z \ne y, \, y \not\in V(\varphi)$, получаем
+    \begin{multline*}
+    [\varphi(y/x)](\pi) = [\forall z\,(\psi(y/x))](\pi) = \\
+    = \underset{m \in M}{\min}[\psi(y/x)](\pi + (z \mapsto m)) =
+    \underset{m \in M}{\min}[\psi](\pi + (z \mapsto m) + (x \mapsto (\pi + (z \mapsto m))(y))) = \\
+    = \underset{m \in M}{\min}[\psi](\pi + (z \mapsto m) + (x \mapsto \pi(y))) = 
+    \underset{m \in M}{\min}[\psi](\pi + (x \mapsto \pi(y)) + (z \mapsto m)) = \\
+    = [\forall z\, \psi](\pi + (x \mapsto \pi(y))) = [\varphi](\pi + (x \mapsto \pi(y))).
+    \end{multline*}
+    
+    Остается предположить, что $z = x$. Тогда в силу $x \not\in FV(\varphi)$ применима лемма 5:
+    \[ [\varphi(y/x)](\pi) = [\varphi](\pi) = [\varphi](\pi + (x \mapsto \pi(y))). \]
+     
+    Теперь можно завершить доказательство леммы 16. Действительно, в любой интерпретации при произвольной
+оценке $\pi$ по лемме 18 и, в силу $y \not\in FV(\varphi)$, по лемме 5 имеем
+    \begin{multline*}
+    [\forall y\, \varphi(y/x)](\pi) = \underset{m \in M}{\min}[\varphi(y/x)](\pi + (y \mapsto m)) = 
+    \underset{m \in M}{\min}[\varphi](\pi + (y \mapsto m) + (x \mapsto (\pi + (y \mapsto m))(y))) = \\
+    = \underset{m \in M}{\min}[\varphi](\pi + (y \mapsto m) + (x \mapsto m)) = 
+    \underset{m \in M}{\min}[\varphi](\pi + (x \mapsto m)) = 
+    [\forall x\, \varphi](\pi)
+    \end{multline*}
+    \end{proof}
+    
+    Сказанное позволяет объявить аксиомами ИП (общезначимыми формулами) все формулы из $\text{Fm}_{\sigma}$ вида\\[-25 pt]
     \begin{enumerate}
     \item[(A12)] $\forall x\, \varphi \to \varphi(t/x)$, если $t-x-\varphi$;
     \item[(A13)] $\varphi(t/x) \to \exists x\, \varphi$, если $t-x-\varphi$.
     \end{enumerate}
+    \begin{proof}
+        \begin{enumerate}
+        \item[(A12)] Задавшись произвольной интерпретцией и оценкой $\pi$, допустим, что $[\forall x\, \varphi](\pi) =$\textbf{ 1}. Значит, $[\forall x\, \varphi](\pi + (x \mapsto m))$ для всех $m \in M$. В частности, взяв $m = [t](\pi)$, по лемме 73 получаем
+        \[ [\varphi(t/x)](\pi) = [\varphi](\pi + (x \mapsto [t](\pi)) = \text{\bf 1}. \]
+        \item[(A13)] Допустим, что $[\varphi(t/x)](\pi) =$ \textbf{ 1}, тогда по лемме 73: $[\varphi(t/x)](\pi) = [\varphi](\pi + (x \mapsto [t](\pi))$. Значит, $\exists m = [t](\pi)$ такое, что $[\varphi](\pi + (x \mapsto m)) = 1 \; \Leftrightarrow \; [\exists x\, \varphi](\pi) = 1$. Получили, что если посылка при какой-то оценке принимает значение 1, то и заключение при этой оценке принимает значение 1.
+        \end{enumerate}
+    \end{proof}
 
     % Вопрос логика 12
     \subsection{Переименование связанной переменной (без доказательства). [F, 16] Теорема о предваренной нормальной форме. [F, 36]}
