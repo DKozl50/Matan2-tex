@@ -1231,7 +1231,16 @@
     % Вопрос логика 11
     \subsection{Понятие корректной подстановки («терм свободен для переменной в формуле»). Пример некорректной подстановки. Лемма о корректной подстановке (без доказательства). [F, 73] Переименование связанной переменной. [F, 16, 18]. Общезначимость формул вида $\forall x \; \phi \to \phi(t/x)$ и $\phi(t/x) \to \exists x \; \phi$ в случае корректной подстановки. [F, 74]}
     
-    Подставновка (неформально) --- замена свободной переменной в функции или формуле.
+    Подставновка (неформально) --- замена свободной переменной в функции или формуле.\\[-10 pt]
+    
+        Индуктивное определение \textit{подстановки} для термов и формул:\\[-25 pt]
+        \begin{itemize}
+            \item если $t = z \in \text{Var}$ и $z \ne x$, то $t(y/x) = z$; если же $t = x$, то $t(y/x) = y$;
+            \item если $t = \F_i$, то $t(y/x) = \F_i$; если $t = \F_j(t_1, \ldots, t_{a_j})$, то $t(y/x) = \F_j(t_1(y/x), \ldots, t_{a_j}(y/x))$;
+            \item если $\varphi = \mathbbold{P}_i$, то $\varphi(y/x) = \F_i$; если $\varphi = \mathbbold{P}_j(t_1, \ldots, t_{b_j})$, то $\varphi(y/x) = \mathbbold{P}_j(t_1(y/x), \ldots, t_{b_j}(y/x))$;
+            \item если $\varphi = \neg\psi$, то $\varphi(y/x) = \neg(\psi(y/x))$; если $\varphi = \psi_1 \wedge \psi_2$, то $\varphi(y/x) = \psi_1(y/x) \wedge \psi_2(y/x)$; аналогично для других связок;
+            \item если $\varphi = \forall z\, \psi$ и $z \ne x$, то $\varphi(y/x) = \forall z\, (\psi(y/x))$; если же $z = x$, то $\varphi(y/x) = \forall x\, \psi = \varphi$ (формула не меняется). Случай квантора существования аналогичен.
+        \end{itemize}
     
     \begin{example} $((x = 2) \vee (\forall x\, (x < y)))[z+5/x] = (z+5 = 2) \vee \forall x\, (x < y)$. \end{example}
     
@@ -1251,17 +1260,27 @@
     
     \textbf{Переименование связанной переменной}\\[5 pt]
     \textbf{Лемма 16} (достаточные условия для переименования связанных переменных). Пусть $y \not\in V(\varphi)$. Тогда
-    \[ \forall x\, \varphi \equiv \forall y\, \varphi(y/x) \]
+    \[ \forall x\, \varphi \equiv \forall y\, \varphi(y/x) \text{ и } \exists x\, \varphi \equiv \exists y\, \varphi(y/x) \]
     
     \begin{proof}
-        Индуктивное определение \textit{подстановки } для термов и формул:\\[-25 pt]
-        \begin{itemize}
-            \item если $t = z \in \text{Var}$ и $z \ne x$, то $t(y/x) = z$; если же $t = x$, то $t(y/x) = y$;
-            \item если $t = \F_i$, то $t(y/x) = \F_i$; если $t = \F_j(t_1, \ldots, t_{a_j})$, то $t(y/x) = \F_j(t_1(y/x), \ldots, t_{a_j}(y/x))$;
-            \item если $\varphi = \mathbbold{P}_i$, то $\varphi(y/x) = \F_i$; если $\varphi = \mathbbold{P}_j(t_1, \ldots, t_{b_j})$, то $\varphi(y/x) = \mathbbold{P}_j(t_1(y/x), \ldots, t_{b_j}(y/x))$;
-            \item если $\varphi = \neg\psi$, то $\varphi(y/x) = \neg(\psi(y/x))$; если $\varphi = \psi_1 \wedge \psi_2$, то $\varphi(y/x) = \psi_1(y/x) \wedge \psi_2(y/x)$; аналогично для других связок;
-            \item если $\varphi = \forall z\, \psi$ и $z \ne x$, то $\varphi(y/x) = \forall z\, (\psi(y/x))$; если же $z = x$, то $\varphi(y/x) = \forall x\, \psi = \varphi$ (формула не меняется). Случай квантора существования аналогичен.
-        \end{itemize}
+        Если $y \not\in V(\varphi)$, то $y$ свободен для $x$ в $\varphi$ (нет переменной --- нет кванторов). Далее,
+        \[ [\forall y\, \varphi(y/x)](\pi) = 1 \; \Leftrightarrow \; \forall m \in M \: [\varphi(y/x)](\pi + (y \mapsto m)) = 1. \]
+        
+        По лемме о корректной подстановке (см. п. 3.10)
+        \[ [\varphi(y/x)](\pi + (y \mapsto m)) =  
+        [\varphi](\pi + (x \mapsto [y](\pi + (y \mapsto m))) + (y \mapsto m)) = 
+        [\varphi](\pi + (x \mapsto m) + (y \mapsto m)) \]
+
+        А так как $y \not\in V(\varphi)$,
+        \[ [\varphi](\pi + (x \mapsto m) + (y \mapsto m)) = [\varphi](\pi + (x \mapsto m)) \]
+        
+        В итоге
+        \[ \forall m \in M \: [\varphi](\pi + (x \mapsto m)) = 1  \; \Leftrightarrow \; [\forall x\, \varphi](\pi) = 1 \]
+        
+        Цепочкой равносильных преобразований показали, что
+        \[ [\forall x\, \varphi](\pi) = 1 \; \Leftrightarrow \; [\forall y\, \varphi(y/x)](\pi) = 1. \]
+        
+        Доказательство для квантора существования аналогично приведенному.
     \end{proof}
     
     \textbf{Лемма 18. } Для любого терма $t$ и любой формулы $\varphi$, если $y \not\in V(\varphi)$, то для всякой оценки $\pi$ верно
@@ -1303,15 +1322,15 @@
     Остается предположить, что $z = x$. Тогда в силу $x \not\in FV(\varphi)$ применима лемма 5:
     \[ [\varphi(y/x)](\pi) = [\varphi](\pi) = [\varphi](\pi + (x \mapsto \pi(y))). \]
      
-    Теперь можно завершить доказательство леммы 16. Действительно, в любой интерпретации при произвольной
-оценке $\pi$ по лемме 18 и, в силу $y \not\in FV(\varphi)$, по лемме 5 имеем
-    \begin{multline*}
-    [\forall y\, \varphi(y/x)](\pi) = \underset{m \in M}{\min}[\varphi(y/x)](\pi + (y \mapsto m)) = 
-    \underset{m \in M}{\min}[\varphi](\pi + (y \mapsto m) + (x \mapsto (\pi + (y \mapsto m))(y))) = \\
-    = \underset{m \in M}{\min}[\varphi](\pi + (y \mapsto m) + (x \mapsto m)) = 
-    \underset{m \in M}{\min}[\varphi](\pi + (x \mapsto m)) = 
-    [\forall x\, \varphi](\pi)
-    \end{multline*}
+%    Теперь можно завершить доказательство леммы 16. Действительно, в любой интерпретации при произвольной
+%оценке $\pi$ по лемме 18 и, в силу $y \not\in FV(\varphi)$, по лемме 5 имеем
+%    \begin{multline*}
+%    [\forall y\, \varphi(y/x)](\pi) = \underset{m \in M}{\min}[\varphi(y/x)](\pi + (y \mapsto m)) = 
+%    \underset{m \in M}{\min}[\varphi](\pi + (y \mapsto m) + (x \mapsto (\pi + (y \mapsto m))(y))) = \\
+%    = \underset{m \in M}{\min}[\varphi](\pi + (y \mapsto m) + (x \mapsto m)) = 
+%    \underset{m \in M}{\min}[\varphi](\pi + (x \mapsto m)) = 
+%    [\forall x\, \varphi](\pi)
+%    \end{multline*}
     \end{proof}
     
     Сказанное позволяет объявить аксиомами ИП (общезначимыми формулами) все формулы из $\text{Fm}_{\sigma}$ вида\\[-25 pt]
