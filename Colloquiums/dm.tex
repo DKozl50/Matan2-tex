@@ -1521,7 +1521,7 @@
 
     \begin{lemma}[О фиктивном кванторе.]
         Если $x \notin \text{FV}(\varphi)$, то $\forall x \varphi \equiv \varphi$.
-        Аналогично, $\exists \varphi \equiv \varphi$.
+        Аналогично, $\exists x \varphi \equiv \varphi$.
     \end{lemma}
 
     \begin{proof}
@@ -1580,7 +1580,7 @@
             (Добавили квантор, который ничего не меняет и подставили $\pi = \rho_{x}^{m}$, получили
             то, что хотели для выбранной $\rho$.)
             
-            \item[$\impliedby$] Дано: $\forall \mathcal{M},~\forall \pi \colon [\forall\varphi]_{\mathcal{M}}(\pi) = 1$.
+            \item[$\impliedby$] Дано: $\forall \mathcal{M},~\forall \pi \colon [\forall x \varphi]_{\mathcal{M}}(\pi) = 1$.
             Хотим доказать: $\forall \mathcal{M},~\forall \rho \colon [\varphi]_{\mathcal{M}}(\rho) = 1$.
 
             Зафиксируем какие-то $\mathcal{M}$ и $\rho$, тогда
@@ -1756,7 +1756,7 @@
     
     \begin{proposal}
         Если $\varphi$ тавтология, то $\varphi$ общезначима. 
-        (Следует из леммы что была недавно.)
+        (Следует из леммы выше.)
     \end{proposal}
     
     Не всякая общезначимая формула является тавтологией.
@@ -1850,14 +1850,15 @@
                 Если же $\sigma = 0$, то $[A^{0}](\pi) = 1 \iff [\neg A](\pi) = 1 \iff 
                 [A](\pi) = 0 = \sigma$.
             \end{proof}
-            \begin{corollary}
+            \begin{corollary} 
+
                 $\Phi_{\vec{\sigma}} = [F_{1}^{\sigma_{1}} \land \ldots \land 
                 F_{n}^{\sigma_{n}}](\pi) = 1 \iff \forall i [F_{i}^{\sigma_{i}}](\pi) = 1 \iff 
                 \forall i~\sigma_{i} = [F_{i}](\pi) \iff \vec{\sigma} = [\vec{F}]$.
             \end{corollary}
             $[\varphi](\pi) = 1$ тогда и только тогда, когда $f_{\varphi}([\vec{F}](\pi)) = 1 \iff [\vec{F}](\pi) 
             \in U \iff \exists \vec{\sigma} \in U~ [\vec{F}](\pi) = \vec{\sigma}$.
-            Получилось тоже самое, что и в следствии последнем, 
+            Получилось тоже самое, что и в следствии выше, 
             поэтому это все равносильно тому, что $\exists \vec{\sigma} \in 
             U~[\Phi_{\vec{\sigma}}](\pi) = 1 \iff [\bigvee\limits_{\vec{\sigma} 
             \in U}\Phi_{\vec{\sigma}}](\pi) = 1$.
