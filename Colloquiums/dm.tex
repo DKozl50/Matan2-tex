@@ -1017,13 +1017,46 @@
 
         $(2 + x)++$ --- терм, $(y + 3 \cdot z)$ --- терм, а значит $(2 + x)++ < y + 3 \cdot z$ ---
         формула. А значит $\neg((2 + x)++ < y + 3 \cdot z)$ --- формула, а значит $\forall w \neg((2 + x)++ < y + 3 \cdot z)$
-        --- формула, а значит $\forall w \neg((2 + x)++ < y + 3 \cdot z) \implies (x + 3)$ --- формула,
+        --- формула, а значит $\forall w \neg((2 + x)++ < y + 3 \cdot z) \implies (x + 3) < 3$ --- формула,
         т.к. $(x + 3)$ --- терм, и так далее.
     \end{example}
 
     В данном случае мы получили формулы первого порядка, по той причине что мы оперируем лишь конкретными
     элементами. Если бы мы работали с подмножествами, то это были бы уже формулы второго порядка, чем
     мы тут пока не занимаемся.
+
+    Введя понятия терма и формулы, введем некоторые синтаксические понятия, которые с ними естественным образом связаны.
+    Заведем множество $V(t) = $ ''все переменные, которые встречаются в $t$''.
+    Определение, конечно, хорошее, но про него сложно что-то говорить формально.
+    Попробуем зайти с другой стороны.
+    \begin{definition}~ \label{def::variables-in-term}
+        Определим множество $V$ всех переменных, которые встречаются в терме $t$ рекурсивно:
+        \begin{enumerate}
+            \item Если $t = x \in \text{Var}$, то $V(t) = \left\{x\right\}$.
+            \item Если $t = c \in \text{Const}_{\sigma}$, то $V(t) = \emptyset$.
+            \item Если $t = f t_{1} \ldots t_{m}$, то $V(t) = V(t_{1}) \cup \ldots \cup V(t_{m})$.
+        \end{enumerate}
+    \end{definition}
+
+    \paragraph{Пример}
+    \[
+        V(3 + ((x + y) \cdot 2)) = V(3) \cup V((x + y) \cdot 2) = \emptyset \cup V(2) \cup V(x + y) = \emptyset \cup V(x) \cup V(y) = \{x, y\}.
+    \]
+
+    \begin{definition}
+        Определим функцию $V \colon \text{Fm}_{\sigma} \to \text{Var}$, которая каждой формуле ставит в 
+        соответствие множество ее переменных. Действуем рекурсивно:
+        \begin{enumerate}
+            \item $V(R t_{1} \ldots t_{n}) = V(t_{1}) \cup \ldots \cup V(t_{n})$.
+            \item $V(\phi \lor \psi) = V(\phi \land \psi) = V(\phi \implies \psi) = \ldots = V(\phi) \cup V(\psi)$.
+            \item $V(\exists x~\phi) = V(\forall x~\phi) = V(\phi) \cup \{x\}$.
+        \end{enumerate}
+    \end{definition}
+
+    \paragraph{Пример}
+    \[
+        V(\forall x~ \exists y~ (x = z + 3)) = \{x, y, z\}.
+    \]
 
     \begin{definition}[свободная переменная]
         Зафиксируем функцию $\text{FV} \colon \text{Fm}_{\sigma} \to \text{Var}$, которая каждой формуле ставит в 
