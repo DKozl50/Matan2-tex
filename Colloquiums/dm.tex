@@ -2040,7 +2040,11 @@
     
     \begin{example} $((x = 2) \vee (\forall x\, (x < y)))[z+5/x] = (z+5 = 2) \vee \forall x\, (x < y)$. \end{example}
     
-    \textbf{Корректная подстановка } --- подстановка, где ни одна переменная в терме не оказывается случайно под действием квантора.
+    Терм $t$ свободен для переменной $x$ в формуле $\varphi$ (обозначение: <<$t-x-\varphi$>>), если ни одно свободное вхождение $x$ в $\varphi$ не попадает под квантор по $y \: \forall y \in V(t)$.
+    
+    Иными словами, при $t-x-\varphi$ невозможна ситуация, когда $y \in V(t)$ и $\varphi = \dots Qy\,(\dots x \dots)$.\\
+    
+    \textbf{Корректная подстановка } --- подстановка, где ни одна переменная в терме не оказывается случайно под действием квантора (подставляемый терм свободен для той переменной, на место которой подставляется, в формуле, в которой все это происходит).
     
     \begin{example} 
         $\begin{array}{l} 
@@ -2116,17 +2120,14 @@
     \end{multline*}
     
     Остается предположить, что $z = x$. Тогда в силу $x \not\in FV(\varphi)$ применима лемма 5:
+    \begin{lemma}[5] Для произвольных оценок $\pi_1$ и $\pi_2$, терма $t$ и формулы $\varphi$ выполнены:\\[-25 pt]
+        \begin{enumerate}
+            \item Если $\pi_1(x) = \pi_2(x)$ для всех $x \in V(t)$, то $[t](\pi_1) = [t](\pi_2)$;
+            \item Если $\pi_1(x) = \pi_2(x)$ для всех $x \in FV(\varphi)$, то $[\varphi](\pi_1) = [\varphi](\pi_2)$.
+        \end{enumerate}
+    \end{lemma}
+    Следовательно,
     \[ [\varphi(y/x)](\pi) = [\varphi](\pi) = [\varphi](\pi + (x \mapsto \pi(y))). \]
-     
-%    Теперь можно завершить доказательство леммы 16. Действительно, в любой интерпретации при произвольной
-%оценке $\pi$ по лемме 18 и, в силу $y \not\in FV(\varphi)$, по лемме 5 имеем
-%    \begin{multline*}
-%    [\forall y\, \varphi(y/x)](\pi) = \underset{m \in M}{\min}[\varphi(y/x)](\pi + (y \mapsto m)) = 
-%    \underset{m \in M}{\min}[\varphi](\pi + (y \mapsto m) + (x \mapsto (\pi + (y \mapsto m))(y))) = \\
-%    = \underset{m \in M}{\min}[\varphi](\pi + (y \mapsto m) + (x \mapsto m)) = 
-%    \underset{m \in M}{\min}[\varphi](\pi + (x \mapsto m)) = 
-%    [\forall x\, \varphi](\pi)
-%    \end{multline*}
     \end{proof}
     
     Сказанное позволяет объявить аксиомами ИП (общезначимыми формулами) все формулы из $\text{Fm}_{\sigma}$ вида\\[-25 pt]
@@ -2134,11 +2135,11 @@
     \item[(A12)] $\forall x\, \varphi \to \varphi(t/x)$, если $t-x-\varphi$;
     \item[(A13)] $\varphi(t/x) \to \exists x\, \varphi$, если $t-x-\varphi$.
     \end{enumerate}
-    \begin{proof}
+    \begin{proof} Зададимся произвольной интерпретцией и оценкой $\pi$.\\[-20 pt]
         \begin{enumerate}
-        \item[(A12)] Задавшись произвольной интерпретцией и оценкой $\pi$, допустим, что $[\forall x\, \varphi](\pi) =$\textbf{ 1}. Значит, $[\forall x\, \varphi](\pi + (x \mapsto m))$ для всех $m \in M$. В частности, взяв $m = [t](\pi)$, по лемме 73 получаем
+        \item[(A12)] Допустим, что $[\forall x\, \varphi](\pi) =$\textbf{ 1}. Значит, $[\forall x\, \varphi](\pi + (x \mapsto m))$ для всех $m \in M$. В частности, взяв $m = [t](\pi)$, по лемме 73 (о корректной подстановке) получаем
         \[ [\varphi(t/x)](\pi) = [\varphi](\pi + (x \mapsto [t](\pi)) = \text{\bf 1}. \]
-        \item[(A13)] Допустим, что $[\varphi(t/x)](\pi) =$ \textbf{ 1}, тогда по лемме 73: $[\varphi(t/x)](\pi) = [\varphi](\pi + (x \mapsto [t](\pi))$. Значит, $\exists m = [t](\pi)$ такое, что $[\varphi](\pi + (x \mapsto m)) = 1 \; \Leftrightarrow \; [\exists x\, \varphi](\pi) = 1$. Получили, что если посылка при какой-то оценке принимает значение 1, то и заключение при этой оценке принимает значение 1.
+        \item[(A13)] Допустим, что $[\varphi(t/x)](\pi) =$ \textbf{ 1}, тогда по лемме 73 (о корректной подстановке): $[\varphi(t/x)](\pi) = [\varphi](\pi + (x \mapsto [t](\pi))$. Значит, $\exists m = [t](\pi)$ такое, что $[\varphi](\pi + (x \mapsto m)) = 1 \; \Leftrightarrow \; [\exists x\, \varphi](\pi) = 1$. Получили, что если посылка при какой-то оценке принимает значение 1, то и заключение при этой оценке принимает значение 1.
         \end{enumerate}
     \end{proof}
 
