@@ -990,7 +990,7 @@
 
     \begin{example}
         \textbf{Термы в арифметике}
-        Рассмотрим сигнатуру $\sigma = (\text{Rel} \neq \varnothing; \text{Func}=\{+^{(2)}, \cdot^{(2)},
+        Рассмотрим сигнатуру $\sigma = (\text{Rel} = \left\{ <^{(2)} \right\} ; \text{Func}=\{+^{(2)}, \cdot^{(2)},
         ++^{(1)}\}; \text{Const}=\{2,3\})$
 
         2 --- терм, $x$ --- терм, значит $(2 + x)$ --- терм, значит $(2 + x)++$ --- терм.
@@ -1147,10 +1147,10 @@
         Индукция по построению:
         \begin{itemize}
             \item[(1)] (атомарная формула) 
-            $[Rt_1, \ldots, [t_n]_{\mathcal{M}}(\pi) = $
+            $[R\ t_1, \dotsc, t_n]_{\mathcal{M}}(\pi) = $
             $\begin{cases}
-                1, ([t_1]_{\mathcal{M}}(\pi), \ldots, 
-                [t_n]_{\mathcal{M}}(\pi) ∈ R^{\mathcal{M}} \\
+                1, \left( [t_1]_{\mathcal{M}}(\pi), \dotsc, 
+                [t_n]_{\mathcal{M}}(\pi) \right) ∈ R^{\mathcal{M}} \\
                 0, \text{ иначе}
             \end{cases}$
             \item[(2)] (логические связки) 
@@ -1203,7 +1203,7 @@
             $ (по предположению индукции) = И$([\varphi](\pi_2), [\psi](\pi_2))
             = [\varphi  ∧ \psi](\pi_2)$
             \item[(3)]
-            $FV(∀ z \psi) = FV(∀z) \backslash \{z\}$ \\  
+            $FV(∀ z \psi) = FV(\psi) \backslash \{z\}$ \\  
             $\varphi=∀ z \psi ⇒ FV(\psi) = FV(\varphi) ∪ \{z\}$  \\
 
             \underline{Утверждение:} $∀ y ∈ FV(\psi) ⇒ \pi_{1 z}^m(y) = \pi_{2 z}^m(y)$
@@ -1240,7 +1240,7 @@
             $\mathcal{M} \vDash \varphi_0(a) \Leftrightarrow a = 0 \Leftrightarrow a \in \{0\}$ \\
             \item $\varphi_{\text{чётн.}}(x) \eqcirc \forall y \; (x = y + y)$ \\
             $\mathcal{M} \vDash \varphi_{\text{чётн.}}(a) \Leftrightarrow a\text{ чётно} \Leftrightarrow a \in \text{ЧЁТНОЕ}$ \\
-            \item $\varphi_{\leq}(x, y) \eqcirc \forall z \; (x + z = y)$ \\
+            \item $\varphi_{\leq}(x, y) \eqcirc \exists z \; (x + z = y)$ \\
             $\forall (a, b) \in \mathbb{N}^2 \; \mathcal{M} \vDash \varphi_{\leq}(a, b) \Leftrightarrow a \leq b$ \\
             \item $\varphi_{<}(x, y) \eqcirc \varphi_{\leq}(x, y) \wedge \neg (x = y)$
         \end{itemize}
