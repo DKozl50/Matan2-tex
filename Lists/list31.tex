@@ -55,9 +55,21 @@
 уравнению $xu'' + u' - xu = 0$}
 \subsection*{Задача 13}
 \begin{flalign*}
-    & u(x) = \int_0^{\pi} e^{x \cos t} dt \\
-    & u'(x) = \int_0^{\pi} \frac{\partial}{\partial x} e^{x \cos t} dt = 
-    \int_0^{\pi} \frac{\partial}{\partial x} e^{x \cos t} dt = 
+    & u(x) = \int_0^{\pi} e^{x \cos t} dt\,, \qquad
+    u'(x) = \int_0^{\pi} \frac{\partial}{\partial x} e^{x \cos t} dt = 
+    \int_0^{\pi} \cos t e^{x \cos t} dt\,, \qquad
+    u''(x) = \int_0^{\pi} \frac{\partial^2}{\partial x^2} e^{x \cos t} dt = 
+    \int_0^{\pi} \cos^2 t e^{x \cos t} dt \\
+    & xu'' + u' - xu = 
+    \int_0^{\pi} x \cos^2 t e^{x \cos t} dt + \int_0^{\pi} \cos t e^{x \cos t} dt -
+    \int_0^{\pi} x e^{x \cos t} dt = 
+    \int_0^{\pi} \left( x \cos^2 t + \cos t - x \right) e^{x \cos t} dt = \\
+    & = \int_0^{\pi} \left( \cos t - x \sin^2 t \right) e^{x \cos t} dt = 
+    - \int_0^{\pi} x \sin^2 t e^{x \cos t} dt + 
+    \int_0^{\pi} \underbrace{\cos t}_{dv} \underbrace{e^{x \cos t}}_{u} dt = \\
+    & - \int_0^{\pi} x \sin^2 t e^{x \cos t} dt + 
+    \sin t e^{x \cos t} \bigg|_0^{\pi} + \int_0^{\pi} x \sin^2 t e^{x\cos t} dt = 
+    \sin t e^{x \cos t} \bigg|_0^{\pi} = 0
 \end{flalign*}
 
 \section*{Применяя метод дифференцирования по параметру, вычислите интеграл}
