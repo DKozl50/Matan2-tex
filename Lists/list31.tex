@@ -9,7 +9,7 @@
     % Василий Шныпко       \\ \href{https://t.me/yourvash}{Telegram} \and
     % Данил Казанцев       \\ \href{https://t.me/vserosbuybuy}{Telegram} \and
     Денис Козлов         \\ \href{https://t.me/DKozl50}{Telegram} \and
-    % Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
+    Елизавета Орешонок   \\ \href{https://t.me/eaoresh}{Telegram} \and
     % Ира Голобородько     \\ \href{https://t.me/Ira4kgl}{Telegram} \and
     % Иван Пешехонов       \\ \href{https://t.me/JohanDDC}{Telegram} \and
     % Иван Добросовестнов  \\ \href{https://t.me/ivankot13}{Telegram} \and
@@ -24,19 +24,61 @@
 \maketitle
 
 \section*{Вычислите предел}
-% \subsection*{Задача 1}
-
-% \subsection*{Задача 2}
-
-% \subsection*{Задача 3}
+\subsection*{Задача 1}
+    \begin{flalign*}
+        & \lim_{y \to 0} \int\limits_{y}^{\sqrt3 + y} \dfrac{dx}{1 + x^2 + y^2} \\[5 pt]
+        & \text{Сделаем замену $x = t + y, \, dx = dt$, перейдя к собственному интегралу:} \\
+        & \lim_{y \to 0} \int\limits_{0}^{\sqrt3} \dfrac{dt}{1 + (t + y)^2 + y^2}
+        = \lim_{y \to 0} \int\limits_{0}^{\sqrt3} \dfrac{dt}{1 + 2ty +2y^2 + t^2} \\
+        & \text{Функция Ф$(t;y) = \dfrac{dt}{1 + 2ty +2y^2 + t^2} \,$ непрерывна на прямоугольнике $[0; \sqrt3] \times [-0.5; 0.5] \Rightarrow $} \\
+        & \Rightarrow \text{переходим к } y = 0: \: \int\limits_{0}^{\sqrt3} \dfrac{dt}{1 + t^2} = \arctg t \Bigm|_{0}^{\sqrt3}
+        = \dfrac{\pi}3 - 0 = \dfrac{\pi}3
+    \end{flalign*}
+    
+\subsection*{Задача 2}
+    \begin{flalign*}
+        & \lim_{y \to +0} \int\limits_{0}^{1} \dfrac{x}y\, e^{-x^2 / y} dx \\[5 pt]
+        & \text{Сделаем замену $t = \dfrac{x^2}y, \, dt = \dfrac{2x\,dx}y \Leftrightarrow dx = \dfrac{y}{3x}\,dt$:} \\
+        & \lim_{y \to +0} \int\limits_{0}^{1/y} \dfrac12\, e^{-t} dt = -\dfrac12\, \lim_{y \to +0} e^{-t} \Bigm|_{0}^{1/y}
+        = -\dfrac12\, \lim_{y \to +0} \left( e^{-\frac1y} - 1 \right) = -\dfrac12 \cdot (0 - 1) = \dfrac12
+    \end{flalign*}
+    
+\subsection*{Задача 3}
+    \begin{flalign*}
+        & \lim_{y \to +\infty} \int\limits_{1}^{2} \dfrac{\ln (x + y)}{\ln (x^2 + y^2)} dx, \;\; G = [1; 2] \times [1; +\infty) \\[5 pt]
+        & \text{Область не ограничена (бесконечна по $y$), значит, функция $f(x, y)$ должна быть равномерно непрерывна.} \\
+        & \text{Функция равномерно непрерывна, если её частные производные ограничены:} \\
+        & \dfrac{\partial}{\partial x} \dfrac{\ln (x + y)}{\ln (x^2 + y^2)} 
+        = \dfrac{\dfrac{\ln (x^2 + y^2)}{x+ y} - \dfrac{2x \ln (x + y)}{x^2 + y^2}}{\ln^2 (x^2 + y^2)}, \; 
+        \lim_{y \to \infty} \dfrac{\dfrac{\ln (x^2 + y^2)}{x+ y} - \dfrac{2x \ln (x + y)}{x^2 + y^2}}{\ln^2 (x^2 + y^2)} = 0 \\
+        & \dfrac{\partial}{\partial y} \dfrac{\ln (x + y)}{\ln (x^2 + y^2)} 
+        = \dfrac{\dfrac{\ln (x^2 + y^2)}{x+ y} - \dfrac{2y \ln (x + y)}{x^2 + y^2}}{\ln^2 (x^2 + y^2)}, \; 
+        \lim_{y \to \infty} \dfrac{\dfrac{\ln (x^2 + y^2)}{x+ y} - \dfrac{2y \ln (x + y)}{x^2 + y^2}}{\ln^2 (x^2 + y^2)} = 0 \\
+        & \dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial x} \text{ ограничены на } G \Rightarrow f \text{ равном. непр. на } G. \\
+        & \lim_{y \to +\infty} \int\limits_{1}^{2} \dfrac{\ln (x + y)}{\ln (x^2 + y^2)}\, dx
+        = \int\limits_{1}^{2}  \lim_{y \to +\infty} \dfrac{\ln (x + y)}{\ln (x^2 + y^2)}\, dx
+        = \int\limits_{1}^{2}  \lim_{y \to +\infty} \dfrac{\dfrac1{x + y}}{\dfrac{2y}{x^2 + y^2}}\, dx = \\
+        & = \int\limits_{1}^{2}  \lim_{y \to +\infty} \dfrac{(x + y)^2 - 2xy}{2y(x + y)}\, dx
+        = \int\limits_{1}^{2}  \lim_{y \to +\infty} \left( \dfrac{x + y}{2y} - \dfrac{x}{x + y} \right) dx
+        = \dfrac12 \int\limits_{1}^{2} dx = \dfrac{x}2 \Bigm|_{1}^{2} = \dfrac12
+    \end{flalign*}
 
 % \subsection*{Задача 4}
 
 \section*{Найдите множество значений $y$, при которых интеграл существует в собственном смысле, и
 исследуйте на этом множестве на непрерынвость функцию от $y$, заданную интегралом.}
-% \subsection*{Задача 5}
-
-% \subsection*{Задача 6}
+\subsection*{Задача 5}
+    \begin{flalign*}
+        & f(x, y) = x^y \text{ интегрируема по Риману при } y > 0, \\
+        & \int\limits_{0}^{1} x^y dx = \dfrac1{y + 1} x^{y + 1} \Bigm|_{0}^{1} = \dfrac1{y + 1} \text{ --- непрерывна при } y \ne -1 
+        \Rightarrow \text{непрерывна при } y > 0 
+    \end{flalign*}
+    
+\subsection*{Задача 6}
+    \begin{flalign*}
+        & f(x, y) = \ln(x^2 + y^2) \text{ интегрируема по Риману при } y \ne 0, \\
+        & \int\limits_{0}^{1} \ln(x^2 + y^2) dx \text{ непрерывна при } y \ne 0
+    \end{flalign*}
 
 % \subsection*{Задача 7}
 
