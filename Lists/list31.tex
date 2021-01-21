@@ -132,7 +132,16 @@
 
 \section*{Применяя интегрирование по параметру под знаком интеграла, вычислите интеграл $a > b > 0$}
 \subsection*{Задача 18}
-
+\begin{flalign*}
+    & \int_0^1 \frac{x^b - x^a}{\ln x} dx \qquad
+    \text{Интегрирование по параметру — значит нужно найти типа первообразной подынтегральной} \\
+    & \text{Рассмотрим } f(x, y) = x^y\,, \quad
+    \int_a^b f dy = \int_a^b x^y dy = \int_a^b e^{y \ln x} dy = \frac{e^{y \ln x}}{\ln x} \bigg|_a^b = 
+    \frac{e^{b\ln x} - e^{a \ln x}}{\ln x} = \frac{x^b - x^a}{\ln x} \\
+    & \int_0^1 \frac{x^b - x^a}{\ln x} dx = \int_0^1 \int_a^b x^y dy dx = \int_a^b \int_0^1 x^y dx dy = 
+    \int_a^b \frac{x^{y+1}}{y+1} \bigg|_0^1 dy = 
+    \int_a^b \frac{1}{y+1} dy = \ln(y+1) \big|_a^b = \ln \left( \frac{b + 1}{a + 1} \right) 
+\end{flalign*}
 
 % \subsection*{Задача 19}
 
