@@ -37,8 +37,12 @@
     
 \subsection*{Задача 2}
     \begin{flalign*}
-        & \lim_{y \to +0} \int\limits_{0}^{1} \dfrac{x}y\, e^{-x^2 / y} dx \\[5 pt]
-        & \text{Сделаем замену $t = \dfrac{x^2}y, \, dt = \dfrac{2x\,dx}y \Leftrightarrow dx = \dfrac{y}{3x}\,dt$:} \\
+        & \lim_{y \to +0} \int\limits_{0}^{1} \dfrac{x}y\, e^{-\sfrac{x^2}{y}} dx \;\; 
+        \text{ обратим внимание, что подынтегральная функция разрывна: }  \\
+        & x = 0: \;\; \frac{0}{y} e^{0} = 0 \qquad \qquad
+        y = x^2, y \to 0: \;\; \frac{x}{x^2} e^{-\sfrac{x^2}{x^2}} \to \infty \\
+        & \text{Поэтому теорему как в первой задаче применять нельзя. Решаем по-другому} \\
+        & \text{Сделаем замену $t = \dfrac{x^2}y, \, dt = \dfrac{2x\,dx}y \Leftrightarrow dx = \dfrac{y}{2x}\,dt$:} \\
         & \lim_{y \to +0} \int\limits_{0}^{1/y} \dfrac12\, e^{-t} dt = -\dfrac12\, \lim_{y \to +0} e^{-t} \Bigm|_{0}^{1/y}
         = -\dfrac12\, \lim_{y \to +0} \left( e^{-\frac1y} - 1 \right) = -\dfrac12 \cdot (0 - 1) = \dfrac12
     \end{flalign*}
@@ -53,7 +57,7 @@
         \lim_{y \to \infty} \dfrac{\dfrac{\ln (x^2 + y^2)}{x+ y} - \dfrac{2x \ln (x + y)}{x^2 + y^2}}{\ln^2 (x^2 + y^2)} = 0 \\
         & \dfrac{\partial}{\partial y} \dfrac{\ln (x + y)}{\ln (x^2 + y^2)} 
         = \dfrac{\dfrac{\ln (x^2 + y^2)}{x+ y} - \dfrac{2y \ln (x + y)}{x^2 + y^2}}{\ln^2 (x^2 + y^2)}, \; 
-        \lim_{y \to \infty} \dfrac{\dfrac{\ln (x^2 + y^2)}{x+ y} - \dfrac{2y \ln (x + y)}{x^2 + y^2}}{\ln^2 (x^2 + y^2)} = 0 \\
+        \lim_{x \to \infty} \dfrac{\dfrac{\ln (x^2 + y^2)}{x+ y} - \dfrac{2y \ln (x + y)}{x^2 + y^2}}{\ln^2 (x^2 + y^2)} = 0 \\
         & \dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial x} \text{ ограничены на } G \Rightarrow f \text{ равном. непр. на } G. \\
         & \lim_{y \to +\infty} \int\limits_{1}^{2} \dfrac{\ln (x + y)}{\ln (x^2 + y^2)}\, dx
         = \int\limits_{1}^{2}  \lim_{y \to +\infty} \dfrac{\ln (x + y)}{\ln (x^2 + y^2)}\, dx
