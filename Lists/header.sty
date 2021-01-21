@@ -16,6 +16,7 @@
 \usepackage[intlimits]{amsmath}
 \usepackage{amsfonts,amssymb,amsthm,mathtools}
 \usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+\usepackage{xfrac} % Красивые плоские дроби
 
 %% Номера формул
 \mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
@@ -31,7 +32,7 @@
 %% Графички функций
 \usepackage{pgfplots}
 \usepackage{tikz}
-\pgfplotsset{every axis/.style={scale only axis}}
+\pgfplotsset{compat=1.17, every axis/.style={scale only axis}}
 
 %% Высота строк
 \usepackage{setspace}
