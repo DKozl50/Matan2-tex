@@ -82,14 +82,57 @@
 \section*{Применяя метод дифференцирования по параметру, вычислите интеграл}
 % \subsection*{Задача 14}
 
-% \subsection*{Задача 15}
+\subsection*{Задача 15}
+\begin{flalign*}
+    & J(p) = \int_0^{\pi} \frac{\ln(1 + p \sin x)}{\sin x} dx\,, \;\; p \in [0, 1] \\
+    & \frac{d}{dp} J(p) = \int_0^{\pi} \frac{\partial }{\partial p} \frac{\ln(1 + p \sin x)}{\sin x} dx =
+    \int_0^{\pi} \frac{\sin x}{(1 + p \sin x) \sin x}  dx = 
+    \int_0^{\pi} \frac{1}{1 + p \sin x} dx \\
+    & t = \tg \sfrac{x}{2}, \;\; x = 2 \arctan t, \;\; dx = \frac{2}{1 + t^2} dt, \;\;
+    \sin x = \frac{2t}{1 + t^2} \\
+    & \int_0^{\infty} \frac{1}{1 + p \sin x} dx = 
+    \int_0^{\infty} \frac{2}{1 + t^2} \cdot \frac{1}{1 + \frac{2pt}{1 + t^2}} dt =
+    \int_0^{\infty} \frac{2}{t^2 + 2pt + 1 } dt = \int_0^{\infty} \frac{2}{(t + p)^2 + 1 - p^2} dt = 
+    \left\{ \begin{array} {rl}
+        z & = t + p \\
+        dt & = dz
+    \end{array}  \right\} = \\
+    & \int_p^{\infty} \frac{2}{z^2 + 1 - p^2} dz = 
+    2 \frac{1}{\sqrt{1 - p^2}} \arctan \frac{z}{\sqrt{1 - p^2}} \bigg|_p^{\infty} = 
+    \frac{2}{\sqrt{1 - p^2}} \left( \frac{\pi}{2} - \arctan \frac{p}{\sqrt{1 - p^2}} \right) =
+    \left\{ \begin{array} {rl}
+        \sin \alpha & = p \\
+        \cos \alpha & = \sqrt{1 - p^2} \\
+        \tan \alpha & = \frac{p}{\sqrt{1 - p^2}} 
+    \end{array}  \right\} = \\
+    & \frac{1}{\sqrt{1 - p^2}} \left( \pi - 2\arcsin p \right) =
+    \frac{\pi}{\sqrt{1 - p^2}} - \frac{2\arcsin p}{\sqrt{1 - p^2}} = J'(p) \\
+    & J(p) = \int J'(p) dp = \int \left( \frac{\pi}{\sqrt{1 - p^2}} - \frac{2\arcsin p}{\sqrt{1 - p^2}} \right) dp = 
+    \pi \arcsin p - \int \frac{2 \arcsin p}{\sqrt{1 - p^2}} dp = \left\{ \begin{array} {rl}
+        u &= \arcsin p \\
+        du &= \frac{1}{\sqrt{1-p^2}} dp
+    \end{array}  \right\} = \\
+    & \pi \arcsin p - \int 2 u du = 
+    \pi \arcsin p - u^2 + C = 
+    \pi \arcsin p - \arcsin^2 p + C = J(p) \\
+    & J(p) = \int_0^{\pi} \frac{\ln(1 + p \sin x)}{\sin x} dx, \qquad
+    J(0) = \int_0^{\pi} \frac{\ln(1)}{\sin x} dx = 0 \;\; \Rightarrow \;\; 
+    \pi \arcsin 0 - \arcsin^2 0 + C = 0 \;\; \Rightarrow \;\; C = 0 \\
+    & J(p) = \pi \arcsin p - \arcsin^2 p
+\end{flalign*}
 
 % \subsection*{Задача 16}
 
-% \subsection*{Задача 17}
+\subsection*{Задача 17}
+\begin{flalign*}
+    & J(p) = \int_0^{\pi} \ln \left( 1 + 2p \cos x + p^2 \right) dx \\
+    & J'(p) = \int_0^{\pi} \frac{\partial }{\partial p} \ln \left( 1 + 2p \cos x + p^2 \right) dx = 
+    \int_0^{\pi} \frac{2p + 2\cos x}{1 + 2p\cos x + p^2} dx
+\end{flalign*}
 
 \section*{Применяя интегрирование по параметру под знаком интеграла, вычислите интеграл $a > b > 0$}
-% \subsection*{Задача 18}
+\subsection*{Задача 18}
+
 
 % \subsection*{Задача 19}
 
