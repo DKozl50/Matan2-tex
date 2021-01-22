@@ -69,15 +69,28 @@
 исследуйте на этом множестве на непрерынвость функцию от $y$, заданную интегралом.}
 \subsection*{Задача 5}
     \begin{flalign*}
-        & f(x, y) = x^y \text{ интегрируема по Риману при } y > 0, \\
+        & \text{Рассмотрим поведение функции } f(x, y) = x^y \text{ на векторе } x = 0 \text{ (по другим направлениям всё хорошо)}: \\[5 pt]
+        & y > 0: \; f(0, y) = 0^y = 0 \; \Rightarrow \; f(x) = x^y \text{ интегрируема по Риману при } y > 0; \\
+        & y = 0: \; f(0, 0) = 0^0 \text{ --- неопределенность}, \\
+        & \lim_{x \to 0+} x^x = \lim_{x \to 0+} e^{x\,\ln x} = e^{\lim_{x \to 0+} \frac{\ln x}{1/x}} = e^{-\lim_{x \to 0+} \frac{1}{1/x}} = e^{-\lim_{x \to 0+} x} = e^0 = 1 \; \Rightarrow \\
+        & \Rightarrow \; f(x) = x^0 \text{ интегрируема на отрезке } [0, 1]; \\
+        & y < 0: \; f(0, y) = 0^y = \frac1{0^{|y|}}, \; \lim_{y \to 0} \frac1{0^{|y|}} \; \Rightarrow \\
+        & \Rightarrow \text{ для } f(x) = x^y \text{ не существует в собственном смысле интеграл на отрезке } [0, 1] \text{ при } y < 0. \\[5 pt]
+        & \text{Интеграл существует в собственном смысле при } y \in [0, +\infty) \\[5 pt]
         & \int\limits_{0}^{1} x^y dx = \dfrac1{y + 1} x^{y + 1} \Bigm|_{0}^{1} = \dfrac1{y + 1} \text{ --- непрерывна при } y \ne -1 
-        \Rightarrow \text{непрерывна при } y > 0 
+        \Rightarrow \text{непрерывна при } y \ge 0 
     \end{flalign*}
     
 \subsection*{Задача 6}
     \begin{flalign*}
-        & f(x, y) = \ln(x^2 + y^2) \text{ интегрируема по Риману при } y \ne 0, \\
-        & \int\limits_{0}^{1} \ln(x^2 + y^2) dx \text{ непрерывна при } y \ne 0
+        & \text{Рассмотрим поведение функции } f(x, y) = \ln(x^2 + y^2) \text{ на векторе } x = 0 \text{ (по другим направлениям всё хорошо)}: \\[5 pt]
+        & y \ne 0: \; f(0, y) = \ln(0 + y^2), \text{ причем } y^2 > 0 \; \Rightarrow \; f(x) = \ln(x^2 + y^2) \text{ интегрируема по Риману при } y \ne 0; \\
+        & y = 0: \; f(0, 0) = \ln0, \; \lim_{x \to 0} [\infty] \ln x = [-\infty] \; \Rightarrow \\
+        & \Rightarrow \text{ для } f(x) = \ln(x^2 + y^2) \text{ не существует в собственном смысле интеграл на отрезке } [0, 1] \text{ при } y = 0. \\[5 pt]
+        & \text{Интеграл существует в собственном смысле при } y \ne 0 \\[5 pt]
+        & \ln(x^2 + y^2) \text{ непрерывна на прямоугольнике } [0, 1] \times [y_1, y_2] \; 
+        \forall y_1, y_2 < 0 \text{ или } y_1, y_2 > 0 \; \Rightarrow \\ 
+        & \Rightarrow \; F(y) = \int\limits_{0}^{1} \ln(x^2 + y^2) dx \text{ также непрерывна при } y \ne 0
     \end{flalign*}
 
 % \subsection*{Задача 7}
