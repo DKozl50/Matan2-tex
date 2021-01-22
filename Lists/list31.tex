@@ -93,9 +93,24 @@
         & \Rightarrow \; F(y) = \int\limits_{0}^{1} \ln(x^2 + y^2) dx \text{ также непрерывна при } y \ne 0
     \end{flalign*}
 
-% \subsection*{Задача 7}
-
-% \subsection*{Задача 8}
+\subsection*{Задача 7}
+    \begin{flalign*}
+        & \text{Проверим, как ведет себя функция } f(x, y) = (1 + x)^{xy} \text{ на векторе } x = 0: \\[3 pt]
+        & f(0, y) = 1^{0 \cdot y} = e^{0 \cdot y \cdot \ln1} = e^0 = 1  \;\Rightarrow\; f(x) = (1 + x)^{xy} \text{ интегрируема по Риману } \forall y \\
+        & \text{и непрерывна на прямоугольнике } [0, 1] \times [-c, c] \: \forall c > 0 \; \Rightarrow \\
+        & \Rightarrow F(y) = \int\limits_{0}^{1} (1 + x)^{xy} dx \text{ непрерывна } \forall y
+    \end{flalign*}
+    
+\subsection*{Задача 8}
+    \begin{flalign*}
+        & f(x, y) = \dfrac{y\,e^x}{x^2 + y^2} \text{ возрастает по модулю на отрезке } [0, 1] \text{ при любом фиксированном } y \; \Rightarrow \\
+        & \Rightarrow \; \dfrac{y\,e^x}{x^2 + y^2} \le \dfrac{y\,e^1}{x^2 + y^2} \forall x \;
+        \Rightarrow \; \int\limits_0^1 \dfrac{y\,e^x}{x^2 + y^2} \le e \int\limits_0^1 \dfrac{y}{x^2 + y^2} 
+        = e \cdot \arctg \frac{x}y \Bigm|_0^1 = e \cdot \arctg \frac1y \xrightarrow[y \to 0]{} \frac{\pi}2 \; \Rightarrow \\
+        & \Rightarrow \; \text{функция интегрируема при любом } y \text{ при $y \ne 0$ проблем нет,} \\
+        & \text{но в окрестности $0 \; F(y) \to 0 \; \Rightarrow F(y)$ терпит разрыв при } y = 0. \\
+        & F(y) = \int\limits_0^1 \dfrac{y\,e^x}{x^2 + y^2} \text{ определена при любом $y$, непрерывна при } y \ne 0. 
+    \end{flalign*}
 
 \section*{Найдите производную функции, заданной интегралом}
 % \subsection*{Задача 9}
