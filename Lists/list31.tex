@@ -135,7 +135,28 @@
 
 % \subsection*{Задача 15}
 
-% \subsection*{Задача 16}
+\subsection*{Задача 16}
+    \begin{flalign*}
+        & f(x, p) = \dfrac{\arctg (p\,\tg x)}{\tg x}, \\
+        & \lim_{x \to \pi/2} \dfrac{\arctg (p\,\tg x)}{\tg x} = \lim_{x \to \pi/2} \dfrac{\pi / 2}{\tg x} = 0, \\
+        & \lim_{x \to 0} \dfrac{\arctg (p\,\tg x)}{\tg x} = \lim_{x \to 0} \dfrac{\arctg (p\,x)}{x} = \lim_{x \to 0} \dfrac{p\,x}{x} = p \Rightarrow \\
+        & \Rightarrow \int\limits_{0}^{\pi/2} \dfrac{\arctg (p\,\tg x)}{\tg x} \le p\cdot \dfrac{\pi}2 
+        \text{ т.к. $f(x, p)$ убывает при } x \in [0; \pi/2] \Rightarrow \\
+        & \Rightarrow \text{интеграл существует в собственном смысле} \\
+        & \dfrac{d}{dp} \int\limits_{0}^{\pi/2} \dfrac{\arctg (p\,\tg x)}{\tg x}\, dx
+        = \int\limits_{0}^{\pi/2} \dfrac{\partial}{\partial p}\, \dfrac{\arctg (p\,\tg x)}{\tg x}\, dx 
+        = \int\limits_{0}^{\pi/2} \dfrac{\tg x}{\tg x (1 + p^2 \tg^2 x)}\,dx = \int\limits_{0}^{\pi/2} \dfrac1{1 + p^2 \tg^2 x}\,dx = \\
+        & = \left\{\begin{array}{rcl} u &=& \tg x, \\ du &=& \dfrac1{\cos^2 x} \, dx, \\ \dfrac1{\cos^2 x} &=& u^2 + 1 \end{array}\right. \;
+        \int\limits_{0}^{+\infty} \dfrac1{(1 + u^2)(1 + p^2 u^2)}\,du = [\text{разложим на простейшие}] \\
+        & = \int\limits_{0}^{+\infty} \left( \dfrac{p^2}{(p^2 - 1)(p^2 u^2 + 1)} - \dfrac1{(p^2 - 1)(u^2 + 1)} \right) du 
+        = \dfrac1{p^2 - 1} \int\limits_{0}^{+\infty} \dfrac1{u^2 + \dfrac1{p^2}}\,du - \dfrac1{p^2 - 1} \int\limits_{0}^{+\infty} \dfrac1{u^2 + 1}\,du = \\
+        & = \dfrac1{p^2 - 1} \left( p \arctg (p\,u) - \arctg u \right) \Bigm|_0^{+\infty} = \dfrac{\dfrac{\pi\,p}2 - \dfrac{\pi}2}{p^2 - 1} 
+        = \dfrac{\pi}2 \cdot \dfrac{p - 1}{p^2 - 1} = \dfrac{\pi}2 \cdot \dfrac1{p + 1} \\
+        & \text{Осталось решить уравнение:} \\
+        & \dfrac{d}{dp} \underbrace{\int\limits_{0}^{\pi/2} \dfrac{\arctg (p\,\tg x)}{\tg x}\, dx}_{= h(p)} = \dfrac{\pi}2 \cdot \dfrac1{p + 1} \;
+        \Leftrightarrow \; h^{'}_p =  \dfrac{\pi}2 \cdot \dfrac1{p + 1} \;\Leftrightarrow\; h(p) = \dfrac{\pi}2\, \ln \left| p + 1 \right| \\
+        & \int\limits_{0}^{\pi/2} \dfrac{\arctg (p\,\tg x)}{\tg x} = \dfrac{\pi}2\, \ln |p + 1|
+    \end{flalign*}
 
 % \subsection*{Задача 17}
 
