@@ -117,9 +117,22 @@
     \end{flalign*}
 
 \section*{Найдите производную функции, заданной интегралом}
-% \subsection*{Задача 9}
-
-% \subsection*{Задача 10}
+\subsection*{Задача 9}
+    \begin{flalign*}
+        & f(x, y) = e^{x^2 + y^2} \text{ непрерывна на } [0, 1] \; \forall y \; \Rightarrow \\
+        & \Rightarrow \dfrac{d}{dy} \int\limits_{0}^{1} e^{x^2 + y^2}\, dx
+        = \int\limits_{0}^{1} \dfrac{\partial}{\partial y}\, e^{x^2 + y^2}\, dx 
+        = 2y \int\limits_{0}^{1} e^{x^2 + y^2}\, dx 
+    \end{flalign*}
+\subsection*{Задача 10}
+    \begin{flalign*}
+        & f(x, y) = \sin (y\,e^x) \text{ непрерывна на } [0, 1] \; \forall y \; \Rightarrow \\
+        & \Rightarrow \dfrac{d}{dy} \int\limits_{0}^{1} \sin (y\,e^x)\, dx
+        = \int\limits_{0}^{1} \dfrac{\partial}{\partial y}\, \sin (y\,e^x)\, dx 
+        = \int\limits_{0}^{1} e^x\,\cos (y\,e^x)\, dx = \\
+        & = \dfrac1y\,\sin (y\,e^x) \Bigm|_0^1 + f(1, y)\cdot (1)^{`}_y - f(0, y)\cdot (0)^{`}_y 
+        = \dfrac{\sin (y\,e) - \sin y}y + 0 - 0
+    \end{flalign*}
 
 \subsection*{Задача 11}
 \begin{flalign*}
@@ -130,7 +143,18 @@
     & = \int_y^{y^2} -x^2 e^{-x^2 y} dx + 2y e^{-y^5} - e^{-y^3} \text{ удачи лол}
 \end{flalign*}
 
-% \subsection*{Задача 12}
+\subsection*{Задача 12}
+    \begin{flalign*}
+        & f(x, y) = \dfrac{\sin (xy)}{x} \text{ --- проблема на векторе} (0, y) \\
+        & \lim_{x \to 0} \dfrac{\sin (xy)}{x} = \lim_{x \to 0} \dfrac{xy}{x} = y 
+        \; \Rightarrow \text{можно доопределить в нуле $y$-м, получив непрерывную функцию}\\
+        & \Rightarrow \dfrac{d}{dy} \int\limits_{y}^{1+y} \dfrac{\sin (xy)}{x}\, dx
+        = \int\limits_{y}^{1+y} \dfrac{\partial}{\partial y}\, \dfrac{\sin (xy)}{x}\, dx 
+        = \int\limits_{y}^{1+y} \cos (xy)\, dx = \\
+        & = \dfrac1y\,\sin (xy) \Bigm|_y^{1+y} + \dfrac{\sin (y+y^2)}{1+y} - \dfrac{\sin (y^2)}{y} 
+        = \dfrac{\sin (y+y^2) - \sin (y^2)}y + \dfrac{\sin (y+y^2)}{1+y} - \dfrac{\sin (y^2)}{y} = \\
+        & = \dfrac{\sin (y+y^2) - 2\sin (y^2)}y + \dfrac{\sin (y+y^2)}{1+y}
+    \end{flalign*}
 
 \section*{Покажите, что функция $u(x) = \int_0^{\pi} e^{x \cos t} dt$ удовлетворяет дифееренциальному
 уравнению $xu'' + u' - xu = 0$}
@@ -154,7 +178,23 @@
 \end{flalign*}
 
 \section*{Применяя метод дифференцирования по параметру, вычислите интеграл}
-% \subsection*{Задача 14}
+ \subsection*{Задача 14}
+    \begin{flalign*}
+        & f(x, p) = \ln (p^2 - \sin^2 x), \; |p| \ge 1 \text{ --- функция непрерывна и дифференцируема по $p$ } \Rightarrow  \\
+        & \Rightarrow \dfrac{d}{dp} \int\limits_{0}^{\pi/2} \ln (p^2 - \sin^2 x)\, dx
+        = \int\limits_{0}^{\pi/2} \dfrac{\partial}{\partial p}\, \ln (p^2 - \sin^2 x)\, dx 
+        = \int\limits_{0}^{\pi/2} \dfrac{2p}{p^2 - \sin^2 x}\, dx 
+        = \int\limits_{0}^{\pi/2} \dfrac{2p\,\dfrac1{\cos^2 x}}{\dfrac{p^2}{\cos^2 x} - p^2 - \sin^2 x + p^2}\, dx \\
+        & \left\{\begin{array}{rcl} u &=& \tg x, \\ du &=& \dfrac1{\cos^2 x} \, dx, \\ \dfrac{p^2}{\cos^2 x} - p^2 &=& p^2 u^2 \end{array}\right. \;
+        \int\limits_{0}^{+\infty} \dfrac{2p}{p^2 u^2 + p^2 - u^2}\, du = \int\limits_{0}^{+\infty} \dfrac{2p}{(p^2 - 1) u^2 + p^2}\, du
+        = \dfrac{2p}{p^2 - 1}\int\limits_{0}^{+\infty} \dfrac1{u^2 + \dfrac{p^2}{p^2 - 1}}\, du = \\
+        & = \dfrac{2p}{p^2 - 1} \cdot \dfrac{\sqrt{p^2 - 1}}{p} \left( \arctg \dfrac{u\,\sqrt{p^2 - 1}}{p} \right) \Bigm|_0^{+\infty}
+        = \dfrac{2}{\sqrt{p^2 - 1}} \left( \dfrac{\pi}2 - 0 \right) = \dfrac{\pi}{\sqrt{p^2 - 1}} \\
+        & \text{Осталось решить уравнение:} \\
+        & \dfrac{d}{dp} \underbrace{\int\limits_{0}^{\pi/2} \ln (p^2 - \sin^2 x)\, dx}_{= h(p)} = \dfrac{\pi}{\sqrt{p^2 - 1}} \;
+        \Leftrightarrow \; h^{`}_p = \dfrac{\pi}{\sqrt{p^2 - 1}} \;\Leftrightarrow\; h(p) = \ln \left|p + \sqrt{p^2 - 1}\right| \\
+        & \int\limits_{0}^{\pi/2} \ln (p^2 - \sin^2 x)\, dx = \ln \left|p + \sqrt{p^2 - 1}\right|
+    \end{flalign*}
 
 \subsection*{Задача 15}
 \begin{flalign*}
