@@ -158,7 +158,20 @@
         & \int\limits_{0}^{\pi/2} \dfrac{\arctg (p\,\tg x)}{\tg x} = \dfrac{\pi}2\, \ln |p + 1|
     \end{flalign*}
 
-% \subsection*{Задача 17}
+\subsection*{Задача 17}
+    \begin{flalign*}
+        & f(x, p) = \ln (1 + 2p\,\cos x + p^2) \text{ --- непрерывна и дифференцируема по $p$ при любом } x \in [0, \pi] \Rightarrow \\
+        & \Rightarrow \dfrac{d}{dp} \int\limits_{0}^{\pi} \ln (1 + 2p\,\cos x + p^2)\, dx
+        = \int\limits_{0}^{\pi} \dfrac{\partial}{\partial p}\, \ln (1 + 2p\,\cos x + p^2)\, dx 
+        = \int\limits_{0}^{\pi} \dfrac{2\cos x + 2p}{1 + 2p \cos x + p^2}\,dx = \\
+        & = 2 \int\limits_{0}^{\pi} \dfrac{\dfrac1{p} \left( 2p \cos x + p^2 + 1 \right) - \dfrac{p \cos x + 1}{p}}{1 + 2p \cos x + p^2}\,dx 
+        = \dfrac2p \int\limits_{0}^{\pi} dx - \dfrac2{p} \int\limits_{0}^{\pi} \dfrac{1 + p\,\cos x}{1 + 2p \cos x + p^2}\,dx \\
+        & \text{Это сущий кошмар, но поверьте, этот большой страшный интеграл равен $0$, и тогда} \\
+        & \dfrac{d}{dp} \int\limits_{0}^{\pi} \ln (1 + 2p\,\cos x + p^2)\, dx = \dfrac{2\pi}p \\
+        & \text{Осталось решить уравнение:} \\
+        & \dfrac{d}{dp} \underbrace{\int\limits_{0}^{\pi} \ln (1 + 2p\,\cos x + p^2)\, dx}_{= h(p)} = \dfrac{2\pi}p \;
+        \Leftrightarrow \; h^{'}_p =  \dfrac{2\pi}p \;\Leftrightarrow\; h(p) = 2\pi\, \ln \left| p \right| \\
+    \end{flalign*}
 
 \section*{Применяя интегрирование по параметру под знаком интеграла, вычислите интеграл $a > b > 0$}
 % \subsection*{Задача 18}
