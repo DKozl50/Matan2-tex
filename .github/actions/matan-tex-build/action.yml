@@ -1,0 +1,4 @@
+name: Matan TeX build
+runs:
+  using: docker
+  image: Dockerfile

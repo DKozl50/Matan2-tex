@@ -1,0 +1,53 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build and Publish
+
+# Controls when the action will run. 
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container: sphericalpotatoinvacuum/matan-tex:latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Get Changed Files
+        id: files
+        # You may pin to the exact commit or the version.
+        # uses: lots0logs/gh-action-get-changed-files@af14147b3aba94b0ced11732399a2ab748097de9
+        uses: jitterbit/get-changed-files@v1
+
+      - name: Compile changed files
+        shell: bash
+        run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+          if [[ ${changed_file:(-4)} == ".tex" ]]
+          then
+            dir=$(dirname "${changed_file}")
+            base=$(basename "${changed_file}")
+            latexmk -pdf "${changed_file}"
+            latexmk -c
+            rsync "${base::-3}pdf" "${dir}"
+          fi
+          done
+      - name: List generated
+        run: ls
+      - name: Commit changes
+        run: |
+          git add -A
+          author=${GITHUB_ACTOR:=github-actions}
+          git config user.name "$author"
+          git config user.email "$author@users.noreply.github.com"
+          git commit --allow-empty -m "Actualize pdfs"
+      - name: Push changes
+        run: git push origin main
