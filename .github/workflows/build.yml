@@ -50,4 +50,4 @@ jobs:
           git config user.email "$author@users.noreply.github.com"
           git commit --allow-empty -m "Actualize pdfs"
       - name: Push changes
-        run: git push origin main
+        run: git push origin master
