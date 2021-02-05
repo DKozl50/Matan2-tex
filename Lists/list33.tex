@@ -50,7 +50,12 @@ $\ds\int\limits_1^\infty \frac{\ln^px}{x^3+1} dx, \tab p \in (0; p_0)\\$
 Заметим что $\ds\ln^px \leq \ln^{p_0}x$.\\\\
 $\ds\exists C: \frac{\ln^{p_0} x}{x^3+1} \leq  \frac{Cx}{x^3+1} <  \frac{C}{x^2}, \tab C$ - не зависит от p \\
 $\ds\int\limits_1^\infty \frac{C}{x^2} dx$ -интегрируема и равномерно сходится по p(она вообще от него не зависит) $\implies$ наш интеграл сходится равн. (по пр. Вейерштрасса)
-% \subsection*{Задача 14}
+\subsection*{Задача 14}
+$\ds\int\limits_0^\infty \frac{xdx}{1+ (x-p)^4}, \tab p \in (-\infty; p_0), p_0 > 0\\$
+$\ds \sup_{p} \frac{x}{1+ (x-p)^4}$ - ? \\
+Нам сложно найти такой супремум так как пересекаются их области определений. Поэтому скажем \\
+Наш интеграл ведет себя также как вот этот $\ds\int\limits_0^\infty \frac{xdx}{1+ (x-p)^4} \sim \int\limits_{p_0}^\infty \frac{xdx}{1+ (x-p)^4}$. \\
+$\ds\frac{x}{1+ (x-p)^4} \leq \frac{x}{1+ (x-p_0)^4} \sim \frac{1}{x^3} \implies \int\limits_{p_0}^\infty \frac{xdx}{1+ (x-p_0)^4}$ - интегрируема и равномерно сходится по p  $\implies$ \\ наш интеграл сходится равн. (по пр. Вейерштрасса)
 
 \section*{Покажите, используя признак Дирихле или Абеля, что интеграл сходится равномерно.}
 % \subsection*{Задача 15}
