@@ -37,5 +37,5 @@ jobs:
           for changed_file in ${{ steps.files.outputs.files_created }} ${{ steps.files.outputs.files_updated }}; do
             dir=$(dirname "${changed_file}")
             base=$(basename "${changed_file}")
-            pdflatex --output-directory="${dir}" "${changed_file}"
+            pdflatex -interaction=nonstopmode --output-directory="${dir}" "${changed_file}"
           done

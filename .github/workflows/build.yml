@@ -35,7 +35,7 @@ jobs:
           then
             dir=$(dirname "${changed_file}")
             base=$(basename "${changed_file}")
-            pdflatex --output-directory="${dir}" "${changed_file}"
+            pdflatex -interaction=nonstopmode --output-directory="${dir}" "${changed_file}"
           fi
           done
       - name: Commit changes
