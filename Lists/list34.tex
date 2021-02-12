@@ -50,7 +50,26 @@
 
 % \subsection*{Задача 8}
 
-% \subsection*{Задача 9}
+\subsection*{Задача 9}
+\begin{flalign*}
+    & I(p) = \int_0^{\pi} \frac{dx}{\sin^p x} = 
+    2 \int_0^{\pi/2} \frac{dx}{\sin^p x} \;
+    \left\{ \! \text{ так только одна особенность в } 0 \right\} \simeq
+    2 \int_0^{\pi/2} \frac{dx}{x^p} \text{ сх. при } p < 1 \\
+    & \text{Крайняя точка } p = 1 \quad I(1) = \int_0^{\pi} \frac{dx}{\sin x} \simeq 
+    2 \int_0^{\pi/2} \frac{dx}{x} \text{ расх } \Rightarrow 
+    \text{ по  методу крайней точки } I(p < 1) \text{ может не сходиться} \\
+    & \text{Придется подтвердить более потным способом: } \\
+    & \left| \frac{1}{\sin^p x} \right| = 
+    \left| \frac{1}{\sin x} \right|^p \leq 
+    \left| \frac{1}{\sin x} \right|^{\beta} \leq 
+    \left| \frac{1}{\sin^{\beta} x} \right| \quad 
+    \beta < 1 \Rightarrow \int_0^{\pi} \frac{dx}{\sin^{\beta} x} \text{ сх } \Rightarrow 
+    \int_0^{\pi} \frac{dx}{\sin^p x} \text{ сх равн по Вейрштрассу на } [\alpha, \beta] \\
+    & \forall [\alpha, \beta] \in (-\infty, 1): I(p) \text{ сх равн. на } [\alpha, \beta] \\
+    & \forall p \in (-\infty, 1) \exists [\alpha, \beta] \in (-\infty, 1), p \in [\alpha, \beta] 
+    \Rightarrow I(p) \text{ непр в } p \Rightarrow I(p) \text{ непр на } (-\infty, 1) \\
+\end{flalign*}
 
 % \subsection*{Задача 10}
 
