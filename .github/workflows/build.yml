@@ -35,16 +35,12 @@ jobs:
           then
             dir=$(dirname "${changed_file}")
             base=$(basename "${changed_file}")
-            latexmk -pdf "${changed_file}"
-            latexmk -c
-            rsync "${base::-3}pdf" "${dir}"
+            pdflatex -interaction=nonstopmode --output-directory="${dir}" "${changed_file}"
           fi
           done
-      - name: List generated
-        run: ls
       - name: Commit changes
         run: |
-          git add -A
+          git add *.pdf
           author=${GITHUB_ACTOR:=github-actions}
           git config user.name "$author"
           git config user.email "$author@users.noreply.github.com"
