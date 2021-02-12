@@ -86,7 +86,25 @@
     \Rightarrow I(p) \text{ непр в } p \Rightarrow I(p) \text{ непр на } (-\infty, 1) \\
 \end{flalign*}
 
-% \subsection*{Задача 10}
+\subsection*{Задача 10}
+\begin{flalign*}
+    & I(p) = \int_1^{\infty} \frac{\ln x}{(x-p)^2 + 1} dx \\
+    & \left| \frac{\ln x}{(x-p)^2 + 1} \right| \leq 
+    \left| \frac{\sqrt{x}}{(x-p)^2} \right| \\
+    & \text{При } p \leq 1: \qquad 
+    \left| \frac{\sqrt{x}}{(x-p)^2} \right| \leq \left| \frac{1}{x^{3/2}}  \right| \qquad
+    \int_1^{\infty} \frac{1}{x^{3/2}} dx \text{ сх. } \Rightarrow 
+    \int_1^{\infty} \frac{\ln x}{(x-p)^2 + 1} dx \text{ р. сх. по Вейрштрассу} \\
+    & \text{При } p > 1: \qquad
+    \int_1^{\infty} \frac{\ln x}{(x-p)^2 + 1} dx = 
+    \underbrace{\int_1^p \frac{\ln x}{(x-p)^2 + 1} dx}_{\text{const}} + 
+    \int_p^{\infty} \frac{\ln x}{(x-p)^2 + 1} dx \\
+    & \qquad \left| \frac{\sqrt{x}}{(x-p)^2} \right| \leq \left| \frac{1}{x^{3/2}}  \right| 
+    \text{ при } p \leq x \qquad \Rightarrow 
+    \int_1^{\infty} \frac{\ln x}{(x-p)^2 + 1} dx \text{ равн. сх. по Вейрштрассу} \\
+    & \frac{\ln x}{(x-p)^2 + 1} \text{ непрерывна при } x \geq 1, p \in \RR 
+    \Rightarrow I(p) \text{ непрервына }
+\end{flalign*}
 
 % \subsection*{Задача 11}
 
