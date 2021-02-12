@@ -106,7 +106,19 @@
     \Rightarrow I(p) \text{ непрервына }
 \end{flalign*}
 
-% \subsection*{Задача 11}
+\subsection*{Задача 11}
+    \begin{flalign*}
+        & J(p) = \int\limits_0^{1} \frac{\sin\,x}{x^p}\,dx \\
+        & \text{Определим поведение функции при $x \to 0$, перейдя к пределу:}  \\
+        & \lim_{x\to0} \frac{\sin\,x}{x^p} = \lim_{x\to0} \frac{x}{x^p} = \lim_{x\to0} \frac1{x^{p - 1}} 
+        \text{ сх. при } p - 1 < 1 \;\Leftrightarrow\; p < 2 \;\Rightarrow \\
+        & \Rightarrow\; J(p) \text{ сх. при } p \in (-\infty; p_0], \, p_0 < 2 \\[5 pt]
+        & \text{При $p \le 0$ инт. собств., $f$ непр. } \Rightarrow \text{ инт. непр.} \\
+        & \text{При } 0 < p < 2: \; \left| \frac{\sin\,x}{x^p} \right| \le \frac{x}{x^p} = \frac1{x^{p - 1}},
+         \, x \ge 0, \, p-1 \in (-1; 1) \text{ сх-ся} \Rightarrow\; \frac{\sin\,x}{x^p} \text{ сх. равн. по пр-ку Вейерштрасса} 
+         \Rightarrow \\
+        & \Rightarrow\; J(p) \text{ непр. при } p < 2
+    \end{flalign*}
 
 % \subsection*{Задача 12}
 
