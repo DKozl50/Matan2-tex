@@ -40,7 +40,7 @@ jobs:
           done
       - name: Commit changes
         run: |
-          git add *.pdf
+          git add -f **.pdf
           author=${GITHUB_ACTOR:=github-actions}
           git config user.name "$author"
           git config user.email "$author@users.noreply.github.com"
