@@ -32,7 +32,21 @@
 
 \section*{Найдите область определения функции, заданной интегралом, 
     и исследуйте эту функцию на непрерывность}
-% \subsection*{Задача 7}
+\subsection*{Задача 7}
+\begin{flalign*}
+    & \int_0^{\infty} \frac{\cos px}{\sqrt{1 + x^3}} dx = I(p) \quad 
+    \text{в нуле особенности нет, а на бесконечности есть по определению} \\
+    & \left| \frac{\cos px}{\sqrt{1 + x^3}} \right| \leq \left| \frac{1}{\sqrt{x^3}} \right| \quad
+    \Rightarrow \quad \int_1^{\infty} \frac{dx}{\sqrt{x^3}} 
+    \text{ сходится (от 1 потому что интересно только на беск)} \\
+    & \text{По признаку сравнения сходится } \int_0^{\infty} \frac{\cos px}{\sqrt{1 + x^3}} dx 
+    \forall p \\
+    & \begin{array} {l}
+        \text{Признак сравнения порождает Вейрштрасса, поэтому } I(p) \text{ сх. равн} \\
+        f(x, p) = \frac{\cos px}{\sqrt{1 + x^3}}, x > 0 \text{ непр} 
+    \end{array} 
+    \Bigg\} I(p) \text{ непр на } \RR
+\end{flalign*}
 
 % \subsection*{Задача 8}
 
