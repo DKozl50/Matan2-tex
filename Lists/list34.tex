@@ -48,7 +48,25 @@
     \Bigg\} I(p) \text{ непр на } \RR
 \end{flalign*}
 
-% \subsection*{Задача 8}
+\subsection*{Задача 8}
+    \begin{flalign*}
+        & \int\limits_0^{+\infty} e^{-(x + p)^2}\,dx = \int\limits_0^{+\infty} \frac1{e^{(x + p)^2}}\,dx \\
+        & (x + p)^2 \text{ --- парабола с ветвями вверх, наим. значение $0$ достигается при } x = -p \\
+        & \text{При } p \ge 0 \; \left| e^{-(x + p)^2} \right| \le \frac1{e^{x^2}} < \frac1{x^2},
+        \int\limits_0^{+\infty} \frac1{x^2}\,dx \text{ сходится } \Rightarrow \\
+        & \Rightarrow\; \int\limits_0^{+\infty} e^{-(x + p)^2}\,dx \text{ сходится равномерно по признаку Вейерштрасса} \\
+        & \frac1{\sqrt{1 + x^3}} \le \frac1{\sqrt{x^3}} = \frac1{x^{3/2}}, \; 3/2 > 1
+        \Rightarrow \frac1{x^{3/2}} \text{ сходится} \Rightarrow 
+        \frac{\cos\,px}{\sqrt{1 + x^3}} \text{ при $p \ge 0$ сходится равномерно по пр-ку Вейерштрасса} \\
+        & \text{При $p < 0$ сделаем замену $u = x - p$ и получим интеграл} \\
+        & \int\limits_{-p}^{+\infty} e^{-u^2}\,du = 
+        \int\limits_{-p}^{0} e^{-u^2}\,du + \int\limits_{0}^{+\infty} e^{-u^2}\,du = 
+        \int\limits_{0}^{p} e^{-u^2}\,du + \int\limits_{0}^{+\infty} e^{-u^2}\,du, \\
+        & \text{также сходящийся по признаку Вейерштрасса (док-во аналогично случаю выше)} \\
+        & \text{При этом } e^{-(x + p)^2} 
+        \text{ непрерывна на } [0; +\infty) \times (-\infty; +\infty) \;\Rightarrow \\
+        & \Rightarrow \int\limits_0^{+\infty} e^{-(x + p)^2}\,dx \text{ непрерывна при } p \in \RR
+    \end{flalign*}
 
 % \subsection*{Задача 9}
 
